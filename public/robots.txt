@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://calculord.com/sitemap.xml
+
+# Disallow admin or private areas (if any in the future)
+# Disallow: /admin/
+# Disallow: /private/
+
+# Allow all calculators
+Allow: /calculadora-*
+
+# Crawl-delay (optional, helps with server load)
+Crawl-delay: 1
