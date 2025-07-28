@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { Clock, Calculator, ArrowLeft, TrendingUp } from "lucide-react"
+import { Clock, Calculator, ArrowLeft, TrendingUp, ArrowRight, Banknote, Briefcase } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import Link from "next/link"
@@ -512,6 +512,93 @@ export default function CalculadoraSalarioHoras() {
           </CardContent>
         </Card>
       </div>
+      {/* Calculadoras relacionadas */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Calculadoras Laborales Relacionadas</h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Completa tu análisis salarial con estas herramientas
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
+              <CardHeader className="text-center pb-4">
+                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Calculator className="h-8 w-8 text-blue-600" />
+                </div>
+                <CardTitle className="text-xl text-gray-900">Cotizaciones Seguridad Social</CardTitle>
+              </CardHeader>
+              <CardContent className="text-center">
+                <p className="text-gray-600 mb-6">
+                  Calcula las cotizaciones exactas según tu salario por horas. Verifica cuánto cotizas realmente.
+                </p>
+                <Link href="/calculadora-cotizaciones-seguridad-social">
+                  <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white">
+                    Ver cotizaciones
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
+              </CardContent>
+            </Card>
+
+            <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
+              <CardHeader className="text-center pb-4">
+                <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Banknote className="h-8 w-8 text-orange-600" />
+                </div>
+                <CardTitle className="text-xl text-gray-900">Prestación por Desempleo</CardTitle>
+              </CardHeader>
+              <CardContent className="text-center">
+                <p className="text-gray-600 mb-6">
+                  Calcula tu prestación de paro según tu salario por horas. Conoce tus derechos laborales.
+                </p>
+                <Link href="/calculadora-paro">
+                  <Button className="w-full bg-orange-600 hover:bg-orange-700 text-white">
+                    Calcular paro
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
+              </CardContent>
+            </Card>
+
+            <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
+              <CardHeader className="text-center pb-4">
+                <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Briefcase className="h-8 w-8 text-red-600" />
+                </div>
+                <CardTitle className="text-xl text-gray-900">Despidos y Finiquito</CardTitle>
+              </CardHeader>
+              <CardContent className="text-center">
+                <p className="text-gray-600 mb-6">
+                  Calcula tu indemnización por despido basada en tu salario por horas. Protege tus derechos.
+                </p>
+                <Link href="/calculadora-despidos">
+                  <Button className="w-full bg-red-600 hover:bg-red-700 text-white">
+                    Calcular despido
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 bg-gradient-to-r from-green-600 to-blue-600">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">¿Problemas con tu salario por horas?</h2>
+          <p className="text-xl text-green-100 mb-8">Consulta con un abogado laboralista especializado</p>
+          <Link href="/calculadora-honorarios-abogado">
+            <Button size="lg" className="bg-white text-green-600 hover:bg-gray-100 px-8 py-4 text-lg font-semibold">
+              Honorarios de Abogado Laboralista
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
+          </Link>
+        </div>
+      </section>
     </div>
   )
 }

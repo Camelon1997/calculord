@@ -1,7 +1,19 @@
 "use client"
 
 import { useState } from "react"
-import { Shield, Calculator, ArrowLeft, Users, TrendingUp, CheckCircle, Star } from "lucide-react"
+import {
+  Shield,
+  Calculator,
+  ArrowLeft,
+  Users,
+  TrendingUp,
+  CheckCircle,
+  Star,
+  Clock,
+  Banknote,
+  Briefcase,
+  ArrowRight,
+} from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import Link from "next/link"
@@ -613,100 +625,96 @@ export default function CalculadoraCotizaciones() {
           </div>
         </section>
 
+        {/* Calculadoras relacionadas */}
+        <section className="py-20 bg-gray-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Calculadoras Laborales Relacionadas</h2>
+              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                Otras herramientas laborales que te pueden interesar
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-8">
+              <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
+                <CardHeader className="text-center pb-4">
+                  <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Clock className="h-8 w-8 text-green-600" />
+                  </div>
+                  <CardTitle className="text-xl text-gray-900">Salario por Horas</CardTitle>
+                </CardHeader>
+                <CardContent className="text-center">
+                  <p className="text-gray-600 mb-6">
+                    Calcula tu salario según las horas trabajadas y SMI 2025. Perfecto para verificar si tus
+                    cotizaciones son correctas.
+                  </p>
+                  <Link href="/calculadora-salario-por-horas">
+                    <Button className="w-full bg-green-600 hover:bg-green-700 text-white">
+                      Calcular salario
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </Link>
+                </CardContent>
+              </Card>
+
+              <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
+                <CardHeader className="text-center pb-4">
+                  <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Banknote className="h-8 w-8 text-orange-600" />
+                  </div>
+                  <CardTitle className="text-xl text-gray-900">Prestación por Desempleo</CardTitle>
+                </CardHeader>
+                <CardContent className="text-center">
+                  <p className="text-gray-600 mb-6">
+                    Calcula tu prestación de paro basada en tus cotizaciones. Usa los datos de cotización que acabas de
+                    calcular.
+                  </p>
+                  <Link href="/calculadora-paro">
+                    <Button className="w-full bg-orange-600 hover:bg-orange-700 text-white">
+                      Calcular paro
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </Link>
+                </CardContent>
+              </Card>
+
+              <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
+                <CardHeader className="text-center pb-4">
+                  <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Briefcase className="h-8 w-8 text-red-600" />
+                  </div>
+                  <CardTitle className="text-xl text-gray-900">Despidos y Finiquito</CardTitle>
+                </CardHeader>
+                <CardContent className="text-center">
+                  <p className="text-gray-600 mb-6">
+                    Calcula tu indemnización por despido según el tipo. Útil para verificar el cálculo de la base
+                    reguladora.
+                  </p>
+                  <Link href="/calculadora-despidos">
+                    <Button className="w-full bg-red-600 hover:bg-red-700 text-white">
+                      Calcular despido
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </Link>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </section>
+
         {/* CTA Section */}
         <section className="py-20 bg-gradient-to-r from-blue-600 to-purple-600">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              ¿Necesitas calcular otras variables laborales?
-            </h2>
-            <p className="text-xl text-blue-100 mb-8">Descubre todas nuestras calculadoras laborales gratuitas</p>
-            <Link href="/">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">¿Necesitas asesoramiento legal laboral?</h2>
+            <p className="text-xl text-blue-100 mb-8">Calcula también los honorarios de abogados especialistas</p>
+            <Link href="/calculadora-honorarios-abogado">
               <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 text-lg font-semibold">
-                Ver Todas las Calculadoras
+                Honorarios de Abogado Laboralista
+                <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
           </div>
         </section>
-
-        {/* Footer */}
-        <footer className="bg-gray-900 text-white py-12">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid md:grid-cols-4 gap-8">
-              <div>
-                <div className="flex items-center space-x-2 mb-4">
-                  <Calculator className="h-6 w-6 text-blue-400" />
-                  <span className="text-xl font-bold">Calculadoras Laborales</span>
-                </div>
-                <p className="text-gray-400">
-                  La herramienta más precisa para calcular cotizaciones de la Seguridad Social.
-                </p>
-              </div>
-              <div>
-                <h3 className="text-lg font-semibold mb-4">Calculadoras</h3>
-                <ul className="space-y-2 text-gray-400">
-                  <li>
-                    <Link href="/calculadora-cotizaciones-seguridad-social" className="hover:text-white">
-                      Cotizaciones SS
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/calculadora-salario-por-horas" className="hover:text-white">
-                      Salario por Horas
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/calculadora-honorarios-abogado" className="hover:text-white">
-                      Honorarios Abogado
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-              <div>
-                <h3 className="text-lg font-semibold mb-4">Información</h3>
-                <ul className="space-y-2 text-gray-400">
-                  <li>
-                    <a href="#" className="hover:text-white">
-                      Cotizaciones 2025
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="hover:text-white">
-                      Régimen General
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="hover:text-white">
-                      Autónomos
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <div>
-                <h3 className="text-lg font-semibold mb-4">Legal</h3>
-                <ul className="space-y-2 text-gray-400">
-                  <li>
-                    <a href="#" className="hover:text-white">
-                      Privacidad
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="hover:text-white">
-                      Términos
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="hover:text-white">
-                      Contacto
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-              <p>&copy; 2025 Calculadoras Laborales. Todos los derechos reservados.</p>
-            </div>
-          </div>
-        </footer>
       </div>
     </>
   )

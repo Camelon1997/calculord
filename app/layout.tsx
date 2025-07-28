@@ -20,14 +20,31 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://calculord.com"),
   title: {
-    default: "Calculadoras Laborales 2025 | Salarios, Cotizaciones y SMI - Calculord",
+    default: "Calculord - Calculadoras Laborales y Financieras Gratuitas 2025",
     template: "%s | Calculord",
   },
   description:
-    "Suite completa de calculadoras laborales gratuitas. Calcula salarios, cotizaciones de seguridad social, SMI 2025 y más. Herramientas profesionales actualizadas.",
+    "Suite completa de calculadoras laborales y financieras gratuitas 2025. Calcula salarios, cotizaciones, nóminas, hipotecas, ahorros y más. Herramientas profesionales actualizadas con la normativa española.",
   applicationName: "Calculord",
   referrer: "origin-when-cross-origin",
-  keywords: ["calculadoras laborales", "salario", "cotizaciones", "SMI 2025", "nómina", "seguridad social"],
+  keywords: [
+    "calculadoras laborales",
+    "calculadoras financieras",
+    "salario",
+    "cotizaciones seguridad social",
+    "SMI 2025",
+    "nómina",
+    "hipoteca",
+    "ahorro",
+    "vacaciones laborales",
+    "despidos",
+    "paro",
+    "honorarios abogado",
+    "calculadora salarial",
+    "herramientas RRHH",
+    "derecho laboral",
+    "finanzas personales",
+  ],
   authors: [{ name: "Calculord", url: "https://calculord.com" }],
   creator: "Calculord",
   publisher: "Calculord",
@@ -56,6 +73,14 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+  verification: {
+    google: "your-google-verification-code",
+    other: {
+      "msvalidate.01": "your-bing-verification-code",
+      "yandex-verification": "your-yandex-verification-code",
+    },
+  },
+  category: "Finance",
     generator: 'v0.dev'
 }
 
@@ -65,22 +90,40 @@ const organizationStructuredData = {
   name: "Calculord",
   url: "https://calculord.com",
   logo: "https://calculord.com/logo.png",
-  description: "Plataforma líder en calculadoras laborales y herramientas profesionales para recursos humanos",
+  description: "Plataforma líder en calculadoras laborales y financieras para profesionales y particulares en España",
   foundingDate: "2025",
   areaServed: {
     "@type": "Country",
     name: "España",
   },
-  knowsAbout: ["Derecho Laboral", "Seguridad Social", "Nóminas", "Cotizaciones", "SMI", "Recursos Humanos"],
-  sameAs: ["https://twitter.com/calculord", "https://linkedin.com/company/calculord"],
+  knowsAbout: [
+    "Derecho Laboral",
+    "Seguridad Social",
+    "Nóminas",
+    "Cotizaciones",
+    "SMI",
+    "Recursos Humanos",
+    "Finanzas Personales",
+    "Hipotecas",
+    "Ahorro",
+    "Planificación Financiera",
+  ],
+  sameAs: ["https://twitter.com/calculord", "https://linkedin.com/company/calculord", "https://facebook.com/calculord"],
+  contactPoint: {
+    "@type": "ContactPoint",
+    contactType: "customer service",
+    areaServed: "ES",
+    availableLanguage: "Spanish",
+  },
 }
 
 const websiteStructuredData = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   name: "Calculord",
+  alternateName: "Calculadoras Laborales y Financieras",
   url: "https://calculord.com",
-  description: "Suite completa de calculadoras laborales profesionales",
+  description: "Suite completa de calculadoras laborales y financieras profesionales",
   publisher: {
     "@type": "Organization",
     name: "Calculord",
@@ -93,6 +136,97 @@ const websiteStructuredData = {
     },
     "query-input": "required name=search_term_string",
   },
+  mainEntity: {
+    "@type": "ItemList",
+    name: "Calculadoras Disponibles",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        item: {
+          "@type": "WebApplication",
+          name: "Calculadora de Cotizaciones Seguridad Social",
+          url: "https://calculord.com/calculadora-cotizaciones-seguridad-social",
+        },
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        item: {
+          "@type": "WebApplication",
+          name: "Calculadora de Salario por Horas",
+          url: "https://calculord.com/calculadora-salario-por-horas",
+        },
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        item: {
+          "@type": "WebApplication",
+          name: "Calculadora de Despidos",
+          url: "https://calculord.com/calculadora-despidos",
+        },
+      },
+      {
+        "@type": "ListItem",
+        position: 4,
+        item: {
+          "@type": "WebApplication",
+          name: "Calculadora de Paro",
+          url: "https://calculord.com/calculadora-paro",
+        },
+      },
+      {
+        "@type": "ListItem",
+        position: 5,
+        item: {
+          "@type": "WebApplication",
+          name: "Calculadora de Nómina",
+          url: "https://calculord.com/calculadora-nomina",
+        },
+      },
+      {
+        "@type": "ListItem",
+        position: 6,
+        item: {
+          "@type": "WebApplication",
+          name: "Calculadora de Vacaciones",
+          url: "https://calculord.com/calculadora-vacaciones",
+        },
+      },
+      {
+        "@type": "ListItem",
+        position: 7,
+        item: {
+          "@type": "WebApplication",
+          name: "Calculadora de Hipoteca",
+          url: "https://calculord.com/calculadora-hipoteca",
+        },
+      },
+      {
+        "@type": "ListItem",
+        position: 8,
+        item: {
+          "@type": "WebApplication",
+          name: "Calculadora de Ahorro",
+          url: "https://calculord.com/calculadora-ahorro",
+        },
+      },
+    ],
+  },
+}
+
+const breadcrumbStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Inicio",
+      item: "https://calculord.com",
+    },
+  ],
 }
 
 export default function RootLayout({
@@ -115,10 +249,23 @@ export default function RootLayout({
             __html: JSON.stringify(websiteStructuredData),
           }}
         />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(breadcrumbStructuredData),
+          }}
+        />
         <link rel="canonical" href="https://calculord.com" />
         <meta name="google-site-verification" content="your-google-verification-code" />
         <meta name="msvalidate.01" content="your-bing-verification-code" />
         <meta name="yandex-verification" content="your-yandex-verification-code" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="//www.google-analytics.com" />
+        <meta name="theme-color" content="#2563eb" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="apple-mobile-web-app-title" content="Calculord" />
       </head>
       <body className={inter.className}>
         {/* Google Analytics */}
@@ -131,7 +278,45 @@ export default function RootLayout({
             gtag('config', 'G-8QKFLE7EEH', {
               page_title: document.title,
               page_location: window.location.href,
+              anonymize_ip: true,
+              cookie_flags: 'SameSite=None;Secure'
             });
+          `}
+        </Script>
+
+        {/* Schema.org for Google */}
+        <Script id="schema-faq" type="application/ld+json" strategy="afterInteractive">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              "mainEntity": [
+                {
+                  "@type": "Question",
+                  "name": "¿Son gratuitas las calculadoras de Calculord?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Sí, todas nuestras calculadoras laborales y financieras son completamente gratuitas y no requieren registro."
+                  }
+                },
+                {
+                  "@type": "Question", 
+                  "name": "¿Están actualizadas las calculadoras con la normativa 2025?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Sí, todas nuestras calculadoras están actualizadas con la normativa laboral y fiscal española de 2025, incluyendo SMI, cotizaciones y tramos de IRPF."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "¿Qué calculadoras laborales están disponibles?",
+                  "acceptedAnswer": {
+                    "@type": "Answer", 
+                    "text": "Disponemos de calculadoras de cotizaciones de seguridad social, salario por horas, despidos, paro, nómina completa, vacaciones y honorarios de abogado."
+                  }
+                }
+              ]
+            }
           `}
         </Script>
         {children}
