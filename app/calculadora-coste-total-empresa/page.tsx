@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import CalculadoraCosteTotalEmpresa from "./CalculadoraCosteTotalEmpresa"
+import Link from "next/link"
 
 export const metadata: Metadata = {
   title: "🏢 Calculadora Coste Total Empresa | Cotizaciones Empresariales 2025",
@@ -63,6 +64,37 @@ export default function CalculadoraCosteTotalEmpresaPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       <div className="min-h-screen bg-gray-50">
+        {/* Header */}
+        <header className="bg-white border-b border-gray-200">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex justify-between items-center h-16">
+              <div className="flex items-center space-x-3">
+                <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+                  <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"
+                    />
+                  </svg>
+                </div>
+                <span className="text-lg font-semibold text-gray-900">Calculord</span>
+              </div>
+
+              <Link
+                href="/"
+                className="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 transition-colors"
+              >
+                <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                </svg>
+                Volver al inicio
+              </Link>
+            </div>
+          </div>
+        </header>
+
         {/* Hero Section */}
         <section className="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
