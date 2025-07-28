@@ -51,10 +51,10 @@ const faqStructuredData = {
   mainEntity: [
     {
       "@type": "Question",
-      name: "¿Cómo se calculan las cotizaciones de la Seguridad Social?",
+      name: "¿Cómo se calculan las cotizaciones de la Seguridad Social en 2025?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Las cotizaciones se calculan aplicando los tipos de cotización vigentes sobre la base de cotización. Para el régimen general, el trabajador cotiza un 6.35% y la empresa un 29.9% aproximadamente, variando según conceptos específicos.",
+        text: "Las cotizaciones se calculan aplicando los tipos de cotización vigentes sobre la base de cotización del trabajador. Para el régimen general, el trabajador cotiza un 6,35% y la empresa un 30,90% aproximadamente, variando según conceptos específicos como contingencias comunes, desempleo, formación profesional, FOGASA y accidentes de trabajo.",
       },
     },
     {
@@ -62,7 +62,7 @@ const faqStructuredData = {
       name: "¿Cuáles son las bases de cotización para 2025?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Para 2025, la base mínima del régimen general es de 1.184€ mensuales y la máxima de 4.720,50€. Para autónomos, la base mínima es de 960€ y la máxima de 4.720,50€.",
+        text: "Para 2025, la base mínima del régimen general es de 1.184€ mensuales y la máxima de 4.720,50€. Para autónomos (RETA), la base mínima es de 960€ y la máxima de 4.720,50€. Estas bases se actualizan anualmente según el IPC y otros factores económicos.",
       },
     },
     {
@@ -70,7 +70,31 @@ const faqStructuredData = {
       name: "¿Qué diferencia hay entre régimen general y autónomos?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "En el régimen general, trabajador y empresa cotizan por separado. Los autónomos cotizan por todos los conceptos ellos mismos, con tipos diferentes y acceso al sistema de cese de actividad.",
+        text: "En el régimen general, trabajador y empresa cotizan por separado. Los autónomos cotizan por todos los conceptos ellos mismos: contingencias comunes (28,3%), cese de actividad (0,9%) y formación profesional (0,1%), con acceso al sistema de cese de actividad en lugar del desempleo tradicional.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Qué es el FOGASA y quién lo paga?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "El FOGASA (Fondo de Garantía Salarial) garantiza el pago de salarios e indemnizaciones cuando la empresa no puede hacerlo. Lo paga exclusivamente la empresa con un tipo del 0,2% sobre la base de cotización.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Pueden los autónomos elegir su base de cotización?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Sí, los autónomos pueden elegir su base de cotización mensual entre la mínima (960€) y la máxima (4.720,50€) para 2025. Esta elección afecta tanto a la cuota mensual como a las futuras prestaciones, y pueden cambiar la base hasta 4 veces al año.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Cómo afectan las pagas extraordinarias a las cotizaciones?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Las pagas extraordinarias también están sujetas a cotización. Si el trabajador recibe 14 pagas, las extraordinarias se prorratean mensualmente para el cálculo de cotizaciones, o se cotizan íntegramente en el mes que se perciben, lo que puede afectar al cálculo si se superan las bases máximas.",
       },
     },
   ],
@@ -599,6 +623,333 @@ export default function CalculadoraCotizaciones() {
                       <p className="font-semibold text-gray-900">{testimonial.name}</p>
                       <p className="text-sm text-gray-500">{testimonial.role}</p>
                     </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Información Detallada sobre Cotizaciones 2025 */}
+        <section className="py-20 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                Guía Completa de Cotizaciones Seguridad Social 2025
+              </h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                Todo lo que necesitas saber sobre las cotizaciones de la Seguridad Social actualizadas para 2025
+              </p>
+            </div>
+
+            <div className="grid lg:grid-cols-2 gap-12 mb-16">
+              <div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-6">Bases de Cotización 2025</h3>
+                <div className="bg-gray-50 p-6 rounded-lg">
+                  <h4 className="text-lg font-semibold text-gray-900 mb-4">Régimen General</h4>
+                  <div className="space-y-3">
+                    <div className="flex justify-between border-b border-gray-200 pb-2">
+                      <span className="text-gray-700">Base mínima mensual:</span>
+                      <span className="font-semibold text-gray-900">1.184,00 €</span>
+                    </div>
+                    <div className="flex justify-between border-b border-gray-200 pb-2">
+                      <span className="text-gray-700">Base máxima mensual:</span>
+                      <span className="font-semibold text-gray-900">4.720,50 €</span>
+                    </div>
+                    <div className="flex justify-between border-b border-gray-200 pb-2">
+                      <span className="text-gray-700">Base máxima anual:</span>
+                      <span className="font-semibold text-gray-900">56.646,00 €</span>
+                    </div>
+                  </div>
+
+                  <h4 className="text-lg font-semibold text-gray-900 mb-4 mt-6">Régimen Especial Autónomos (RETA)</h4>
+                  <div className="space-y-3">
+                    <div className="flex justify-between border-b border-gray-200 pb-2">
+                      <span className="text-gray-700">Base mínima mensual:</span>
+                      <span className="font-semibold text-gray-900">960,00 €</span>
+                    </div>
+                    <div className="flex justify-between border-b border-gray-200 pb-2">
+                      <span className="text-gray-700">Base máxima mensual:</span>
+                      <span className="font-semibold text-gray-900">4.720,50 €</span>
+                    </div>
+                    <div className="flex justify-between border-b border-gray-200 pb-2">
+                      <span className="text-gray-700">Base máxima anual:</span>
+                      <span className="font-semibold text-gray-900">56.646,00 €</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-6">Tipos de Cotización 2025</h3>
+                <div className="bg-blue-50 p-6 rounded-lg">
+                  <h4 className="text-lg font-semibold text-gray-900 mb-4">Trabajador por Cuenta Ajena</h4>
+                  <div className="space-y-3">
+                    <div className="flex justify-between border-b border-gray-200 pb-2">
+                      <span className="text-gray-700">Contingencias comunes:</span>
+                      <span className="font-semibold text-blue-600">4,70%</span>
+                    </div>
+                    <div className="flex justify-between border-b border-gray-200 pb-2">
+                      <span className="text-gray-700">Desempleo:</span>
+                      <span className="font-semibold text-blue-600">1,55%</span>
+                    </div>
+                    <div className="flex justify-between border-b border-gray-200 pb-2">
+                      <span className="text-gray-700">Formación profesional:</span>
+                      <span className="font-semibold text-blue-600">0,10%</span>
+                    </div>
+                    <div className="flex justify-between font-bold text-blue-600 pt-2">
+                      <span>TOTAL TRABAJADOR:</span>
+                      <span>6,35%</span>
+                    </div>
+                  </div>
+
+                  <h4 className="text-lg font-semibold text-gray-900 mb-4 mt-6">Empresa</h4>
+                  <div className="space-y-3">
+                    <div className="flex justify-between border-b border-gray-200 pb-2">
+                      <span className="text-gray-700">Contingencias comunes:</span>
+                      <span className="font-semibold text-green-600">23,60%</span>
+                    </div>
+                    <div className="flex justify-between border-b border-gray-200 pb-2">
+                      <span className="text-gray-700">Desempleo:</span>
+                      <span className="font-semibold text-green-600">5,50%</span>
+                    </div>
+                    <div className="flex justify-between border-b border-gray-200 pb-2">
+                      <span className="text-gray-700">Formación profesional:</span>
+                      <span className="font-semibold text-green-600">0,60%</span>
+                    </div>
+                    <div className="flex justify-between border-b border-gray-200 pb-2">
+                      <span className="text-gray-700">FOGASA:</span>
+                      <span className="font-semibold text-green-600">0,20%</span>
+                    </div>
+                    <div className="flex justify-between border-b border-gray-200 pb-2">
+                      <span className="text-gray-700">Accidentes trabajo:</span>
+                      <span className="font-semibold text-green-600">1,00%</span>
+                    </div>
+                    <div className="flex justify-between font-bold text-green-600 pt-2">
+                      <span>TOTAL EMPRESA:</span>
+                      <span>30,90%</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Casos Prácticos */}
+            <div className="bg-gradient-to-r from-gray-50 to-blue-50 p-8 rounded-2xl mb-16">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">Casos Prácticos de Cotización</h3>
+              <div className="grid md:grid-cols-2 gap-8">
+                <div className="bg-white p-6 rounded-lg shadow-sm">
+                  <h4 className="text-lg font-semibold text-gray-900 mb-4">Ejemplo: Salario 2.000€ Brutos</h4>
+                  <div className="space-y-2 text-sm">
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">Cotización trabajador (6,35%):</span>
+                      <span className="font-semibold">127,00€</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">Cotización empresa (30,90%):</span>
+                      <span className="font-semibold">618,00€</span>
+                    </div>
+                    <div className="flex justify-between border-t pt-2 font-bold">
+                      <span>Salario neto aproximado:</span>
+                      <span className="text-green-600">1.873,00€</span>
+                    </div>
+                    <div className="flex justify-between font-bold">
+                      <span>Coste total empresa:</span>
+                      <span className="text-orange-600">2.618,00€</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-white p-6 rounded-lg shadow-sm">
+                  <h4 className="text-lg font-semibold text-gray-900 mb-4">Ejemplo: Autónomo Base 1.500€</h4>
+                  <div className="space-y-2 text-sm">
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">Contingencias comunes (28,3%):</span>
+                      <span className="font-semibold">424,50€</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">Cese actividad (0,9%):</span>
+                      <span className="font-semibold">13,50€</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">Formación profesional (0,1%):</span>
+                      <span className="font-semibold">1,50€</span>
+                    </div>
+                    <div className="flex justify-between border-t pt-2 font-bold">
+                      <span>Total cotización mensual:</span>
+                      <span className="text-blue-600">439,50€</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Novedades 2025 */}
+            <div className="mb-16">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">Novedades en Cotizaciones 2025</h3>
+              <div className="grid md:grid-cols-3 gap-6">
+                <Card className="border-l-4 border-l-blue-500">
+                  <CardContent className="p-6">
+                    <h4 className="text-lg font-semibold text-gray-900 mb-3">Actualización de Bases</h4>
+                    <p className="text-gray-600 text-sm">
+                      Las bases de cotización se han actualizado conforme al IPC y los acuerdos del diálogo social, con
+                      incrementos que oscilan entre el 3% y 4% respecto a 2024.
+                    </p>
+                  </CardContent>
+                </Card>
+
+                <Card className="border-l-4 border-l-green-500">
+                  <CardContent className="p-6">
+                    <h4 className="text-lg font-semibold text-gray-900 mb-3">Nuevos Tipos RETA</h4>
+                    <p className="text-gray-600 text-sm">
+                      Continúa la implementación del sistema de cotización por ingresos reales para autónomos, con
+                      nuevos tramos y tipos de cotización más ajustados.
+                    </p>
+                  </CardContent>
+                </Card>
+
+                <Card className="border-l-4 border-l-purple-500">
+                  <CardContent className="p-6">
+                    <h4 className="text-lg font-semibold text-gray-900 mb-3">Digitalización</h4>
+                    <p className="text-gray-600 text-sm">
+                      Nuevos procedimientos digitales para la gestión de cotizaciones y mayor integración con los
+                      sistemas de la Seguridad Social.
+                    </p>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ Expandida */}
+        <section className="py-20 bg-gray-50">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                Preguntas Frecuentes sobre Cotizaciones
+              </h2>
+              <p className="text-xl text-gray-600">
+                Resolvemos todas tus dudas sobre las cotizaciones de la Seguridad Social
+              </p>
+            </div>
+
+            <div className="space-y-6">
+              {[
+                {
+                  question: "¿Cómo se calculan las cotizaciones de la Seguridad Social en 2025?",
+                  answer:
+                    "Las cotizaciones se calculan aplicando los tipos de cotización vigentes sobre la base de cotización del trabajador. Para el régimen general, el trabajador cotiza un 6,35% (4,7% contingencias comunes + 1,55% desempleo + 0,1% formación) y la empresa un 30,90% aproximadamente, que incluye contingencias comunes (23,6%), desempleo (5,5%), formación profesional (0,6%), FOGASA (0,2%) y accidentes de trabajo (variable, típicamente 1%).",
+                },
+                {
+                  question: "¿Cuáles son las bases mínimas y máximas de cotización para 2025?",
+                  answer:
+                    "Para 2025, en el régimen general la base mínima es de 1.184€ mensuales y la máxima de 4.720,50€ mensuales (56.646€ anuales). Para autónomos (RETA), la base mínima es de 960€ mensuales y la máxima también de 4.720,50€ mensuales. Estas bases se actualizan anualmente según el IPC y otros factores económicos.",
+                },
+                {
+                  question: "¿Qué diferencias hay entre las cotizaciones del régimen general y autónomos?",
+                  answer:
+                    "En el régimen general, trabajador y empresa cotizan por separado con tipos diferentes. Los autónomos cotizan por todos los conceptos ellos mismos: contingencias comunes (28,3%), cese de actividad (0,9%) y formación profesional (0,1%). Los autónomos no cotizan por desempleo tradicional, sino por el sistema de cese de actividad, y pueden elegir su base de cotización dentro de los límites establecidos.",
+                },
+                {
+                  question: "¿Cómo afectan las pagas extraordinarias a las cotizaciones?",
+                  answer:
+                    "Las pagas extraordinarias (normalmente junio y diciembre) también están sujetas a cotización. Si el trabajador recibe 14 pagas, las extraordinarias se prorratean mensualmente para el cálculo de cotizaciones, o se cotizan íntegramente en el mes que se perciben. Esto puede afectar al cálculo si se superan las bases máximas de cotización.",
+                },
+                {
+                  question: "¿Qué es el FOGASA y quién lo paga?",
+                  answer:
+                    "El FOGASA (Fondo de Garantía Salarial) es un organismo que garantiza el pago de salarios e indemnizaciones cuando la empresa no puede hacerlo. Lo paga exclusivamente la empresa con un tipo del 0,2% sobre la base de cotización. Los trabajadores no cotizan al FOGASA.",
+                },
+                {
+                  question: "¿Cómo se cotiza por accidentes de trabajo y enfermedades profesionales?",
+                  answer:
+                    "La cotización por accidentes de trabajo y enfermedades profesionales la paga íntegramente la empresa. El tipo varía según la actividad de la empresa y su siniestralidad, oscilando entre el 0,5% y el 6,7%. En nuestra calculadora usamos un tipo medio del 1% como referencia.",
+                },
+                {
+                  question: "¿Pueden los autónomos elegir su base de cotización?",
+                  answer:
+                    "Sí, los autónomos pueden elegir su base de cotización mensual entre la mínima (960€) y la máxima (4.720,50€) para 2025. Esta elección afecta tanto a la cuota mensual como a las futuras prestaciones (jubilación, incapacidad, etc.). Pueden cambiar la base hasta 4 veces al año.",
+                },
+                {
+                  question: "¿Qué es el sistema de cotización por ingresos reales para autónomos?",
+                  answer:
+                    "Es el nuevo sistema que se está implementando gradualmente donde los autónomos cotizan en función de sus ingresos reales declarados en el IRPF. Se aplican diferentes tipos de cotización según tramos de ingresos, buscando una mayor proporcionalidad entre ingresos y cotizaciones.",
+                },
+              ].map((faq, index) => (
+                <Card key={index} className="border-0 shadow-lg">
+                  <CardContent className="p-6">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-3">{faq.question}</h3>
+                    <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Glosario de Términos */}
+        <section className="py-20 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Glosario de Términos de Cotización</h2>
+              <p className="text-xl text-gray-600">
+                Conceptos clave para entender las cotizaciones de la Seguridad Social
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[
+                {
+                  term: "Base de Cotización",
+                  definition:
+                    "Cantidad sobre la que se aplican los tipos de cotización para calcular la cuota. Tiene límites mínimos y máximos establecidos anualmente.",
+                },
+                {
+                  term: "Contingencias Comunes",
+                  definition:
+                    "Incluye jubilación, incapacidad permanente, muerte y supervivencia, incapacidad temporal por enfermedad común y maternidad/paternidad.",
+                },
+                {
+                  term: "RETA",
+                  definition:
+                    "Régimen Especial de Trabajadores Autónomos. Sistema específico de cotización para trabajadores por cuenta propia.",
+                },
+                {
+                  term: "Tipo de Cotización",
+                  definition:
+                    "Porcentaje que se aplica sobre la base de cotización para calcular la cuota a pagar. Varía según el concepto y el régimen.",
+                },
+                {
+                  term: "FOGASA",
+                  definition:
+                    "Fondo de Garantía Salarial que protege a los trabajadores ante insolvencia empresarial. Solo lo paga la empresa.",
+                },
+                {
+                  term: "Cese de Actividad",
+                  definition:
+                    "Prestación específica para autónomos equivalente al desempleo de los trabajadores por cuenta ajena.",
+                },
+                {
+                  term: "Accidentes de Trabajo",
+                  definition:
+                    "Contingencia que cubre lesiones sufridas durante el trabajo. El tipo varía según la actividad y siniestralidad de la empresa.",
+                },
+                {
+                  term: "Formación Profesional",
+                  definition:
+                    "Cotización destinada a financiar programas de formación para el empleo. La pagan tanto trabajadores como empresas.",
+                },
+                {
+                  term: "Topes de Cotización",
+                  definition:
+                    "Límites mínimos y máximos de las bases de cotización, actualizados anualmente según criterios económicos.",
+                },
+              ].map((item, index) => (
+                <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-shadow">
+                  <CardContent className="p-6">
+                    <h3 className="text-lg font-semibold text-blue-600 mb-3">{item.term}</h3>
+                    <p className="text-gray-600 text-sm leading-relaxed">{item.definition}</p>
                   </CardContent>
                 </Card>
               ))}

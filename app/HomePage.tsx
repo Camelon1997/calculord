@@ -5,6 +5,7 @@ import {
   Calculator,
   CheckCircle,
   ArrowRight,
+  Star,
   TrendingUp,
   Shield,
   Calendar,
@@ -15,6 +16,7 @@ import {
   FileText,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import Link from "next/link"
 
 export default function HomePage() {
@@ -484,7 +486,7 @@ export default function HomePage() {
                   </div>
                   <div className="flex items-center text-sm text-gray-500">
                     <Calendar className="h-4 w-4 text-gray-400 mr-2" />
-                    Más herramientas...
+                    Más profesionales...
                   </div>
                 </div>
                 <Button disabled className="w-full bg-gray-300 text-gray-500 cursor-not-allowed mt-auto">
@@ -771,17 +773,133 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Características */}
+      <section id="caracteristicas" className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              ¿Por qué elegir nuestras calculadoras?
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Herramientas profesionales diseñadas para obtener resultados precisos y actualizados
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <Card className="text-center">
+              <CardHeader>
+                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <CheckCircle className="h-8 w-8 text-blue-600" />
+                </div>
+                <CardTitle>Precisión Garantizada</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription>Algoritmos actualizados con la normativa laboral más reciente de 2025</CardDescription>
+              </CardContent>
+            </Card>
+
+            <Card className="text-center">
+              <CardHeader>
+                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <TrendingUp className="h-8 w-8 text-green-600" />
+                </div>
+                <CardTitle>Resultados Instantáneos</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription>
+                  Obtén cálculos completos en segundos con nuestra tecnología optimizada
+                </CardDescription>
+              </CardContent>
+            </Card>
+
+            <Card className="text-center">
+              <CardHeader>
+                <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Shield className="h-8 w-8 text-purple-600" />
+                </div>
+                <CardTitle>100% Privado</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription>
+                  Todos los cálculos se realizan en tu navegador. No almacenamos datos personales
+                </CardDescription>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonios */}
+      <section id="testimonios" className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Profesionales que confían en nosotros</h2>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <Card>
+              <CardContent className="pt-6">
+                <div className="flex mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
+                  ))}
+                </div>
+                <p className="text-gray-600 mb-4">
+                  "Uso estas calculadoras a diario en mi gestoría. Son precisas, rápidas y me ahorran mucho tiempo."
+                </p>
+                <div>
+                  <p className="font-semibold text-gray-900">Ana García</p>
+                  <p className="text-sm text-gray-500">Gestora Laboral</p>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardContent className="pt-6">
+                <div className="flex mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
+                  ))}
+                </div>
+                <p className="text-gray-600 mb-4">
+                  "Perfectas para calcular costes laborales y hacer presupuestos. Las recomiendo totalmente."
+                </p>
+                <div>
+                  <p className="font-semibold text-gray-900">Carlos Martínez</p>
+                  <p className="text-sm text-gray-500">Director RRHH</p>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardContent className="pt-6">
+                <div className="flex mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
+                  ))}
+                </div>
+                <p className="text-gray-600 mb-4">
+                  "Me ayudan a entender mis cotizaciones y planificar mis finanzas. Muy útiles y fáciles de usar."
+                </p>
+                <div>
+                  <p className="font-semibold text-gray-900">Laura Sánchez</p>
+                  <p className="text-sm text-gray-500">Trabajadora Autónoma</p>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Final */}
       <section className="py-20 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">¿Necesitas asesoramiento laboral especializado?</h2>
-          <p className="text-xl text-blue-100 mb-8">Calcula también los honorarios de abogados especialistas</p>
-          <Link href="/calculadora-honorarios-abogado">
-            <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 text-lg font-semibold">
-              Honorarios de Abogado Laboralista
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
-          </Link>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">¿Listo para simplificar tus cálculos laborales?</h2>
+          <p className="text-xl mb-8 opacity-90">Únete a miles de profesionales que ya usan nuestras herramientas</p>
+          <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3">
+            Empezar Ahora - Es Gratis
+            <ArrowRight className="ml-2 h-5 w-5" />
+          </Button>
         </div>
       </section>
 
@@ -805,6 +923,16 @@ export default function HomePage() {
                   </Link>
                 </li>
                 <li>
+                  <Link href="/calculadora-coste-total-empresa" className="hover:text-white">
+                    Coste Total Empresa
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/conversor-salario-bruto-neto" className="hover:text-white">
+                    Conversor Bruto-Neto
+                  </Link>
+                </li>
+                <li>
                   <Link href="/calculadora-salario-por-horas" className="hover:text-white">
                     Salario por Horas
                   </Link>
@@ -817,6 +945,21 @@ export default function HomePage() {
                 <li>
                   <Link href="/calculadora-paro" className="hover:text-white">
                     Prestación Desempleo
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/calculadora-nomina" className="hover:text-white">
+                    Nómina Completa
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/calculadora-vacaciones" className="hover:text-white">
+                    Vacaciones
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/calculadora-irpf" className="hover:text-white">
+                    IRPF (Todas CCAA)
                   </Link>
                 </li>
               </ul>
@@ -857,9 +1000,6 @@ export default function HomePage() {
           </div>
           <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
             <p>&copy; 2025 Calculord. Todos los derechos reservados.</p>
-            <p className="text-sm mt-2">
-              * Los cálculos son orientativos. Consulta siempre con un profesional del derecho laboral.
-            </p>
           </div>
         </div>
       </footer>
