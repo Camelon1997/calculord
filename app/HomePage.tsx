@@ -11,7 +11,7 @@ import {
   Calendar,
   Banknote,
   PiggyBank,
-  TrendingDown,
+  ArrowLeftRight,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
@@ -157,6 +157,34 @@ export default function HomePage() {
                 </Link>
               </div>
 
+              {/* Conversor Salario Bruto Neto */}
+              <div className="bg-white p-6 rounded-xl shadow-sm border hover:shadow-md transition-shadow flex flex-col h-full">
+                <div className="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center mb-4">
+                  <ArrowLeftRight className="h-6 w-6 text-indigo-600" />
+                </div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">Conversor Bruto a Neto</h3>
+                <p className="text-gray-600 mb-4 flex-grow">
+                  Convierte tu salario bruto a neto y viceversa con IRPF 2025 y deducciones actualizadas.
+                </p>
+                <div className="space-y-2 mb-6">
+                  <div className="flex items-center text-sm text-gray-600">
+                    <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                    Conversión bidireccional
+                  </div>
+                  <div className="flex items-center text-sm text-gray-600">
+                    <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                    IRPF 2025 actualizado
+                  </div>
+                  <div className="flex items-center text-sm text-gray-600">
+                    <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                    Deducciones familiares
+                  </div>
+                </div>
+                <Link href="/conversor-salario-bruto-neto" className="mt-auto">
+                  <Button className="w-full bg-indigo-600 hover:bg-indigo-700">Convertir Salario</Button>
+                </Link>
+              </div>
+
               {/* Salario por Horas */}
               <div className="bg-white p-6 rounded-xl shadow-sm border hover:shadow-md transition-shadow flex flex-col h-full">
                 <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
@@ -230,7 +258,7 @@ export default function HomePage() {
               {/* Prestación por Desempleo */}
               <div className="bg-white p-6 rounded-xl shadow-sm border hover:shadow-md transition-shadow flex flex-col h-full">
                 <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
-                  <TrendingDown className="h-6 w-6 text-orange-600" />
+                  <Shield className="h-6 w-6 text-orange-600" />
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">Prestación por Desempleo</h3>
                 <p className="text-gray-600 mb-4 flex-grow">
@@ -752,6 +780,11 @@ export default function HomePage() {
                 <li>
                   <Link href="/calculadora-cotizaciones-seguridad-social" className="hover:text-white">
                     Cotizaciones SS
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/conversor-salario-bruto-neto" className="hover:text-white">
+                    Conversor Bruto-Neto
                   </Link>
                 </li>
                 <li>
