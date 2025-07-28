@@ -4,7 +4,6 @@ import { useState } from "react"
 import {
   Shield,
   Calculator,
-  ArrowLeft,
   Users,
   TrendingUp,
   CheckCircle,
@@ -256,26 +255,8 @@ export default function CalculadoraCotizaciones() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbStructuredData) }}
       />
       <div className="min-h-screen bg-gray-50">
-        {/* Header */}
-        <header className="bg-white shadow-sm border-b">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex justify-between items-center py-4">
-              <Link href="/" className="flex items-center space-x-2">
-                <Calculator className="h-8 w-8 text-blue-600" />
-                <span className="text-2xl font-bold text-gray-900">Calculadoras Laborales</span>
-              </Link>
-              <Link href="/">
-                <Button variant="outline" className="flex items-center space-x-2 bg-transparent">
-                  <ArrowLeft className="h-4 w-4" />
-                  <span>Volver al inicio</span>
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </header>
-
         {/* Hero Section */}
-        <section className="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 py-20">
+        <section className="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 py-20 pt-32">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div className="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
               <Shield className="h-10 w-10 text-blue-600" />

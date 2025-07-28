@@ -5,7 +5,6 @@ import {
   Calculator,
   CheckCircle,
   ArrowRight,
-  Star,
   TrendingUp,
   Shield,
   Calendar,
@@ -13,39 +12,16 @@ import {
   PiggyBank,
   ArrowLeftRight,
   Building2,
+  FileText,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import Link from "next/link"
 
 export default function HomePage() {
   const [activeTab, setActiveTab] = useState("laborales")
 
   return (
-    <div className="min-h-screen bg-white">
-      {/* Header */}
-      <header className="bg-white shadow-sm border-b sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-4">
-            <div className="flex items-center space-x-2">
-              <Calculator className="h-8 w-8 text-blue-600" />
-              <span className="text-2xl font-bold text-gray-900">Calculord</span>
-            </div>
-            <nav className="hidden md:flex space-x-8">
-              <a href="#calculadoras" className="text-gray-600 hover:text-blue-600 font-medium">
-                Calculadoras
-              </a>
-              <a href="#caracteristicas" className="text-gray-600 hover:text-blue-600 font-medium">
-                Características
-              </a>
-              <a href="#testimonios" className="text-gray-600 hover:text-blue-600 font-medium">
-                Testimonios
-              </a>
-            </nav>
-          </div>
-        </div>
-      </header>
-
+    <div className="min-h-screen bg-white pt-20">
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -123,6 +99,14 @@ export default function HomePage() {
                 }`}
               >
                 Calculadoras Financieras
+              </button>
+              <button
+                onClick={() => setActiveTab("autonomos")}
+                className={`px-4 py-2 rounded-md font-medium transition-colors text-sm ${
+                  activeTab === "autonomos" ? "bg-white text-blue-600 shadow-sm" : "text-gray-600 hover:text-gray-900"
+                }`}
+              >
+                Autónomos
               </button>
             </div>
           </div>
@@ -376,6 +360,41 @@ export default function HomePage() {
                 </Link>
               </div>
 
+              {/* Calculadora de IRPF */}
+              <div className="bg-white p-6 rounded-xl shadow-sm border hover:shadow-md transition-shadow flex flex-col h-full">
+                <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
+                  <svg className="h-6 w-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                    />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">Calculadora de IRPF</h3>
+                <p className="text-gray-600 mb-4 flex-grow">
+                  Calcula tu IRPF 2025 con tramos actualizados por Comunidad Autónoma y deducciones personales.
+                </p>
+                <div className="space-y-2 mb-6">
+                  <div className="flex items-center text-sm text-gray-600">
+                    <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                    Tramos IRPF 2025 actualizados
+                  </div>
+                  <div className="flex items-center text-sm text-gray-600">
+                    <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                    Todas las Comunidades Autónomas
+                  </div>
+                  <div className="flex items-center text-sm text-gray-600">
+                    <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                    Deducciones personales y familiares
+                  </div>
+                </div>
+                <Link href="/calculadora-irpf" className="mt-auto">
+                  <Button className="w-full bg-orange-600 hover:bg-orange-700">Calcular IRPF</Button>
+                </Link>
+              </div>
+
               {/* Próximamente */}
               <div className="bg-gray-50 p-6 rounded-xl border-2 border-dashed border-gray-200 flex flex-col h-full">
                 <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mb-4">
@@ -465,7 +484,7 @@ export default function HomePage() {
                   </div>
                   <div className="flex items-center text-sm text-gray-500">
                     <Calendar className="h-4 w-4 text-gray-400 mr-2" />
-                    Más profesionales...
+                    Más herramientas...
                   </div>
                 </div>
                 <Button disabled className="w-full bg-gray-300 text-gray-500 cursor-not-allowed mt-auto">
@@ -659,136 +678,110 @@ export default function HomePage() {
               </div>
             </div>
           )}
-        </div>
-      </section>
 
-      {/* Características */}
-      <section id="caracteristicas" className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              ¿Por qué elegir nuestras calculadoras?
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Herramientas profesionales diseñadas para obtener resultados precisos y actualizados
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            <Card className="text-center">
-              <CardHeader>
-                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <CheckCircle className="h-8 w-8 text-blue-600" />
+          {/* Calculadoras Autónomos */}
+          {activeTab === "autonomos" && (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {/* Calendario Fiscal */}
+              <div className="bg-white p-6 rounded-xl shadow-sm border hover:shadow-md transition-shadow flex flex-col h-full">
+                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                  <Calendar className="h-6 w-6 text-blue-600" />
                 </div>
-                <CardTitle>Precisión Garantizada</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CardDescription>Algoritmos actualizados con la normativa laboral más reciente de 2025</CardDescription>
-              </CardContent>
-            </Card>
-
-            <Card className="text-center">
-              <CardHeader>
-                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <TrendingUp className="h-8 w-8 text-green-600" />
-                </div>
-                <CardTitle>Resultados Instantáneos</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CardDescription>
-                  Obtén cálculos completos en segundos con nuestra tecnología optimizada
-                </CardDescription>
-              </CardContent>
-            </Card>
-
-            <Card className="text-center">
-              <CardHeader>
-                <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Shield className="h-8 w-8 text-purple-600" />
-                </div>
-                <CardTitle>100% Privado</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CardDescription>
-                  Todos los cálculos se realizan en tu navegador. No almacenamos datos personales
-                </CardDescription>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonios */}
-      <section id="testimonios" className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Profesionales que confían en nosotros</h2>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            <Card>
-              <CardContent className="pt-6">
-                <div className="flex mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
-                  ))}
-                </div>
-                <p className="text-gray-600 mb-4">
-                  "Uso estas calculadoras a diario en mi gestoría. Son precisas, rápidas y me ahorran mucho tiempo."
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">Calendario Fiscal Autónomos</h3>
+                <p className="text-gray-600 mb-4 flex-grow">
+                  Fechas clave para declaraciones trimestrales de IRPF e IVA, declaración anual y obligaciones fiscales.
                 </p>
-                <div>
-                  <p className="font-semibold text-gray-900">Ana García</p>
-                  <p className="text-sm text-gray-500">Gestora Laboral</p>
+                <div className="space-y-2 mb-6">
+                  <div className="flex items-center text-sm text-gray-600">
+                    <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                    Trimestral IRPF e IVA
+                  </div>
+                  <div className="flex items-center text-sm text-gray-600">
+                    <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                    Declaración anual 2025
+                  </div>
+                  <div className="flex items-center text-sm text-gray-600">
+                    <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                    Fechas límite y recordatorios
+                  </div>
                 </div>
-              </CardContent>
-            </Card>
+                <Link href="/calculadora-calendario-fiscal-autonomos" className="mt-auto">
+                  <Button className="w-full bg-blue-600 hover:bg-blue-700">Ver Calendario Fiscal</Button>
+                </Link>
+              </div>
 
-            <Card>
-              <CardContent className="pt-6">
-                <div className="flex mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
-                  ))}
+              {/* IRPF para Autónomos */}
+              <div className="bg-white p-6 rounded-xl shadow-sm border hover:shadow-md transition-shadow flex flex-col h-full">
+                <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                  <FileText className="h-6 w-6 text-green-600" />
                 </div>
-                <p className="text-gray-600 mb-4">
-                  "Perfectas para calcular costes laborales y hacer presupuestos. Las recomiendo totalmente."
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">IRPF para Autónomos</h3>
+                <p className="text-gray-600 mb-4 flex-grow">
+                  Calcula tu IRPF como autónomo con todas las deducciones fiscales, retenciones y optimización fiscal
+                  2025.
                 </p>
-                <div>
-                  <p className="font-semibold text-gray-900">Carlos Martínez</p>
-                  <p className="text-sm text-gray-500">Director RRHH</p>
+                <div className="space-y-2 mb-6">
+                  <div className="flex items-center text-sm text-gray-600">
+                    <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                    Deducciones fiscales completas
+                  </div>
+                  <div className="flex items-center text-sm text-gray-600">
+                    <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                    Estimación directa vs módulos
+                  </div>
+                  <div className="flex items-center text-sm text-gray-600">
+                    <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                    Retenciones y optimización
+                  </div>
                 </div>
-              </CardContent>
-            </Card>
+                <Link href="/calculadora-irpf-autonomos" className="mt-auto">
+                  <Button className="w-full bg-green-600 hover:bg-green-700">Calcular IRPF</Button>
+                </Link>
+              </div>
 
-            <Card>
-              <CardContent className="pt-6">
-                <div className="flex mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
-                  ))}
+              {/* Próximamente - Más calculadoras autónomos */}
+              <div className="bg-gray-50 p-6 rounded-xl border-2 border-dashed border-gray-200 flex flex-col h-full">
+                <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mb-4">
+                  <Calendar className="h-6 w-6 text-gray-400" />
                 </div>
-                <p className="text-gray-600 mb-4">
-                  "Me ayudan a entender mis cotizaciones y planificar mis finanzas. Muy útiles y fáciles de usar."
+                <h3 className="text-xl font-semibold text-gray-700 mb-2">Próximamente</h3>
+                <p className="text-gray-500 mb-4 flex-grow">
+                  Más calculadoras específicas para autónomos en desarrollo.
                 </p>
-                <div>
-                  <p className="font-semibold text-gray-900">Laura Sánchez</p>
-                  <p className="text-sm text-gray-500">Trabajadora Autónoma</p>
+                <div className="space-y-2 mb-6">
+                  <div className="flex items-center text-sm text-gray-500">
+                    <Calendar className="h-4 w-4 text-gray-400 mr-2" />
+                    Calculadora RETA
+                  </div>
+                  <div className="flex items-center text-sm text-gray-500">
+                    <Calendar className="h-4 w-4 text-gray-400 mr-2" />
+                    IRPF Autónomos
+                  </div>
+                  <div className="flex items-center text-sm text-gray-500">
+                    <Calendar className="h-4 w-4 text-gray-400 mr-2" />
+                    Gastos Deducibles
+                  </div>
                 </div>
-              </CardContent>
-            </Card>
-          </div>
+                <Button disabled className="w-full bg-gray-300 text-gray-500 cursor-not-allowed mt-auto">
+                  Próximamente
+                </Button>
+              </div>
+            </div>
+          )}
         </div>
       </section>
 
       {/* CTA Final */}
       <section className="py-20 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">¿Listo para simplificar tus cálculos laborales?</h2>
-          <p className="text-xl mb-8 opacity-90">Únete a miles de profesionales que ya usan nuestras herramientas</p>
-          <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3">
-            Empezar Ahora - Es Gratis
-            <ArrowRight className="ml-2 h-5 w-5" />
-          </Button>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">¿Necesitas asesoramiento laboral especializado?</h2>
+          <p className="text-xl text-blue-100 mb-8">Calcula también los honorarios de abogados especialistas</p>
+          <Link href="/calculadora-honorarios-abogado">
+            <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 text-lg font-semibold">
+              Honorarios de Abogado Laboralista
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
+          </Link>
         </div>
       </section>
 
@@ -812,16 +805,6 @@ export default function HomePage() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/calculadora-coste-total-empresa" className="hover:text-white">
-                    Coste Total Empresa
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/conversor-salario-bruto-neto" className="hover:text-white">
-                    Conversor Bruto-Neto
-                  </Link>
-                </li>
-                <li>
                   <Link href="/calculadora-salario-por-horas" className="hover:text-white">
                     Salario por Horas
                   </Link>
@@ -834,16 +817,6 @@ export default function HomePage() {
                 <li>
                   <Link href="/calculadora-paro" className="hover:text-white">
                     Prestación Desempleo
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/calculadora-nomina" className="hover:text-white">
-                    Nómina Completa
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/calculadora-vacaciones" className="hover:text-white">
-                    Vacaciones
                   </Link>
                 </li>
               </ul>
@@ -884,6 +857,9 @@ export default function HomePage() {
           </div>
           <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
             <p>&copy; 2025 Calculord. Todos los derechos reservados.</p>
+            <p className="text-sm mt-2">
+              * Los cálculos son orientativos. Consulta siempre con un profesional del derecho laboral.
+            </p>
           </div>
         </div>
       </footer>

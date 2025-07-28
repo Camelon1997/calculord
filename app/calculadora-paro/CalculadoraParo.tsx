@@ -4,7 +4,6 @@ import { useState } from "react"
 import {
   Banknote,
   Calculator,
-  ArrowLeft,
   Clock,
   CheckCircle,
   AlertTriangle,
@@ -243,7 +242,7 @@ export default function CalculadoraParo() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 pt-20">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredDataCalculator) }}
@@ -253,24 +252,6 @@ export default function CalculadoraParo() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbStructuredData) }}
       />
-
-      {/* Header */}
-      <header className="bg-white shadow-sm border-b">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-4">
-            <Link href="/" className="flex items-center space-x-2">
-              <Calculator className="h-8 w-8 text-blue-600" />
-              <span className="text-2xl font-bold text-gray-900">Calculadoras Laborales</span>
-            </Link>
-            <Link href="/">
-              <Button variant="outline" className="flex items-center space-x-2 bg-transparent">
-                <ArrowLeft className="h-4 w-4" />
-                <span>Volver al inicio</span>
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </header>
 
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-orange-50 to-yellow-100 py-20">

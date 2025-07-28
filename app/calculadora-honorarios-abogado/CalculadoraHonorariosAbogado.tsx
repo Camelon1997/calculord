@@ -858,7 +858,7 @@ export default function CalculadoraHonorariosAbogado() {
           <div className="flex justify-between items-center py-4">
             <Link href="/" className="flex items-center space-x-2">
               <Calculator className="h-8 w-8 text-blue-600" />
-              <span className="text-2xl font-bold text-gray-900">Calculadoras Laborales</span>
+              <span className="text-2xl font-bold text-gray-900">Calculord</span>
             </Link>
             <Link href="/">
               <Button variant="outline" className="flex items-center space-x-2 bg-transparent">

@@ -3,6 +3,7 @@ import type { Metadata, Viewport } from "next"
 import { Inter } from "next/font/google"
 import Script from "next/script"
 import "./globals.css"
+import Header from "./components/Header"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -24,27 +25,29 @@ export const metadata: Metadata = {
     template: "%s | Calculord",
   },
   description:
-    "Suite completa de calculadoras laborales y financieras gratuitas 2025. Calcula salarios, cotizaciones, nóminas, hipotecas, ahorros y más. Herramientas profesionales actualizadas con la normativa española.",
-  applicationName: "Calculord",
-  referrer: "origin-when-cross-origin",
+    "Suite completa de calculadoras laborales y financieras GRATUITAS 2025. Calcula salarios, cotizaciones SS, nóminas, hipotecas, ahorros y más. Herramientas profesionales actualizadas con la normativa española.",
   keywords: [
-    "calculadoras laborales",
-    "calculadoras financieras",
-    "salario",
-    "cotizaciones seguridad social",
-    "SMI 2025",
-    "nómina",
-    "hipoteca",
-    "ahorro",
-    "vacaciones laborales",
-    "despidos",
-    "paro",
-    "honorarios abogado",
-    "calculadora salarial",
-    "herramientas RRHH",
-    "derecho laboral",
-    "finanzas personales",
-  ],
+    "calculadoras laborales 2025",
+    "calculadoras financieras gratuitas",
+    "calculadora salario España",
+    "cotizaciones seguridad social 2025",
+    "SMI 2025 1184 euros",
+    "calculadora nómina IRPF",
+    "calculadora hipoteca España",
+    "calculadora ahorro interés compuesto",
+    "calculadora vacaciones laborales",
+    "calculadora despidos indemnización",
+    "calculadora paro SEPE",
+    "honorarios abogado baremos",
+    "herramientas RRHH gratuitas",
+    "derecho laboral calculadoras",
+    "finanzas personales España",
+    "calculadora salarial online",
+    "régimen general autónomos",
+    "prestación por desempleo",
+    "planificación financiera",
+    "recursos humanos herramientas",
+  ].join(", "),
   authors: [{ name: "Calculord", url: "https://calculord.com" }],
   creator: "Calculord",
   publisher: "Calculord",
@@ -268,56 +271,57 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-title" content="Calculord" />
       </head>
       <body className={inter.className}>
+        <Header />
         {/* Google Analytics */}
         <Script src="https://www.googletagmanager.com/gtag/js?id=G-8QKFLE7EEH" strategy="afterInteractive" />
         <Script id="google-analytics" strategy="afterInteractive">
           {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-8QKFLE7EEH', {
-              page_title: document.title,
-              page_location: window.location.href,
-              anonymize_ip: true,
-              cookie_flags: 'SameSite=None;Secure'
-            });
-          `}
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-8QKFLE7EEH', {
+            page_title: document.title,
+            page_location: window.location.href,
+            anonymize_ip: true,
+            cookie_flags: 'SameSite=None;Secure'
+          });
+        `}
         </Script>
 
         {/* Schema.org for Google */}
         <Script id="schema-faq" type="application/ld+json" strategy="afterInteractive">
           {`
-            {
-              "@context": "https://schema.org",
-              "@type": "FAQPage",
-              "mainEntity": [
-                {
-                  "@type": "Question",
-                  "name": "¿Son gratuitas las calculadoras de Calculord?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Sí, todas nuestras calculadoras laborales y financieras son completamente gratuitas y no requieren registro."
-                  }
-                },
-                {
-                  "@type": "Question", 
-                  "name": "¿Están actualizadas las calculadoras con la normativa 2025?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Sí, todas nuestras calculadoras están actualizadas con la normativa laboral y fiscal española de 2025, incluyendo SMI, cotizaciones y tramos de IRPF."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "¿Qué calculadoras laborales están disponibles?",
-                  "acceptedAnswer": {
-                    "@type": "Answer", 
-                    "text": "Disponemos de calculadoras de cotizaciones de seguridad social, salario por horas, despidos, paro, nómina completa, vacaciones y honorarios de abogado."
-                  }
+          {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "¿Son gratuitas las calculadoras de Calculord?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Sí, todas nuestras calculadoras laborales y financieras son completamente gratuitas y no requieren registro."
                 }
-              ]
-            }
-          `}
+              },
+              {
+                "@type": "Question", 
+                "name": "¿Están actualizadas las calculadoras con la normativa 2025?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Sí, todas nuestras calculadoras están actualizadas con la normativa laboral y fiscal española de 2025, incluyendo SMI, cotizaciones y tramos de IRPF."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "¿Qué calculadoras laborales están disponibles?",
+                "acceptedAnswer": {
+                  "@type": "Answer", 
+                  "text": "Disponemos de calculadoras de cotizaciones de seguridad social, salario por horas, despidos, paro, nómina completa, vacaciones y honorarios de abogado."
+                }
+              }
+            ]
+          }
+        `}
         </Script>
         {children}
       </body>
