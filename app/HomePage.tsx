@@ -12,6 +12,7 @@ import {
   Banknote,
   PiggyBank,
   ArrowLeftRight,
+  Building2,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
@@ -154,6 +155,34 @@ export default function HomePage() {
                 </div>
                 <Link href="/calculadora-cotizaciones-seguridad-social" className="mt-auto">
                   <Button className="w-full bg-blue-600 hover:bg-blue-700">Calcular Cotizaciones</Button>
+                </Link>
+              </div>
+
+              {/* Coste Total Empresa */}
+              <div className="bg-white p-6 rounded-xl shadow-sm border hover:shadow-md transition-shadow flex flex-col h-full">
+                <div className="w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center mb-4">
+                  <Building2 className="h-6 w-6 text-emerald-600" />
+                </div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">Coste Total Empresa</h3>
+                <p className="text-gray-600 mb-4 flex-grow">
+                  Calcula el coste real total de un trabajador para la empresa desde bruto o neto deseado.
+                </p>
+                <div className="space-y-2 mb-6">
+                  <div className="flex items-center text-sm text-gray-600">
+                    <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                    Cálculo desde bruto o neto
+                  </div>
+                  <div className="flex items-center text-sm text-gray-600">
+                    <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                    Cotizaciones empresariales 2025
+                  </div>
+                  <div className="flex items-center text-sm text-gray-600">
+                    <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                    Planificación presupuestaria
+                  </div>
+                </div>
+                <Link href="/calculadora-coste-total-empresa" className="mt-auto">
+                  <Button className="w-full bg-emerald-600 hover:bg-emerald-700">Calcular Coste</Button>
                 </Link>
               </div>
 
@@ -780,6 +809,11 @@ export default function HomePage() {
                 <li>
                   <Link href="/calculadora-cotizaciones-seguridad-social" className="hover:text-white">
                     Cotizaciones SS
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/calculadora-coste-total-empresa" className="hover:text-white">
+                    Coste Total Empresa
                   </Link>
                 </li>
                 <li>
