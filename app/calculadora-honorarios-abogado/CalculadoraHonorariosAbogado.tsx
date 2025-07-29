@@ -56,86 +56,6 @@ export default function CalculadoraHonorariosAbogado() {
   const [resultados, setResultados] = useState(null)
   const [isCalculating, setIsCalculating] = useState(false)
 
-  const structuredDataCalculator = {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    name: "Calculadora de Honorarios de Abogado 2025",
-    description: "Calcula honorarios legales según baremos colegiales, complejidad del caso y tiempo invertido",
-    url: "https://calculord.com/calculadora-honorarios-abogado",
-    applicationCategory: "FinanceApplication",
-    operatingSystem: "Web Browser",
-    offers: {
-      "@type": "Offer",
-      price: "0",
-      priceCurrency: "EUR",
-    },
-    featureList: [
-      "Baremos colegiales oficiales",
-      "Cálculo por especialidad jurídica",
-      "Ajuste por complejidad del caso",
-      "Factores de experiencia profesional",
-      "Cálculo por horas y cuantía",
-    ],
-  }
-
-  const faqStructuredData = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: "¿Cómo se calculan los honorarios de un abogado en España?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Los honorarios de abogado se calculan según baremos orientativos de los colegios profesionales, considerando la especialidad, complejidad del caso, tiempo invertido y experiencia del profesional. También se puede aplicar un porcentaje sobre la cuantía del asunto.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "¿Cuánto cobra un abogado por un divorcio en 2025?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Un divorcio de mutuo acuerdo puede costar entre 800-1.500€, mientras que un divorcio contencioso puede oscilar entre 2.000-8.000€, dependiendo de la complejidad, custodia de hijos y patrimonio común.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "¿Los honorarios de abogado incluyen IVA?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "No, los honorarios de abogado no incluyen IVA. Se debe añadir un 21% de IVA sobre los honorarios base, y se aplica una retención del 15% de IRPF.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "¿Cuánto cobra un abogado por hora en España?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Las tarifas por hora varían según la especialidad: Derecho de Familia (100-120€/h), Derecho Civil (120-140€/h), Derecho Penal (150-180€/h), Derecho Mercantil (140-160€/h). Los abogados senior pueden cobrar hasta 200€/h o más.",
-        },
-      },
-    ],
-  }
-
-  const breadcrumbStructuredData = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: "Inicio",
-        item: "https://calculord.com",
-      },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "Calculadora Honorarios Abogado",
-        item: "https://calculord.com/calculadora-honorarios-abogado",
-      },
-    ],
-  }
-
   // Baremos base por especialidad (€/hora)
   const baremasEspecialidad = {
     familia: { base: 100, factor: 0.85 },
@@ -842,34 +762,6 @@ export default function CalculadoraHonorariosAbogado() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredDataCalculator) }}
-      />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqStructuredData) }} />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbStructuredData) }}
-      />
-
-      {/* Header */}
-      <header className="bg-white shadow-sm border-b">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-4">
-            <Link href="/" className="flex items-center space-x-2">
-              <Calculator className="h-8 w-8 text-blue-600" />
-              <span className="text-2xl font-bold text-gray-900">Calculord</span>
-            </Link>
-            <Link href="/">
-              <Button variant="outline" className="flex items-center space-x-2 bg-transparent">
-                <ArrowLeft className="h-4 w-4" />
-                <span>Volver al inicio</span>
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </header>
-
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-amber-50 to-orange-100 py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -881,8 +773,8 @@ export default function CalculadoraHonorariosAbogado() {
             <span className="block text-amber-600">de Abogado 2025</span>
           </h1>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-8">
-            Calcula honorarios legales según baremos colegiales oficiales. Especializada en divorcios, accidentes,
-            despidos, herencias y más casos específicos.
+            Nuestra <strong>calculadora de honorarios de abogados</strong> te permite estimar los costes legales según
+            baremos colegiales oficiales. Especializada en divorcios, accidentes, despidos, herencias y más.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
             <Button
@@ -926,7 +818,8 @@ export default function CalculadoraHonorariosAbogado() {
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">Calculadora de Honorarios de Abogado</h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Obtén un presupuesto personalizado según tu caso específico
+            Utiliza nuestra <strong>calculadora de honorarios de abogados</strong> para obtener un presupuesto
+            personalizado según tu caso específico.
           </p>
         </div>
 
@@ -1349,7 +1242,7 @@ export default function CalculadoraHonorariosAbogado() {
               {
                 pregunta: "¿Cómo se calculan los honorarios de un abogado en España?",
                 respuesta:
-                  "Los honorarios se calculan según baremos orientativos de los colegios profesionales, considerando la especialidad, complejidad del caso, tiempo invertido y experiencia del profesional. También se puede aplicar un porcentaje sobre la cuantía del asunto.",
+                  "Los honorarios se calculan según baremos orientativos de los colegios profesionales, considerando la especialidad, complejidad del caso, tiempo invertido y experiencia del profesional. También se puede aplicar un porcentaje sobre la cuantía del asunto. Nuestra <strong>calculadora de honorarios de abogados</strong> tiene en cuenta todos estos factores para darte la estimación más fiable.",
               },
               {
                 pregunta: "¿Cuánto cobra un abogado por un divorcio en 2025?",
@@ -1380,7 +1273,7 @@ export default function CalculadoraHonorariosAbogado() {
               <Card key={index} className="border-0 shadow-lg">
                 <CardContent className="p-6">
                   <h3 className="text-lg font-semibold text-gray-900 mb-3">{faq.pregunta}</h3>
-                  <p className="text-gray-600">{faq.respuesta}</p>
+                  <p className="text-gray-600" dangerouslySetInnerHTML={{ __html: faq.respuesta }}></p>
                 </CardContent>
               </Card>
             ))}
@@ -1439,21 +1332,21 @@ export default function CalculadoraHonorariosAbogado() {
         </div>
       </section>
 
-      {/* Casos Laborales Relacionados */}
+      {/* Calculadoras Relacionadas */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Casos Laborales Relacionados</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Calculadoras Relacionadas</h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Calcula los importes de tus casos laborales para presupuestar mejor los honorarios
+              Utiliza estas herramientas para obtener una visión completa de los costes e importes de tu caso.
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
             <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
               <CardHeader className="text-center pb-4">
-                <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Briefcase className="h-8 w-8 text-red-600" />
+                <div className="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Briefcase className="h-8 w-8 text-amber-600" />
                 </div>
                 <CardTitle className="text-xl text-gray-900">Calculadora de Despidos</CardTitle>
               </CardHeader>
@@ -1463,7 +1356,7 @@ export default function CalculadoraHonorariosAbogado() {
                   honorarios.
                 </p>
                 <Link href="/calculadora-despidos">
-                  <Button className="w-full bg-red-600 hover:bg-red-700 text-white">
+                  <Button className="w-full bg-amber-600 hover:bg-amber-700 text-white">
                     Calcular despido
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
@@ -1473,8 +1366,8 @@ export default function CalculadoraHonorariosAbogado() {
 
             <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
               <CardHeader className="text-center pb-4">
-                <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Banknote className="h-8 w-8 text-orange-600" />
+                <div className="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Banknote className="h-8 w-8 text-amber-600" />
                 </div>
                 <CardTitle className="text-xl text-gray-900">Prestación por Desempleo</CardTitle>
               </CardHeader>
@@ -1483,7 +1376,7 @@ export default function CalculadoraHonorariosAbogado() {
                   Calcula la prestación de paro para reclamaciones al SEPE. Conoce el importe exacto a reclamar.
                 </p>
                 <Link href="/calculadora-paro">
-                  <Button className="w-full bg-orange-600 hover:bg-orange-700 text-white">
+                  <Button className="w-full bg-amber-600 hover:bg-amber-700 text-white">
                     Calcular paro
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
@@ -1493,8 +1386,8 @@ export default function CalculadoraHonorariosAbogado() {
 
             <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
               <CardHeader className="text-center pb-4">
-                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Clock className="h-8 w-8 text-green-600" />
+                <div className="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Clock className="h-8 w-8 text-amber-600" />
                 </div>
                 <CardTitle className="text-xl text-gray-900">Salario por Horas</CardTitle>
               </CardHeader>
@@ -1503,7 +1396,7 @@ export default function CalculadoraHonorariosAbogado() {
                   Para reclamaciones salariales por horas extra o SMI. Calcula el importe exacto de la reclamación.
                 </p>
                 <Link href="/calculadora-salario-por-horas">
-                  <Button className="w-full bg-green-600 hover:bg-green-700 text-white">
+                  <Button className="w-full bg-amber-600 hover:bg-amber-700 text-white">
                     Calcular salario
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>

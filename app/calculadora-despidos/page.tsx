@@ -116,9 +116,56 @@ const faqData = [
   },
 ]
 
+const webAppStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  name: "Calculadora de Despido e Indemnización 2025",
+  description:
+    "Calcula tu indemnización por despido y finiquito para 2025. Herramienta para despido improcedente, objetivo y disciplinario.",
+  url: "https://calculord.com/calculadora-despidos",
+  applicationCategory: "FinanceApplication",
+  operatingSystem: "Web Browser",
+  offers: {
+    "@type": "Offer",
+    price: "0",
+    priceCurrency: "EUR",
+  },
+  featureList: [
+    "Cálculo indemnización despido improcedente",
+    "Cálculo indemnización despido objetivo",
+    "Cálculo de finiquito",
+    "Guía de tipos de despido",
+    "Protocolo de actuación",
+  ],
+  creator: {
+    "@type": "Organization",
+    name: "Calculord",
+  },
+  dateModified: "2025-07-29",
+  inLanguage: "es-ES",
+  isAccessibleForFree: true,
+}
+
+const faqStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqData.map((faq) => ({
+    "@type": "Question",
+    name: faq.q,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.a,
+    },
+  })),
+}
+
 export default function CalculadoraDespidosPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([webAppStructuredData, faqStructuredData]) }}
+      />
       <Breadcrumbs currentPage="Calculadora de Despidos" />
 
       <section className="bg-gradient-to-br from-red-50 via-orange-50 to-red-100 py-16 md:py-20">

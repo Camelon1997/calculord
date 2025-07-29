@@ -3,30 +3,31 @@ import CalculadoraVacaciones from "./CalculadoraVacaciones"
 import { Breadcrumbs } from "../components/Breadcrumbs"
 
 export const metadata: Metadata = {
-  title: "🔥 Calculadora Vacaciones Laborales 2025 | Días + Valor Económico | Calculord",
+  title: "✅ Calculadora de Vacaciones Laborales 2025 (Naturales y Laborables)",
   description:
-    "✅ Calcula tus DÍAS de vacaciones según antigüedad, convenio y tiempo trabajado 2025. 📊 Vacaciones proporcionales + valor económico. 💰 Planifica tu descanso. 🆓 Herramienta gratuita actualizada.",
+    "Calcula tus DÍAS de vacaciones (naturales o laborables) según tu convenio y antigüedad. 📅 Conoce la parte proporcional, el valor económico y resuelve tus dudas con nuestra guía y FAQ.",
   keywords: [
-    "calculadora vacaciones 2025",
-    "días vacaciones laborales",
-    "vacaciones según antigüedad",
+    "calculadora vacaciones",
+    "calculadora vacaciones laborales",
+    "dias de vacaciones por año trabajado",
+    "calcular vacaciones proporcionales",
+    "dias naturales o laborables",
+    "estatuto de los trabajadores vacaciones",
     "convenio colectivo vacaciones",
-    "vacaciones proporcionales",
-    "valor económico vacaciones",
-    "planificar vacaciones trabajo",
-    "derechos laborales vacaciones",
-    "estatuto trabajadores vacaciones",
-    "vacaciones 30 días naturales",
-    "vacaciones por años trabajados",
-    "incremento vacaciones antigüedad",
-    "vacaciones pendientes cálculo",
-    "disfrute vacaciones España",
-    "periodo vacacional laboral",
-    "calculadora laboral vacaciones",
-    "herramientas RRHH vacaciones",
-    "gestión vacaciones empresa",
-    "calendario laboral vacaciones",
-    "derecho descanso anual",
+    "valor economico vacaciones",
+    "pago de vacaciones en finiquito",
+    "baja medica durante vacaciones",
+    "derecho a vacaciones",
+    "planificar vacaciones",
+    "calculadora laboral",
+    "vacaciones españa 2025",
+    "cuantos dias de vacaciones me corresponden",
+    "devengo de vacaciones",
+    "retribucion vacaciones",
+    "solicitar vacaciones",
+    "vacaciones tiempo parcial",
+    "planificacion vacaciones empresa",
+    "vacaciones contrato temporal",
   ].join(", "),
   authors: [{ name: "Calculord" }],
   creator: "Calculord",
@@ -36,9 +37,9 @@ export const metadata: Metadata = {
     canonical: "https://calculord.com/calculadora-vacaciones",
   },
   openGraph: {
-    title: "🔥 Calculadora Vacaciones Laborales 2025 | Días + Valor Económico | Calculord",
+    title: "✅ Calculadora de Vacaciones 2025 (Naturales y Laborables)",
     description:
-      "✅ Calcula días vacaciones según antigüedad, convenio y tiempo trabajado. 📊 Vacaciones proporcionales + valor económico. 🆓",
+      "Calcula tus días de vacaciones (naturales o laborables) según tu convenio y antigüedad. Conoce la parte proporcional, el valor económico y resuelve tus dudas.",
     url: "https://calculord.com/calculadora-vacaciones",
     siteName: "Calculord",
     images: [
@@ -46,7 +47,7 @@ export const metadata: Metadata = {
         url: "/og-vacaciones-laborales.jpg",
         width: 1200,
         height: 630,
-        alt: "Calculadora de Vacaciones Laborales 2025 - Días y Valor Económico",
+        alt: "Calculadora de Vacaciones Laborales 2025",
       },
     ],
     locale: "es_ES",
@@ -54,8 +55,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "🔥 Calculadora Vacaciones Laborales 2025 | Días + Valor",
-    description: "✅ Calcula días vacaciones según antigüedad, convenio y tiempo trabajado. Valor económico. 🆓",
+    title: "✅ Calculadora de Vacaciones 2025 (Naturales y Laborables)",
+    description:
+      "Calcula tus días de vacaciones (naturales o laborables) según tu convenio y antigüedad. Conoce la parte proporcional y el valor económico.",
     images: ["/og-vacaciones-laborales.jpg"],
     creator: "@calculord",
   },
@@ -77,7 +79,7 @@ const structuredData = {
   "@type": "WebApplication",
   name: "Calculadora de Vacaciones Laborales 2025",
   description:
-    "Calculadora gratuita para calcular los días de vacaciones según antigüedad, convenio colectivo y tiempo trabajado, incluyendo su valor económico.",
+    "Calculadora gratuita para calcular los días de vacaciones (naturales o laborables) según antigüedad, convenio colectivo y tiempo trabajado, incluyendo su valor económico.",
   url: "https://calculord.com/calculadora-vacaciones",
   applicationCategory: "FinanceApplication",
   operatingSystem: "Web Browser",
@@ -87,21 +89,70 @@ const structuredData = {
     priceCurrency: "EUR",
   },
   featureList: [
-    "Cálculo por convenio colectivo",
-    "Vacaciones proporcionales",
-    "Incremento por antigüedad",
-    "Valor económico",
-    "Planificación de fechas",
-    "Diferentes tipos de contrato",
-    "Desglose detallado",
+    "Cálculo en días naturales y laborables",
+    "Cálculo por convenio colectivo y personalizado",
+    "Cálculo de vacaciones proporcionales",
+    "Bonus por antigüedad",
+    "Cálculo del valor económico de las vacaciones",
+    "Planificación de fechas sugeridas",
+    "Guía completa sobre derechos vacacionales",
+    "Sección de Preguntas Frecuentes (FAQ)",
+    "Información sobre solicitud de vacaciones",
+    "Aclaraciones sobre contratos a tiempo parcial y temporales",
   ],
   creator: {
     "@type": "Organization",
     name: "Calculord",
+    url: "https://calculord.com",
   },
-  dateModified: "2025-01-28",
+  dateModified: "2025-07-29",
   inLanguage: "es-ES",
   isAccessibleForFree: true,
+  mainEntity: {
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "¿Se pueden pagar las vacaciones en lugar de disfrutarlas?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "No, la regla general es que las vacaciones deben disfrutarse. La única excepción es al finalizar la relación laboral, donde los días pendientes se abonan en el finiquito.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "¿Qué pasa si me pongo enfermo (baja por IT) durante mis vacaciones?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Las vacaciones se interrumpen. Tienes derecho a recuperar los días de vacaciones que coincidieron con tu baja una vez recibas el alta médica.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "¿Puede la empresa obligarme a coger vacaciones en una fecha concreta?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "No de forma unilateral. El periodo de vacaciones se fija de común acuerdo entre empresa y trabajador, según lo que marque el convenio colectivo. Debes conocer las fechas con al menos dos meses de antelación.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "¿Pierdo mis vacaciones si no las disfruto dentro del año natural?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Generalmente sí, deben disfrutarse dentro del año natural en que se generan. Existen excepciones para bajas por maternidad, paternidad o incapacidad temporal, que permiten su disfrute posterior.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "¿Tengo los mismos días de vacaciones con un contrato a tiempo parcial?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Sí, un trabajador a tiempo parcial tiene derecho al mismo número de días de vacaciones que un trabajador a tiempo completo (mínimo 30 días naturales). La retribución durante las vacaciones será proporcional a su jornada.",
+        },
+      },
+    ],
+  },
 }
 
 export default function CalculadoraVacacionesPage() {

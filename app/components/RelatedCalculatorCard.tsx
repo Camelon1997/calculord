@@ -12,6 +12,7 @@ interface RelatedCalculatorCardProps {
   href: string
   buttonText: string
   buttonClassName?: string
+  iconBgClassName?: string
 }
 
 export function RelatedCalculatorCard({
@@ -22,10 +23,15 @@ export function RelatedCalculatorCard({
   href,
   buttonText,
   buttonClassName,
+  iconBgClassName,
 }: RelatedCalculatorCardProps) {
   return (
     <div className="bg-white p-6 rounded-xl shadow-sm border hover:shadow-md transition-shadow flex flex-col h-full">
-      <div className="w-12 h-12 rounded-lg flex items-center justify-center mb-4 bg-opacity-100">{icon}</div>
+      <div
+        className={cn("w-12 h-12 rounded-lg flex items-center justify-center mb-4", iconBgClassName || "bg-gray-100")}
+      >
+        {icon}
+      </div>
       <h3 className="text-xl font-semibold text-gray-900 mb-2">{title}</h3>
       <p className="text-gray-600 mb-4 flex-grow">{description}</p>
       {features && features.length > 0 && (
