@@ -6,7 +6,12 @@ import "./globals.css"
 import Header from "./components/Header"
 import DynamicFooter from "./components/DynamicFooter"
 
-const inter = Inter({ subsets: ["latin"], display: "swap" })
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  preload: true,
+  fallback: ["system-ui", "arial"],
+})
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -21,28 +26,35 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://calculord.com"),
-  title: "Calculord: Calculadoras Laborales y Financieras",
+  title: {
+    default: "Calculord: Calculadoras Laborales y Financieras Gratuitas 2025",
+    template: "%s | Calculord",
+  },
   description:
-    "Herramientas y calculadoras gratuitas para finanzas, impuestos (IRPF), laboral y más. Actualizadas para 2025.",
+    "🔥 Suite completa de calculadoras laborales y financieras GRATUITAS 2025. ✅ Salarios, cotizaciones SS, nóminas, hipotecas, ahorros y más. ⚡ Herramientas profesionales actualizadas con normativa española.",
   applicationName: "Calculord",
   referrer: "origin-when-cross-origin",
   keywords: [
-    "calculadoras laborales",
-    "calculadoras financieras",
-    "salario",
-    "cotizaciones seguridad social",
-    "SMI 2025",
-    "nómina",
-    "hipoteca",
-    "ahorro",
-    "vacaciones laborales",
-    "despidos",
-    "paro",
-    "honorarios abogado",
-    "calculadora salarial",
-    "herramientas RRHH",
-    "derecho laboral",
-    "finanzas personales",
+    "calculadoras laborales 2025",
+    "calculadoras financieras gratuitas",
+    "calculadora salario España",
+    "cotizaciones seguridad social 2025",
+    "SMI 2025 1184 euros",
+    "calculadora nómina IRPF",
+    "calculadora hipoteca España",
+    "calculadora ahorro interés compuesto",
+    "calculadora vacaciones laborales",
+    "calculadora despidos indemnización",
+    "calculadora paro SEPE",
+    "honorarios abogado baremos",
+    "herramientas RRHH gratuitas",
+    "derecho laboral calculadoras",
+    "finanzas personales España",
+    "calculadora salarial online",
+    "régimen general autónomos",
+    "prestación por desempleo",
+    "planificación financiera",
+    "recursos humanos herramientas",
   ],
   authors: [{ name: "Calculord", url: "https://calculord.com" }],
   creator: "Calculord",
@@ -73,13 +85,39 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: "your-google-verification-code",
+    google: "0ba11d3d8aaa2d03",
     other: {
       "msvalidate.01": "your-bing-verification-code",
       "yandex-verification": "your-yandex-verification-code",
     },
   },
   category: "Finance",
+  openGraph: {
+    title: "Calculadoras Laborales y Financieras Gratuitas 2025 | Calculord",
+    description:
+      "🔥 Suite completa de calculadoras GRATUITAS: salarios, cotizaciones SS, nóminas, hipotecas, ahorros. ✅ Actualizadas 2025 con normativa española.",
+    url: "https://calculord.com",
+    siteName: "Calculord",
+    images: [
+      {
+        url: "/og-image-home.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Calculadoras Laborales y Financieras Gratuitas 2025 - Calculord",
+      },
+    ],
+    locale: "es_ES",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Calculadoras Laborales y Financieras Gratuitas 2025 | Calculord",
+    description:
+      "🔥 Suite completa de calculadoras GRATUITAS: salarios, cotizaciones, nóminas, hipotecas, ahorros. ✅ Actualizadas 2025.",
+    images: ["/og-image-home.jpg"],
+    creator: "@calculord",
+    site: "@calculord",
+  },
     generator: 'v0.dev'
 }
 
@@ -255,7 +293,7 @@ export default function RootLayout({
           }}
         />
         <link rel="canonical" href="https://calculord.com" />
-        <meta name="google-site-verification" content="your-google-verification-code" />
+        <meta name="google-site-verification" content="0ba11d3d8aaa2d03" />
         <meta name="msvalidate.01" content="your-bing-verification-code" />
         <meta name="yandex-verification" content="your-yandex-verification-code" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -267,8 +305,9 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <meta name="apple-mobile-web-app-title" content="Calculord" />
       </head>
-      <body className={`${inter.className} bg-gray-50 text-gray-800`}>
+      <body className={`${inter.className} bg-gray-50 text-gray-800 antialiased`}>
         <Header />
+
         {/* Google Analytics */}
         <Script src="https://www.googletagmanager.com/gtag/js?id=G-8QKFLE7EEH" strategy="afterInteractive" />
         <Script id="google-analytics" strategy="afterInteractive">
@@ -320,7 +359,8 @@ export default function RootLayout({
           }
         `}
         </Script>
-        <main>{children}</main>
+
+        <main className="min-h-screen">{children}</main>
         <DynamicFooter />
       </body>
     </html>

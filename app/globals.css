@@ -53,9 +53,27 @@
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* Optimización de fuentes */
+  html {
+    font-display: swap;
+  }
+
+  /* Mejoras de rendimiento */
+  img {
+    content-visibility: auto;
+  }
+
+  /* Scroll suave optimizado */
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
   }
 }
 
@@ -110,4 +128,47 @@
 
 .prose-calculord th {
   @apply bg-gray-50 font-semibold;
+}
+
+/* Optimizaciones de rendimiento */
+.calculator-card {
+  contain: layout style paint;
+}
+
+.hero-section {
+  contain: layout style;
+}
+
+/* Mejoras responsive */
+@media (max-width: 640px) {
+  .prose-calculord table {
+    @apply text-xs;
+  }
+
+  .prose-calculord th,
+  .prose-calculord td {
+    @apply p-1;
+  }
+}
+
+/* Lazy loading optimization */
+.lazy-load {
+  content-visibility: auto;
+  contain-intrinsic-size: 200px;
+}
+
+/* Focus improvements for accessibility */
+.focus-visible:focus-visible {
+  @apply outline-2 outline-blue-500 outline-offset-2;
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  body {
+    @apply text-black bg-white;
+  }
 }

@@ -10,20 +10,13 @@ Disallow: /api/
 Disallow: /_next/
 Disallow: /private/
 
-# Allow all calculators
+# Allow all calculators and important pages
 Allow: /calculadora-*
-
-# Allow important pages
-Allow: /
-Allow: /calculadora-cotizaciones-seguridad-social
-Allow: /calculadora-salario-por-horas
-Allow: /calculadora-despidos
-Allow: /calculadora-paro
-Allow: /calculadora-nomina
-Allow: /calculadora-vacaciones
-Allow: /calculadora-honorarios-abogado
-Allow: /calculadora-hipoteca
-Allow: /calculadora-ahorro
+Allow: /conversor-*
+Allow: /blog
+Allow: /blog/*
+Allow: /sobre-nosotros
+Allow: /contacto
 
 # Crawl-delay (helps with server load)
 Crawl-delay: 1
@@ -40,3 +33,19 @@ Crawl-delay: 1
 User-agent: Slurp
 Allow: /
 Crawl-delay: 2
+
+# Block AI crawlers that don't respect robots.txt
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: Claude-Web
+Disallow: /

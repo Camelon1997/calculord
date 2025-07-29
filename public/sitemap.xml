@@ -1,117 +1,174 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+  <!-- Página principal -->
   <url>
     <loc>https://calculord.com/</loc>
-    <lastmod>2025-01-28</lastmod>
+    <lastmod>2025-01-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
+  
+  <!-- Blog principal -->
   <url>
     <loc>https://calculord.com/blog</loc>
-    <lastmod>2025-01-28</lastmod>
+    <lastmod>2025-01-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
+  
+  <!-- Artículos del blog -->
   <url>
-    <loc>https://calculord.com/blog/smi-2025-subida-salario-minimo-interprofesional</loc>
+    <loc>https://calculord.com/blog/smi-2025-subida</loc>
     <lastmod>2025-01-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://calculord.com/blog/cotizaciones-seguridad-social-2025-cambios</loc>
+    <loc>https://calculord.com/blog/tramos-irpf-2025</loc>
     <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://calculord.com/blog/como-calcular-finiquito-paso-a-paso</loc>
+    <loc>https://calculord.com/blog/deducciones-irpf-2025</loc>
     <lastmod>2025-01-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://calculord.com/blog/irpf-2025-nuevos-tramos-deducciones</loc>
+    <loc>https://calculord.com/blog/minimos-personales-familiares-irpf-2025</loc>
     <lastmod>2025-01-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://calculord.com/blog/despido-procedente-improcedente-diferencias</loc>
+    <loc>https://calculord.com/blog/declaracion-renta-2025-guia-completa</loc>
     <lastmod>2025-01-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://calculord.com/blog/calculadora-vs-excel-nominas-ventajas</loc>
+    <loc>https://calculord.com/blog/cotizaciones-seguridad-social-2025</loc>
     <lastmod>2025-01-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://calculord.com/blog/como-leer-nomina-2025</loc>
+    <lastmod>2025-01-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://calculord.com/blog/como-calcular-irpf-2025</loc>
+    <lastmod>2025-01-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Calculadoras principales -->
+  <url>
     <loc>https://calculord.com/calculadora-cotizaciones-seguridad-social</loc>
-    <lastmod>2025-01-28</lastmod>
+    <lastmod>2025-01-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://calculord.com/calculadora-coste-total-empresa</loc>
-    <lastmod>2025-01-28</lastmod>
+    <lastmod>2025-01-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://calculord.com/conversor-salario-bruto-neto</loc>
-    <lastmod>2025-01-28</lastmod>
+    <lastmod>2025-01-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://calculord.com/calculadora-salario-por-horas</loc>
-    <lastmod>2025-01-28</lastmod>
+    <loc>https://calculord.com/calculadora-irpf</loc>
+    <lastmod>2025-01-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://calculord.com/calculadora-despidos</loc>
-    <lastmod>2025-01-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://calculord.com/calculadora-paro</loc>
-    <lastmod>2025-01-28</lastmod>
+    <loc>https://calculord.com/calculadora-irpf-autonomos</loc>
+    <lastmod>2025-01-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://calculord.com/calculadora-nomina</loc>
-    <lastmod>2025-01-28</lastmod>
+    <lastmod>2025-01-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
+  
+  <!-- Calculadoras secundarias -->
   <url>
-    <loc>https://calculord.com/calculadora-vacaciones</loc>
-    <lastmod>2025-01-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://calculord.com/calculadora-honorarios-abogado</loc>
-    <lastmod>2025-01-28</lastmod>
+    <loc>https://calculord.com/calculadora-salario-por-horas</loc>
+    <lastmod>2025-01-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://calculord.com/calculadora-despidos</loc>
+    <lastmod>2025-01-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://calculord.com/calculadora-paro</loc>
+    <lastmod>2025-01-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://calculord.com/calculadora-vacaciones</loc>
+    <lastmod>2025-01-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://calculord.com/calculadora-calendario-fiscal-autonomos</loc>
+    <lastmod>2025-01-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Calculadoras financieras -->
+  <url>
     <loc>https://calculord.com/calculadora-hipoteca</loc>
-    <lastmod>2025-01-28</lastmod>
+    <lastmod>2025-01-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://calculord.com/calculadora-ahorro</loc>
-    <lastmod>2025-01-28</lastmod>
+    <lastmod>2025-01-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  
+  <!-- Calculadoras de servicios -->
+  <url>
+    <loc>https://calculord.com/calculadora-honorarios-abogado</loc>
+    <lastmod>2025-01-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Páginas institucionales -->
+  <url>
+    <loc>https://calculord.com/sobre-nosotros</loc>
+    <lastmod>2025-01-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://calculord.com/contacto</loc>
+    <lastmod>2025-01-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
 </urlset>

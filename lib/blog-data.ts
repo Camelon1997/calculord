@@ -4,7 +4,7 @@ export const blogCategories: BlogCategory[] = [
   { name: "Normativa", count: 2 },
   { name: "IRPF", count: 4 },
   { name: "Cotizaciones", count: 1 },
-  { name: "Guías Prácticas", count: 4 },
+  { name: "Guías Prácticas", count: 5 },
   { name: "Derecho Laboral", count: 2 },
 ]
 
@@ -1450,6 +1450,673 @@ La correcta comprensión del cálculo del IRPF te permitirá optimizar tu carga 
       "Límite Trabajo": "22.000€",
       "Límite Capital": "1.600€",
       "Deducción Vivienda": "15%",
+    },
+  },
+  "cotizaciones-seguridad-social-2025": {
+    slug: "cotizaciones-seguridad-social-2025",
+    title: "Cotizaciones a la Seguridad Social 2025: Guía Completa con Nuevos Tipos y Bases",
+    excerpt:
+      "Todo sobre las cotizaciones a la Seguridad Social en 2025. Nuevas bases de cotización, tipos actualizados, ejemplos prácticos y cómo afectan a tu nómina y a las empresas.",
+    content: `
+<p>Las <strong>cotizaciones a la Seguridad Social</strong> son uno de los elementos más importantes de tu nómina y del coste laboral para las empresas. En 2025 se han producido cambios significativos en las bases de cotización y algunos tipos que debes conocer para entender correctamente tu nómina y planificar los costes laborales.</p>
+
+<p>En esta guía completa te explicamos todo sobre las cotizaciones 2025: qué son, cómo se calculan, las novedades del año, ejemplos prácticos y cómo afectan tanto a trabajadores como a empresas.</p>
+
+<div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-lg my-6">
+  <h3 class="font-bold text-blue-900">📊 Datos Clave Cotizaciones 2025</h3>
+  <p class="text-blue-800"><strong>Base mínima:</strong> 1.323€/mes • <strong>Base máxima:</strong> 4.720,50€/mes • <strong>Cotización total trabajador:</strong> 6,35% • <strong>Cotización total empresa:</strong> 29,90% • <strong>Incremento bases:</strong> +4,6% respecto 2024</p>
+</div>
+
+<h2 id="que-son-cotizaciones-seguridad-social">📋 ¿Qué son las Cotizaciones a la Seguridad Social?</h2>
+
+<p>Las cotizaciones a la Seguridad Social son las aportaciones obligatorias que realizan trabajadores y empresas para financiar el sistema de protección social español. Estas cotizaciones dan derecho a prestaciones como:</p>
+
+<ul>
+  <li><strong>Pensión de jubilación:</strong> Cuando llegues a la edad de retiro</li>
+  <li><strong>Prestación por desempleo:</strong> Si pierdes tu trabajo</li>
+  <li><strong>Incapacidad temporal:</strong> Durante bajas médicas</li>
+  <li><strong>Asistencia sanitaria:</strong> Cobertura médica universal</li>
+  <li><strong>Prestaciones familiares:</strong> Ayudas por hijo a cargo</li>
+</ul>
+
+<h2 id="bases-cotizacion-2025">💰 Bases de Cotización 2025</h2>
+
+<p>Las bases de cotización son los importes sobre los que se calculan las cotizaciones. Para 2025 se han actualizado significativamente:</p>
+
+<div class="bg-green-50 p-6 rounded-lg my-6">
+  <h3 class="font-bold text-green-900 mb-4">Bases de Cotización Actualizadas</h3>
+  
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div class="bg-white p-4 rounded border">
+      <h4 class="font-bold text-green-700 mb-3">Base Mínima</h4>
+      <p class="text-3xl font-bold text-green-600 mb-2">1.323€</p>
+      <p class="text-sm text-green-800">+4,6% vs 2024 (1.260€)</p>
+      <p class="text-xs text-gray-600 mt-2">Aplicable a salarios desde el SMI</p>
+    </div>
+    
+    <div class="bg-white p-4 rounded border">
+      <h4 class="font-bold text-green-700 mb-3">Base Máxima</h4>
+      <p class="text-3xl font-bold text-green-600 mb-2">4.720,50€</p>
+      <p class="text-sm text-green-800">+4,6% vs 2024 (4.495,50€)</p>
+      <p class="text-xs text-gray-600 mt-2">Tope máximo de cotización mensual</p>
+    </div>
+  </div>
+  
+  <div class="mt-4 bg-white p-4 rounded border">
+    <h4 class="font-bold text-green-700 mb-2">📈 Evolución Histórica</h4>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+      <div>
+        <p class="font-bold text-gray-700">2022</p>
+        <p class="text-gray-600">1.166,70€ - 4.139,40€</p>
+      </div>
+      <div>
+        <p class="font-bold text-gray-700">2023</p>
+        <p class="text-gray-600">1.260€ - 4.495,50€</p>
+      </div>
+      <div>
+        <p class="font-bold text-gray-700">2024</p>
+        <p class="text-gray-600">1.260€ - 4.495,50€</p>
+      </div>
+      <div>
+        <p class="font-bold text-blue-700">2025</p>
+        <p class="text-blue-600">1.323€ - 4.720,50€</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h2 id="tipos-cotizacion-2025">📊 Tipos de Cotización 2025</h2>
+
+<p>Los tipos de cotización se dividen entre lo que paga el trabajador y lo que paga la empresa:</p>
+
+<h3>Cotizaciones del Trabajador (6,35% total)</h3>
+
+<div class="bg-blue-50 p-6 rounded-lg my-6">
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+    <div class="bg-white p-4 rounded border">
+      <h4 class="font-bold text-blue-700 text-sm">Contingencias Comunes</h4>
+      <p class="text-2xl font-bold text-blue-600">4,70%</p>
+      <p class="text-xs text-gray-600">Jubilación, incapacidad, muerte</p>
+    </div>
+    <div class="bg-white p-4 rounded border">
+      <h4 class="font-bold text-blue-700 text-sm">Desempleo</h4>
+      <p class="text-2xl font-bold text-blue-600">1,55%</p>
+      <p class="text-xs text-gray-600">Prestación por desempleo</p>
+    </div>
+    <div class="bg-white p-4 rounded border">
+      <h4 class="font-bold text-blue-700 text-sm">Formación Profesional</h4>
+      <p class="text-2xl font-bold text-blue-600">0,10%</p>
+      <p class="text-xs text-gray-600">Cursos y reciclaje</p>
+    </div>
+    <div class="bg-white p-4 rounded border">
+      <h4 class="font-bold text-blue-700 text-sm">Total Trabajador</h4>
+      <p class="text-2xl font-bold text-blue-600">6,35%</p>
+      <p class="text-xs text-gray-600">Se descuenta de tu nómina</p>
+    </div>
+  </div>
+</div>
+
+<h3>Cotizaciones de la Empresa (29,90% total)</h3>
+
+<div class="bg-red-50 p-6 rounded-lg my-6">
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    <div class="bg-white p-4 rounded border">
+      <h4 class="font-bold text-red-700 text-sm">Contingencias Comunes</h4>
+      <p class="text-xl font-bold text-red-600">23,60%</p>
+      <p class="text-xs text-gray-600">Jubilación, incapacidad, muerte</p>
+    </div>
+    <div class="bg-white p-4 rounded border">
+      <h4 class="font-bold text-red-700 text-sm">Accidentes y Enf. Prof.</h4>
+      <p class="text-xl font-bold text-red-600">Variable</p>
+      <p class="text-xs text-gray-600">Según actividad (0,5% - 6%)</p>
+    </div>
+    <div class="bg-white p-4 rounded border">
+      <h4 class="font-bold text-red-700 text-sm">Desempleo</h4>
+      <p class="text-xl font-bold text-red-600">5,50%</p>
+      <p class="text-xs text-gray-600">Prestación por desempleo</p>
+    </div>
+    <div class="bg-white p-4 rounded border">
+      <h4 class="font-bold text-red-700 text-sm">Formación Profesional</h4>
+      <p class="text-xl font-bold text-red-600">0,60%</p>
+      <p class="text-xs text-gray-600">Cursos y reciclaje</p>
+    </div>
+    <div class="bg-white p-4 rounded border">
+      <h4 class="font-bold text-red-700 text-sm">FOGASA</h4>
+      <p class="text-xl font-bold text-red-600">0,20%</p>
+      <p class="text-xs text-gray-600">Garantía salarial</p>
+    </div>
+    <div class="bg-white p-4 rounded border">
+      <h4 class="font-bold text-red-700 text-sm">Total Empresa</h4>
+      <p class="text-xl font-bold text-red-600">≈29,90%</p>
+      <p class="text-xs text-gray-600">Coste adicional al salario</p>
+    </div>
+  </div>
+</div>
+
+<h2 id="ejemplos-practicos-calculo">🧮 Ejemplos Prácticos de Cálculo</h2>
+
+<h3>Ejemplo 1: Salario de 2.000€ Brutos</h3>
+
+<div class="bg-yellow-50 p-6 rounded-lg my-6 border border-yellow-200">
+  <h4 class="font-bold text-yellow-900 mb-4">💼 Situación</h4>
+  <p class="text-yellow-800 mb-4">Trabajador con contrato indefinido, salario bruto de 2.000€ mensuales, grupo de cotización 1 (ingenieros y licenciados).</p>
+  
+  <h4 class="font-bold text-yellow-900 mb-4">📊 Cálculo de Cotizaciones</h4>
+  
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div class="bg-white p-4 rounded border">
+      <h5 class="font-bold text-yellow-700 mb-3">👤 Cotizaciones del Trabajador</h5>
+      <ul class="text-yellow-800 text-sm space-y-2">
+        <li>• Base de cotización: 2.000€</li>
+        <li>• Contingencias comunes: 2.000€ × 4,70% = <strong>94€</strong></li>
+        <li>• Desempleo: 2.000€ × 1,55% = <strong>31€</strong></li>
+        <li>• Formación: 2.000€ × 0,10% = <strong>2€</strong></li>
+        <li class="border-t pt-2 font-bold">• Total trabajador: <strong>127€</strong></li>
+      </ul>
+    </div>
+    
+    <div class="bg-white p-4 rounded border">
+      <h5 class="font-bold text-yellow-700 mb-3">🏢 Cotizaciones de la Empresa</h5>
+      <ul class="text-yellow-800 text-sm space-y-2">
+        <li>• Base de cotización: 2.000€</li>
+        <li>• Contingencias comunes: 2.000€ × 23,60% = <strong>472€</strong></li>
+        <li>• AT y EP: 2.000€ × 1,00% = <strong>20€</strong></li>
+        <li>• Desempleo: 2.000€ × 5,50% = <strong>110€</strong></li>
+        <li>• Formación: 2.000€ × 0,60% = <strong>12€</strong></li>
+        <li>• FOGASA: 2.000€ × 0,20% = <strong>4€</strong></li>
+        <li class="border-t pt-2 font-bold">• Total empresa: <strong>618€</strong></li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="mt-6 bg-green-100 p-4 rounded border-2 border-green-300">
+    <h4 class="font-bold text-green-900 text-center mb-2">💰 Resumen Final</h4>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
+      <div>
+        <p class="text-green-800 font-bold">Salario Neto</p>
+        <p class="text-2xl font-bold text-green-700">1.873€</p>
+        <p class="text-xs text-gray-600">2.000€ - 127€ cotizaciones</p>
+      </div>
+      <div>
+        <p class="text-green-800 font-bold">Coste Total Empresa</p>
+        <p class="text-2xl font-bold text-green-700">2.618€</p>
+        <p class="text-xs text-gray-600">2.000€ + 618€ cotizaciones</p>
+      </div>
+      <div>
+        <p class="text-green-800 font-bold">Total Cotizaciones</p>
+        <p class="text-2xl font-bold text-green-700">745€</p>
+        <p class="text-xs text-gray-600">127€ + 618€</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h3>Ejemplo 2: Salario en Base Máxima</h3>
+
+<div class="bg-purple-50 p-6 rounded-lg my-6 border border-purple-200">
+  <h4 class="font-bold text-purple-900 mb-4">💼 Situación</h4>
+  <p class="text-purple-800 mb-4">Directivo con salario bruto de 6.000€ mensuales. Al superar la base máxima, solo cotiza por 4.720,50€.</p>
+  
+  <h4 class="font-bold text-purple-900 mb-4">📊 Cálculo de Cotizaciones</h4>
+  
+  <div class="bg-white p-4 rounded border">
+    <h5 class="font-bold text-purple-700 mb-3">🔢 Aplicación del Tope Máximo</h5>
+    <ul class="text-purple-800 text-sm space-y-2">
+      <li>• Salario bruto: 6.000€</li>
+      <li>• Base de cotización aplicable: <strong>4.720,50€</strong> (tope máximo)</li>
+      <li>• Cotización trabajador: 4.720,50€ × 6,35% = <strong>299,75€</strong></li>
+      <li>• Cotización empresa: 4.720,50€ × 29,90% = <strong>1.411,43€</strong></li>
+    </ul>
+  </div>
+  
+  <div class="mt-4 bg-white p-4 rounded border">
+    <h5 class="font-bold text-purple-700 mb-3">💡 Implicaciones</h5>
+    <ul class="text-purple-800 text-sm space-y-2">
+      <li>• El trabajador "ahorra" en cotizaciones por la parte que supera el tope</li>
+      <li>• La empresa también reduce costes en la parte que excede la base máxima</li>
+      <li>• Las prestaciones futuras se calcularán sobre la base máxima, no sobre el salario real</li>
+    </ul>
+  </div>
+</div>
+
+<h2 id="novedades-cotizaciones-2025">🆕 Principales Novedades 2025</h2>
+
+<h3>1. Incremento de las Bases de Cotización</h3>
+
+<p>El aumento del 4,6% en las bases de cotización es el más significativo de los últimos años:</p>
+
+<div class="bg-blue-50 p-4 rounded-lg my-6">
+  <h4 class="font-bold text-blue-900 mb-3">📈 Impacto del Incremento</h4>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div class="bg-white p-3 rounded border">
+      <p class="font-bold text-blue-700 text-sm">Para Trabajadores</p>
+      <p class="text-blue-800 text-sm">Mayor descuento en nómina, pero también mayores derechos futuros</p>
+    </div>
+    <div class="bg-white p-3 rounded border">
+      <p class="font-bold text-blue-700 text-sm">Para Empresas</p>
+      <p class="text-blue-800 text-sm">Incremento del coste laboral del 4,6% en cotizaciones</p>
+    </div>
+  </div>
+</div>
+
+<h3>2. Nuevos Grupos de Cotización</h3>
+
+<p>Se mantiene la estructura de grupos de cotización, pero con algunas actualizaciones en las bases mínimas por grupo:</p>
+
+<div class="bg-gray-50 p-4 rounded-lg my-6">
+  <div class="overflow-x-auto">
+    <table class="w-full border-collapse border border-gray-300 text-sm">
+      <thead>
+        <tr class="bg-gray-100">
+          <th class="border border-gray-300 p-2 text-left">Grupo</th>
+          <th class="border border-gray-300 p-2 text-left">Categoría</th>
+          <th class="border border-gray-300 p-2 text-center">Base Mínima 2025</th>
+          <th class="border border-gray-300 p-2 text-center">Incremento</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="border border-gray-300 p-2 font-bold">1</td>
+          <td class="border border-gray-300 p-2">Ingenieros y Licenciados</td>
+          <td class="border border-gray-300 p-2 text-center">1.323,00€</td>
+          <td class="border border-gray-300 p-2 text-center text-green-600">+4,6%</td>
+        </tr>
+        <tr class="bg-gray-50">
+          <td class="border border-gray-300 p-2 font-bold">2</td>
+          <td class="border border-gray-300 p-2">Ingenieros Técnicos</td>
+          <td class="border border-gray-300 p-2 text-center">1.323,00€</td>
+          <td class="border border-gray-300 p-2 text-center text-green-600">+4,6%</td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 p-2 font-bold">3</td>
+          <td class="border border-gray-300 p-2">Jefes Administrativos</td>
+          <td class="border border-gray-300 p-2 text-center">1.323,00€</td>
+          <td class="border border-gray-300 p-2 text-center text-green-600">+4,6%</td>
+        </tr>
+        <tr class="bg-gray-50">
+          <td class="border border-gray-300 p-2 font-bold">4</td>
+          <td class="border border-gray-300 p-2">Ayudantes no Titulados</td>
+          <td class="border border-gray-300 p-2 text-center">1.323,00€</td>
+          <td class="border border-gray-300 p-2 text-center text-green-600">+4,6%</td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 p-2 font-bold">5</td>
+          <td class="border border-gray-300 p-2">Oficiales Administrativos</td>
+          <td class="border border-gray-300 p-2 text-center">1.323,00€</td>
+          <td class="border border-gray-300 p-2 text-center text-green-600">+4,6%</td>
+        </tr>
+        <tr class="bg-gray-50">
+          <td class="border border-gray-300 p-2 font-bold">6</td>
+          <td class="border border-gray-300 p-2">Subalternos</td>
+          <td class="border border-gray-300 p-2 text-center">1.323,00€</td>
+          <td class="border border-gray-300 p-2 text-center text-green-600">+4,6%</td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 p-2 font-bold">7</td>
+          <td class="border border-gray-300 p-2">Auxiliares Administrativos</td>
+          <td class="border border-gray-300 p-2 text-center">1.323,00€</td>
+          <td class="border border-gray-300 p-2 text-center text-green-600">+4,6%</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<h2 id="como-afectan-cotizaciones-nomina">💼 Cómo Afectan las Cotizaciones a tu Nómina</h2>
+
+<h3>Descuentos en tu Nómina</h3>
+
+<p>Las cotizaciones del trabajador se descuentan directamente de tu salario bruto:</p>
+
+<div class="bg-yellow-50 p-4 rounded-lg my-6">
+  <h4 class="font-bold text-yellow-900 mb-3">📋 Estructura de una Nómina</h4>
+  <div class="bg-white p-4 rounded border">
+    <ul class="text-yellow-800 space-y-2 text-sm">
+      <li>• <strong>Salario Bruto:</strong> Lo que figura en tu contrato</li>
+      <li>• <strong>- Cotizaciones SS (6,35%):</strong> Tu aportación obligatoria</li>
+      <li>• <strong>- Retención IRPF:</strong> Anticipo del impuesto sobre la renta</li>
+      <li>• <strong>= Salario Neto:</strong> Lo que recibes en tu cuenta</li>
+    </ul>
+  </div>
+</div>
+
+<h3>Derechos que Generas</h3>
+
+<p>Tus cotizaciones te dan derecho a:</p>
+
+<ul>
+  <li><strong>Pensión de jubilación:</strong> Calculada sobre tus bases de cotización</li>
+  <li><strong>Prestación por desempleo:</strong> Entre el 50% y 70% de tu base reguladora</li>
+  <li><strong>Incapacidad temporal:</strong> 60% desde el 4º día, 75% desde el 21º día</li>
+  <li><strong>Asistencia sanitaria:</strong> Cobertura médica completa</li>
+</ul>
+
+<h2 id="cotizaciones-empresas-coste-laboral">🏢 Cotizaciones para Empresas: El Coste Laboral Real</h2>
+
+<p>Para las empresas, las cotizaciones representan un coste adicional significativo sobre el salario bruto:</p>
+
+<div class="bg-red-50 p-6 rounded-lg my-6">
+  <h3 class="font-bold text-red-900 mb-4">💰 Coste Total de un Empleado</h3>
+  
+  <div class="bg-white p-4 rounded border">
+    <h4 class="font-bold text-red-700 mb-3">Ejemplo: Salario de 3.000€</h4>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div>
+        <h5 class="font-bold text-gray-700 text-sm mb-2">Costes Directos</h5>
+        <ul class="text-red-800 text-sm space-y-1">
+          <li>• Salario bruto: 3.000€</li>
+          <li>• Cotizaciones empresa: 897€</li>
+          <li>• <strong>Subtotal: 3.897€</strong></li>
+        </ul>
+      </div>
+      <div>
+        <h5 class="font-bold text-gray-700 text-sm mb-2">Costes Indirectos</h5>
+        <ul class="text-red-800 text-sm space-y-1">
+          <li>• Pagas extras: 500€</li>
+          <li>• Vacaciones: 250€</li>
+          <li>• Otros conceptos: 150€</li>
+          <li>• <strong>Total real: ≈4.800€</strong></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+  <div class="mt-4 bg-white p-4 rounded border">
+    <p class="text-red-800 text-sm"><strong>Conclusión:</strong> Un salario de 3.000€ puede costar realmente a la empresa cerca de 4.800€ mensuales considerando todos los conceptos.</p>
+  </div>
+</div>
+
+<h2 id="bonificaciones-reducciones-2025">🎯 Bonificaciones y Reducciones 2025</h2>
+
+<p>Existen diversas bonificaciones que pueden reducir las cotizaciones empresariales:</p>
+
+<h3>Principales Bonificaciones</h3>
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
+  <div class="bg-green-50 p-4 rounded-lg border border-green-200">
+    <h4 class="font-bold text-green-900 mb-3">👥 Contratación de Jóvenes</h4>
+    <ul class="text-green-800 text-sm space-y-2">
+      <li>• <strong>Menores de 30 años:</strong> Reducción del 75% primer año</li>
+      <li>• <strong>Contratos indefinidos:</strong> Bonificación adicional</li>
+      <li>• <strong>Duración:</strong> Hasta 3 años</li>
+    </ul>
+  </div>
+
+  <div class="bg-blue-50 p-4 rounded-lg border border-blue-200">
+    <h4 class="font-bold text-blue-900 mb-3">♿ Personas con Discapacidad</h4>
+    <ul class="text-blue-800 text-sm space-y-2">
+      <li>• <strong>Discapacidad ≥33%:</strong> 4.500€/año</li>
+      <li>• <strong>Discapacidad ≥65%:</strong> 5.700€/año</li>
+      <li>• <strong>Mujeres:</strong> Bonificación adicional</li>
+    </ul>
+  </div>
+
+  <div class="bg-purple-50 p-4 rounded-lg border border-purple-200">
+    <h4 class="font-bold text-purple-900 mb-3">👩 Fomento del Empleo Femenino</h4>
+    <ul class="text-purple-800 text-sm space-y-2">
+      <li>• <strong>Sectores masculinizados:</strong> Bonificación especial</li>
+      <li>• <strong>Reincorporación:</strong> Tras excedencia por cuidado</li>
+      <li>• <strong>Víctimas violencia género:</strong> Bonificación total</li>
+    </ul>
+  </div>
+
+  <div class="bg-orange-50 p-4 rounded-lg border border-orange-200">
+    <h4 class="font-bold text-orange-900 mb-3">🏘️ Zonas Rurales</h4>
+    <ul class="text-orange-800 text-sm space-y-2">
+      <li>• <strong>Municipios <5.000 hab:</strong> Bonificación especial</li>
+      <li>• <strong>Actividades agrarias:</strong> Reducciones adicionales</li>
+      <li>• <strong>Emprendimiento rural:</strong> Hasta 100% primer año</li>
+    </ul>
+  </div>
+</div>
+
+<h2 id="errores-comunes-cotizaciones">❌ Errores Comunes con las Cotizaciones</h2>
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+  <div class="bg-red-50 p-4 rounded-lg border border-red-200">
+    <h4 class="font-bold text-red-900 mb-3">🚫 Error #1: No Entender las Bases</h4>
+    <p class="text-red-800 text-sm mb-2"><strong>Error:</strong> Pensar que se cotiza sobre el salario neto</p>
+    <p class="text-red-800 text-sm"><strong>Realidad:</strong> Se cotiza sobre el salario bruto, con mínimos y máximos</p>
+  </div>
+
+  <div class="bg-red-50 p-4 rounded-lg border border-red-200">
+    <h4 class="font-bold text-red-900 mb-3">🚫 Error #2: Ignorar el Tope Máximo</h4>
+    <p class="text-red-800 text-sm mb-2"><strong>Error:</strong> No saber que existe un límite máximo de cotización</p>
+    <p class="text-red-800 text-sm"><strong>Realidad:</strong> Por encima de 4.720,50€ no se cotiza más</p>
+  </div>
+
+  <div class="bg-red-50 p-4 rounded-lg border border-red-200">
+    <h4 class="font-bold text-red-900 mb-3">🚫 Error #3: No Aplicar Bonificaciones</h4>
+    <p class="text-red-800 text-sm mb-2"><strong>Error:</strong> Las empresas no solicitan bonificaciones disponibles</p>
+    <p class="text-red-800 text-sm"><strong>Solución:</strong> Revisar anualmente las bonificaciones aplicables</p>
+  </div>
+
+  <div class="bg-red-50 p-4 rounded-lg border border-red-200">
+    <h4 class="font-bold text-red-900 mb-3">🚫 Error #4: Confundir Cotización con IRPF</h4>
+    <p class="text-red-800 text-sm mb-2"><strong>Error:</strong> Mezclar conceptos de Seguridad Social e IRPF</p>
+    <p class="text-red-800 text-sm"><strong>Realidad:</strong> Son sistemas independientes con finalidades diferentes</p>
+  </div>
+</div>
+
+<h2 id="preguntas-frecuentes-cotizaciones">❓ Preguntas Frecuentes sobre Cotizaciones</h2>
+
+<div class="space-y-4 my-6">
+  <div class="bg-gray-50 p-4 rounded-lg border">
+    <h4 class="font-bold text-gray-900 mb-2">¿Puedo recuperar las cotizaciones si no uso las prestaciones?</h4>
+    <p class="text-gray-800 text-sm">No, las cotizaciones son obligatorias y no se devuelven. Financian un sistema solidario de protección social.</p>
+  </div>
+
+  <div class="bg-gray-50 p-4 rounded-lg border">
+    <h4 class="font-bold text-gray-900 mb-2">¿Qué pasa si mi empresa no paga las cotizaciones?</h4>
+    <p class="text-gray-800 text-sm">La Seguridad Social puede reclamar directamente al trabajador, aunque después podrá reclamar a la empresa. Es importante verificar que se pagan correctamente.</p>
+  </div>
+
+  <div class="bg-gray-50 p-4 rounded-lg border">
+    <h4 class="font-bold text-gray-900 mb-2">¿Cómo afectan las cotizaciones a mi pensión futura?</h4>
+    <p class="text-gray-800 text-sm">Tu pensión se calcula sobre las bases de cotización de los últimos 25 años. Mayores cotizaciones generalmente significan mayor pensión.</p>
+  </div>
+
+  <div class="bg-gray-50 p-4 rounded-lg border">
+    <h4 class="font-bold text-gray-900 mb-2">¿Puedo cotizar por encima de mi salario real?</h4>
+    <p class="text-gray-800 text-sm">Sí, los trabajadores autónomos pueden elegir su base de cotización. Los trabajadores por cuenta ajena cotizan según su salario real (dentro de los límites).</p>
+  </div>
+</div>
+
+<h2 id="conclusion-recomendaciones">🎯 Conclusión y Recomendaciones</h2>
+
+<p>Las cotizaciones a la Seguridad Social son una inversión en tu futuro y en tu protección social presente. Aunque representan un coste significativo tanto para trabajadores como para empresas, proporcionan una red de seguridad fundamental.</p>
+
+<div class="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-r-lg my-8">
+  <h3 class="font-bold text-blue-900">🔗 Herramientas Útiles</h3>
+  <p class="text-blue-800 mb-4">Para calcular las cotizaciones en tu caso específico, utiliza nuestras calculadoras:</p>
+  
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <div class="bg-white p-3 rounded border">
+      <p class="font-bold text-blue-700 text-sm">📊 Calculadora Cotizaciones</p>
+      <p class="text-blue-800 text-xs"><a href="/calculadora-cotizaciones-seguridad-social" class="hover:underline">Calcula tus cotizaciones</a></p>
+    </div>
+    <div class="bg-white p-3 rounded border">
+      <p class="font-bold text-blue-700 text-sm">💰 Coste Total Empresa</p>
+      <p class="text-blue-800 text-xs"><a href="/calculadora-coste-total-empresa" class="hover:underline">Coste real de empleados</a></p>
+    </div>
+    <div class="bg-white p-3 rounded border">
+      <p class="font-bold text-blue-700 text-sm">📚 Más información</p>
+      <p class="text-blue-800 text-xs"><a href="/blog/tramos-irpf-2025" class="hover:underline">Tramos IRPF 2025</a></p>
+    </div>
+  </div>
+</div>
+`,
+    image: "/placeholder.svg?height=400&width=800&text=Cotizaciones+Seguridad+Social+2025",
+    category: "Cotizaciones",
+    tags: ["Cotizaciones", "Seguridad Social", "2025", "Nómina"],
+    date: "2025-01-23",
+    readTime: "16 min",
+    author: {
+      name: "Equipo Calculord",
+      avatar: "/placeholder.svg?height=40&width=40&text=EC",
+    },
+    toc: [
+      { id: "que-son-cotizaciones-seguridad-social", text: "¿Qué son las Cotizaciones?", icon: "info" },
+      { id: "bases-cotizacion-2025", text: "Bases de Cotización 2025", icon: "chart" },
+      { id: "tipos-cotizacion-2025", text: "Tipos de Cotización", icon: "percentage" },
+      { id: "ejemplos-practicos-calculo", text: "Ejemplos Prácticos", icon: "calculator" },
+      { id: "novedades-cotizaciones-2025", text: "Novedades 2025", icon: "new" },
+      { id: "bonificaciones-reducciones-2025", text: "Bonificaciones", icon: "discount" },
+    ],
+    keyData: {
+      "Base Mínima": "1.323€",
+      "Base Máxima": "4.720,50€",
+      "Cotización Trabajador": "6,35%",
+      "Cotización Empresa": "29,90%",
+      "Incremento 2025": "+4,6%",
+    },
+  },
+  "como-leer-nomina-2025": {
+    slug: "como-leer-nomina-2025",
+    title: "Cómo Leer tu Nómina 2025: Guía Completa para Entender Todos los Conceptos",
+    excerpt:
+      "Aprende a interpretar cada línea de tu nómina paso a paso. Guía completa con ejemplos reales, conceptos actualizados 2025 y consejos para detectar errores.",
+    content: `
+<p>Tu <strong>nómina</strong> es mucho más que un simple recibo de sueldo: es un documento legal que refleja tu relación laboral, tus derechos y obligaciones fiscales. Sin embargo, muchos trabajadores no saben interpretar correctamente todos los conceptos que aparecen en ella, perdiendo la oportunidad de detectar errores o entender mejor su situación laboral.</p>
+
+<p>En esta guía completa te enseñamos a leer tu nómina línea por línea, con ejemplos reales actualizados para 2025, explicaciones detalladas de cada concepto y consejos prácticos para que nunca más tengas dudas sobre tu recibo de salario.</p>
+
+<div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-lg my-6">
+  <h3 class="font-bold text-blue-900">📋 Estructura Básica de una Nómina</h3>
+  <p class="text-blue-800"><strong>Datos de la empresa y trabajador</strong> • <strong>Devengos:</strong> Lo que cobras • <strong>Deducciones:</strong> Lo que te descuentan • <strong>Líquido a percibir:</strong> Lo que recibes • <strong>Bases de cotización</strong> • <strong>Aportación empresarial</strong></p>
+</div>
+
+<h2 id="estructura-nomina-2025">📊 Estructura de una Nómina 2025</h2>
+
+<p>Toda nómina española sigue una estructura estándar establecida por la normativa laboral. Conocer esta estructura es fundamental para entender tu recibo de salario:</p>
+
+<div class="bg-gray-50 p-6 rounded-lg my-6">
+  <h3 class="font-bold text-gray-900 mb-4">🏗️ Partes de una Nómina</h3>
+  
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div class="bg-white p-4 rounded border">
+      <h4 class="font-bold text-blue-700 mb-3">1️⃣ Encabezado</h4>
+      <ul class="text-gray-800 text-sm space-y-1">
+        <li>• Datos de la empresa</li>
+        <li>• Datos del trabajador</li>
+        <li>• Período de liquidación</li>
+        <li>• Grupo de cotización</li>
+        <li>• Categoría profesional</li>
+      </ul>
+    </div>
+    
+    <div class="bg-white p-4 rounded border">
+      <h4 class="font-bold text-green-700 mb-3">2️⃣ Devengos</h4>
+      <ul class="text-gray-800 text-sm space-y-1">
+        <li>• Salario base</li>
+        <li>• Complementos salariales</li>
+        <li>• Pagas extraordinarias</li>
+        <li>• Horas extras</li>
+        <li>• Otros conceptos</li>
+      </ul>
+    </div>
+    
+    <div class="bg-white p-4 rounded border">
+      <h4 class="font-bold text-red-700 mb-3">3️⃣ Deducciones</h4>
+      <ul class="text-gray-800 text-sm space-y-1">
+        <li>• Cotizaciones a la SS</li>
+        <li>• Retención IRPF</li>
+        <li>• Anticipos</li>
+        <li>• Otros descuentos</li>
+      </ul>
+    </div>
+    
+    <div class="bg-white p-4 rounded border">
+      <h4 class="font-bold text-purple-700 mb-3">4️⃣ Bases y Tipos</h4>
+      <ul class="text-gray-800 text-sm space-y-1">
+        <li>• Base de cotización</li>
+        <li>• Tipos aplicados</li>
+        <li>• Aportación empresa</li>
+        <li>• Total a la SS</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<h2 id="ejemplo-nomina-completa">📄 Ejemplo de Nómina Completa</h2>
+
+<p>Vamos a analizar una nómina real paso a paso para que veas cómo se aplican todos los conceptos:</p>
+
+<div class="bg-yellow-50 p-6 rounded-lg my-6 border border-yellow-200">
+  <h3 class="font-bold text-yellow-900 mb-4">👤 Datos del Trabajador</h3>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div class="bg-white p-4 rounded border">
+      <h4 class="font-bold text-yellow-700 mb-2">Información Personal</h4>
+      <ul class="text-yellow-800 text-sm space-y-1">
+        <li>• <strong>Nombre:</strong> María García López</li>
+        <li>• <strong>DNI:</strong> 12345678A</li>
+        <li>• <strong>NSS:</strong> 12 1234567890</li>
+        <li>• <strong>Categoría:</strong> Oficial Administrativo</li>
+        <li>• <strong>Grupo Cotización:</strong> 5</li>
+      </ul>
+    </div>
+    <div class="bg-white p-4 rounded border">
+      <h4 class="font-bold text-yellow-700 mb-2">Datos del Contrato</h4>
+      <ul class="text-yellow-800 text-sm space-y-1">
+        <li>• <strong>Tipo contrato:</strong> Indefinido</li>
+        <li>• <strong>Jornada:</strong> Completa</li>
+        <li>• <strong>Antigüedad:</strong> 5 años</li>
+        <li>• <strong>Convenio:</strong> Oficinas y Despachos</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<h2 id="conclusion-consejos">🎯 Conclusión y Consejos Finales</h2>
+
+<p>Saber leer tu nómina correctamente es fundamental para:</p>
+
+<ul>
+  <li>Detectar errores y reclamar cuando sea necesario</li>
+  <li>Entender tu situación fiscal y laboral</li>
+  <li>Planificar mejor tus finanzas personales</li>
+  <li>Conocer tus derechos como trabajador</li>
+</ul>
+
+<div class="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-r-lg my-8">
+  <h3 class="font-bold text-blue-900">🔗 Herramientas Útiles</h3>
+  <p class="text-blue-800 mb-4">Para calcular tu nómina o verificar los datos, utiliza nuestras calculadoras:</p>
+  
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <div class="bg-white p-3 rounded border">
+      <p class="font-bold text-blue-700 text-sm">📊 Calculadora Nómina</p>
+      <p class="text-blue-800 text-xs"><a href="/calculadora-nomina" class="hover:underline">Calcula tu nómina</a></p>
+    </div>
+    <div class="bg-white p-3 rounded border">
+      <p class="font-bold text-blue-700 text-sm">💰 Bruto-Neto</p>
+      <p class="text-blue-800 text-xs"><a href="/conversor-salario-bruto-neto" class="hover:underline">Conversor salario</a></p>
+    </div>
+    <div class="bg-white p-3 rounded border">
+      <p class="font-bold text-blue-700 text-sm">🏢 Coste Empresa</p>
+      <p class="text-blue-800 text-xs"><a href="/calculadora-coste-total-empresa" class="hover:underline">Coste total empresa</a></p>
+    </div>
+  </div>
+</div>
+`,
+    image: "/placeholder.svg?height=400&width=800&text=Cómo+Leer+Nómina+2025",
+    category: "Guías Prácticas",
+    tags: ["Nómina", "Salario", "2025", "Guía"],
+    date: "2025-01-22",
+    readTime: "18 min",
+    author: {
+      name: "Equipo Calculord",
+      avatar: "/placeholder.svg?height=40&width=40&text=EC",
+    },
+    toc: [
+      { id: "estructura-nomina-2025", text: "Estructura de una Nómina", icon: "info" },
+      { id: "ejemplo-nomina-completa", text: "Ejemplo Completo", icon: "practico" },
+      { id: "conclusion-consejos", text: "Conclusión y Consejos", icon: "info" },
+    ],
+    keyData: {
+      "Cotización SS Trabajador": "6,35%",
+      "Cotización SS Empresa": "29,90%",
+      "Retención IRPF Media": "15%",
+      "SMI 2025": "1.184€",
     },
   },
 }
