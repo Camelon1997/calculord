@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import CalculadoraParo from "./CalculadoraParo"
+import { Breadcrumbs } from "../components/Breadcrumbs"
 
 export const metadata: Metadata = {
   title: "🔥 Calculadora Paro 2025 | Prestación Desempleo SEPE + Subsidio | Calculord",
@@ -107,6 +108,7 @@ export default function ParoPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
+      <Breadcrumbs currentPage="Calculadora de Paro" />
       <CalculadoraParo />
     </>
   )

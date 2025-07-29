@@ -1,604 +1,245 @@
 "use client"
 
-import { useState } from "react"
-import { Clock, Calculator, ArrowLeft, TrendingUp, ArrowRight, Banknote, Briefcase } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { useState, useEffect, useMemo } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import Link from "next/link"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from "recharts"
+
+const SMI_2025 = {
+  porHora: 9.26,
+}
+
+const COTIZACIONES_GENERAL = {
+  trabajador: {
+    contingenciasComunes: 4.7,
+    desempleo: 1.55,
+    formacionProfesional: 0.1,
+  },
+}
+
+const formatearMoneda = (cantidad) => {
+  return new Intl.NumberFormat("es-ES", {
+    style: "currency",
+    currency: "EUR",
+  }).format(cantidad)
+}
 
 export default function CalculadoraSalarioHoras() {
-  const [formData, setFormData] = useState({
-    horasTrabajadas: "",
-    tipoCalculo: "semanal",
-    salarioBase: "smi",
-    salarioPersonalizado: "",
-    horasExtra: "",
-    tipoContrato: "general",
-  })
+  const [horasTrabajadas, setHorasTrabajadas] = useState("40")
+  const [tipoCalculo, setTipoCalculo] = useState("semanal")
+  const [salarioBase, setSalarioBase] = useState("smi")
+  const [salarioPersonalizado, setSalarioPersonalizado] = useState("")
+  const [horasExtra, setHorasExtra] = useState("0")
+
   const [resultados, setResultados] = useState(null)
-  const [isCalculating, setIsCalculating] = useState(false)
 
-  const structuredDataCalculator = {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    name: "Calculadora de Salario por Horas 2025",
-    description:
-      "Calcula tu salario real basado en las horas trabajadas. Incluye SMI 2025 (9,26€/h) y horas extra con incremento del 75%",
-    url: "https://calculord.com/calculadora-salario-por-horas",
-    applicationCategory: "FinanceApplication",
-    operatingSystem: "Web Browser",
-    offers: {
-      "@type": "Offer",
-      price: "0",
-      priceCurrency: "EUR",
-    },
-    featureList: [
-      "Cálculo por horas trabajadas",
-      "SMI 2025 actualizado (9,26€/h)",
-      "Horas extra con incremento 75%",
-      "Salario neto después cotizaciones",
-      "Cálculo semanal y mensual",
-    ],
-  }
+  useEffect(() => {
+    const calcular = () => {
+      const numHorasTrabajadas = Number.parseFloat(horasTrabajadas) || 0
+      const numHorasExtra = Number.parseFloat(horasExtra) || 0
 
-  const smiStructuredData = {
-    "@context": "https://schema.org",
-    "@type": "DefinedTerm",
-    name: "SMI 2025",
-    description: "Salario Mínimo Interprofesional para 2025 en España",
-    termCode: "SMI2025",
-    inDefinedTermSet: {
-      "@type": "DefinedTermSet",
-      name: "Normativa Laboral Española",
-    },
-    url: "https://calculord.com/calculadora-salario-por-horas",
-  }
+      const salarioPorHora =
+        salarioBase === "smi" ? SMI_2025.porHora : Number.parseFloat(salarioPersonalizado) || SMI_2025.porHora
 
-  const breadcrumbStructuredData = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: "Inicio",
-        item: "https://calculord.com",
-      },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "Calculadora Salario por Horas",
-        item: "https://calculord.com/calculadora-salario-por-horas",
-      },
-    ],
-  }
+      let horasNormales = numHorasTrabajadas
+      let horasExtraCalculadas = numHorasExtra
 
-  // SMI 2025 actualizado
-  const SMI_2025 = {
-    mensual: 1184,
-    mensualProrrateo: 1381.33,
-    anual: 16576,
-    porHora: 9.26,
-    porHoraGeneral: 7.73,
-    horasSemanales: 40,
-    horasMensuales: 153.33,
-  }
-
-  const cotizacionesGeneral = {
-    trabajador: {
-      contingenciasComunes: 4.7,
-      desempleo: 1.55,
-      formacionProfesional: 0.1,
-    },
-  }
-
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-    setIsCalculating(true)
-
-    await new Promise((resolve) => setTimeout(resolve, 1000))
-
-    const resultadosCalculo = calcularSalario()
-    setResultados(resultadosCalculo)
-    setIsCalculating(false)
-  }
-
-  const calcularSalario = () => {
-    const horasTrabajadas = Number.parseFloat(formData.horasTrabajadas) || 0
-    const horasExtra = Number.parseFloat(formData.horasExtra) || 0
-
-    // Determinar salario por hora base
-    let salarioPorHora
-    if (formData.salarioBase === "smi") {
-      salarioPorHora = SMI_2025.porHora // 9.26€
-    } else {
-      salarioPorHora = Number.parseFloat(formData.salarioPersonalizado) || SMI_2025.porHora
-    }
-
-    // Calcular horas normales y extra
-    let horasNormales = horasTrabajadas
-    let horasExtraCalculadas = horasExtra
-
-    // Si es cálculo semanal, verificar si excede 40h
-    if (formData.tipoCalculo === "semanal" && horasTrabajadas > 40) {
-      horasNormales = 40
-      horasExtraCalculadas = horasTrabajadas - 40 + horasExtra
-    }
-
-    // Calcular salario bruto
-    const salarioHorasNormales = horasNormales * salarioPorHora
-    const salarioHorasExtra = horasExtraCalculadas * salarioPorHora * 1.75 // 75% extra mínimo
-
-    let salarioBrutoSemanal = salarioHorasNormales + salarioHorasExtra
-    let salarioBrutoMensual
-
-    if (formData.tipoCalculo === "semanal") {
-      salarioBrutoMensual = (salarioBrutoSemanal * 52) / 12 // Convertir a mensual
-    } else {
-      salarioBrutoMensual = salarioBrutoSemanal
-      salarioBrutoSemanal = (salarioBrutoMensual * 12) / 52 // Convertir a semanal
-    }
-
-    // Calcular cotizaciones
-    let cotizacionTrabajadorMensual = 0
-    const desgloseTrabajador = {}
-
-    for (const [concepto, porcentaje] of Object.entries(cotizacionesGeneral.trabajador)) {
-      const cantidad = (salarioBrutoMensual * porcentaje) / 100
-      cotizacionTrabajadorMensual += cantidad
-      desgloseTrabajador[concepto] = {
-        porcentaje: porcentaje,
-        cantidad: cantidad,
+      if (tipoCalculo === "semanal" && numHorasTrabajadas > 40) {
+        horasNormales = 40
+        horasExtraCalculadas += numHorasTrabajadas - 40
       }
+
+      const salarioHorasNormales = horasNormales * salarioPorHora
+      const salarioHorasExtraBruto = horasExtraCalculadas * salarioPorHora * 1.75
+
+      let salarioBrutoSemanal = salarioHorasNormales + salarioHorasExtraBruto
+      let salarioBrutoMensual
+
+      if (tipoCalculo === "semanal") {
+        salarioBrutoMensual = (salarioBrutoSemanal * 52) / 12
+      } else {
+        salarioBrutoMensual = salarioBrutoSemanal // Asumimos que el input mensual ya es el total
+        salarioBrutoSemanal = (salarioBrutoMensual * 12) / 52
+      }
+
+      let cotizacionTotalTrabajador = 0
+      const desgloseCotizaciones = {}
+      for (const [concepto, porcentaje] of Object.entries(COTIZACIONES_GENERAL.trabajador)) {
+        const cantidad = (salarioBrutoMensual * porcentaje) / 100
+        cotizacionTotalTrabajador += cantidad
+        desgloseCotizaciones[concepto] = cantidad
+      }
+
+      const salarioNetoMensual = salarioBrutoMensual - cotizacionTotalTrabajador
+      const salarioNetoSemanal = (salarioNetoMensual * 12) / 52
+
+      setResultados({
+        salarioBrutoMensual,
+        cotizacionTotalTrabajador,
+        salarioNetoMensual,
+        salarioNetoSemanal,
+        salarioBrutoAnual: salarioBrutoMensual * 12,
+        salarioNetoAnual: salarioNetoMensual * 12,
+        desgloseCotizaciones,
+      })
     }
+    calcular()
+  }, [horasTrabajadas, tipoCalculo, salarioBase, salarioPersonalizado, horasExtra])
 
-    const salarioNetoMensual = salarioBrutoMensual - cotizacionTrabajadorMensual
-    const salarioNetoSemanal = (salarioNetoMensual * 12) / 52
+  const chartData = useMemo(() => {
+    if (!resultados) return []
+    return [
+      { name: "Salario Neto", value: resultados.salarioNetoMensual },
+      { name: "Cotizaciones", value: resultados.cotizacionTotalTrabajador },
+    ]
+  }, [resultados])
 
-    return {
-      horasTrabajadas: horasTrabajadas,
-      horasExtra: horasExtraCalculadas,
-      salarioPorHora: salarioPorHora,
-      salarioBrutoSemanal: salarioBrutoSemanal,
-      salarioBrutoMensual: salarioBrutoMensual,
-      salarioBrutoAnual: salarioBrutoMensual * 14, // 14 pagas
-      cotizacionTrabajador: cotizacionTrabajadorMensual,
-      salarioNetoSemanal: salarioNetoSemanal,
-      salarioNetoMensual: salarioNetoMensual,
-      salarioNetoAnual: salarioNetoMensual * 14,
-      desgloseTrabajador: desgloseTrabajador,
-      porcentajeCotizacion: (cotizacionTrabajadorMensual / salarioBrutoMensual) * 100,
-    }
-  }
-
-  const formatearMoneda = (cantidad) => {
-    return new Intl.NumberFormat("es-ES", {
-      style: "currency",
-      currency: "EUR",
-      minimumFractionDigits: 2,
-    }).format(cantidad)
-  }
-
-  const formatearConcepto = (concepto) => {
-    const conceptos = {
-      contingenciasComunes: "Contingencias Comunes",
-      desempleo: "Desempleo",
-      formacionProfesional: "Formación Profesional",
-    }
-    return conceptos[concepto] || concepto
-  }
+  const COLORS = ["#10B981", "#EF4444"]
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredDataCalculator) }}
-      />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(smiStructuredData) }} />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbStructuredData) }}
-      />
-      {/* Header */}
-      <header className="bg-white shadow-sm border-b">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-4">
-            <Link href="/" className="flex items-center space-x-2">
-              <Calculator className="h-8 w-8 text-blue-600" />
-              <span className="text-2xl font-bold text-gray-900">Calculadoras Laborales</span>
-            </Link>
-            <Link href="/">
-              <Button variant="outline" className="flex items-center space-x-2 bg-transparent">
-                <ArrowLeft className="h-4 w-4" />
-                <span>Volver al inicio</span>
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </header>
-
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-green-50 to-blue-100 py-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-            <Clock className="h-10 w-10 text-green-600" />
-          </div>
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Calculadora de Salario
-            <span className="block text-green-600">por Horas 2025</span>
-          </h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-8">
-            Calcula tu salario real basado en las horas trabajadas. Incluye SMI 2025 (9,26€/h), horas extra con
-            incremento del 75% y salario neto final.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              size="lg"
-              className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 text-lg"
-              onClick={() => document.getElementById("calculadora")?.scrollIntoView({ behavior: "smooth" })}
-            >
-              <Clock className="mr-2 h-5 w-5" />
-              Calcular Ahora
-            </Button>
-            <Button
-              variant="outline"
-              size="lg"
-              className="border-green-600 text-green-600 hover:bg-green-50 px-8 py-4 text-lg bg-transparent"
-            >
-              Ver Ejemplo
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* Features Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              ¿Por qué usar nuestra calculadora de salario por horas?
-            </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Herramienta precisa para calcular tu salario real según las horas trabajadas
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
-              <CardHeader className="text-center pb-4">
-                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Clock className="h-8 w-8 text-blue-600" />
-                </div>
-                <CardTitle className="text-xl text-gray-900">Cálculo por Horas</CardTitle>
-              </CardHeader>
-              <CardContent className="text-center">
-                <p className="text-gray-600">
-                  Calcula tu salario exacto basado en las horas reales que trabajas, incluyendo horas extra
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
-              <CardHeader className="text-center pb-4">
-                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Calculator className="h-8 w-8 text-green-600" />
-                </div>
-                <CardTitle className="text-xl text-gray-900">SMI 2025 Actualizado</CardTitle>
-              </CardHeader>
-              <CardContent className="text-center">
-                <p className="text-gray-600">
-                  Basado en el Salario Mínimo Interprofesional actualizado: 1.184€/mes (9,26€/hora)
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
-              <CardHeader className="text-center pb-4">
-                <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <TrendingUp className="h-8 w-8 text-purple-600" />
-                </div>
-                <CardTitle className="text-xl text-gray-900">Salario Neto Real</CardTitle>
-              </CardHeader>
-              <CardContent className="text-center">
-                <p className="text-gray-600">
-                  Descuenta automáticamente las cotizaciones sociales para mostrarte tu salario neto final
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Main Content */}
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12" id="calculadora">
-        <div className="text-center mb-12">
-          <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-            <Clock className="h-10 w-10 text-green-600" />
-          </div>
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Calculadora de Salario por Horas</h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Calcula tu salario real basado en las horas trabajadas. Incluye SMI 2025 (9,26€/h) y horas extra con
-            incremento del 75%
-          </p>
-        </div>
-
-        <Card className="shadow-2xl border-0">
-          <CardHeader className="bg-gradient-to-r from-green-600 to-green-700 text-white rounded-t-lg">
-            <CardTitle className="text-2xl text-center">Calculadora de Salario por Horas</CardTitle>
-            <p className="text-center text-green-100">Calcula tu salario real según las horas trabajadas</p>
-          </CardHeader>
-          <CardContent className="p-8">
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-6">
+    <div id="calculadora" className="max-w-6xl mx-auto py-12 px-4">
+      <Card className="overflow-hidden shadow-2xl border-0">
+        <div className="grid md:grid-cols-2">
+          {/* Columna de Inputs */}
+          <div className="p-8 bg-white">
+            <CardHeader className="p-0 mb-6">
+              <CardTitle className="text-2xl font-bold text-gray-900">Introduce tus datos</CardTitle>
+              <p className="text-gray-600">Calcula tu salario en tiempo real.</p>
+            </CardHeader>
+            <CardContent className="p-0 space-y-6">
+              <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">Horas Trabajadas</label>
-                  <input
+                  <Label htmlFor="horasTrabajadas" className="font-semibold">
+                    Horas Trabajadas
+                  </Label>
+                  <Input
+                    id="horasTrabajadas"
                     type="number"
-                    value={formData.horasTrabajadas}
-                    onChange={(e) => setFormData({ ...formData, horasTrabajadas: e.target.value })}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 text-lg"
-                    placeholder="Ej: 40"
-                    min="0"
-                    step="0.5"
-                    required
+                    value={horasTrabajadas}
+                    onChange={(e) => setHorasTrabajadas(e.target.value)}
+                    placeholder="40"
                   />
                 </div>
-
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">Período de Cálculo</label>
-                  <select
-                    value={formData.tipoCalculo}
-                    onChange={(e) => setFormData({ ...formData, tipoCalculo: e.target.value })}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 text-lg"
-                  >
-                    <option value="semanal">Por semana</option>
-                    <option value="mensual">Por mes</option>
-                  </select>
+                  <Label htmlFor="tipoCalculo" className="font-semibold">
+                    Período
+                  </Label>
+                  <Select value={tipoCalculo} onValueChange={setTipoCalculo}>
+                    <SelectTrigger id="tipoCalculo">
+                      <SelectValue placeholder="Selecciona" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="semanal">Semanal</SelectItem>
+                      <SelectItem value="mensual">Mensual</SelectItem>
+                    </SelectContent>
+                  </Select>
                 </div>
               </div>
-
-              <div className="grid md:grid-cols-2 gap-6">
-                <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">Salario Base</label>
-                  <select
-                    value={formData.salarioBase}
-                    onChange={(e) => setFormData({ ...formData, salarioBase: e.target.value })}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 text-lg"
-                  >
-                    <option value="smi">SMI 2025 (9,26€/hora)</option>
-                    <option value="personalizado">Salario personalizado</option>
-                  </select>
-                </div>
-
-                {formData.salarioBase === "personalizado" && (
-                  <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">Salario por Hora (€)</label>
-                    <input
-                      type="number"
-                      value={formData.salarioPersonalizado}
-                      onChange={(e) => setFormData({ ...formData, salarioPersonalizado: e.target.value })}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 text-lg"
-                      placeholder="Ej: 10.00"
-                      min="0"
-                      step="0.01"
-                    />
-                  </div>
-                )}
-              </div>
-
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">Horas Extra (opcional)</label>
-                <input
+                <Label className="font-semibold">Salario Base</Label>
+                <Select value={salarioBase} onValueChange={setSalarioBase}>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Selecciona" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="smi">SMI 2025 ({formatearMoneda(SMI_2025.porHora)}/hora)</SelectItem>
+                    <SelectItem value="personalizado">Personalizado</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+              {salarioBase === "personalizado" && (
+                <div>
+                  <Label htmlFor="salarioPersonalizado" className="font-semibold">
+                    Salario Bruto por Hora (€)
+                  </Label>
+                  <Input
+                    id="salarioPersonalizado"
+                    type="number"
+                    value={salarioPersonalizado}
+                    onChange={(e) => setSalarioPersonalizado(e.target.value)}
+                    placeholder="12.50"
+                  />
+                </div>
+              )}
+              <div>
+                <Label htmlFor="horasExtra" className="font-semibold">
+                  Horas Extra (opcional)
+                </Label>
+                <Input
+                  id="horasExtra"
                   type="number"
-                  value={formData.horasExtra}
-                  onChange={(e) => setFormData({ ...formData, horasExtra: e.target.value })}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 text-lg"
-                  placeholder="Ej: 5"
-                  min="0"
-                  step="0.5"
+                  value={horasExtra}
+                  onChange={(e) => setHorasExtra(e.target.value)}
+                  placeholder="0"
                 />
-                <p className="text-sm text-gray-500 mt-1">Las horas extra se pagan con un 75% de incremento mínimo</p>
+                <p className="text-xs text-gray-500 mt-1">Se pagan con un 75% de incremento mínimo.</p>
               </div>
+            </CardContent>
+          </div>
 
-              <Button
-                type="submit"
-                className="w-full bg-green-600 hover:bg-green-700 text-white py-4 text-lg font-semibold"
-                disabled={isCalculating}
-              >
-                {isCalculating ? (
-                  <>
-                    <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
-                    Calculando...
-                  </>
-                ) : (
-                  <>
-                    <Calculator className="mr-2 h-5 w-5" />
-                    Calcular Mi Salario
-                  </>
-                )}
-              </Button>
-            </form>
-
+          {/* Columna de Resultados */}
+          <div className="p-8 bg-gray-50 flex flex-col">
+            <CardHeader className="p-0 mb-6">
+              <CardTitle className="text-2xl font-bold text-gray-900">Tu Salario Neto</CardTitle>
+              <p className="text-gray-600">Desglose de tu retribución.</p>
+            </CardHeader>
             {resultados && (
-              <div className="mt-8 space-y-6">
-                <div className="bg-gradient-to-r from-green-50 to-blue-50 p-6 rounded-lg border border-green-200">
-                  <h3 className="text-xl font-bold text-gray-900 mb-4 text-center">Tu Salario Calculado</h3>
-
-                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
-                    <div className="bg-white p-4 rounded-lg shadow-sm border">
-                      <h4 className="text-sm font-semibold text-gray-600 mb-1">Salario Semanal Neto</h4>
-                      <p className="text-2xl font-bold text-green-600">
-                        {formatearMoneda(resultados.salarioNetoSemanal)}
-                      </p>
-                      <p className="text-sm text-gray-500">Después de cotizaciones</p>
+              <CardContent className="p-0 flex-grow flex flex-col justify-center">
+                <div className="text-center mb-6">
+                  <p className="text-lg text-gray-600">Salario Neto Mensual</p>
+                  <p className="text-5xl font-bold text-green-600 tracking-tighter">
+                    {formatearMoneda(resultados.salarioNetoMensual)}
+                  </p>
+                </div>
+                <div className="h-48 w-full mb-6">
+                  <ResponsiveContainer>
+                    <PieChart>
+                      <Pie
+                        data={chartData}
+                        dataKey="value"
+                        nameKey="name"
+                        cx="50%"
+                        cy="50%"
+                        outerRadius={60}
+                        fill="#8884d8"
+                      >
+                        {chartData.map((entry, index) => (
+                          <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                        ))}
+                      </Pie>
+                      <Tooltip formatter={(value) => formatearMoneda(value)} />
+                    </PieChart>
+                  </ResponsiveContainer>
+                </div>
+                <div className="space-y-3">
+                  <div className="flex justify-between items-center p-3 bg-white rounded-lg shadow-sm">
+                    <div className="flex items-center">
+                      <div className="w-2 h-2 rounded-full bg-green-500 mr-2"></div>
+                      <span className="font-medium text-gray-700">Salario Neto Mensual</span>
                     </div>
-
-                    <div className="bg-white p-4 rounded-lg shadow-sm border">
-                      <h4 className="text-sm font-semibold text-gray-600 mb-1">Salario Mensual Neto</h4>
-                      <p className="text-2xl font-bold text-blue-600">
-                        {formatearMoneda(resultados.salarioNetoMensual)}
-                      </p>
-                      <p className="text-sm text-gray-500">Después de cotizaciones</p>
-                    </div>
-
-                    <div className="bg-white p-4 rounded-lg shadow-sm border">
-                      <h4 className="text-sm font-semibold text-gray-600 mb-1">Salario Anual Neto</h4>
-                      <p className="text-2xl font-bold text-purple-600">
-                        {formatearMoneda(resultados.salarioNetoAnual)}
-                      </p>
-                      <p className="text-sm text-gray-500">14 pagas</p>
-                    </div>
+                    <span className="font-bold text-gray-900">{formatearMoneda(resultados.salarioNetoMensual)}</span>
                   </div>
-
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div className="bg-blue-50 p-4 rounded-lg">
-                      <h4 className="font-semibold text-blue-800 mb-2">Detalles del Cálculo</h4>
-                      <div className="space-y-1 text-sm">
-                        <p>
-                          <span className="font-medium">Horas trabajadas:</span> {resultados.horasTrabajadas}h
-                        </p>
-                        <p>
-                          <span className="font-medium">Horas extra:</span> {resultados.horasExtra}h
-                        </p>
-                        <p>
-                          <span className="font-medium">Precio por hora:</span>{" "}
-                          {formatearMoneda(resultados.salarioPorHora)}
-                        </p>
-                        <p>
-                          <span className="font-medium">Salario bruto mensual:</span>{" "}
-                          {formatearMoneda(resultados.salarioBrutoMensual)}
-                        </p>
-                      </div>
+                  <div className="flex justify-between items-center p-3 bg-white rounded-lg shadow-sm">
+                    <div className="flex items-center">
+                      <div className="w-2 h-2 rounded-full bg-red-500 mr-2"></div>
+                      <span className="font-medium text-gray-700">Cotizaciones</span>
                     </div>
-
-                    <div className="bg-red-50 p-4 rounded-lg">
-                      <h4 className="font-semibold text-red-800 mb-2">Cotizaciones Descontadas</h4>
-                      <div className="space-y-1 text-sm">
-                        <p>
-                          <span className="font-medium">Total cotizaciones:</span>{" "}
-                          {formatearMoneda(resultados.cotizacionTrabajador)}
-                        </p>
-                        <p>
-                          <span className="font-medium">Porcentaje:</span> {resultados.porcentajeCotizacion.toFixed(2)}%
-                        </p>
-                      </div>
-                    </div>
+                    <span className="font-bold text-gray-900">
+                      {formatearMoneda(resultados.cotizacionTotalTrabajador)}
+                    </span>
+                  </div>
+                  <div className="flex justify-between items-center p-3 bg-gray-100 rounded-lg border">
+                    <span className="font-medium text-gray-800">Salario Bruto Mensual</span>
+                    <span className="font-bold text-gray-900">{formatearMoneda(resultados.salarioBrutoMensual)}</span>
                   </div>
                 </div>
-
-                <div className="bg-gray-50 p-6 rounded-lg border">
-                  <h4 className="text-lg font-bold text-gray-900 mb-4">Desglose de Cotizaciones Mensuales</h4>
-                  <div className="space-y-2">
-                    {Object.entries(resultados.desgloseTrabajador).map(([concepto, datos]) => (
-                      <div key={concepto} className="flex justify-between items-center py-2 border-b border-gray-200">
-                        <span className="text-gray-700">
-                          {formatearConcepto(concepto)} ({datos.porcentaje}%)
-                        </span>
-                        <span className="font-semibold text-gray-900">{formatearMoneda(datos.cantidad)}</span>
-                      </div>
-                    ))}
-                    <div className="border-t-2 border-gray-300 pt-4">
-                      <div className="flex justify-between items-center">
-                        <span className="text-lg font-bold text-gray-900">TOTAL COTIZACIONES</span>
-                        <span className="text-xl font-bold text-red-600">
-                          {formatearMoneda(resultados.cotizacionTrabajador)}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              </CardContent>
             )}
-          </CardContent>
-        </Card>
-      </div>
-      {/* Calculadoras relacionadas */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Calculadoras Laborales Relacionadas</h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Completa tu análisis salarial con estas herramientas
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
-              <CardHeader className="text-center pb-4">
-                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Calculator className="h-8 w-8 text-blue-600" />
-                </div>
-                <CardTitle className="text-xl text-gray-900">Cotizaciones Seguridad Social</CardTitle>
-              </CardHeader>
-              <CardContent className="text-center">
-                <p className="text-gray-600 mb-6">
-                  Calcula las cotizaciones exactas según tu salario por horas. Verifica cuánto cotizas realmente.
-                </p>
-                <Link href="/calculadora-cotizaciones-seguridad-social">
-                  <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white">
-                    Ver cotizaciones
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </Link>
-              </CardContent>
-            </Card>
-
-            <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
-              <CardHeader className="text-center pb-4">
-                <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Banknote className="h-8 w-8 text-orange-600" />
-                </div>
-                <CardTitle className="text-xl text-gray-900">Prestación por Desempleo</CardTitle>
-              </CardHeader>
-              <CardContent className="text-center">
-                <p className="text-gray-600 mb-6">
-                  Calcula tu prestación de paro según tu salario por horas. Conoce tus derechos laborales.
-                </p>
-                <Link href="/calculadora-paro">
-                  <Button className="w-full bg-orange-600 hover:bg-orange-700 text-white">
-                    Calcular paro
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </Link>
-              </CardContent>
-            </Card>
-
-            <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
-              <CardHeader className="text-center pb-4">
-                <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Briefcase className="h-8 w-8 text-red-600" />
-                </div>
-                <CardTitle className="text-xl text-gray-900">Despidos y Finiquito</CardTitle>
-              </CardHeader>
-              <CardContent className="text-center">
-                <p className="text-gray-600 mb-6">
-                  Calcula tu indemnización por despido basada en tu salario por horas. Protege tus derechos.
-                </p>
-                <Link href="/calculadora-despidos">
-                  <Button className="w-full bg-red-600 hover:bg-red-700 text-white">
-                    Calcular despido
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </Link>
-              </CardContent>
-            </Card>
           </div>
         </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-green-600 to-blue-600">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">¿Problemas con tu salario por horas?</h2>
-          <p className="text-xl text-green-100 mb-8">Consulta con un abogado laboralista especializado</p>
-          <Link href="/calculadora-honorarios-abogado">
-            <Button size="lg" className="bg-white text-green-600 hover:bg-gray-100 px-8 py-4 text-lg font-semibold">
-              Honorarios de Abogado Laboralista
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
-          </Link>
-        </div>
-      </section>
+      </Card>
     </div>
   )
 }

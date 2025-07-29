@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import CalculadoraVacaciones from "./CalculadoraVacaciones"
+import { Breadcrumbs } from "../components/Breadcrumbs"
 
 export const metadata: Metadata = {
   title: "🔥 Calculadora Vacaciones Laborales 2025 | Días + Valor Económico | Calculord",
@@ -107,6 +108,7 @@ export default function CalculadoraVacacionesPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
+      <Breadcrumbs currentPage="Vacaciones Laborales" />
       <CalculadoraVacaciones />
     </>
   )

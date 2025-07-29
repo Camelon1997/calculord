@@ -1169,20 +1169,6 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
           </aside>
         </div>
       </div>
-
-      {/* Footer CTA */}
-      <div className="bg-gray-900 text-white py-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h3 className="text-3xl font-bold mb-4">¿Te ha resultado útil este artículo?</h3>
-          <p className="text-xl text-gray-300 mb-8">Descubre todas nuestras calculadoras laborales gratuitas</p>
-          <Link href="/">
-            <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-lg px-8 py-4">
-              Ver Todas las Calculadoras
-              <ArrowRight className="w-5 h-5 ml-2" />
-            </Button>
-          </Link>
-        </div>
-      </div>
     </div>
   )
 }

@@ -1,471 +1,364 @@
 import type { Metadata } from "next"
+import { BarChart, ArrowLeftRight, Building2, BookOpen, ArrowDown, TrendingUp, FileSignature } from "lucide-react"
 import CalculadoraNomina from "./CalculadoraNomina"
+import { RelatedCalculatorCard } from "../components/RelatedCalculatorCard"
+import { Breadcrumbs } from "../components/Breadcrumbs"
+import { Button } from "@/components/ui/button"
+import Link from "next/link"
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 
 export const metadata: Metadata = {
-  title: "🔥 Calculadora Nómina 2025 | Salario Neto + IRPF + Cotizaciones SS | Calculord",
+  title: "Calculadora de Nómina 2025: Calcula tu Salario Neto al Detalle",
   description:
-    "✅ Calcula tu SALARIO NETO exacto con IRPF, cotizaciones SS y deducciones 2025. 📊 Tramos fiscales actualizados. 💰 Nómina completa desglosada. 🆓 Herramienta gratuita oficial España.",
+    "Calcula tu nómina y salario neto mensual para 2025. Nuestra herramienta y guía completa desglosa todas las cotizaciones a la Seguridad Social y la retención de IRPF. De bruto a neto con precisión.",
   keywords: [
     "calculadora nomina 2025",
-    "salario neto calculadora",
-    "IRPF 2025 tramos",
+    "calcular nomina",
+    "salario neto",
+    "calculadora salario neto",
+    "bruto a neto",
     "cotizaciones seguridad social",
-    "deducciones nomina 2025",
-    "tramos IRPF actualizados",
-    "calculadora sueldo neto",
-    "nómina completa España",
-    "salario bruto neto",
-    "retenciones IRPF 2025",
-    "cotización trabajador 6.35",
-    "desglose nómina completo",
-    "calculadora fiscal España",
-    "impuestos salario 2025",
-    "pagas extra IRPF",
-    "deducciones personales",
-    "mínimo personal familiar",
-    "calculadora laboral nómina",
-    "herramientas RRHH nómina",
-    "simulador nómina gratuito",
-  ].join(", "),
+    "retencion IRPF",
+    "nomina españa",
+    "desglose nomina",
+    "conceptos nomina",
+    "entender nomina",
+    "leer nomina",
+    "optimizar nomina",
+    "retribucion flexible",
+  ],
   openGraph: {
-    title: "🔥 Calculadora Nómina 2025 | Salario Neto + IRPF + Cotizaciones",
-    description: "✅ Calcula salario neto exacto con IRPF, cotizaciones SS y deducciones actualizadas 2025. 🆓",
+    title: "Calculadora de Nómina 2025: Calcula tu Salario Neto al Detalle | Calculord",
+    description:
+      "La calculadora de nómina más completa y la guía definitiva para entenderla. Introduce tu salario bruto y obtén un desglose detallado de tu salario neto, cotizaciones y retenciones de IRPF para 2025.",
     type: "website",
-    url: "https://calculord.com/calculadora-nomina",
     locale: "es_ES",
-    images: [
-      {
-        url: "/og-calculadora-nomina.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Calculadora de Nómina 2025 - Salario Neto con IRPF",
-      },
-    ],
+    url: "https://calculord.com/calculadora-nomina",
   },
   twitter: {
     card: "summary_large_image",
-    title: "🔥 Calculadora Nómina 2025 | Salario Neto + IRPF",
-    description: "✅ Calcula salario neto exacto con IRPF, cotizaciones SS y deducciones actualizadas 2025. 🆓",
-    images: ["/og-calculadora-nomina.jpg"],
-    creator: "@calculord",
+    title: "Calculadora de Nómina 2025 | Calculord",
+    description:
+      "¿Quieres saber cuánto cobrarás a fin de mes? Calcula tu nómina y salario neto con nuestra herramienta actualizada para 2025 y aprende a interpretar cada concepto.",
   },
   alternates: {
     canonical: "https://calculord.com/calculadora-nomina",
   },
 }
 
-const structuredData = {
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
-  name: "Calculadora de Nómina 2025",
-  description:
-    "Calculadora gratuita para calcular nóminas completas con IRPF, cotizaciones a la Seguridad Social y todas las deducciones.",
-  url: "https://calculord.com/calculadora-nomina",
-  applicationCategory: "FinanceApplication",
-  operatingSystem: "Web Browser",
-  offers: {
-    "@type": "Offer",
-    price: "0",
-    priceCurrency: "EUR",
-  },
-  featureList: [
-    "Cálculo de IRPF por tramos 2025",
-    "Cotizaciones a la Seguridad Social",
-    "Desglose completo de la nómina",
-    "Salario neto exacto",
-    "Deducciones personalizables",
-    "Exportación de resultados",
-  ],
-  creator: {
-    "@type": "Organization",
-    name: "Calculord",
-  },
-  dateModified: "2025-01-28",
-  inLanguage: "es-ES",
-  isAccessibleForFree: true,
-}
-
 export default function CalculadoraNominaPage() {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
-      <div className="min-h-screen bg-gray-50">
-        {/* Header */}
-        <header className="bg-white shadow-sm border-b">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
-                  <svg className="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"
-                    />
-                  </svg>
-                </div>
-                <div>
-                  <h1 className="text-xl font-bold text-gray-900">Calculadora de Nómina 2025</h1>
-                  <p className="text-sm text-gray-600">Calcula tu salario neto con IRPF y cotizaciones</p>
-                </div>
-              </div>
-              <a
-                href="/"
-                className="text-sm text-purple-600 hover:text-purple-700 font-medium flex items-center space-x-1"
-              >
-                <span>← Volver al inicio</span>
-              </a>
-            </div>
-          </div>
-        </header>
+      <Breadcrumbs currentPage="Calculadora de Nómina" />
 
-        {/* Hero Section */}
-        <section className="bg-gradient-to-br from-purple-50 to-indigo-100 py-12">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Calculadora de Nómina Completa 2025</h2>
-            <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-              Calcula tu salario neto exacto con IRPF, cotizaciones a la Seguridad Social y todas las deducciones.
-              Genera nóminas completas y precisas según la normativa 2025.
-            </p>
-            <div className="grid md:grid-cols-3 gap-6 max-w-2xl mx-auto">
-              <div className="text-center">
-                <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-2">
-                  <svg className="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"
-                    />
-                  </svg>
-                </div>
-                <h3 className="font-semibold text-gray-900">IRPF 2025</h3>
-                <p className="text-sm text-gray-600">Cálculo por tramos actualizado</p>
-              </div>
-              <div className="text-center">
-                <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-2">
-                  <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"
-                    />
-                  </svg>
-                </div>
-                <h3 className="font-semibold text-gray-900">Cotizaciones SS</h3>
-                <p className="text-sm text-gray-600">Trabajador y empresa</p>
-              </div>
-              <div className="text-center">
-                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-2">
-                  <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                    />
-                  </svg>
-                </div>
-                <h3 className="font-semibold text-gray-900">Desglose Completo</h3>
-                <p className="text-sm text-gray-600">Todos los conceptos</p>
-              </div>
-            </div>
+      <section className="bg-gradient-to-br from-purple-50 to-indigo-100 py-24 sm:py-32">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 tracking-tight">
+            Calculadora de Nómina 2025
+          </h1>
+          <p className="mt-6 text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+            Descubre tu <span className="font-semibold text-gray-800">salario neto</span> al céntimo. Nuestra
+            herramienta desglosa tu nómina, incluyendo cotizaciones y retenciones, para que sepas a dónde va cada euro.
+          </p>
+          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Link href="#calculadora">
+              <Button size="lg" className="w-full sm:w-auto bg-purple-600 hover:bg-purple-700">
+                <ArrowDown className="mr-2 h-5 w-5" />
+                Ir a la Calculadora
+              </Button>
+            </Link>
+            <Link href="#conceptos-clave">
+              <Button size="lg" variant="outline" className="w-full sm:w-auto bg-white/50">
+                <BookOpen className="mr-2 h-5 w-5" />
+                Entender mi Nómina
+              </Button>
+            </Link>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Calculator */}
+      <section id="calculadora" className="py-16 md:py-20">
         <CalculadoraNomina />
+      </section>
 
-        {/* Info Section */}
-        <section className="py-16 bg-white">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">¿Cómo funciona la Calculadora de Nómina?</h2>
-              <p className="text-gray-600 max-w-2xl mx-auto">
-                Nuestra calculadora utiliza la normativa fiscal y laboral más actualizada para ofrecerte cálculos
-                precisos y completos.
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-8 mb-12">
-              <div className="space-y-6">
-                <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <span className="text-purple-600 font-semibold text-sm">1</span>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900 mb-2">Introduce tus datos salariales</h3>
-                    <p className="text-gray-600 text-sm">
-                      Salario bruto mensual, pagas extra, tipo de contrato y situación personal.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <span className="text-purple-600 font-semibold text-sm">2</span>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900 mb-2">Cálculo automático de IRPF</h3>
-                    <p className="text-gray-600 text-sm">
-                      Aplicamos los tramos de IRPF 2025 según tu salario anual y situación familiar.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <span className="text-purple-600 font-semibold text-sm">3</span>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900 mb-2">Cotizaciones a la Seguridad Social</h3>
-                    <p className="text-gray-600 text-sm">
-                      Calculamos las cotizaciones del trabajador y la empresa según el régimen general.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="space-y-6">
-                <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <span className="text-purple-600 font-semibold text-sm">4</span>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900 mb-2">Deducciones adicionales</h3>
-                    <p className="text-gray-600 text-sm">
-                      Incluye deducciones por hijos, discapacidad, gastos deducibles y otras circunstancias.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <span className="text-purple-600 font-semibold text-sm">5</span>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900 mb-2">Resultado detallado</h3>
-                    <p className="text-gray-600 text-sm">
-                      Obtén tu salario neto y un desglose completo de todos los conceptos de la nómina.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <span className="text-purple-600 font-semibold text-sm">6</span>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900 mb-2">Exporta los resultados</h3>
-                    <p className="text-gray-600 text-sm">
-                      Guarda o imprime el desglose completo de tu nómina para tus registros.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* IRPF Tramos 2025 */}
-            <div className="bg-gray-50 rounded-lg p-6 mb-8">
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">Tramos de IRPF 2025</h3>
-              <div className="overflow-x-auto">
-                <table className="w-full text-sm">
-                  <thead>
-                    <tr className="border-b border-gray-200">
-                      <th className="text-left py-2 font-medium text-gray-900">Base Liquidable</th>
-                      <th className="text-left py-2 font-medium text-gray-900">Tipo Aplicable</th>
-                      <th className="text-left py-2 font-medium text-gray-900">Cuota Íntegra</th>
-                    </tr>
-                  </thead>
-                  <tbody className="text-gray-600">
-                    <tr className="border-b border-gray-100">
-                      <td className="py-2">Hasta 12.450€</td>
-                      <td className="py-2">19%</td>
-                      <td className="py-2">2.365,50€</td>
-                    </tr>
-                    <tr className="border-b border-gray-100">
-                      <td className="py-2">12.450€ - 20.200€</td>
-                      <td className="py-2">24%</td>
-                      <td className="py-2">4.225,50€</td>
-                    </tr>
-                    <tr className="border-b border-gray-100">
-                      <td className="py-2">20.200€ - 35.200€</td>
-                      <td className="py-2">30%</td>
-                      <td className="py-2">8.725,50€</td>
-                    </tr>
-                    <tr className="border-b border-gray-100">
-                      <td className="py-2">35.200€ - 60.000€</td>
-                      <td className="py-2">37%</td>
-                      <td className="py-2">17.901,50€</td>
-                    </tr>
-                    <tr>
-                      <td className="py-2">Más de 60.000€</td>
-                      <td className="py-2">47%</td>
-                      <td className="py-2">-</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-
-            {/* FAQ */}
-            <div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-6">Preguntas Frecuentes</h3>
-              <div className="space-y-4">
-                <details className="bg-gray-50 rounded-lg p-4">
-                  <summary className="font-medium text-gray-900 cursor-pointer">
-                    ¿Cómo se calcula el IRPF en la nómina?
-                  </summary>
-                  <p className="mt-2 text-gray-600 text-sm">
-                    El IRPF se calcula aplicando los tramos progresivos sobre la base imponible anual, que incluye el
-                    salario bruto anual más las pagas extra. Se aplican las deducciones correspondientes según la
-                    situación personal y familiar.
-                  </p>
-                </details>
-
-                <details className="bg-gray-50 rounded-lg p-4">
-                  <summary className="font-medium text-gray-900 cursor-pointer">
-                    ¿Qué cotizaciones se descuentan de mi salario?
-                  </summary>
-                  <p className="mt-2 text-gray-600 text-sm">
-                    Del salario del trabajador se descuentan: Contingencias Comunes (4,7%), Desempleo (1,55%), Formación
-                    Profesional (0,1%). El total de cotizaciones del trabajador es aproximadamente el 6,35% del salario
-                    bruto.
-                  </p>
-                </details>
-
-                <details className="bg-gray-50 rounded-lg p-4">
-                  <summary className="font-medium text-gray-900 cursor-pointer">
-                    ¿Incluye las pagas extra en el cálculo?
-                  </summary>
-                  <p className="mt-2 text-gray-600 text-sm">
-                    Sí, la calculadora incluye las pagas extra (normalmente 2 al año) para calcular el salario anual
-                    total y aplicar correctamente los tramos de IRPF. Puedes especificar si las pagas están prorrateadas
-                    o se cobran por separado.
-                  </p>
-                </details>
-
-                <details className="bg-gray-50 rounded-lg p-4">
-                  <summary className="font-medium text-gray-900 cursor-pointer">
-                    ¿Qué deducciones puedo aplicar?
-                  </summary>
-                  <p className="mt-2 text-gray-600 text-sm">
-                    Puedes aplicar deducciones por: hijos menores de 25 años, ascendientes mayores de 65 años,
-                    discapacidad, gastos deducibles como planes de pensiones, y otras circunstancias personales que
-                    reduzcan la base imponible del IRPF.
-                  </p>
-                </details>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Related Calculators */}
-        <section className="py-12 bg-gray-50">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-xl font-bold text-gray-900 mb-6 text-center">Calculadoras Relacionadas</h2>
-            <div className="grid md:grid-cols-3 gap-6">
-              <a
-                href="/calculadora-cotizaciones-seguridad-social"
-                className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow border"
-              >
-                <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                  <svg className="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"
-                    />
-                  </svg>
-                </div>
-                <h3 className="font-semibold text-gray-900 mb-2">Cotizaciones Seguridad Social</h3>
-                <p className="text-sm text-gray-600">Calcula las cotizaciones exactas de trabajadores y empresas</p>
-              </a>
-
-              <a
-                href="/calculadora-salario-por-horas"
-                className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow border"
-              >
-                <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center mb-4">
-                  <svg className="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                    />
-                  </svg>
-                </div>
-                <h3 className="font-semibold text-gray-900 mb-2">Salario por Horas</h3>
-                <p className="text-sm text-gray-600">Calcula tu salario basado en las horas trabajadas</p>
-              </a>
-
-              <a
-                href="/calculadora-paro"
-                className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow border"
-              >
-                <div className="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
-                  <svg className="w-5 h-5 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"
-                    />
-                  </svg>
-                </div>
-                <h3 className="font-semibold text-gray-900 mb-2">Prestación por Desempleo</h3>
-                <p className="text-sm text-gray-600">Calcula tu prestación por desempleo y subsidio</p>
-              </a>
-            </div>
-
-            {/* CTA Abogado */}
-            <div className="mt-12 bg-gradient-to-r from-amber-50 to-orange-100 rounded-lg p-8 text-center">
-              <div className="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-6 h-6 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16l-3-9m3 9l3-9"
-                  />
-                </svg>
-              </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">¿Problemas con tu Nómina?</h3>
-              <p className="text-gray-600 mb-4">
-                Si detectas errores en tu nómina o tienes dudas sobre tus derechos laborales, consulta con un abogado
-                especializado.
-              </p>
-              <a
-                href="/calculadora-honorarios-abogado"
-                className="inline-flex items-center px-4 py-2 bg-amber-600 text-white rounded-lg hover:bg-amber-700 transition-colors"
-              >
-                <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16l-3-9m3 9l3-9"
-                  />
-                </svg>
-                Calcular Honorarios de Abogado
-              </a>
-            </div>
-          </div>
-        </section>
-
-        {/* Footer */}
-        <footer className="bg-gray-900 text-white py-8">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <p className="text-gray-400 text-sm">
-              © 2025 Calculord. Calculadora de nómina gratuita y actualizada con la normativa fiscal 2025.
+      <section id="conceptos-clave" className="py-16 md:py-20 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Entiende tu Nómina: Conceptos Clave</h2>
+            <p className="mt-4 text-lg text-gray-600">
+              Tu nómina es más que un número. Te explicamos los conceptos más importantes para que la entiendas a la
+              perfección.
             </p>
           </div>
-        </footer>
-      </div>
+          <div className="space-y-8">
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-xl">1. Devengos: Todo lo que Suma</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600">
+                  Son todas las cantidades que la empresa te paga, la suma de las cuales conforma tu{" "}
+                  <strong>salario bruto</strong>. Se dividen en percepciones salariales (Salario Base, Complementos) y
+                  no salariales (Dietas, Plus de transporte).
+                </p>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-xl">2. Deducciones: Todo lo que Resta</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600">
+                  Son las cantidades que se descuentan de tu salario bruto para pagar impuestos y cotizaciones. Las
+                  principales son:
+                </p>
+                <ul className="mt-3 list-disc list-inside text-gray-600 space-y-1">
+                  <li>
+                    <strong>Aportaciones a la Seguridad Social:</strong> Tu contribución al sistema público. Incluye
+                    contingencias comunes (4.70%), desempleo (1.55% o 1.60%) y formación profesional (0.10%).
+                  </li>
+                  <li>
+                    <strong>Retención de IRPF:</strong> Un pago a cuenta del Impuesto sobre la Renta. Su porcentaje
+                    varía según tu salario y situación personal.
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-xl">3. Salario Bruto vs. Salario Neto</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600">
+                  Es la diferencia fundamental. El <strong>Salario Bruto</strong> es el total de los devengos (antes de
+                  deducciones). El <strong>Salario Neto</strong> es lo que realmente recibes en tu cuenta bancaria
+                  después de restar las deducciones (Seguridad Social e IRPF).
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 md:py-20 bg-gray-50">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Cómo Leer tu Nómina: Guía Paso a Paso</h2>
+            <p className="mt-4 text-lg text-gray-600">
+              Te guiamos a través de las secciones de una nómina estándar para que no se te escape nada.
+            </p>
+          </div>
+          <ol className="space-y-6">
+            <li className="flex items-start">
+              <span className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-purple-600 text-white font-bold mr-4">
+                1
+              </span>
+              <div>
+                <h4 className="text-lg font-semibold">Encabezado</h4>
+                <p className="text-gray-600">
+                  Aquí encontrarás los datos de la empresa (nombre, CIF, código de cuenta de cotización) y los tuyos
+                  (nombre, DNI, nº de afiliación a la SS, grupo profesional).
+                </p>
+              </div>
+            </li>
+            <li className="flex items-start">
+              <span className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-purple-600 text-white font-bold mr-4">
+                2
+              </span>
+              <div>
+                <h4 className="text-lg font-semibold">Devengos</h4>
+                <p className="text-gray-600">
+                  El corazón de lo que ganas. Verás el salario base, complementos (antigüedad, nocturnidad), horas extra
+                  y la parte proporcional de las pagas extra si están prorrateadas. La suma es tu salario bruto.
+                </p>
+              </div>
+            </li>
+            <li className="flex items-start">
+              <span className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-purple-600 text-white font-bold mr-4">
+                3
+              </span>
+              <div>
+                <h4 className="text-lg font-semibold">Deducciones</h4>
+                <p className="text-gray-600">
+                  Lo que se te descuenta. Aparecerá el detalle de tus aportaciones a la Seguridad Social y la retención
+                  de IRPF.
+                </p>
+              </div>
+            </li>
+            <li className="flex items-start">
+              <span className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-purple-600 text-white font-bold mr-4">
+                4
+              </span>
+              <div>
+                <h4 className="text-lg font-semibold">Líquido Total a Percibir</h4>
+                <p className="text-gray-600">
+                  ¡La cifra clave! Es el resultado de restar las deducciones a los devengos. Este es tu salario neto, el
+                  dinero que ingresará en tu banco.
+                </p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section className="py-16 md:py-20 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+              Optimiza tu Nómina: Paga Menos IRPF Legalmente
+            </h2>
+            <p className="mt-4 text-lg text-gray-600">
+              Existen estrategias para reducir tu factura fiscal y aumentar tu salario neto disponible.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-8">
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <TrendingUp className="h-6 w-6 text-emerald-500" />
+                  <span>Retribución Flexible</span>
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600">
+                  Pide a tu empresa que parte de tu salario te lo pague en productos o servicios exentos de IRPF, como
+                  tickets restaurante, abono transporte, cheques guardería o seguro médico. No pagas impuestos por esa
+                  parte, por lo que tu neto aumenta.
+                </p>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <FileSignature className="h-6 w-6 text-blue-500" />
+                  <span>Comunica tus Cambios</span>
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600">
+                  Asegúrate de que tu empresa tiene tu situación personal actualizada (hijos, discapacidad, etc.) a
+                  través del Modelo 145. Esto ajusta tu IRPF correctamente y evita que te retengan de más (o de menos,
+                  evitando sustos en la declaración).
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 md:py-20 bg-gray-50">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Preguntas Frecuentes sobre la Nómina</h2>
+            <p className="mt-4 text-lg text-gray-600">
+              Resolvemos las dudas más comunes sobre el cálculo y los componentes de tu salario.
+            </p>
+          </div>
+          <Accordion type="single" collapsible className="w-full">
+            <AccordionItem value="item-1">
+              <AccordionTrigger className="text-lg font-semibold">
+                ¿Cómo afectan las pagas extra a mi nómina?
+              </AccordionTrigger>
+              <AccordionContent className="text-base text-gray-600">
+                Si tienes las pagas extra prorrateadas (12 pagas), tu salario bruto mensual es mayor, pero recibes el
+                mismo importe cada mes. Si las tienes separadas (14 pagas), tu nómina mensual es menor, pero recibes dos
+                pagas adicionales (normalmente en verano y Navidad). A nivel anual, el salario bruto es el mismo, pero
+                la retención de IRPF se ajusta para que el resultado neto anual sea idéntico en ambos casos.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="item-2">
+              <AccordionTrigger className="text-lg font-semibold">
+                ¿Por qué cambia mi retención de IRPF?
+              </AccordionTrigger>
+              <AccordionContent className="text-base text-gray-600">
+                Tu porcentaje de retención de IRPF puede cambiar por varias razones: un aumento o disminución de sueldo,
+                cambios en tu situación familiar (matrimonio, nacimiento de un hijo), un nuevo contrato, o
+                regularizaciones que la empresa realiza a mitad de año para ajustar la retención a tu previsión de
+                ingresos anuales.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="item-3">
+              <AccordionTrigger className="text-lg font-semibold">
+                ¿Qué son las contingencias comunes y profesionales?
+              </AccordionTrigger>
+              <AccordionContent className="text-base text-gray-600">
+                Las <strong>contingencias comunes</strong> cubren situaciones no laborales como una enfermedad común o
+                un accidente no laboral. Las <strong>contingencias profesionales</strong> cubren accidentes de trabajo y
+                enfermedades profesionales. Ambas son aportaciones a la Seguridad Social, pero la empresa paga una parte
+                mucho mayor, especialmente en las profesionales.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="item-4">
+              <AccordionTrigger className="text-lg font-semibold">
+                ¿El coste para la empresa es mi salario bruto?
+              </AccordionTrigger>
+              <AccordionContent className="text-base text-gray-600">
+                No, el coste para la empresa es significativamente mayor que tu salario bruto. La empresa debe sumar a
+                tu salario bruto sus propias aportaciones a la Seguridad Social, conocidas como "cuota patronal". Esta
+                cuota ronda el 30-32% de tu salario bruto e incluye conceptos como contingencias comunes, desempleo,
+                FOGASA y formación profesional.
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
+        </div>
+      </section>
+
+      <section className="py-16 md:py-20 bg-white border-t">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Planificación Salarial Completa</h2>
+            <p className="text-xl text-gray-600">
+              Usa estas herramientas para entender tu salario desde todas las perspectivas.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <RelatedCalculatorCard
+              icon={
+                <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
+                  <BarChart className="h-6 w-6 text-orange-600" />
+                </div>
+              }
+              title="Calculadora de IRPF"
+              description="Calcula tu IRPF 2025 con tramos actualizados por CCAA y deducciones personales."
+              features={["Tramos IRPF 2025 actualizados", "Todas las Comunidades Autónomas", "Deducciones personales"]}
+              href="/calculadora-irpf"
+              buttonText="Calcular IRPF"
+              buttonClassName="bg-orange-600 hover:bg-orange-700"
+            />
+            <RelatedCalculatorCard
+              icon={
+                <div className="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center">
+                  <ArrowLeftRight className="h-6 w-6 text-indigo-600" />
+                </div>
+              }
+              title="Conversor Bruto a Neto"
+              description="Convierte tu salario bruto a neto y viceversa con IRPF 2025 y deducciones actualizadas."
+              features={["Conversión bidireccional", "IRPF 2025 actualizado", "Ideal para negociación"]}
+              href="/conversor-salario-bruto-neto"
+              buttonText="Convertir Salario"
+              buttonClassName="bg-indigo-600 hover:bg-indigo-700"
+            />
+            <RelatedCalculatorCard
+              icon={
+                <div className="w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center">
+                  <Building2 className="h-6 w-6 text-emerald-600" />
+                </div>
+              }
+              title="Coste Total Empresa"
+              description="Calcula el coste real total de un trabajador para la empresa desde bruto o neto deseado."
+              features={[
+                "Cálculo desde bruto o neto",
+                "Cotizaciones empresariales 2025",
+                "Planificación presupuestaria",
+              ]}
+              href="/calculadora-coste-total-empresa"
+              buttonText="Calcular Coste"
+              buttonClassName="bg-emerald-600 hover:bg-emerald-700"
+            />
+          </div>
+        </div>
+      </section>
     </>
   )
 }

@@ -1,29 +1,39 @@
 import type { Metadata } from "next"
+import { Breadcrumbs } from "@/app/components/Breadcrumbs"
 import CalendarioFiscalAutonomos from "./CalendarioFiscalAutonomos"
 
 export const metadata: Metadata = {
-  title: "Calendario Fiscal Autónomos 2025 | Fechas Clave IRPF e IVA | Calculord",
+  title: "Calendario Fiscal Autónomos 2025 | Fechas Clave IRPF e IVA",
   description:
-    "Calendario fiscal completo para autónomos 2025. Fechas límite de declaraciones trimestrales IRPF e IVA, declaración anual y todas las obligaciones fiscales. ¡No te pierdas ninguna fecha!",
-  keywords:
-    "calendario fiscal autónomos 2025, fechas declaraciones autónomos, IRPF trimestral, IVA trimestral, modelo 130, modelo 303, declaración anual autónomos",
-  openGraph: {
-    title: "Calendario Fiscal Autónomos 2025 - Fechas Clave IRPF e IVA",
-    description:
-      "Todas las fechas importantes para autónomos en 2025. Declaraciones trimestrales, anuales y obligaciones fiscales.",
-    type: "website",
-    locale: "es_ES",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Calendario Fiscal Autónomos 2025 | Calculord",
-    description: "Fechas clave para declaraciones IRPF e IVA de autónomos 2025",
-  },
-  alternates: {
-    canonical: "https://calculord.com/calculadora-calendario-fiscal-autonomos",
-  },
+    "Calendario fiscal completo para autónomos 2025. Consulta todas las fechas límite para presentar tus impuestos (IRPF, IVA) y evita sanciones de Hacienda.",
+  keywords: [
+    "calendario fiscal autonomos",
+    "fechas impuestos autonomos",
+    "modelo 130",
+    "modelo 303",
+    "declaracion trimestral",
+    "irpf",
+    "iva",
+    "hacienda",
+  ],
 }
 
-export default function CalendarioFiscalAutonomosPage() {
-  return <CalendarioFiscalAutonomos />
+const CalendarioFiscalAutonomosPage = () => {
+  return (
+    <>
+      <Breadcrumbs
+        items={[
+          { label: "Home", path: "/" },
+          { label: "Calculadoras", path: "/#calculadoras" },
+          {
+            label: "Calendario Fiscal Autónomos",
+            path: "/calculadora-calendario-fiscal-autonomos",
+          },
+        ]}
+      />
+      <CalendarioFiscalAutonomos />
+    </>
+  )
 }
+
+export default CalendarioFiscalAutonomosPage

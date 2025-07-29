@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import CalculadoraHipoteca from "./CalculadoraHipoteca"
+import { Breadcrumbs } from "../components/Breadcrumbs"
 
 export const metadata: Metadata = {
   title: "🔥 Calculadora Hipoteca 2025 | Cuota Mensual + Tabla Amortización | Calculord",
@@ -106,6 +107,7 @@ export default function CalculadoraHipotecaPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
+      <Breadcrumbs currentPage="Calculadora de Hipoteca" />
       <CalculadoraHipoteca />
     </>
   )

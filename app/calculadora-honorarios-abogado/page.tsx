@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import CalculadoraHonorariosAbogado from "./CalculadoraHonorariosAbogado"
+import { Breadcrumbs } from "../components/Breadcrumbs"
 
 export const metadata: Metadata = {
   title: "🔥 Calculadora Honorarios Abogado 2025 | Baremos Colegiales Oficiales | Calculord",
@@ -107,6 +108,7 @@ export default function HonorariosAbogadoPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
+      <Breadcrumbs currentPage="Honorarios de Abogado" />
       <CalculadoraHonorariosAbogado />
     </>
   )

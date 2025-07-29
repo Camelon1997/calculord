@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import CalculadoraCotizaciones from "./CalculadoraCotizaciones"
+import { Breadcrumbs } from "../components/Breadcrumbs"
 
 export const metadata: Metadata = {
   title: "🔥 Calculadora Cotizaciones Seguridad Social 2025 | Régimen General y Autónomos | Calculord",
@@ -111,6 +112,7 @@ export default function CotizacionesPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
+      <Breadcrumbs currentPage="Cotizaciones Seguridad Social" />
       <CalculadoraCotizaciones />
     </>
   )

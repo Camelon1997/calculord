@@ -1,20 +1,10 @@
 import type { Metadata } from "next"
 import Link from "next/link"
-import {
-  Calculator,
-  ArrowLeft,
-  CheckCircle,
-  Star,
-  PiggyBank,
-  TrendingUp,
-  Target,
-  Percent,
-  Calendar,
-  Shield,
-} from "lucide-react"
+import { Calculator, CheckCircle, Star, PiggyBank, TrendingUp, Target, Percent, Calendar, Shield } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import CalculadoraAhorro from "./CalculadoraAhorro"
+import { Breadcrumbs } from "../components/Breadcrumbs"
 
 export const metadata: Metadata = {
   title: "🔥 Calculadora Ahorro 2025 | Interés Compuesto + Objetivos Financieros | Calculord",
@@ -120,25 +110,10 @@ const structuredData = {
 
 export default function CalculadoraAhorroPage() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
-      {/* Header */}
-      <header className="bg-white shadow-sm border-b sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-4">
-            <Link href="/" className="flex items-center space-x-2">
-              <Calculator className="h-8 w-8 text-blue-600" />
-              <span className="text-2xl font-bold text-gray-900">Calculord</span>
-            </Link>
-            <Link href="/">
-              <Button variant="outline" className="flex items-center space-x-2 bg-transparent">
-                <ArrowLeft className="h-4 w-4" />
-                <span>Volver al inicio</span>
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </header>
+
+      <Breadcrumbs currentPage="Calculadora de Ahorro" />
 
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-teal-50 via-emerald-50 to-green-50 py-20">
@@ -414,105 +389,6 @@ export default function CalculadoraAhorroPage() {
           </div>
         </div>
       </section>
-
-      {/* CTA Final */}
-      <section className="py-16 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">¿Necesitas asesoramiento financiero personalizado?</h2>
-          <p className="text-xl mb-8 opacity-90">
-            Calcula también los servicios de asesores financieros especializados
-          </p>
-          <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3">
-            Asesoramiento Financiero →
-          </Button>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-4 gap-8">
-            <div>
-              <div className="flex items-center space-x-2 mb-4">
-                <Calculator className="h-6 w-6 text-blue-400" />
-                <span className="text-xl font-bold">Calculord</span>
-              </div>
-              <p className="text-gray-400">
-                Calculadoras financieras profesionales actualizadas con la normativa 2025.
-              </p>
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold mb-4">Calculadoras Financieras</h3>
-              <ul className="space-y-2 text-gray-400">
-                <li>
-                  <Link href="/calculadora-ahorro" className="hover:text-white">
-                    Calculadora de Ahorro
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/calculadora-hipoteca" className="hover:text-white">
-                    Calculadora de Hipoteca
-                  </Link>
-                </li>
-                <li>
-                  <span className="text-gray-500">Calculadora de Inversión</span>
-                </li>
-                <li>
-                  <span className="text-gray-500">Calculadora de Jubilación</span>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold mb-4">Calculadoras Laborales</h3>
-              <ul className="space-y-2 text-gray-400">
-                <li>
-                  <Link href="/calculadora-cotizaciones-seguridad-social" className="hover:text-white">
-                    Cotizaciones SS
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/calculadora-salario-por-horas" className="hover:text-white">
-                    Salario por Horas
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/calculadora-despidos" className="hover:text-white">
-                    Despidos
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/calculadora-nomina" className="hover:text-white">
-                    Nómina Completa
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold mb-4">Legal</h3>
-              <ul className="space-y-2 text-gray-400">
-                <li>
-                  <a href="#" className="hover:text-white">
-                    Política de Privacidad
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-white">
-                    Términos de Uso
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-white">
-                    Contacto
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; 2025 Calculord. Todos los derechos reservados.</p>
-          </div>
-        </div>
-      </footer>
-    </div>
+    </>
   )
 }

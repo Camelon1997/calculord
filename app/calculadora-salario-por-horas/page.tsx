@@ -1,10 +1,10 @@
 import type { Metadata } from "next"
-import CalculadoraSalarioHoras from "./CalculadoraSalarioHoras"
+import SalarioHorasClientPage from "./SalarioHorasClientPage"
 
 export const metadata: Metadata = {
-  title: "🔥 Calculadora Salario por Horas 2025 | SMI 9,26€/h + Horas Extra | Calculord",
+  title: "✅ Calculadora Salario por Horas 2025 | SMI 9,26€/h + Neto | Calculord",
   description:
-    "✅ Calcula tu salario REAL por horas trabajadas 2025. 📊 SMI 1.184€/mes (9,26€/h). Horas extra +75%. 💰 Salario neto con cotizaciones e IRPF. 🆓 Herramienta gratuita actualizada.",
+    "Calcula tu salario REAL por horas trabajadas en 2025. 📊 Basado en el SMI de 1.184€/mes (9,26€/h). Incluye horas extra (+75%), cotizaciones y salario neto final. Herramienta gratuita y actualizada.",
   keywords: [
     "calculadora salario por horas 2025",
     "SMI 2025 9.26 euros hora",
@@ -35,9 +35,9 @@ export const metadata: Metadata = {
     canonical: "https://calculord.com/calculadora-salario-por-horas",
   },
   openGraph: {
-    title: "🔥 Calculadora Salario por Horas 2025 | SMI 9,26€/h + Horas Extra | Calculord",
+    title: "✅ Calculadora Salario por Horas 2025 | SMI 9,26€/h + Neto | Calculord",
     description:
-      "✅ Calcula salario REAL por horas. 📊 SMI 9,26€/h, horas extra +75%. 💰 Salario neto con cotizaciones. 🆓 Gratis.",
+      "Calcula tu salario REAL por horas. 📊 SMI 9,26€/h, horas extra +75%. 💰 Salario neto con cotizaciones. 🆓 Gratis.",
     url: "https://calculord.com/calculadora-salario-por-horas",
     siteName: "Calculord",
     images: [
@@ -53,8 +53,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "🔥 Calculadora Salario por Horas 2025 | SMI 9,26€/h",
-    description: "✅ Calcula salario REAL por horas. SMI 9,26€/h, horas extra +75%. 💰 Salario neto. 🆓",
+    title: "✅ Calculadora Salario por Horas 2025 | SMI 9,26€/h",
+    description: "Calcula tu salario REAL por horas. SMI 9,26€/h, horas extra +75%. 💰 Salario neto. 🆓",
     images: ["/og-salario-horas.jpg"],
     creator: "@calculord",
   },
@@ -71,42 +71,6 @@ export const metadata: Metadata = {
   },
 }
 
-const structuredData = {
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
-  name: "Calculadora de Salario por Horas 2025",
-  description:
-    "Calculadora gratuita para calcular el salario según las horas trabajadas, incluyendo SMI 2025 y horas extra con incremento del 75%.",
-  url: "https://calculord.com/calculadora-salario-por-horas",
-  applicationCategory: "FinanceApplication",
-  operatingSystem: "Web Browser",
-  offers: {
-    "@type": "Offer",
-    price: "0",
-    priceCurrency: "EUR",
-  },
-  featureList: [
-    "SMI 2025 (9,26€/hora)",
-    "Horas extra con incremento 75%",
-    "Cálculo salario neto",
-    "Cotizaciones incluidas",
-    "IRPF aplicado",
-    "Desglose detallado",
-  ],
-  creator: {
-    "@type": "Organization",
-    name: "Calculord",
-  },
-  dateModified: "2025-01-28",
-  inLanguage: "es-ES",
-  isAccessibleForFree: true,
-}
-
 export default function SalarioHorasPage() {
-  return (
-    <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
-      <CalculadoraSalarioHoras />
-    </>
-  )
+  return <SalarioHorasClientPage />
 }

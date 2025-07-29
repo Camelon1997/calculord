@@ -8,12 +8,11 @@ import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import {
   Calculator,
   FileText,
   TrendingUp,
-  CheckCircle,
-  AlertCircle,
   Calendar,
   Building,
   ArrowUpDown,
@@ -21,10 +20,11 @@ import {
   HelpCircle,
   ChevronDown,
   ChevronUp,
-  Euro,
   Building2,
+  BookOpen,
+  Info,
 } from "lucide-react"
-import Link from "next/link"
+import { RelatedCalculatorCard } from "@/app/components/RelatedCalculatorCard"
 
 interface CalculationResult {
   ingresosBrutos: number
@@ -207,36 +207,108 @@ export default function CalculadoraIRPFAutonomos() {
     },
   ]
 
+  const glossaryData = [
+    {
+      term: "Base Imponible",
+      definition:
+        "Es la cantidad sobre la que se calcula el impuesto. Se obtiene restando los gastos deducibles a los ingresos brutos. (Ingresos - Gastos = Base Imponible).",
+    },
+    {
+      term: "Base Liquidable",
+      definition:
+        "Resulta de aplicar las reducciones (por tributación conjunta, aportaciones a planes de pensiones, etc.) a la Base Imponible. Es la cifra final sobre la que se aplican los tramos del IRPF.",
+    },
+    {
+      term: "Cuota Íntegra",
+      definition:
+        "Es el resultado de aplicar los tipos de gravamen (los porcentajes de los tramos) a la Base Liquidable. Es el impuesto 'bruto' antes de aplicar deducciones.",
+    },
+    {
+      term: "Cuota Líquida",
+      definition:
+        "Se obtiene restando las deducciones (por inversión en vivienda, donativos, etc.) a la Cuota Íntegra. Es el impuesto a pagar antes de contar las retenciones.",
+    },
+    {
+      term: "Resultado de la Declaración",
+      definition:
+        "Es la diferencia entre la Cuota Líquida y los pagos a cuenta ya realizados (retenciones y pagos fraccionados del modelo 130). Si es positivo, sale 'a pagar'. Si es negativo, 'a devolver'.",
+    },
+  ]
+
+  const relatedCalculators = [
+    {
+      icon: <Calendar className="w-6 h-6 text-purple-600" />,
+      title: "Calendario Fiscal Autónomos",
+      description: "Consulta todas las fechas clave y obligaciones fiscales para no olvidar ninguna.",
+      features: [
+        "Modelo 130, 303, 349",
+        "Declaración de la Renta",
+        "Impuesto de Sociedades",
+        "Alertas personalizables",
+      ],
+      href: "/calculadora-calendario-fiscal-autonomos",
+      buttonText: "Ver Calendario",
+      buttonClassName: "bg-purple-600 hover:bg-purple-700",
+    },
+    {
+      icon: <Calculator className="w-6 h-6 text-blue-600" />,
+      title: "Cotizaciones Seguridad Social",
+      description: "Calcula tu cuota de autónomos o el coste de tus empleados según los ingresos reales.",
+      features: ["Régimen General y Autónomos", "Bases y tipos actualizados 2025", "Desglose trabajador/empresa"],
+      href: "/calculadora-cotizaciones-seguridad-social",
+      buttonText: "Calcular Cotizaciones",
+      buttonClassName: "bg-blue-600 hover:bg-blue-700",
+    },
+    {
+      icon: <ArrowUpDown className="w-6 h-6 text-indigo-600" />,
+      title: "Conversor Bruto-Neto",
+      description: "Convierte tu salario bruto a neto y viceversa con IRPF 2025 y deducciones actualizadas.",
+      features: ["Conversión bidireccional", "IRPF 2025 actualizado", "Deducciones familiares"],
+      href: "/conversor-salario-bruto-neto",
+      buttonText: "Convertir Salario",
+      buttonClassName: "bg-indigo-600 hover:bg-indigo-700",
+    },
+    {
+      icon: <Building2 className="w-6 h-6 text-green-600" />,
+      title: "Coste Total Empresa",
+      description: "Calcula el coste real total de un trabajador para la empresa desde bruto o neto deseado.",
+      features: ["Cálculo desde bruto o neto", "Cotizaciones empresariales 2025", "Planificación presupuestaria"],
+      href: "/calculadora-coste-total-empresa",
+      buttonText: "Calcular Coste",
+      buttonClassName: "bg-green-600 hover:bg-green-700",
+    },
+  ]
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 via-white to-blue-50">
+    <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <div className="bg-gradient-to-r from-green-600 to-blue-700 text-white py-20">
+      <div className="bg-gradient-to-r from-green-600 to-blue-700 text-white py-16 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <div className="flex justify-center mb-8">
-              <div className="bg-white/20 p-6 rounded-3xl">
-                <FileText className="w-16 h-16" />
+            <div className="flex justify-center mb-6">
+              <div className="bg-white/20 p-4 rounded-2xl">
+                <FileText className="w-12 h-12" />
               </div>
             </div>
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4">
               Calculadora IRPF
               <span className="block text-green-200">para Autónomos 2025</span>
             </h1>
-            <p className="text-xl md:text-2xl mb-8 text-green-100 max-w-4xl mx-auto">
+            <p className="text-lg md:text-xl mb-8 text-green-100 max-w-4xl mx-auto">
               Calcula tu Impuesto sobre la Renta como autónomo con todas las deducciones fiscales, retenciones y tramos
-              por Comunidad Autónoma actualizados 2025.
+              por Comunidad Autónoma actualizados para 2025.
             </p>
-            <div className="flex flex-wrap justify-center gap-4 text-sm mb-8">
-              <Badge variant="secondary" className="bg-white/20 text-white border-white/30 px-4 py-2">
+            <div className="flex flex-wrap justify-center gap-3 text-sm mb-8">
+              <Badge variant="secondary" className="bg-white/20 text-white border-white/30 px-3 py-1">
                 ✅ Deducciones 2025
               </Badge>
-              <Badge variant="secondary" className="bg-white/20 text-white border-white/30 px-4 py-2">
+              <Badge variant="secondary" className="bg-white/20 text-white border-white/30 px-3 py-1">
                 ✅ Todas las CCAA
               </Badge>
-              <Badge variant="secondary" className="bg-white/20 text-white border-white/30 px-4 py-2">
+              <Badge variant="secondary" className="bg-white/20 text-white border-white/30 px-3 py-1">
                 ✅ Estimación Directa
               </Badge>
-              <Badge variant="secondary" className="bg-white/20 text-white border-white/30 px-4 py-2">
+              <Badge variant="secondary" className="bg-white/20 text-white border-white/30 px-3 py-1">
                 ✅ Régimen Módulos
               </Badge>
             </div>
@@ -244,335 +316,342 @@ export default function CalculadoraIRPFAutonomos() {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
         {/* Calculadora */}
-        <div className="grid lg:grid-cols-2 gap-12 mb-16">
-          <Card className="shadow-lg">
-            <CardHeader className="bg-gradient-to-r from-green-50 to-blue-50">
-              <CardTitle className="flex items-center gap-2 text-2xl">
-                <Calculator className="w-6 h-6 text-green-600" />
-                Calculadora IRPF Autónomos
-              </CardTitle>
-              <CardDescription>
-                Introduce tus datos para calcular tu IRPF con todas las deducciones aplicables
-              </CardDescription>
-            </CardHeader>
-            <CardContent className="space-y-6 p-6">
-              {/* Datos básicos */}
-              <div className="space-y-4">
-                <h3 className="font-semibold text-lg flex items-center gap-2">
-                  <Building2 className="w-5 h-5 text-blue-600" />
-                  Datos Básicos
-                </h3>
+        <div className="grid lg:grid-cols-5 gap-8 lg:gap-12 mb-16">
+          <div className="lg:col-span-3">
+            <Card className="shadow-lg border">
+              <CardHeader className="bg-gray-50">
+                <CardTitle className="flex items-center gap-2 text-xl md:text-2xl">
+                  <Calculator className="w-6 h-6 text-green-600" />
+                  Calculadora IRPF Autónomos
+                </CardTitle>
+                <CardDescription>
+                  Introduce tus datos para calcular tu IRPF con todas las deducciones aplicables.
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-6 p-4 sm:p-6">
+                {/* Datos básicos */}
+                <div className="space-y-4">
+                  <h3 className="font-semibold text-lg flex items-center gap-2">
+                    <Building2 className="w-5 h-5 text-blue-600" />
+                    Datos Básicos
+                  </h3>
 
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div>
-                    <Label htmlFor="ingresos">Ingresos Brutos Anuales (€)</Label>
-                    <Input
-                      id="ingresos"
-                      type="number"
-                      placeholder="50000"
-                      value={ingresosBrutos}
-                      onChange={(e) => setIngresosBrutos(e.target.value)}
-                    />
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <div>
+                      <Label htmlFor="ingresos">Ingresos Brutos Anuales (€)</Label>
+                      <Input
+                        id="ingresos"
+                        type="number"
+                        placeholder="50000"
+                        value={ingresosBrutos}
+                        onChange={(e) => setIngresosBrutos(e.target.value)}
+                      />
+                    </div>
+                    <div>
+                      <Label htmlFor="comunidad">Comunidad Autónoma</Label>
+                      <Select value={comunidadAutonoma} onValueChange={setComunidadAutonoma}>
+                        <SelectTrigger>
+                          <SelectValue placeholder="Selecciona tu CCAA" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {comunidadesAutonomas.map((ca) => (
+                            <SelectItem key={ca.value} value={ca.value}>
+                              {ca.label}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    </div>
                   </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <div>
+                      <Label htmlFor="estado-civil">Estado Civil</Label>
+                      <Select value={estadoCivil} onValueChange={setEstadoCivil}>
+                        <SelectTrigger>
+                          <SelectValue placeholder="Estado civil" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="soltero">Soltero/a</SelectItem>
+                          <SelectItem value="casado">Casado/a</SelectItem>
+                          <SelectItem value="viudo">Viudo/a</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+                    <div>
+                      <Label htmlFor="hijos">Número de Hijos</Label>
+                      <Input
+                        id="hijos"
+                        type="number"
+                        placeholder="0"
+                        value={hijos}
+                        onChange={(e) => setHijos(e.target.value)}
+                      />
+                    </div>
+                    <div>
+                      <Label htmlFor="discapacidad">Discapacidad (%)</Label>
+                      <Input
+                        id="discapacidad"
+                        type="number"
+                        placeholder="0"
+                        value={discapacidad}
+                        onChange={(e) => setDiscapacidad(e.target.value)}
+                      />
+                    </div>
+                  </div>
+
                   <div>
-                    <Label htmlFor="comunidad">Comunidad Autónoma</Label>
-                    <Select value={comunidadAutonoma} onValueChange={setComunidadAutonoma}>
+                    <Label htmlFor="regime">Régimen Fiscal</Label>
+                    <Select value={regimenFiscal} onValueChange={setRegimenFiscal}>
                       <SelectTrigger>
-                        <SelectValue placeholder="Selecciona tu CCAA" />
+                        <SelectValue />
                       </SelectTrigger>
                       <SelectContent>
-                        {comunidadesAutonomas.map((ca) => (
-                          <SelectItem key={ca.value} value={ca.value}>
-                            {ca.label}
-                          </SelectItem>
-                        ))}
+                        <SelectItem value="estimacion-directa">Estimación Directa</SelectItem>
+                        <SelectItem value="modulos">Régimen de Módulos</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
                 </div>
 
-                <div className="grid md:grid-cols-3 gap-4">
-                  <div>
-                    <Label htmlFor="estado-civil">Estado Civil</Label>
-                    <Select value={estadoCivil} onValueChange={setEstadoCivil}>
-                      <SelectTrigger>
-                        <SelectValue placeholder="Estado civil" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="soltero">Soltero/a</SelectItem>
-                        <SelectItem value="casado">Casado/a</SelectItem>
-                        <SelectItem value="viudo">Viudo/a</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-                  <div>
-                    <Label htmlFor="hijos">Número de Hijos</Label>
-                    <Input
-                      id="hijos"
-                      type="number"
-                      placeholder="0"
-                      value={hijos}
-                      onChange={(e) => setHijos(e.target.value)}
-                    />
-                  </div>
-                  <div>
-                    <Label htmlFor="discapacidad">Discapacidad (%)</Label>
-                    <Input
-                      id="discapacidad"
-                      type="number"
-                      placeholder="0"
-                      value={discapacidad}
-                      onChange={(e) => setDiscapacidad(e.target.value)}
-                    />
-                  </div>
-                </div>
+                <Separator />
 
-                <div>
-                  <Label htmlFor="regime">Régimen Fiscal</Label>
-                  <Select value={regimenFiscal} onValueChange={setRegimenFiscal}>
-                    <SelectTrigger>
-                      <SelectValue />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="estimacion-directa">Estimación Directa</SelectItem>
-                      <SelectItem value="modulos">Régimen de Módulos</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-              </div>
+                {/* Gastos deducibles */}
+                <div className="space-y-4">
+                  <h3 className="font-semibold text-lg flex items-center gap-2">
+                    <Receipt className="w-5 h-5 text-green-600" />
+                    Gastos Deducibles
+                  </h3>
 
-              <Separator />
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <div>
+                      <Label htmlFor="oficina">Gastos de Oficina (€)</Label>
+                      <Input
+                        id="oficina"
+                        type="number"
+                        placeholder="2000"
+                        value={gastosOficina}
+                        onChange={(e) => setGastosOficina(e.target.value)}
+                      />
+                    </div>
+                    <div>
+                      <Label htmlFor="suministros">Suministros (€)</Label>
+                      <Input
+                        id="suministros"
+                        type="number"
+                        placeholder="1500"
+                        value={suministros}
+                        onChange={(e) => setSuministros(e.target.value)}
+                      />
+                    </div>
+                    <div>
+                      <Label htmlFor="alquiler">Alquiler Local (€)</Label>
+                      <Input
+                        id="alquiler"
+                        type="number"
+                        placeholder="6000"
+                        value={alquiler}
+                        onChange={(e) => setAlquiler(e.target.value)}
+                      />
+                    </div>
+                    <div>
+                      <Label htmlFor="material">Material y Herramientas (€)</Label>
+                      <Input
+                        id="material"
+                        type="number"
+                        placeholder="1000"
+                        value={material}
+                        onChange={(e) => setMaterial(e.target.value)}
+                      />
+                    </div>
+                    <div>
+                      <Label htmlFor="formacion">Formación (€)</Label>
+                      <Input
+                        id="formacion"
+                        type="number"
+                        placeholder="800"
+                        value={formacion}
+                        onChange={(e) => setFormacion(e.target.value)}
+                      />
+                    </div>
+                    <div>
+                      <Label htmlFor="seguros">Seguros (€)</Label>
+                      <Input
+                        id="seguros"
+                        type="number"
+                        placeholder="500"
+                        value={seguros}
+                        onChange={(e) => setSeguros(e.target.value)}
+                      />
+                    </div>
+                    <div>
+                      <Label htmlFor="transporte">Transporte (€)</Label>
+                      <Input
+                        id="transporte"
+                        type="number"
+                        placeholder="2000"
+                        value={transporte}
+                        onChange={(e) => setTransporte(e.target.value)}
+                      />
+                    </div>
+                    <div>
+                      <Label htmlFor="amortizaciones">Amortizaciones (€)</Label>
+                      <Input
+                        id="amortizaciones"
+                        type="number"
+                        placeholder="1200"
+                        value={amortizaciones}
+                        onChange={(e) => setAmortizaciones(e.target.value)}
+                      />
+                    </div>
+                  </div>
 
-              {/* Gastos deducibles */}
-              <div className="space-y-4">
-                <h3 className="font-semibold text-lg flex items-center gap-2">
-                  <Receipt className="w-5 h-5 text-green-600" />
-                  Gastos Deducibles
-                </h3>
-
-                <div className="grid md:grid-cols-2 gap-4">
                   <div>
-                    <Label htmlFor="oficina">Gastos de Oficina (€)</Label>
+                    <Label htmlFor="otros">Otros Gastos (€)</Label>
                     <Input
-                      id="oficina"
-                      type="number"
-                      placeholder="2000"
-                      value={gastosOficina}
-                      onChange={(e) => setGastosOficina(e.target.value)}
-                    />
-                  </div>
-                  <div>
-                    <Label htmlFor="suministros">Suministros (€)</Label>
-                    <Input
-                      id="suministros"
-                      type="number"
-                      placeholder="1500"
-                      value={suministros}
-                      onChange={(e) => setSuministros(e.target.value)}
-                    />
-                  </div>
-                  <div>
-                    <Label htmlFor="alquiler">Alquiler Local (€)</Label>
-                    <Input
-                      id="alquiler"
-                      type="number"
-                      placeholder="6000"
-                      value={alquiler}
-                      onChange={(e) => setAlquiler(e.target.value)}
-                    />
-                  </div>
-                  <div>
-                    <Label htmlFor="material">Material y Herramientas (€)</Label>
-                    <Input
-                      id="material"
-                      type="number"
-                      placeholder="1000"
-                      value={material}
-                      onChange={(e) => setMaterial(e.target.value)}
-                    />
-                  </div>
-                  <div>
-                    <Label htmlFor="formacion">Formación (€)</Label>
-                    <Input
-                      id="formacion"
-                      type="number"
-                      placeholder="800"
-                      value={formacion}
-                      onChange={(e) => setFormacion(e.target.value)}
-                    />
-                  </div>
-                  <div>
-                    <Label htmlFor="seguros">Seguros (€)</Label>
-                    <Input
-                      id="seguros"
+                      id="otros"
                       type="number"
                       placeholder="500"
-                      value={seguros}
-                      onChange={(e) => setSeguros(e.target.value)}
-                    />
-                  </div>
-                  <div>
-                    <Label htmlFor="transporte">Transporte (€)</Label>
-                    <Input
-                      id="transporte"
-                      type="number"
-                      placeholder="2000"
-                      value={transporte}
-                      onChange={(e) => setTransporte(e.target.value)}
-                    />
-                  </div>
-                  <div>
-                    <Label htmlFor="amortizaciones">Amortizaciones (€)</Label>
-                    <Input
-                      id="amortizaciones"
-                      type="number"
-                      placeholder="1200"
-                      value={amortizaciones}
-                      onChange={(e) => setAmortizaciones(e.target.value)}
+                      value={otrosGastos}
+                      onChange={(e) => setOtrosGastos(e.target.value)}
                     />
                   </div>
                 </div>
+
+                <Separator />
 
                 <div>
-                  <Label htmlFor="otros">Otros Gastos (€)</Label>
+                  <Label htmlFor="retenciones">Retenciones IRPF Aplicadas (€)</Label>
                   <Input
-                    id="otros"
+                    id="retenciones"
                     type="number"
-                    placeholder="500"
-                    value={otrosGastos}
-                    onChange={(e) => setOtrosGastos(e.target.value)}
+                    placeholder="7500"
+                    value={retenciones}
+                    onChange={(e) => setRetenciones(e.target.value)}
                   />
                 </div>
-              </div>
 
-              <Separator />
-
-              <div>
-                <Label htmlFor="retenciones">Retenciones IRPF Aplicadas (€)</Label>
-                <Input
-                  id="retenciones"
-                  type="number"
-                  placeholder="7500"
-                  value={retenciones}
-                  onChange={(e) => setRetenciones(e.target.value)}
-                />
-              </div>
-
-              <Button onClick={calcularIRPF} className="w-full bg-green-600 hover:bg-green-700" size="lg">
-                <Calculator className="w-5 h-5 mr-2" />
-                Calcular IRPF
-              </Button>
-            </CardContent>
-          </Card>
+                <Button onClick={calcularIRPF} className="w-full bg-green-600 hover:bg-green-700" size="lg">
+                  <Calculator className="w-5 h-5 mr-2" />
+                  Calcular IRPF
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
 
           {/* Resultados */}
-          <Card className="shadow-lg">
-            <CardHeader className="bg-gradient-to-r from-blue-50 to-green-50">
-              <CardTitle className="flex items-center gap-2 text-2xl">
-                <TrendingUp className="w-6 h-6 text-blue-600" />
-                Resultado del Cálculo
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="p-6">
-              {resultado ? (
-                <div className="space-y-6">
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="bg-blue-50 p-4 rounded-lg">
-                      <div className="text-sm text-gray-600">Ingresos Brutos</div>
-                      <div className="text-2xl font-bold text-blue-600">
-                        {resultado.ingresosBrutos.toLocaleString("es-ES")}€
+          <div className="lg:col-span-2">
+            <Card className="shadow-lg border sticky top-24">
+              <CardHeader className="bg-gray-50">
+                <CardTitle className="flex items-center gap-2 text-xl md:text-2xl">
+                  <TrendingUp className="w-6 h-6 text-blue-600" />
+                  Resultado del Cálculo
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="p-4 sm:p-6 flex flex-col justify-center min-h-[550px]">
+                {resultado ? (
+                  <div className="space-y-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div className="bg-blue-50 p-4 rounded-lg">
+                        <div className="text-sm text-gray-600">Ingresos Brutos</div>
+                        <div className="text-2xl font-bold text-blue-600">
+                          {resultado.ingresosBrutos.toLocaleString("es-ES")}€
+                        </div>
+                      </div>
+                      <div className="bg-green-50 p-4 rounded-lg">
+                        <div className="text-sm text-gray-600">Gastos Deducibles</div>
+                        <div className="text-2xl font-bold text-green-600">
+                          {resultado.gastosDeducibles.toLocaleString("es-ES")}€
+                        </div>
                       </div>
                     </div>
-                    <div className="bg-green-50 p-4 rounded-lg">
-                      <div className="text-sm text-gray-600">Gastos Deducibles</div>
-                      <div className="text-2xl font-bold text-green-600">
-                        {resultado.gastosDeducibles.toLocaleString("es-ES")}€
+
+                    <div className="bg-gray-100 p-4 rounded-lg">
+                      <div className="text-sm text-gray-600">Base Imponible</div>
+                      <div className="text-3xl font-bold text-gray-900">
+                        {resultado.baseImponible.toLocaleString("es-ES")}€
                       </div>
                     </div>
-                  </div>
 
-                  <div className="bg-gray-50 p-4 rounded-lg">
-                    <div className="text-sm text-gray-600">Base Imponible</div>
-                    <div className="text-3xl font-bold text-gray-900">
-                      {resultado.baseImponible.toLocaleString("es-ES")}€
+                    <div className="space-y-2">
+                      <div className="flex justify-between items-center">
+                        <span className="text-gray-600">IRPF Estatal:</span>
+                        <span className="font-semibold">{resultado.irpfEstatal.toLocaleString("es-ES")}€</span>
+                      </div>
+                      <div className="flex justify-between items-center">
+                        <span className="text-gray-600">IRPF Autonómico:</span>
+                        <span className="font-semibold">{resultado.irpfAutonomico.toLocaleString("es-ES")}€</span>
+                      </div>
+                      <Separator />
+                      <div className="flex justify-between items-center">
+                        <span className="font-semibold">IRPF Total:</span>
+                        <span className="text-xl font-bold text-red-600">
+                          {resultado.irpfTotal.toLocaleString("es-ES")}€
+                        </span>
+                      </div>
+                      <div className="flex justify-between items-center">
+                        <span className="text-gray-600">Retenciones Aplicadas:</span>
+                        <span className="font-semibold text-green-600">
+                          -{resultado.retencionesAplicadas.toLocaleString("es-ES")}€
+                        </span>
+                      </div>
+                      <Separator />
+                      <div className="flex justify-between items-center text-lg">
+                        <span className="font-bold">Resultado Final:</span>
+                        <span
+                          className={`font-bold ${resultado.resultadoFinal >= 0 ? "text-red-600" : "text-green-600"}`}
+                        >
+                          {resultado.resultadoFinal >= 0 ? "A pagar: " : "A devolver: "}
+                          {Math.abs(resultado.resultadoFinal).toLocaleString("es-ES")}€
+                        </span>
+                      </div>
                     </div>
-                  </div>
 
-                  <div className="space-y-3">
-                    <div className="flex justify-between items-center">
-                      <span className="text-gray-600">IRPF Estatal:</span>
-                      <span className="font-semibold">{resultado.irpfEstatal.toLocaleString("es-ES")}€</span>
-                    </div>
-                    <div className="flex justify-between items-center">
-                      <span className="text-gray-600">IRPF Autonómico:</span>
-                      <span className="font-semibold">{resultado.irpfAutonomico.toLocaleString("es-ES")}€</span>
-                    </div>
-                    <Separator />
-                    <div className="flex justify-between items-center">
-                      <span className="font-semibold">IRPF Total:</span>
-                      <span className="text-xl font-bold text-red-600">
-                        {resultado.irpfTotal.toLocaleString("es-ES")}€
-                      </span>
-                    </div>
-                    <div className="flex justify-between items-center">
-                      <span className="text-gray-600">Retenciones Aplicadas:</span>
-                      <span className="font-semibold text-green-600">
-                        -{resultado.retencionesAplicadas.toLocaleString("es-ES")}€
-                      </span>
-                    </div>
-                    <Separator />
-                    <div className="flex justify-between items-center">
-                      <span className="font-bold text-lg">Resultado Final:</span>
-                      <span
-                        className={`text-2xl font-bold ${resultado.resultadoFinal >= 0 ? "text-red-600" : "text-green-600"}`}
-                      >
-                        {resultado.resultadoFinal >= 0 ? "A pagar: " : "A devolver: "}
-                        {Math.abs(resultado.resultadoFinal).toLocaleString("es-ES")}€
-                      </span>
+                    <div className="bg-blue-50 p-4 rounded-lg text-center">
+                      <div className="text-sm text-gray-600">Tipo Medio Efectivo</div>
+                      <div className="text-2xl font-bold text-blue-600">{resultado.tipoMedio.toFixed(2)}%</div>
                     </div>
                   </div>
-
-                  <div className="bg-blue-50 p-4 rounded-lg">
-                    <div className="text-sm text-gray-600">Tipo Medio</div>
-                    <div className="text-xl font-bold text-blue-600">{resultado.tipoMedio.toFixed(2)}%</div>
+                ) : (
+                  <div className="text-center py-12 text-gray-500">
+                    <Calculator className="w-16 h-16 mx-auto mb-4 opacity-50" />
+                    <p>Introduce tus datos para ver el resultado</p>
                   </div>
-                </div>
-              ) : (
-                <div className="text-center py-12 text-gray-500">
-                  <Calculator className="w-16 h-16 mx-auto mb-4 opacity-50" />
-                  <p>Introduce tus datos para calcular tu IRPF</p>
-                </div>
-              )}
-            </CardContent>
-          </Card>
+                )}
+              </CardContent>
+            </Card>
+          </div>
         </div>
 
         {/* Contenido SEO enriquecido */}
-        <div className="space-y-16">
+        <div className="space-y-12 md:space-y-16">
           {/* Cómo funciona el IRPF para autónomos */}
           <section>
-            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 text-center">
               Cómo funciona el IRPF para Autónomos en 2025
             </h2>
-            <div className="grid md:grid-cols-2 gap-8">
-              <div>
-                <p className="text-gray-600 mb-4">
-                  El <strong>IRPF para autónomos</strong> funciona de manera similar al de los trabajadores por cuenta
-                  ajena, pero con importantes diferencias en cuanto a deducciones y obligaciones fiscales.
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+              <div className="text-gray-700 space-y-4">
+                <p>
+                  El <strong>Impuesto sobre la Renta de las Personas Físicas (IRPF)</strong> para autónomos es un
+                  impuesto progresivo que grava los rendimientos de tu actividad económica. A diferencia de un
+                  asalariado, eres tú quien debe calcular, declarar e ingresar los pagos a cuenta.
                 </p>
-                <p className="text-gray-600 mb-4">
-                  Los autónomos deben declarar todos sus ingresos profesionales y pueden deducir los gastos necesarios
-                  para su actividad. La base imponible se calcula restando los gastos deducibles de los ingresos brutos.
+                <p>
+                  La clave está en la diferencia entre tus <strong>ingresos íntegros</strong> y los{" "}
+                  <strong>gastos fiscalmente deducibles</strong>. El resultado es el rendimiento neto, que tras aplicar
+                  ciertas reducciones, se convierte en la base liquidable sobre la que se aplican los tramos del
+                  impuesto.
                 </p>
-                <p className="text-gray-600">
-                  El IRPF se calcula aplicando los tramos progresivos tanto estatales como autonómicos sobre la base
-                  imponible, resultando en un impuesto que puede variar significativamente según la Comunidad Autónoma.
+                <p>
+                  El IRPF se divide en un tramo estatal y otro autonómico, por lo que tu lugar de residencia fiscal es
+                  crucial para determinar la cuota final a pagar.
                 </p>
               </div>
-              <div className="bg-blue-50 p-6 rounded-lg">
-                <h3 className="font-semibold text-lg mb-4">Tramos IRPF 2025 (Estatal)</h3>
+              <div className="bg-blue-50 p-6 rounded-lg border border-blue-100">
+                <h3 className="font-semibold text-lg mb-4 text-blue-800">Tramos IRPF 2025 (Gravamen Estatal)</h3>
                 <div className="space-y-2 text-sm">
                   <div className="flex justify-between">
                     <span>Hasta 12.450€:</span>
@@ -605,60 +684,60 @@ export default function CalculadoraIRPFAutonomos() {
 
           {/* Deducciones fiscales */}
           <section>
-            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 text-center">
               Deducciones Fiscales Imprescindibles para Autónomos
             </h2>
             <div className="grid md:grid-cols-3 gap-6">
               <Card>
                 <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
+                  <CardTitle className="flex items-center gap-2 text-lg">
                     <Building className="w-5 h-5 text-blue-600" />
-                    Gastos de Local
+                    Gastos de Explotación
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <ul className="space-y-2 text-sm">
-                    <li>• Alquiler del local comercial</li>
-                    <li>• Suministros (luz, agua, gas)</li>
-                    <li>• Gastos de comunidad</li>
-                    <li>• IBI del local</li>
-                    <li>• Seguros del local</li>
+                  <ul className="space-y-2 text-sm text-gray-600 list-disc pl-5">
+                    <li>Consumos de explotación (mercaderías)</li>
+                    <li>Sueldos y salarios de empleados</li>
+                    <li>Seguridad Social a cargo de la empresa</li>
+                    <li>Alquileres y cánones</li>
+                    <li>Suministros (luz, agua, internet)</li>
                   </ul>
                 </CardContent>
               </Card>
 
               <Card>
                 <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
+                  <CardTitle className="flex items-center gap-2 text-lg">
                     <Receipt className="w-5 h-5 text-green-600" />
-                    Material y Equipos
+                    Servicios y Otros Gastos
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <ul className="space-y-2 text-sm">
-                    <li>• Material de oficina</li>
-                    <li>• Herramientas de trabajo</li>
-                    <li>• Equipos informáticos</li>
-                    <li>• Software profesional</li>
-                    <li>• Amortizaciones</li>
+                  <ul className="space-y-2 text-sm text-gray-600 list-disc pl-5">
+                    <li>Servicios de profesionales independientes</li>
+                    <li>Primas de seguros (salud, responsabilidad civil)</li>
+                    <li>Gastos financieros (intereses de préstamos)</li>
+                    <li>Amortizaciones de inmovilizado</li>
+                    <li>Cuota de autónomos (RETA)</li>
                   </ul>
                 </CardContent>
               </Card>
 
               <Card>
                 <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
+                  <CardTitle className="flex items-center gap-2 text-lg">
                     <FileText className="w-5 h-5 text-purple-600" />
-                    Servicios Profesionales
+                    Provisiones y Reducciones
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <ul className="space-y-2 text-sm">
-                    <li>• Asesoría fiscal y contable</li>
-                    <li>• Seguros profesionales</li>
-                    <li>• Formación profesional</li>
-                    <li>• Publicidad y marketing</li>
-                    <li>• Gastos financieros</li>
+                  <ul className="space-y-2 text-sm text-gray-600 list-disc pl-5">
+                    <li>Gastos de difícil justificación (5% del rendimiento neto)</li>
+                    <li>Provisiones por insolvencias</li>
+                    <li>Gastos de manutención (con límites)</li>
+                    <li>Formación profesional</li>
+                    <li>Marketing y publicidad</li>
                   </ul>
                 </CardContent>
               </Card>
@@ -667,58 +746,60 @@ export default function CalculadoraIRPFAutonomos() {
 
           {/* Estimación directa vs módulos */}
           <section>
-            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
-              Estimación Directa vs Régimen de Módulos
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 text-center">
+              Estimación Directa vs. Régimen de Módulos
             </h2>
             <div className="grid md:grid-cols-2 gap-8">
-              <Card className="border-blue-200">
+              <Card className="border-blue-200 shadow-sm">
                 <CardHeader className="bg-blue-50">
                   <CardTitle className="text-blue-700">Estimación Directa</CardTitle>
+                  <CardDescription>Tributas por tus beneficios reales.</CardDescription>
                 </CardHeader>
                 <CardContent className="pt-6">
                   <div className="space-y-4">
                     <div>
                       <h4 className="font-semibold text-green-600 mb-2">✅ Ventajas:</h4>
-                      <ul className="text-sm space-y-1">
-                        <li>• Puedes deducir todos los gastos reales</li>
-                        <li>• Mayor control sobre tu tributación</li>
-                        <li>• Ideal para actividades con muchos gastos</li>
-                        <li>• Flexibilidad en la gestión fiscal</li>
+                      <ul className="text-sm space-y-1 text-gray-600 list-disc pl-5">
+                        <li>Deduces todos los gastos reales y justificados.</li>
+                        <li>Si tienes pérdidas, no pagas y puedes compensarlas.</li>
+                        <li>Refleja la situación económica real de tu negocio.</li>
+                        <li>Ideal para actividades con altos gastos deducibles.</li>
                       </ul>
                     </div>
                     <div>
                       <h4 className="font-semibold text-red-600 mb-2">❌ Inconvenientes:</h4>
-                      <ul className="text-sm space-y-1">
-                        <li>• Mayor carga administrativa</li>
-                        <li>• Necesidad de justificar todos los gastos</li>
-                        <li>• Obligación de llevar libros contables</li>
+                      <ul className="text-sm space-y-1 text-gray-600 list-disc pl-5">
+                        <li>Mayor carga administrativa y contable.</li>
+                        <li>Obligación de llevar libros de registro.</li>
+                        <li>Requiere una gestión más rigurosa.</li>
                       </ul>
                     </div>
                   </div>
                 </CardContent>
               </Card>
 
-              <Card className="border-orange-200">
+              <Card className="border-orange-200 shadow-sm">
                 <CardHeader className="bg-orange-50">
-                  <CardTitle className="text-orange-700">Régimen de Módulos</CardTitle>
+                  <CardTitle className="text-orange-700">Régimen de Módulos (Estimación Objetiva)</CardTitle>
+                  <CardDescription>Pagas una cuota fija según unos índices.</CardDescription>
                 </CardHeader>
                 <CardContent className="pt-6">
                   <div className="space-y-4">
                     <div>
                       <h4 className="font-semibold text-green-600 mb-2">✅ Ventajas:</h4>
-                      <ul className="text-sm space-y-1">
-                        <li>• Simplicidad administrativa</li>
-                        <li>• Tributación fija y predecible</li>
-                        <li>• Menos obligaciones contables</li>
-                        <li>• Ideal para pequeños negocios</li>
+                      <ul className="text-sm space-y-1 text-gray-600 list-disc pl-5">
+                        <li>Gran simplicidad en la gestión y contabilidad.</li>
+                        <li>No necesitas guardar todas las facturas de gastos.</li>
+                        <li>Pagas lo mismo independientemente de tus beneficios.</li>
+                        <li>Ventajoso si tienes pocos gastos y altos márgenes.</li>
                       </ul>
                     </div>
                     <div>
                       <h4 className="font-semibold text-red-600 mb-2">❌ Inconvenientes:</h4>
-                      <ul className="text-sm space-y-1">
-                        <li>• No puedes deducir gastos reales</li>
-                        <li>• Limitado a ciertas actividades</li>
-                        <li>• Límites de facturación</li>
+                      <ul className="text-sm space-y-1 text-gray-600 list-disc pl-5">
+                        <li>No puedes deducir gastos reales.</li>
+                        <li>Pagas impuestos aunque tengas pérdidas.</li>
+                        <li>Limitado a ciertas actividades y umbrales de facturación.</li>
                       </ul>
                     </div>
                   </div>
@@ -727,172 +808,105 @@ export default function CalculadoraIRPFAutonomos() {
             </div>
           </section>
 
-          {/* Retenciones IRPF */}
+          {/* Glosario de Términos */}
           <section>
-            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
-              Retenciones IRPF: Cuándo y Cómo Aplicarlas
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 text-center">
+              Glosario de Términos Clave del IRPF
             </h2>
-            <div className="bg-gradient-to-r from-blue-50 to-green-50 p-8 rounded-lg">
-              <div className="grid md:grid-cols-2 gap-8">
-                <div>
-                  <h3 className="font-semibold text-lg mb-4">¿Cuándo aplicar retenciones?</h3>
-                  <div className="space-y-3">
-                    <div className="flex items-start gap-3">
-                      <CheckCircle className="w-5 h-5 text-green-600 mt-0.5" />
-                      <div>
-                        <p className="font-medium">Facturas a empresas</p>
-                        <p className="text-sm text-gray-600">15% de retención (7% el primer año)</p>
-                      </div>
+            <Accordion type="single" collapsible className="w-full">
+              {glossaryData.map((item, index) => (
+                <AccordionItem value={`item-${index}`} key={index}>
+                  <AccordionTrigger className="text-lg font-semibold hover:no-underline text-left">
+                    <div className="flex items-center gap-3">
+                      <BookOpen className="w-5 h-5 text-blue-600 flex-shrink-0" />
+                      {item.term}
                     </div>
-                    <div className="flex items-start gap-3">
-                      <CheckCircle className="w-5 h-5 text-green-600 mt-0.5" />
-                      <div>
-                        <p className="font-medium">Facturas a profesionales</p>
-                        <p className="text-sm text-gray-600">15% de retención general</p>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <AlertCircle className="w-5 h-5 text-red-600 mt-0.5" />
-                      <div>
-                        <p className="font-medium">Facturas a particulares</p>
-                        <p className="text-sm text-gray-600">Sin retención</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div>
-                  <h3 className="font-semibold text-lg mb-4">Tipos de retención 2025</h3>
-                  <div className="space-y-3">
-                    <div className="bg-white p-3 rounded border-l-4 border-blue-500">
-                      <p className="font-medium">Actividades profesionales</p>
-                      <p className="text-sm text-gray-600">15% (7% primer año)</p>
-                    </div>
-                    <div className="bg-white p-3 rounded border-l-4 border-green-500">
-                      <p className="font-medium">Actividades empresariales</p>
-                      <p className="text-sm text-gray-600">1% general</p>
-                    </div>
-                    <div className="bg-white p-3 rounded border-l-4 border-purple-500">
-                      <p className="font-medium">Actividades agrícolas</p>
-                      <p className="text-sm text-gray-600">2% general</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+                  </AccordionTrigger>
+                  <AccordionContent className="text-gray-600 text-base pl-10">{item.definition}</AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
           </section>
 
-          {/* Consejos optimización */}
+          {/* Guía Práctica Modelo 100 */}
           <section>
-            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
-              Consejos para Optimizar tu IRPF como Autónomo
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 text-center">
+              Guía Práctica: De la Calculadora al Modelo 100
             </h2>
-            <div className="grid md:grid-cols-2 gap-8">
-              <div className="space-y-6">
-                <div className="flex items-start gap-4">
-                  <div className="bg-blue-100 p-2 rounded-full">
-                    <TrendingUp className="w-6 h-6 text-blue-600" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold mb-2">Planifica tus gastos</h3>
-                    <p className="text-gray-600 text-sm">
-                      Concentra las compras de material y equipos al final del año para maximizar las deducciones.
-                    </p>
-                  </div>
+            <div className="bg-gray-100 p-6 sm:p-8 rounded-lg border">
+              <p className="text-center text-gray-700 mb-6">
+                Los resultados de esta calculadora te ayudan a entender las casillas más importantes de tu declaración
+                de la Renta (Modelo 100).
+              </p>
+              <div className="grid md:grid-cols-2 gap-6 text-sm">
+                <div className="space-y-3">
+                  <p>
+                    <strong>Ingresos Brutos:</strong> Se corresponde con la casilla de{" "}
+                    <code className="bg-gray-200 px-1 rounded">Ingresos de explotaciones económicas</code>.
+                  </p>
+                  <p>
+                    <strong>Gastos Deducibles:</strong> Es la suma de todas las casillas de gastos, como{" "}
+                    <code className="bg-gray-200 px-1 rounded">Consumos de explotación</code>,{" "}
+                    <code className="bg-gray-200 px-1 rounded">Sueldos y salarios</code>, etc.
+                  </p>
+                  <p>
+                    <strong>Base Imponible:</strong> Es el{" "}
+                    <code className="bg-gray-200 px-1 rounded">Rendimiento neto</code> que se integra en la{" "}
+                    <code className="bg-gray-200 px-1 rounded">Base Imponible General</code>.
+                  </p>
                 </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="bg-green-100 p-2 rounded-full">
-                    <FileText className="w-6 h-6 text-green-600" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold mb-2">Invierte en formación</h3>
-                    <p className="text-gray-600 text-sm">
-                      Los gastos de formación son 100% deducibles y mejoran tu competitividad profesional.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="bg-purple-100 p-2 rounded-full">
-                    <Building className="w-6 h-6 text-purple-600" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold mb-2">Optimiza el espacio de trabajo</h3>
-                    <p className="text-gray-600 text-sm">
-                      Si trabajas desde casa, deduce un porcentaje de los gastos de vivienda proporcional al espacio
-                      usado.
-                    </p>
-                  </div>
+                <div className="space-y-3">
+                  <p>
+                    <strong>IRPF Total (Cuota Íntegra):</strong> Se calcula a partir de la{" "}
+                    <code className="bg-gray-200 px-1 rounded">Base Liquidable General</code> y se refleja en la{" "}
+                    <code className="bg-gray-200 px-1 rounded">Cuota Íntegra Estatal y Autonómica</code>.
+                  </p>
+                  <p>
+                    <strong>Retenciones Aplicadas:</strong> Corresponde a la casilla de{" "}
+                    <code className="bg-gray-200 px-1 rounded">Retenciones y otros pagos a cuenta</code>.
+                  </p>
+                  <p>
+                    <strong>Resultado Final:</strong> Es la{" "}
+                    <code className="bg-gray-200 px-1 rounded">Cuota diferencial</code>, que indica si el resultado es a
+                    ingresar o a devolver.
+                  </p>
                 </div>
               </div>
-
-              <div className="space-y-6">
-                <div className="flex items-start gap-4">
-                  <div className="bg-orange-100 p-2 rounded-full">
-                    <Calendar className="w-6 h-6 text-orange-600" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold mb-2">Controla los pagos fraccionados</h3>
-                    <p className="text-gray-600 text-sm">
-                      Ajusta tus pagos trimestrales para evitar grandes diferencias en la declaración anual.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="bg-red-100 p-2 rounded-full">
-                    <Receipt className="w-6 h-6 text-red-600" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold mb-2">Documenta todos los gastos</h3>
-                    <p className="text-gray-600 text-sm">
-                      Guarda todas las facturas y justificantes. Una buena organización puede ahorrarte mucho dinero.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="bg-teal-100 p-2 rounded-full">
-                    <Euro className="w-6 h-6 text-teal-600" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold mb-2">Considera el régimen fiscal</h3>
-                    <p className="text-gray-600 text-sm">
-                      Evalúa anualmente si te conviene más la estimación directa o el régimen de módulos.
-                    </p>
-                  </div>
-                </div>
+              <div className="mt-6 text-center text-xs text-gray-500">
+                <Info className="inline w-4 h-4 mr-1" />
+                Esto es una guía simplificada. La declaración puede incluir más variables. Consulta siempre a un asesor
+                fiscal.
               </div>
             </div>
           </section>
 
           {/* FAQ */}
           <section>
-            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 text-center">
               Preguntas Frecuentes sobre IRPF para Autónomos
             </h2>
             <div className="space-y-4">
               {faqData.map((faq, index) => (
-                <Card key={index} className="border border-gray-200">
+                <Card key={index} className="border border-gray-200 shadow-sm">
                   <CardHeader
-                    className="cursor-pointer hover:bg-gray-50 transition-colors"
+                    className="cursor-pointer hover:bg-gray-50 transition-colors p-4"
                     onClick={() => toggleSection(`faq-${index}`)}
                   >
-                    <CardTitle className="flex items-center justify-between text-lg">
-                      <span className="flex items-center gap-2">
-                        <HelpCircle className="w-5 h-5 text-blue-600" />
+                    <CardTitle className="flex items-center justify-between text-lg text-left">
+                      <span className="flex items-start gap-3">
+                        <HelpCircle className="w-5 h-5 text-blue-600 mt-1 flex-shrink-0" />
                         {faq.question}
                       </span>
                       {activeSection === `faq-${index}` ? (
-                        <ChevronUp className="w-5 h-5 text-gray-400" />
+                        <ChevronUp className="w-5 h-5 text-gray-400 flex-shrink-0" />
                       ) : (
-                        <ChevronDown className="w-5 h-5 text-gray-400" />
+                        <ChevronDown className="w-5 h-5 text-gray-400 flex-shrink-0" />
                       )}
                     </CardTitle>
                   </CardHeader>
                   {activeSection === `faq-${index}` && (
-                    <CardContent>
-                      <p className="text-gray-600">{faq.answer}</p>
+                    <CardContent className="p-4 pt-0">
+                      <p className="text-gray-600 pl-8">{faq.answer}</p>
                     </CardContent>
                   )}
                 </Card>
@@ -902,55 +916,13 @@ export default function CalculadoraIRPFAutonomos() {
 
           {/* Cards relacionadas */}
           <section>
-            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Calculadoras Relacionadas</h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              <Link href="/calculadora-calendario-fiscal-autonomos">
-                <Card className="hover:shadow-lg transition-shadow cursor-pointer border-blue-200 hover:border-blue-300">
-                  <CardContent className="p-6 text-center">
-                    <div className="bg-blue-100 p-3 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                      <Calendar className="w-8 h-8 text-blue-600" />
-                    </div>
-                    <h3 className="font-semibold mb-2">Calendario Fiscal</h3>
-                    <p className="text-sm text-gray-600">Fechas clave y obligaciones fiscales para autónomos</p>
-                  </CardContent>
-                </Card>
-              </Link>
-
-              <Link href="/calculadora-cotizaciones-seguridad-social">
-                <Card className="hover:shadow-lg transition-shadow cursor-pointer border-green-200 hover:border-green-300">
-                  <CardContent className="p-6 text-center">
-                    <div className="bg-green-100 p-3 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                      <Calculator className="w-8 h-8 text-green-600" />
-                    </div>
-                    <h3 className="font-semibold mb-2">Cotizaciones SS</h3>
-                    <p className="text-sm text-gray-600">Calcula tus cotizaciones de Seguridad Social</p>
-                  </CardContent>
-                </Card>
-              </Link>
-
-              <Link href="/conversor-salario-bruto-neto">
-                <Card className="hover:shadow-lg transition-shadow cursor-pointer border-purple-200 hover:border-purple-300">
-                  <CardContent className="p-6 text-center">
-                    <div className="bg-purple-100 p-3 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                      <ArrowUpDown className="w-8 h-8 text-purple-600" />
-                    </div>
-                    <h3 className="font-semibold mb-2">Bruto a Neto</h3>
-                    <p className="text-sm text-gray-600">Convierte entre salario bruto y neto</p>
-                  </CardContent>
-                </Card>
-              </Link>
-
-              <Link href="/calculadora-coste-total-empresa">
-                <Card className="hover:shadow-lg transition-shadow cursor-pointer border-orange-200 hover:border-orange-300">
-                  <CardContent className="p-6 text-center">
-                    <div className="bg-orange-100 p-3 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                      <Building2 className="w-8 h-8 text-orange-600" />
-                    </div>
-                    <h3 className="font-semibold mb-2">Coste Empresa</h3>
-                    <p className="text-sm text-gray-600">Calcula el coste total para la empresa</p>
-                  </CardContent>
-                </Card>
-              </Link>
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 text-center">
+              Herramientas Esenciales para Autónomos
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {relatedCalculators.map((calculator) => (
+                <RelatedCalculatorCard key={calculator.title} {...calculator} />
+              ))}
             </div>
           </section>
         </div>

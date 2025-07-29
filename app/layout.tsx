@@ -4,8 +4,9 @@ import { Inter } from "next/font/google"
 import Script from "next/script"
 import "./globals.css"
 import Header from "./components/Header"
+import DynamicFooter from "./components/DynamicFooter"
 
-const inter = Inter({ subsets: ["latin"] })
+const inter = Inter({ subsets: ["latin"], display: "swap" })
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -20,12 +21,9 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://calculord.com"),
-  title: {
-    default: "Calculord - Calculadoras Laborales y Financieras Gratuitas 2025",
-    template: "%s | Calculord",
-  },
+  title: "Calculord: Calculadoras Laborales y Financieras",
   description:
-    "Suite completa de calculadoras laborales y financieras gratuitas 2025. Calcula salarios, cotizaciones, nóminas, hipotecas, ahorros y más. Herramientas profesionales actualizadas con la normativa española.",
+    "Herramientas y calculadoras gratuitas para finanzas, impuestos (IRPF), laboral y más. Actualizadas para 2025.",
   applicationName: "Calculord",
   referrer: "origin-when-cross-origin",
   keywords: [
@@ -236,7 +234,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="es" dir="ltr">
+    <html lang="es" dir="ltr" className="scroll-smooth">
       <head>
         <script
           type="application/ld+json"
@@ -262,66 +260,68 @@ export default function RootLayout({
         <meta name="yandex-verification" content="your-yandex-verification-code" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="//www.google-analytics.com" />
         <meta name="theme-color" content="#2563eb" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <meta name="apple-mobile-web-app-title" content="Calculord" />
       </head>
-      <body className={inter.className}>
+      <body className={`${inter.className} bg-gray-50 text-gray-800`}>
         <Header />
         {/* Google Analytics */}
         <Script src="https://www.googletagmanager.com/gtag/js?id=G-8QKFLE7EEH" strategy="afterInteractive" />
         <Script id="google-analytics" strategy="afterInteractive">
           {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-8QKFLE7EEH', {
-              page_title: document.title,
-              page_location: window.location.href,
-              anonymize_ip: true,
-              cookie_flags: 'SameSite=None;Secure'
-            });
-          `}
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-8QKFLE7EEH', {
+            page_title: document.title,
+            page_location: window.location.href,
+            anonymize_ip: true,
+            cookie_flags: 'SameSite=None;Secure'
+          });
+        `}
         </Script>
 
         {/* Schema.org for Google */}
         <Script id="schema-faq" type="application/ld+json" strategy="afterInteractive">
           {`
-            {
-              "@context": "https://schema.org",
-              "@type": "FAQPage",
-              "mainEntity": [
-                {
-                  "@type": "Question",
-                  "name": "¿Son gratuitas las calculadoras de Calculord?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Sí, todas nuestras calculadoras laborales y financieras son completamente gratuitas y no requieren registro."
-                  }
-                },
-                {
-                  "@type": "Question", 
-                  "name": "¿Están actualizadas las calculadoras con la normativa 2025?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Sí, todas nuestras calculadoras están actualizadas con la normativa laboral y fiscal española de 2025, incluyendo SMI, cotizaciones y tramos de IRPF."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "¿Qué calculadoras laborales están disponibles?",
-                  "acceptedAnswer": {
-                    "@type": "Answer", 
-                    "text": "Disponemos de calculadoras de cotizaciones de seguridad social, salario por horas, despidos, paro, nómina completa, vacaciones y honorarios de abogado."
-                  }
+          {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "¿Son gratuitas las calculadoras de Calculord?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Sí, todas nuestras calculadoras laborales y financieras son completamente gratuitas y no requieren registro."
                 }
-              ]
-            }
-          `}
+              },
+              {
+                "@type": "Question", 
+                "name": "¿Están actualizadas las calculadoras con la normativa 2025?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Sí, todas nuestras calculadoras están actualizadas con la normativa laboral y fiscal española de 2025, incluyendo SMI, cotizaciones y tramos de IRPF."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "¿Qué calculadoras laborales están disponibles?",
+                "acceptedAnswer": {
+                  "@type": "Answer", 
+                  "text": "Disponemos de calculadoras de cotizaciones de seguridad social, salario por horas, despidos, paro, nómina completa, vacaciones y honorarios de abogado."
+                }
+              }
+            ]
+          }
+        `}
         </Script>
-        {children}
+        <main>{children}</main>
+        <DynamicFooter />
       </body>
     </html>
   )
