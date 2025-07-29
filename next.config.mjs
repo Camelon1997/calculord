@@ -71,7 +71,7 @@ const nextConfig = {
   
   // Experimental features para mejor rendimiento
   experimental: {
-    optimizeCss: true,
+    // optimizeCss: true, // Disabled to fix build error: "Cannot find module 'critters'"
     scrollRestoration: true,
   },
   
