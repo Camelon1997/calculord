@@ -21,3 +21,6 @@ export function Breadcrumbs({ currentPage }: BreadcrumbsProps) {
     </div>
   )
 }
+
+// Also export as default for compatibility
+export default Breadcrumbs

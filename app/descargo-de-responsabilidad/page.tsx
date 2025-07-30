@@ -1,369 +1,371 @@
 import type { Metadata } from "next"
-import { AlertTriangle, Calculator, TrendingUp, FileText, Users, Shield } from "lucide-react"
-import { Breadcrumbs } from "../components/Breadcrumbs"
+import Link from "next/link"
+import Breadcrumbs from "../components/Breadcrumbs"
 
 export const metadata: Metadata = {
-  title: "Descargo de Responsabilidad | Calculord",
+  title: "Descargo de Responsabilidad - Calculord",
   description:
-    "Descargo de responsabilidad de Calculord. Información importante sobre el uso de nuestras calculadoras laborales y financieras.",
+    "Descargo de responsabilidad de Calculord. Limitaciones sobre la exactitud de cálculos y recomendaciones para el uso de nuestras calculadoras.",
   robots: {
     index: true,
     follow: true,
   },
 }
 
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Descargo de Responsabilidad", href: "/descargo-de-responsabilidad" },
+]
+
 export default function DescargoResponsabilidadPage() {
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <Breadcrumbs currentPage="Descargo de Responsabilidad" />
+      <div className="container mx-auto px-4 py-8">
+        <Breadcrumbs items={breadcrumbItems} />
 
-        <div className="bg-white rounded-lg shadow-sm p-8 mt-6">
-          <div className="text-center mb-8">
-            <AlertTriangle className="w-16 h-16 text-orange-600 mx-auto mb-4" />
-            <h1 className="text-3xl font-bold text-gray-900 mb-4">Descargo de Responsabilidad</h1>
-            <p className="text-gray-600">Última actualización: 1 de enero de 2025</p>
-          </div>
+        <div className="max-w-4xl mx-auto">
+          <div className="bg-white rounded-lg shadow-sm p-8">
+            <h1 className="text-3xl font-bold text-gray-900 mb-6">Descargo de Responsabilidad</h1>
 
-          <div className="bg-red-50 p-6 rounded-lg border border-red-200 mb-8">
-            <div className="flex items-start">
-              <AlertTriangle className="w-6 h-6 text-red-600 mr-3 mt-1 flex-shrink-0" />
-              <div>
-                <h2 className="text-lg font-semibold text-red-800 mb-2">⚠️ AVISO IMPORTANTE</h2>
-                <p className="text-red-700">
+            <div className="prose max-w-none">
+              <p className="text-lg text-gray-600 mb-8">
+                <strong>Última actualización:</strong> 30 de enero de 2025
+              </p>
+
+              <div className="bg-red-50 border-l-4 border-red-500 p-6 mb-8">
+                <h2 className="text-xl font-semibold text-red-900 mb-3">⚠️ Aviso Importante</h2>
+                <p className="text-red-800 text-sm">
                   Las calculadoras y herramientas proporcionadas en Calculord son únicamente para fines informativos y
-                  educativos. Los resultados son estimaciones orientativas y no constituyen asesoramiento profesional
-                  legal, fiscal, financiero o laboral.
+                  educativos. Los resultados obtenidos son estimaciones aproximadas y no constituyen asesoramiento
+                  profesional legal, fiscal, financiero o laboral.
                 </p>
+              </div>
+
+              <section className="mb-8">
+                <h2 className="text-2xl font-semibold text-gray-900 mb-4">1. Naturaleza de la Información</h2>
+                <p className="text-gray-600 mb-4">
+                  Toda la información, calculadoras, herramientas y contenido proporcionado en Calculord (el
+                  "Contenido") se ofrece únicamente con fines informativos y educativos generales.
+                </p>
+
+                <div className="bg-yellow-50 p-6 rounded-lg">
+                  <h3 className="font-medium text-yellow-900 mb-3">El Contenido NO constituye:</h3>
+                  <ul className="list-disc list-inside text-yellow-800 text-sm space-y-2">
+                    <li>Asesoramiento legal, fiscal o financiero profesional</li>
+                    <li>Consultoría laboral o de recursos humanos</li>
+                    <li>Recomendaciones de inversión o planificación financiera</li>
+                    <li>Interpretación oficial de normativas o regulaciones</li>
+                    <li>Sustituto de la consulta con profesionales cualificados</li>
+                  </ul>
+                </div>
+              </section>
+
+              <section className="mb-8">
+                <h2 className="text-2xl font-semibold text-gray-900 mb-4">2. Limitaciones de las Calculadoras</h2>
+
+                <div className="space-y-6">
+                  <div className="bg-orange-50 p-4 rounded-lg">
+                    <h3 className="font-medium text-orange-900 mb-2">📊 Exactitud de los Cálculos</h3>
+                    <ul className="list-disc list-inside text-orange-800 text-sm space-y-1">
+                      <li>
+                        Los resultados son <strong>estimaciones aproximadas</strong> basadas en los datos introducidos
+                      </li>
+                      <li>Pueden existir diferencias con cálculos oficiales o profesionales</li>
+                      <li>No consideran todas las variables o circunstancias específicas</li>
+                      <li>Están sujetos a cambios en la normativa vigente</li>
+                    </ul>
+                  </div>
+
+                  <div className="bg-blue-50 p-4 rounded-lg">
+                    <h3 className="font-medium text-blue-900 mb-2">📅 Actualización de Datos</h3>
+                    <ul className="list-disc list-inside text-blue-800 text-sm space-y-1">
+                      <li>Los tipos, porcentajes y bases de cálculo pueden cambiar</li>
+                      <li>La normativa laboral y fiscal se actualiza periódicamente</li>
+                      <li>Pueden existir desfases entre cambios normativos y actualizaciones del sitio</li>
+                      <li>Recomendamos verificar siempre con fuentes oficiales</li>
+                    </ul>
+                  </div>
+
+                  <div className="bg-purple-50 p-4 rounded-lg">
+                    <h3 className="font-medium text-purple-900 mb-2">🎯 Casos Específicos</h3>
+                    <ul className="list-disc list-inside text-purple-800 text-sm space-y-1">
+                      <li>Cada situación personal o empresarial es única</li>
+                      <li>Pueden aplicarse excepciones o reglas especiales</li>
+                      <li>Las calculadoras no contemplan todos los escenarios posibles</li>
+                      <li>Situaciones complejas requieren análisis profesional</li>
+                    </ul>
+                  </div>
+                </div>
+              </section>
+
+              <section className="mb-8">
+                <h2 className="text-2xl font-semibold text-gray-900 mb-4">3. Exclusión de Responsabilidad</h2>
+
+                <div className="bg-red-50 p-6 rounded-lg mb-4">
+                  <h3 className="font-medium text-red-900 mb-3">Calculord NO se hace responsable de:</h3>
+                  <ul className="list-disc list-inside text-red-800 text-sm space-y-2">
+                    <li>
+                      <strong>Decisiones tomadas</strong> basándose únicamente en nuestros cálculos
+                    </li>
+                    <li>
+                      <strong>Pérdidas económicas</strong> derivadas del uso de nuestras herramientas
+                    </li>
+                    <li>
+                      <strong>Errores u omisiones</strong> en los resultados proporcionados
+                    </li>
+                    <li>
+                      <strong>Diferencias</strong> con cálculos oficiales o profesionales
+                    </li>
+                    <li>
+                      <strong>Consecuencias legales</strong> de decisiones basadas en nuestro contenido
+                    </li>
+                    <li>
+                      <strong>Problemas fiscales</strong> o laborales derivados del uso del sitio
+                    </li>
+                  </ul>
+                </div>
+
+                <p className="text-gray-600">
+                  El usuario asume toda la responsabilidad por el uso que haga de la información y herramientas
+                  proporcionadas en este sitio web.
+                </p>
+              </section>
+
+              <section className="mb-8">
+                <h2 className="text-2xl font-semibold text-gray-900 mb-4">4. Recomendaciones de Uso</h2>
+
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="bg-green-50 p-4 rounded-lg">
+                    <h3 className="font-medium text-green-900 mb-2">✅ Uso Recomendado</h3>
+                    <ul className="list-disc list-inside text-green-800 text-sm space-y-1">
+                      <li>Como herramienta de orientación inicial</li>
+                      <li>Para obtener estimaciones aproximadas</li>
+                      <li>Como complemento a asesoramiento profesional</li>
+                      <li>Para comparar diferentes escenarios</li>
+                      <li>Con fines educativos y de aprendizaje</li>
+                    </ul>
+                  </div>
+
+                  <div className="bg-red-50 p-4 rounded-lg">
+                    <h3 className="font-medium text-red-900 mb-2">❌ Uso NO Recomendado</h3>
+                    <ul className="list-disc list-inside text-red-800 text-sm space-y-1">
+                      <li>Como única fuente para decisiones importantes</li>
+                      <li>Para cálculos oficiales o legales</li>
+                      <li>Sin verificación con profesionales</li>
+                      <li>En situaciones complejas o atípicas</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div className="bg-blue-50 p-6 rounded-lg mt-6">
+                  <h3 className="font-medium text-blue-900 mb-3">💡 Consejo Importante</h3>
+                  <p className="text-blue-800 text-sm">
+                    <strong>Siempre consulta con profesionales cualificados</strong> (asesores fiscales, laboralistas,
+                    gestores, abogados) antes de tomar decisiones importantes basadas en los cálculos obtenidos en
+                    nuestro sitio web.
+                  </p>
+                </div>
+              </section>
+
+              <section className="mb-8">
+                <h2 className="text-2xl font-semibold text-gray-900 mb-4">5. Fuentes de Información</h2>
+                <p className="text-gray-600 mb-4">
+                  Nuestras calculadoras se basan en información pública disponible de fuentes oficiales, pero no
+                  garantizamos que esté siempre actualizada o sea completamente exacta.
+                </p>
+
+                <div className="bg-gray-50 p-6 rounded-lg">
+                  <h3 className="font-medium text-gray-900 mb-3">Fuentes Principales</h3>
+                  <ul className="text-gray-600 text-sm space-y-2">
+                    <li>
+                      • <strong>Ministerio de Trabajo y Economía Social:</strong> SMI, cotizaciones sociales
+                    </li>
+                    <li>
+                      • <strong>Agencia Tributaria (AEAT):</strong> Tipos de IRPF, deducciones fiscales
+                    </li>
+                    <li>
+                      • <strong>Seguridad Social:</strong> Bases y tipos de cotización
+                    </li>
+                    <li>
+                      • <strong>BOE (Boletín Oficial del Estado):</strong> Normativa vigente
+                    </li>
+                    <li>
+                      • <strong>Banco de España:</strong> Tipos de interés de referencia
+                    </li>
+                  </ul>
+                  <p className="text-xs text-gray-500 mt-4">
+                    <strong>Nota:</strong> Recomendamos consultar siempre las fuentes oficiales para obtener la
+                    información más actualizada y precisa.
+                  </p>
+                </div>
+              </section>
+
+              <section className="mb-8">
+                <h2 className="text-2xl font-semibold text-gray-900 mb-4">6. Cambios en la Normativa</h2>
+                <p className="text-gray-600 mb-4">
+                  La normativa laboral, fiscal y financiera cambia frecuentemente. Aunque nos esforzamos por mantener
+                  nuestras calculadoras actualizadas, pueden existir desfases.
+                </p>
+
+                <div className="space-y-4">
+                  <div className="bg-yellow-50 p-4 rounded-lg">
+                    <h3 className="font-medium text-yellow-900 mb-2">📅 Actualizaciones Frecuentes</h3>
+                    <ul className="list-disc list-inside text-yellow-800 text-sm space-y-1">
+                      <li>SMI (Salario Mínimo Interprofesional) - Anual</li>
+                      <li>Tipos de cotización a la Seguridad Social - Anual</li>
+                      <li>Tramos y deducciones del IRPF - Anual</li>
+                      <li>Prestaciones por desempleo - Según normativa</li>
+                    </ul>
+                  </div>
+
+                  <div className="bg-orange-50 p-4 rounded-lg">
+                    <h3 className="font-medium text-orange-900 mb-2">⚡ Cambios Urgentes</h3>
+                    <p className="text-orange-800 text-sm">
+                      En situaciones excepcionales (crisis económicas, cambios legislativos urgentes), la normativa
+                      puede cambiar con poca antelación. Siempre verifica con fuentes oficiales.
+                    </p>
+                  </div>
+                </div>
+              </section>
+
+              <section className="mb-8">
+                <h2 className="text-2xl font-semibold text-gray-900 mb-4">7. Limitaciones Técnicas</h2>
+                <p className="text-gray-600 mb-4">
+                  Nuestras calculadoras tienen limitaciones técnicas que pueden afectar a la precisión de los
+                  resultados:
+                </p>
+
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div className="bg-blue-50 p-4 rounded-lg">
+                    <h3 className="font-medium text-blue-900 mb-2">🔢 Redondeos</h3>
+                    <p className="text-blue-800 text-sm">
+                      Los cálculos pueden incluir redondeos que generen pequeñas diferencias con cálculos manuales o
+                      profesionales.
+                    </p>
+                  </div>
+
+                  <div className="bg-purple-50 p-4 rounded-lg">
+                    <h3 className="font-medium text-purple-900 mb-2">📊 Simplificaciones</h3>
+                    <p className="text-purple-800 text-sm">
+                      Para facilitar el uso, algunas calculadoras simplifican procesos complejos, lo que puede afectar a
+                      la precisión en casos específicos.
+                    </p>
+                  </div>
+
+                  <div className="bg-green-50 p-4 rounded-lg">
+                    <h3 className="font-medium text-green-900 mb-2">🎯 Casos Generales</h3>
+                    <p className="text-green-800 text-sm">
+                      Las calculadoras están diseñadas para casos generales y pueden no contemplar situaciones
+                      específicas o excepcionales.
+                    </p>
+                  </div>
+
+                  <div className="bg-red-50 p-4 rounded-lg">
+                    <h3 className="font-medium text-red-900 mb-2">⏱️ Tiempo Real</h3>
+                    <p className="text-red-800 text-sm">
+                      Los cálculos se realizan con la información disponible en el momento, que puede no reflejar
+                      cambios muy recientes.
+                    </p>
+                  </div>
+                </div>
+              </section>
+
+              <section className="mb-8">
+                <h2 className="text-2xl font-semibold text-gray-900 mb-4">8. Uso Profesional</h2>
+
+                <div className="bg-yellow-50 p-6 rounded-lg mb-4">
+                  <h3 className="font-medium text-yellow-900 mb-3">⚠️ Para Profesionales</h3>
+                  <p className="text-yellow-800 text-sm mb-3">
+                    Si eres asesor, gestor, abogado o profesional que utiliza nuestras herramientas:
+                  </p>
+                  <ul className="list-disc list-inside text-yellow-800 text-sm space-y-1">
+                    <li>Verifica siempre los resultados con tus propios cálculos</li>
+                    <li>No bases decisiones profesionales únicamente en nuestros resultados</li>
+                    <li>Informa a tus clientes sobre las limitaciones de las estimaciones</li>
+                    <li>Mantente actualizado con los cambios normativos oficiales</li>
+                  </ul>
+                </div>
+
+                <p className="text-gray-600">
+                  Los profesionales que utilicen nuestras herramientas lo hacen bajo su propia responsabilidad y deben
+                  aplicar su criterio profesional en todos los casos.
+                </p>
+              </section>
+
+              <section className="mb-8">
+                <h2 className="text-2xl font-semibold text-gray-900 mb-4">9. Contacto y Mejoras</h2>
+                <p className="text-gray-600 mb-4">
+                  Aunque no podemos garantizar la exactitud absoluta, nos esforzamos por mejorar continuamente nuestras
+                  calculadoras. Si detectas errores o tienes sugerencias:
+                </p>
+
+                <div className="bg-green-50 p-6 rounded-lg">
+                  <h3 className="font-medium text-green-900 mb-3">📧 Cómo Contactarnos</h3>
+                  <ul className="text-green-800 text-sm space-y-2">
+                    <li>
+                      <strong>Email general:</strong> info@calculord.com
+                    </li>
+                    <li>
+                      <strong>Errores técnicos:</strong> soporte@calculord.com
+                    </li>
+                    <li>
+                      <strong>Formulario:</strong>{" "}
+                      <Link href="/contacto" className="underline">
+                        calculord.com/contacto
+                      </Link>
+                    </li>
+                    <li>
+                      <strong>Asunto sugerido:</strong> "Error en calculadora [nombre]" o "Sugerencia de mejora"
+                    </li>
+                  </ul>
+                  <p className="text-xs text-green-700 mt-3">
+                    Agradecemos tu colaboración para mejorar nuestros servicios, aunque no podemos garantizar respuesta
+                    individual a todas las consultas.
+                  </p>
+                </div>
+              </section>
+
+              <section className="mb-8">
+                <h2 className="text-2xl font-semibold text-gray-900 mb-4">10. Aceptación de Limitaciones</h2>
+                <div className="bg-blue-50 p-6 rounded-lg">
+                  <p className="text-blue-800 mb-4">
+                    <strong>Al utilizar Calculord, aceptas expresamente:</strong>
+                  </p>
+                  <ul className="list-disc list-inside text-blue-800 text-sm space-y-2">
+                    <li>Que los resultados son estimaciones aproximadas</li>
+                    <li>Que no constituyen asesoramiento profesional</li>
+                    <li>Que debes verificar los resultados con profesionales cualificados</li>
+                    <li>Que asumes toda la responsabilidad por las decisiones tomadas</li>
+                    <li>Que Calculord no se hace responsable de las consecuencias del uso</li>
+                  </ul>
+                </div>
+              </section>
+
+              <div className="border-t border-gray-200 pt-6">
+                <p className="text-sm text-gray-500 mb-4">
+                  Este Descargo de Responsabilidad forma parte integral de nuestros documentos legales y debe leerse
+                  junto con nuestros Términos de Servicio, Política de Privacidad y Aviso Legal.
+                </p>
+
+                <div className="flex flex-wrap gap-2 text-sm">
+                  <Link href="/terminos-de-servicio" className="text-blue-600 hover:underline">
+                    Términos de Servicio
+                  </Link>
+                  <span className="text-gray-400">•</span>
+                  <Link href="/politica-de-privacidad" className="text-blue-600 hover:underline">
+                    Política de Privacidad
+                  </Link>
+                  <span className="text-gray-400">•</span>
+                  <Link href="/aviso-legal" className="text-blue-600 hover:underline">
+                    Aviso Legal
+                  </Link>
+                  <span className="text-gray-400">•</span>
+                  <Link href="/contacto" className="text-blue-600 hover:underline">
+                    Contacto
+                  </Link>
+                </div>
               </div>
             </div>
-          </div>
-
-          <div className="prose max-w-none">
-            <section className="mb-8">
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4 flex items-center">
-                <Calculator className="w-6 h-6 text-blue-600 mr-3" />
-                1. Naturaleza de las Calculadoras
-              </h2>
-              <p className="text-gray-700 mb-4">
-                Las calculadoras laborales y financieras disponibles en Calculord están diseñadas para proporcionar
-                estimaciones aproximadas basadas en:
-              </p>
-              <ul className="list-disc list-inside text-gray-700 mb-4 space-y-2">
-                <li>La normativa española vigente en el momento de su desarrollo</li>
-                <li>Parámetros y variables estándar del mercado</li>
-                <li>Fórmulas matemáticas generalmente aceptadas</li>
-                <li>Datos públicos disponibles de organismos oficiales</li>
-              </ul>
-
-              <div className="grid md:grid-cols-2 gap-6">
-                <div className="bg-blue-50 p-4 rounded-lg">
-                  <h3 className="font-semibold text-gray-800 mb-2">✅ Para qué SÍ sirven</h3>
-                  <ul className="text-gray-700 text-sm space-y-1">
-                    <li>• Estimaciones orientativas</li>
-                    <li>• Planificación inicial</li>
-                    <li>• Comparación de escenarios</li>
-                    <li>• Fines educativos</li>
-                    <li>• Análisis preliminares</li>
-                  </ul>
-                </div>
-
-                <div className="bg-red-50 p-4 rounded-lg">
-                  <h3 className="font-semibold text-gray-800 mb-2">❌ Para qué NO sirven</h3>
-                  <ul className="text-gray-700 text-sm space-y-1">
-                    <li>• Decisiones financieras definitivas</li>
-                    <li>• Cálculos oficiales o legales</li>
-                    <li>• Sustituto de asesoramiento profesional</li>
-                    <li>• Garantía de resultados exactos</li>
-                    <li>• Compromisos contractuales</li>
-                  </ul>
-                </div>
-              </div>
-            </section>
-
-            <section className="mb-8">
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4 flex items-center">
-                <FileText className="w-6 h-6 text-blue-600 mr-3" />
-                2. Limitaciones Específicas por Tipo de Calculadora
-              </h2>
-
-              <div className="space-y-6">
-                <div className="bg-yellow-50 p-4 rounded-lg">
-                  <h3 className="font-semibold text-gray-800 mb-2">Calculadoras Laborales</h3>
-                  <p className="text-gray-700 text-sm mb-2">
-                    <strong>Incluye:</strong> Salarios, nóminas, cotizaciones SS, IRPF, vacaciones, despidos, paro
-                  </p>
-                  <ul className="text-gray-700 text-sm space-y-1">
-                    <li>• Los convenios colectivos pueden modificar los cálculos</li>
-                    <li>• Las circunstancias individuales afectan los resultados</li>
-                    <li>• La normativa cambia frecuentemente</li>
-                    <li>• Pueden existir bonificaciones o deducciones específicas</li>
-                    <li>• Los cálculos no consideran todas las variables posibles</li>
-                  </ul>
-                </div>
-
-                <div className="bg-green-50 p-4 rounded-lg">
-                  <h3 className="font-semibold text-gray-800 mb-2">Calculadoras Financieras</h3>
-                  <p className="text-gray-700 text-sm mb-2">
-                    <strong>Incluye:</strong> Hipotecas, ahorros, inversiones, préstamos
-                  </p>
-                  <ul className="text-gray-700 text-sm space-y-1">
-                    <li>• Los tipos de interés fluctúan constantemente</li>
-                    <li>• Las condiciones bancarias varían entre entidades</li>
-                    <li>• No se incluyen todos los gastos asociados</li>
-                    <li>• Los mercados financieros son impredecibles</li>
-                    <li>• Las comisiones pueden diferir significativamente</li>
-                  </ul>
-                </div>
-
-                <div className="bg-purple-50 p-4 rounded-lg">
-                  <h3 className="font-semibold text-gray-800 mb-2">Calculadoras de RRHH</h3>
-                  <p className="text-gray-700 text-sm mb-2">
-                    <strong>Incluye:</strong> Coste empresa, productividad, ratios laborales
-                  </p>
-                  <ul className="text-gray-700 text-sm space-y-1">
-                    <li>• Cada empresa tiene particularidades específicas</li>
-                    <li>• Los sectores tienen normativas diferentes</li>
-                    <li>• Las políticas internas afectan los cálculos</li>
-                    <li>• Los beneficios sociales varían ampliamente</li>
-                    <li>• Las subvenciones pueden modificar los costes</li>
-                  </ul>
-                </div>
-              </div>
-            </section>
-
-            <section className="mb-8">
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4 flex items-center">
-                <TrendingUp className="w-6 h-6 text-blue-600 mr-3" />
-                3. Factores que Pueden Afectar la Precisión
-              </h2>
-
-              <div className="grid md:grid-cols-2 gap-6">
-                <div>
-                  <h3 className="text-lg font-semibold text-gray-800 mb-3">Factores Normativos</h3>
-                  <ul className="list-disc list-inside text-gray-700 space-y-2">
-                    <li>Cambios en la legislación laboral</li>
-                    <li>Modificaciones en tipos impositivos</li>
-                    <li>Actualizaciones del SMI</li>
-                    <li>Nuevas bases de cotización</li>
-                    <li>Reformas fiscales</li>
-                    <li>Directivas europeas</li>
-                  </ul>
-                </div>
-
-                <div>
-                  <h3 className="text-lg font-semibold text-gray-800 mb-3">Factores del Mercado</h3>
-                  <ul className="list-disc list-inside text-gray-700 space-y-2">
-                    <li>Fluctuaciones de tipos de interés</li>
-                    <li>Variaciones en índices económicos</li>
-                    <li>Cambios en políticas bancarias</li>
-                    <li>Condiciones específicas por sector</li>
-                    <li>Situación económica general</li>
-                    <li>Políticas monetarias</li>
-                  </ul>
-                </div>
-              </div>
-
-              <div className="bg-orange-50 p-4 rounded-lg mt-4">
-                <p className="text-gray-700 text-sm">
-                  <strong>Importante:</strong> Calculord se esfuerza por mantener actualizadas las calculadoras, pero no
-                  puede garantizar que reflejen todos los cambios normativos o del mercado en tiempo real.
-                </p>
-              </div>
-            </section>
-
-            <section className="mb-8">
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4 flex items-center">
-                <Shield className="w-6 h-6 text-blue-600 mr-3" />
-                4. Exclusión de Responsabilidades
-              </h2>
-
-              <div className="bg-red-50 p-6 rounded-lg border border-red-200">
-                <h3 className="font-semibold text-red-800 mb-4">Calculord NO se hace responsable de:</h3>
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div>
-                    <h4 className="font-semibold text-gray-800 mb-2">Decisiones Basadas en Resultados</h4>
-                    <ul className="text-gray-700 text-sm space-y-1">
-                      <li>• Decisiones de contratación</li>
-                      <li>• Inversiones financieras</li>
-                      <li>• Solicitudes de préstamos</li>
-                      <li>• Planificación fiscal</li>
-                      <li>• Estrategias empresariales</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-800 mb-2">Consecuencias Derivadas</h4>
-                    <ul className="text-gray-700 text-sm space-y-1">
-                      <li>• Pérdidas económicas</li>
-                      <li>• Sanciones administrativas</li>
-                      <li>• Problemas legales</li>
-                      <li>• Errores en declaraciones</li>
-                      <li>• Incumplimientos normativos</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            <section className="mb-8">
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4 flex items-center">
-                <Users className="w-6 h-6 text-blue-600 mr-3" />
-                5. Recomendaciones de Uso Responsable
-              </h2>
-
-              <div className="space-y-4">
-                <div className="bg-green-50 p-4 rounded-lg">
-                  <h3 className="font-semibold text-gray-800 mb-2">✅ Buenas Prácticas</h3>
-                  <ul className="text-gray-700 text-sm space-y-2">
-                    <li>
-                      • <strong>Consulta profesional:</strong> Siempre consulta con asesores cualificados para
-                      decisiones importantes
-                    </li>
-                    <li>
-                      • <strong>Verificación:</strong> Contrasta los resultados con fuentes oficiales
-                    </li>
-                    <li>
-                      • <strong>Actualización:</strong> Verifica que estés usando la normativa más reciente
-                    </li>
-                    <li>
-                      • <strong>Contexto:</strong> Considera las circunstancias específicas de cada caso
-                    </li>
-                    <li>
-                      • <strong>Múltiples fuentes:</strong> Utiliza varias herramientas para comparar resultados
-                    </li>
-                  </ul>
-                </div>
-
-                <div className="bg-blue-50 p-4 rounded-lg">
-                  <h3 className="font-semibold text-gray-800 mb-2">🎯 Cuándo Buscar Asesoramiento Profesional</h3>
-                  <ul className="text-gray-700 text-sm space-y-2">
-                    <li>• Antes de tomar decisiones financieras importantes</li>
-                    <li>• Para cálculos oficiales o legales</li>
-                    <li>• En casos con circunstancias especiales</li>
-                    <li>• Para optimización fiscal</li>
-                    <li>• En situaciones de cambio normativo</li>
-                    <li>• Para validar estrategias empresariales</li>
-                  </ul>
-                </div>
-              </div>
-            </section>
-
-            <section className="mb-8">
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">6. Profesionales Recomendados</h2>
-              <p className="text-gray-700 mb-4">
-                Para obtener asesoramiento profesional específico, recomendamos consultar con:
-              </p>
-
-              <div className="grid md:grid-cols-2 gap-6">
-                <div className="bg-gray-50 p-4 rounded-lg">
-                  <h3 className="font-semibold text-gray-800 mb-2">Temas Laborales</h3>
-                  <ul className="text-gray-700 text-sm space-y-1">
-                    <li>• Asesores laborales colegiados</li>
-                    <li>• Graduados sociales</li>
-                    <li>• Abogados laboralistas</li>
-                    <li>• Consultores de RRHH</li>
-                    <li>• Gestorías especializadas</li>
-                  </ul>
-                </div>
-
-                <div className="bg-gray-50 p-4 rounded-lg">
-                  <h3 className="font-semibold text-gray-800 mb-2">Temas Financieros</h3>
-                  <ul className="text-gray-700 text-sm space-y-1">
-                    <li>• Asesores fiscales</li>
-                    <li>• Planificadores financieros</li>
-                    <li>• Economistas colegiados</li>
-                    <li>• Consultores bancarios</li>
-                    <li>• Agentes de seguros</li>
-                  </ul>
-                </div>
-              </div>
-            </section>
-
-            <section className="mb-8">
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">7. Actualizaciones y Mantenimiento</h2>
-              <p className="text-gray-700 mb-4">
-                Calculord se compromete a mantener actualizadas sus calculadoras dentro de lo razonablemente posible,
-                pero no puede garantizar:
-              </p>
-              <ul className="list-disc list-inside text-gray-700 mb-4 space-y-2">
-                <li>Actualización inmediata tras cambios normativos</li>
-                <li>Inclusión de todas las variables posibles</li>
-                <li>Adaptación a casos específicos o excepcionales</li>
-                <li>Disponibilidad ininterrumpida del servicio</li>
-              </ul>
-
-              <div className="bg-blue-50 p-4 rounded-lg">
-                <p className="text-gray-700 text-sm">
-                  <strong>Colaboración:</strong> Si detectas errores o tienes sugerencias de mejora, puedes contactarnos
-                  a través de nuestra{" "}
-                  <a href="/contacto" className="text-blue-600 hover:underline">
-                    página de contacto
-                  </a>
-                  .
-                </p>
-              </div>
-            </section>
-
-            <section className="mb-8">
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">8. Fuentes de Información</h2>
-              <p className="text-gray-700 mb-4">
-                Las calculadoras de Calculord se basan en información obtenida de fuentes oficiales y reconocidas:
-              </p>
-
-              <div className="grid md:grid-cols-2 gap-4">
-                <div className="bg-gray-50 p-4 rounded-lg">
-                  <h4 className="font-semibold text-gray-800 mb-2">Organismos Oficiales</h4>
-                  <ul className="text-gray-700 text-sm space-y-1">
-                    <li>• Ministerio de Trabajo y Economía Social</li>
-                    <li>• Agencia Tributaria (AEAT)</li>
-                    <li>• Tesorería General de la Seguridad Social</li>
-                    <li>• Banco de España</li>
-                    <li>• Instituto Nacional de Estadística (INE)</li>
-                  </ul>
-                </div>
-
-                <div className="bg-gray-50 p-4 rounded-lg">
-                  <h4 className="font-semibold text-gray-800 mb-2">Normativa de Referencia</h4>
-                  <ul className="text-gray-700 text-sm space-y-1">
-                    <li>• Estatuto de los Trabajadores</li>
-                    <li>• Ley General de la Seguridad Social</li>
-                    <li>• Ley del IRPF</li>
-                    <li>• Convenios colectivos</li>
-                    <li>• Reglamentos específicos</li>
-                  </ul>
-                </div>
-              </div>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">9. Contacto y Consultas</h2>
-              <div className="bg-blue-50 p-6 rounded-lg">
-                <p className="text-gray-700 mb-4">
-                  Si tienes dudas sobre este descargo de responsabilidad o sobre el uso de nuestras calculadoras:
-                </p>
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div>
-                    <p className="text-gray-700">
-                      <strong>Email:</strong> info@calculord.com
-                    </p>
-                    <p className="text-gray-700">
-                      <strong>Soporte:</strong> soporte@calculord.com
-                    </p>
-                  </div>
-                  <div>
-                    <p className="text-gray-700">
-                      <strong>Formulario:</strong>{" "}
-                      <a href="/contacto" className="text-blue-600 hover:underline">
-                        Página de contacto
-                      </a>
-                    </p>
-                    <p className="text-gray-700">
-                      <strong>Tiempo de respuesta:</strong> 24-48 horas
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </section>
           </div>
         </div>
       </div>

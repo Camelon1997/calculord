@@ -223,6 +223,14 @@ export default function RootLayout({
         `}
         </Script>
 
+        {/* Google AdSense */}
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4078993164507618"
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
+
         <main className="min-h-screen">{children}</main>
         <DynamicFooter />
         <CookieBanner />

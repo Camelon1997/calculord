@@ -1,8 +1,10 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Cookie, Settings, X, Check } from "lucide-react"
-import Link from "next/link"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent } from "@/components/ui/card"
+import { Switch } from "@/components/ui/switch"
+import { X, Settings, Shield, BarChart3, Target } from "lucide-react"
 
 interface CookiePreferences {
   necessary: boolean
@@ -10,36 +12,34 @@ interface CookiePreferences {
   advertising: boolean
 }
 
+declare global {
+  interface Window {
+    gtag: (...args: any[]) => void
+    dataLayer: any[]
+  }
+}
+
 export default function CookieBanner() {
   const [showBanner, setShowBanner] = useState(false)
-  const [showDetails, setShowDetails] = useState(false)
+  const [showSettings, setShowSettings] = useState(false)
   const [preferences, setPreferences] = useState<CookiePreferences>({
-    necessary: true, // Siempre true, no se puede desactivar
+    necessary: true,
     analytics: false,
     advertising: false,
   })
 
   useEffect(() => {
-    // Verificar si ya se ha dado consentimiento
     const consent = localStorage.getItem("cookie-consent")
     if (!consent) {
       setShowBanner(true)
     } else {
-      // Cargar preferencias guardadas
-      try {
-        const savedPreferences = JSON.parse(consent)
-        setPreferences(savedPreferences)
-        // Aplicar configuración de cookies
-        applyCookieSettings(savedPreferences)
-      } catch (error) {
-        console.error("Error loading cookie preferences:", error)
-        setShowBanner(true)
-      }
+      const savedPreferences = JSON.parse(consent)
+      setPreferences(savedPreferences)
+      updateGoogleConsent(savedPreferences)
     }
   }, [])
 
-  const applyCookieSettings = (prefs: CookiePreferences) => {
-    // Configurar Google Analytics
+  const updateGoogleConsent = (prefs: CookiePreferences) => {
     if (typeof window !== "undefined" && window.gtag) {
       window.gtag("consent", "update", {
         analytics_storage: prefs.analytics ? "granted" : "denied",
@@ -47,14 +47,6 @@ export default function CookieBanner() {
         ad_user_data: prefs.advertising ? "granted" : "denied",
         ad_personalization: prefs.advertising ? "granted" : "denied",
       })
-    }
-
-    // Configurar otras cookies según las preferencias
-    if (!prefs.analytics) {
-      // Eliminar cookies de Google Analytics si están desactivadas
-      document.cookie = "_ga=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"
-      document.cookie = "_ga_G-8QKFLE7EEH=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"
-      document.cookie = "_gid=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"
     }
   }
 
@@ -66,9 +58,9 @@ export default function CookieBanner() {
     }
     setPreferences(allAccepted)
     localStorage.setItem("cookie-consent", JSON.stringify(allAccepted))
-    localStorage.setItem("cookie-consent-date", new Date().toISOString())
-    applyCookieSettings(allAccepted)
+    updateGoogleConsent(allAccepted)
     setShowBanner(false)
+    setShowSettings(false)
   }
 
   const handleRejectAll = () => {
@@ -79,189 +71,162 @@ export default function CookieBanner() {
     }
     setPreferences(onlyNecessary)
     localStorage.setItem("cookie-consent", JSON.stringify(onlyNecessary))
-    localStorage.setItem("cookie-consent-date", new Date().toISOString())
-    applyCookieSettings(onlyNecessary)
+    updateGoogleConsent(onlyNecessary)
+
+    // Eliminar cookies existentes si se rechazan
+    if (!onlyNecessary.analytics) {
+      document.cookie = "_ga=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"
+      document.cookie = "_ga_8QKFLE7EEH=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"
+    }
+
     setShowBanner(false)
+    setShowSettings(false)
   }
 
   const handleSavePreferences = () => {
     localStorage.setItem("cookie-consent", JSON.stringify(preferences))
-    localStorage.setItem("cookie-consent-date", new Date().toISOString())
-    applyCookieSettings(preferences)
+    updateGoogleConsent(preferences)
+
+    // Eliminar cookies si se desactivan
+    if (!preferences.analytics) {
+      document.cookie = "_ga=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"
+      document.cookie = "_ga_8QKFLE7EEH=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"
+    }
+
     setShowBanner(false)
+    setShowSettings(false)
   }
 
-  const handlePreferenceChange = (type: keyof CookiePreferences) => {
-    if (type === "necessary") return // No se puede desactivar
+  const handlePreferenceChange = (type: keyof CookiePreferences, value: boolean) => {
     setPreferences((prev) => ({
       ...prev,
-      [type]: !prev[type],
+      [type]: value,
     }))
   }
 
   if (!showBanner) return null
 
   return (
-    <>
-      {/* Overlay */}
-      <div className="fixed inset-0 bg-black bg-opacity-50 z-40" />
-
-      {/* Banner */}
-      <div className="fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-gray-200 shadow-2xl">
-        <div className="max-w-7xl mx-auto p-4 sm:p-6">
-          {!showDetails ? (
+    <div className="fixed inset-0 bg-black/50 z-50 flex items-end justify-center p-4">
+      <Card className="w-full max-w-2xl">
+        <CardContent className="p-6">
+          {!showSettings ? (
             // Vista simple
-            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-              <div className="flex items-start gap-3 flex-1">
-                <Cookie className="w-6 h-6 text-blue-600 mt-1 flex-shrink-0" />
-                <div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                    🍪 Utilizamos cookies para mejorar tu experiencia
-                  </h3>
-                  <p className="text-gray-700 text-sm leading-relaxed">
-                    Utilizamos cookies propias y de terceros para analizar el tráfico web, personalizar contenido y
-                    mostrar publicidad relevante. Al hacer clic en "Aceptar todas", consientes el uso de todas las
-                    cookies.{" "}
-                    <Link href="/politica-de-cookies" className="text-blue-600 hover:underline">
-                      Más información
-                    </Link>
-                  </p>
+            <div className="space-y-4">
+              <div className="flex items-start justify-between">
+                <div className="flex items-center gap-2">
+                  <Shield className="h-5 w-5 text-blue-600" />
+                  <h3 className="font-semibold text-lg">Configuración de Cookies</h3>
                 </div>
+                <Button variant="ghost" size="sm" onClick={() => setShowBanner(false)} className="h-8 w-8 p-0">
+                  <X className="h-4 w-4" />
+                </Button>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-2 w-full sm:w-auto">
-                <button
-                  onClick={() => setShowDetails(true)}
-                  className="flex items-center justify-center px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors"
-                >
-                  <Settings className="w-4 h-4 mr-2" />
-                  Configurar
-                </button>
-                <button
-                  onClick={handleRejectAll}
-                  className="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors"
-                >
-                  Rechazar todas
-                </button>
-                <button
-                  onClick={handleAcceptAll}
-                  className="px-6 py-2 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors"
-                >
+              <p className="text-sm text-gray-600">
+                Utilizamos cookies para mejorar tu experiencia, analizar el tráfico del sitio y personalizar el
+                contenido. Puedes elegir qué tipos de cookies aceptar.
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-3">
+                <Button onClick={handleAcceptAll} className="flex-1">
                   Aceptar todas
-                </button>
+                </Button>
+                <Button variant="outline" onClick={handleRejectAll} className="flex-1 bg-transparent">
+                  Solo necesarias
+                </Button>
+                <Button variant="outline" onClick={() => setShowSettings(true)} className="flex-1">
+                  <Settings className="h-4 w-4 mr-2" />
+                  Personalizar
+                </Button>
               </div>
             </div>
           ) : (
             // Vista detallada
-            <div className="max-w-4xl mx-auto">
-              <div className="flex items-center justify-between mb-6">
-                <h3 className="text-xl font-semibold text-gray-900 flex items-center">
-                  <Cookie className="w-6 h-6 text-blue-600 mr-2" />
-                  Configuración de Cookies
-                </h3>
-                <button
-                  onClick={() => setShowDetails(false)}
-                  className="p-2 text-gray-400 hover:text-gray-600 transition-colors"
-                >
-                  <X className="w-5 h-5" />
-                </button>
+            <div className="space-y-6">
+              <div className="flex items-start justify-between">
+                <div className="flex items-center gap-2">
+                  <Settings className="h-5 w-5 text-blue-600" />
+                  <h3 className="font-semibold text-lg">Configuración Detallada de Cookies</h3>
+                </div>
+                <Button variant="ghost" size="sm" onClick={() => setShowSettings(false)} className="h-8 w-8 p-0">
+                  <X className="h-4 w-4" />
+                </Button>
               </div>
 
-              <div className="grid gap-4 mb-6">
+              <div className="space-y-4">
                 {/* Cookies Necesarias */}
-                <div className="bg-green-50 p-4 rounded-lg border border-green-200">
-                  <div className="flex items-center justify-between mb-2">
-                    <h4 className="font-semibold text-gray-900 flex items-center">
-                      <Check className="w-5 h-5 text-green-600 mr-2" />
-                      Cookies Necesarias
-                    </h4>
-                    <div className="bg-green-600 text-white text-xs px-2 py-1 rounded">Siempre activas</div>
+                <div className="flex items-start justify-between p-4 border rounded-lg">
+                  <div className="flex-1">
+                    <div className="flex items-center gap-2 mb-2">
+                      <Shield className="h-4 w-4 text-green-600" />
+                      <h4 className="font-medium">Cookies Necesarias</h4>
+                    </div>
+                    <p className="text-sm text-gray-600">
+                      Esenciales para el funcionamiento básico del sitio web. No se pueden desactivar.
+                    </p>
                   </div>
-                  <p className="text-gray-700 text-sm">
-                    Estas cookies son esenciales para el funcionamiento básico del sitio web y no se pueden desactivar.
-                    Incluyen funciones como navegación, acceso a áreas seguras y funcionalidades básicas.
-                  </p>
+                  <Switch checked={true} disabled />
                 </div>
 
                 {/* Cookies Analíticas */}
-                <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
-                  <div className="flex items-center justify-between mb-2">
-                    <h4 className="font-semibold text-gray-900">Cookies Analíticas</h4>
-                    <label className="relative inline-flex items-center cursor-pointer">
-                      <input
-                        type="checkbox"
-                        checked={preferences.analytics}
-                        onChange={() => handlePreferenceChange("analytics")}
-                        className="sr-only peer"
-                      />
-                      <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
-                    </label>
+                <div className="flex items-start justify-between p-4 border rounded-lg">
+                  <div className="flex-1">
+                    <div className="flex items-center gap-2 mb-2">
+                      <BarChart3 className="h-4 w-4 text-blue-600" />
+                      <h4 className="font-medium">Cookies Analíticas</h4>
+                    </div>
+                    <p className="text-sm text-gray-600">
+                      Nos ayudan a entender cómo interactúas con el sitio web mediante Google Analytics.
+                    </p>
                   </div>
-                  <p className="text-gray-700 text-sm">
-                    Nos ayudan a entender cómo interactúas con el sitio web mediante Google Analytics. Esta información
-                    nos permite mejorar la experiencia del usuario.
-                  </p>
+                  <Switch
+                    checked={preferences.analytics}
+                    onCheckedChange={(checked) => handlePreferenceChange("analytics", checked)}
+                  />
                 </div>
 
                 {/* Cookies Publicitarias */}
-                <div className="bg-purple-50 p-4 rounded-lg border border-purple-200">
-                  <div className="flex items-center justify-between mb-2">
-                    <h4 className="font-semibold text-gray-900">Cookies Publicitarias</h4>
-                    <label className="relative inline-flex items-center cursor-pointer">
-                      <input
-                        type="checkbox"
-                        checked={preferences.advertising}
-                        onChange={() => handlePreferenceChange("advertising")}
-                        className="sr-only peer"
-                      />
-                      <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-purple-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-purple-600"></div>
-                    </label>
+                <div className="flex items-start justify-between p-4 border rounded-lg">
+                  <div className="flex-1">
+                    <div className="flex items-center gap-2 mb-2">
+                      <Target className="h-4 w-4 text-purple-600" />
+                      <h4 className="font-medium">Cookies Publicitarias</h4>
+                    </div>
+                    <p className="text-sm text-gray-600">
+                      Utilizadas por Google AdSense para mostrar anuncios relevantes y medir su efectividad.
+                    </p>
                   </div>
-                  <p className="text-gray-700 text-sm">
-                    Utilizadas por Google AdSense para mostrar anuncios personalizados y relevantes. Ayudan a financiar
-                    el contenido gratuito del sitio web.
-                  </p>
+                  <Switch
+                    checked={preferences.advertising}
+                    onCheckedChange={(checked) => handlePreferenceChange("advertising", checked)}
+                  />
                 </div>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-3 pt-4 border-t border-gray-200">
-                <Link href="/politica-de-cookies" className="text-sm text-blue-600 hover:underline">
-                  Ver política completa de cookies
-                </Link>
-                <div className="flex-1"></div>
-                <button
-                  onClick={handleRejectAll}
-                  className="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors"
-                >
-                  Rechazar todas
-                </button>
-                <button
-                  onClick={handleSavePreferences}
-                  className="px-6 py-2 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors"
-                >
+              <div className="flex flex-col sm:flex-row gap-3">
+                <Button onClick={handleSavePreferences} className="flex-1">
                   Guardar preferencias
-                </button>
+                </Button>
+                <Button variant="outline" onClick={handleAcceptAll} className="flex-1 bg-transparent">
+                  Aceptar todas
+                </Button>
+                <Button variant="outline" onClick={handleRejectAll} className="flex-1 bg-transparent">
+                  Rechazar todas
+                </Button>
               </div>
+
+              <p className="text-xs text-gray-500">
+                Puedes cambiar estas preferencias en cualquier momento visitando nuestra{" "}
+                <a href="/configuracion-cookies" className="text-blue-600 hover:underline">
+                  página de configuración de cookies
+                </a>
+                .
+              </p>
             </div>
           )}
-        </div>
-      </div>
-    </>
+        </CardContent>
+      </Card>
+    </div>
   )
-}
-
-// Declaración de tipos para gtag
-declare global {
-  interface Window {
-    gtag: (
-      command: "consent",
-      action: "update",
-      parameters: {
-        analytics_storage?: "granted" | "denied"
-        ad_storage?: "granted" | "denied"
-        ad_user_data?: "granted" | "denied"
-        ad_personalization?: "granted" | "denied"
-      },
-    ) => void
-  }
 }
