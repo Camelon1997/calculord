@@ -12,6 +12,12 @@ const nextConfig = {
     minimumCacheTTL: 31536000, // 1 año
     dangerouslyAllowSVG: true,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'blob.v0.dev',
+      },
+    ],
     unoptimized: true, // Added from updates
   },
   
@@ -40,20 +46,11 @@ const nextConfig = {
         ]
       },
       {
-        source: '/sitemap.xml',
+        source: '/:path*(?:jpg|jpeg|gif|png|svg|webp|ico|avif)$',
         headers: [
           {
             key: 'Cache-Control',
-            value: 'public, max-age=86400, s-maxage=86400'
-          }
-        ]
-      },
-      {
-        source: '/robots.txt',
-        headers: [
-          {
-            key: 'Cache-Control',
-            value: 'public, max-age=86400, s-maxage=86400'
+            value: 'public, max-age=31536000, immutable'
           }
         ]
       },
@@ -71,7 +68,6 @@ const nextConfig = {
   
   // Experimental features para mejor rendimiento
   experimental: {
-    // optimizeCss: true, // Disabled to fix build error: "Cannot find module 'critters'"
     scrollRestoration: true,
   },
   
@@ -84,6 +80,33 @@ const nextConfig = {
         cacheGroups: {
           default: false,
           vendors: false,
+          framework: {
+            name: 'framework',
+            chunks: 'all',
+            test: /[\\/]node_modules[\\/](react|react-dom|next)[\\/]/,
+            priority: 40,
+            enforce: true,
+          },
+          lib: {
+            test(module) {
+              return (
+                module.size() > 160000 &&
+                /node_modules[/\\]/.test(module.nameForCondition() || '')
+              )
+            },
+            name(module) {
+              const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1]
+              return `lib-${packageName.replace('@', '')}`
+            },
+            priority: 30,
+            minChunks: 1,
+            reuseExistingChunk: true,
+          },
+          commons: {
+            name: 'commons',
+            minChunks: 2,
+            priority: 20,
+          },
           vendor: {
             name: 'vendor',
             chunks: 'all',

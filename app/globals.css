@@ -62,10 +62,14 @@
   /* Optimización de fuentes */
   html {
     font-display: swap;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   /* Mejoras de rendimiento */
-  img {
+  img,
+  video {
     content-visibility: auto;
   }
 
