@@ -5,6 +5,7 @@ import Script from "next/script"
 import "./globals.css"
 import Header from "./components/Header"
 import DynamicFooter from "./components/DynamicFooter"
+import CookieBanner from "./components/CookieBanner"
 
 // Optimización de fuentes con next/font
 const inter = Inter({
@@ -192,6 +193,22 @@ export default function RootLayout({
           }}
         />
 
+        {/* Google Consent Mode */}
+        <Script id="google-consent-mode" strategy="beforeInteractive">
+          {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          
+          gtag('consent', 'default', {
+            'analytics_storage': 'denied',
+            'ad_storage': 'denied',
+            'ad_user_data': 'denied',
+            'ad_personalization': 'denied',
+            'wait_for_update': 500,
+          });
+        `}
+        </Script>
+
         {/* Google Analytics */}
         <Script src="https://www.googletagmanager.com/gtag/js?id=G-8QKFLE7EEH" strategy="afterInteractive" />
         <Script id="google-analytics" strategy="afterInteractive">
@@ -208,6 +225,7 @@ export default function RootLayout({
 
         <main className="min-h-screen">{children}</main>
         <DynamicFooter />
+        <CookieBanner />
       </body>
     </html>
   )
