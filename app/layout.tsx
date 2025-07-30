@@ -87,6 +87,7 @@ export const metadata: Metadata = {
   verification: {
     google: "0ba11d3d8aaa2d03",
     other: {
+      "google-adsense-account": "ca-pub-4078993164507618",
       "msvalidate.01": "your-bing-verification-code",
       "yandex-verification": "your-yandex-verification-code",
     },
@@ -117,6 +118,9 @@ export const metadata: Metadata = {
     images: ["/og-image-home.jpg"],
     creator: "@calculord",
     site: "@calculord",
+  },
+  other: {
+    "google-adsense-account": "ca-pub-4078993164507618",
   },
     generator: 'v0.dev'
 }
