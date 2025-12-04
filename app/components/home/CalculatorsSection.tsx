@@ -376,6 +376,41 @@ export default function CalculatorsSection() {
               </Link>
             </div>
 
+            {/* Calculadora de Bajas Laborales */}
+            <div className="bg-white p-6 rounded-xl shadow-sm border hover:shadow-md transition-shadow flex flex-col h-full calculator-card">
+              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                <svg className="h-6 w-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                  />
+                </svg>
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Calculadora de Bajas</h3>
+              <p className="text-gray-600 mb-4 flex-grow">
+                Calcula tu prestación por incapacidad temporal según contingencias comunes o profesionales 2025.
+              </p>
+              <div className="space-y-2 mb-6">
+                <div className="flex items-center text-sm text-gray-600">
+                  <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                  IT común y profesional
+                </div>
+                <div className="flex items-center text-sm text-gray-600">
+                  <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                  Desglose días y pagador
+                </div>
+                <div className="flex items-center text-sm text-gray-600">
+                  <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                  Base reguladora actualizada
+                </div>
+              </div>
+              <Link href="/calculadora-bajas" className="mt-auto">
+                <Button className="w-full bg-blue-600 hover:bg-blue-700">Calcular Baja</Button>
+              </Link>
+            </div>
+
             {/* Próximamente */}
             <div className="bg-gray-50 p-6 rounded-xl border-2 border-dashed border-gray-200 flex flex-col h-full calculator-card">
               <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mb-4">
@@ -388,15 +423,7 @@ export default function CalculatorsSection() {
               <div className="space-y-2 mb-6">
                 <div className="flex items-center text-sm text-gray-500">
                   <Calendar className="h-4 w-4 text-gray-400 mr-2" />
-                  Calculadora de Bajas
-                </div>
-                <div className="flex items-center text-sm text-gray-500">
-                  <Calendar className="h-4 w-4 text-gray-400 mr-2" />
-                  Calculadora de Embargos
-                </div>
-                <div className="flex items-center text-sm text-gray-500">
-                  <Calendar className="h-4 w-4 text-gray-400 mr-2" />
-                  Más calculadoras...
+                  Más calculadoras laborales...
                 </div>
               </div>
               <Button disabled className="w-full bg-gray-300 text-gray-500 cursor-not-allowed mt-auto">
@@ -443,6 +470,41 @@ export default function CalculatorsSection() {
               </Link>
             </div>
 
+            {/* Honorarios Arquitecto */}
+            <div className="bg-white p-6 rounded-xl shadow-sm border hover:shadow-md transition-shadow flex flex-col h-full calculator-card">
+              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                <svg className="h-6 w-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+                  />
+                </svg>
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Honorarios de Arquitecto</h3>
+              <p className="text-gray-600 mb-4 flex-grow">
+                Estima los costes de tu proyecto arquitectónico según el PEM, tipo de obra y complejidad.
+              </p>
+              <div className="space-y-2 mb-6">
+                <div className="flex items-center text-sm text-gray-600">
+                  <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                  Cálculo según PEM 2025
+                </div>
+                <div className="flex items-center text-sm text-gray-600">
+                  <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                  Desglose por fases
+                </div>
+                <div className="flex items-center text-sm text-gray-600">
+                  <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                  Incluye visado y costes
+                </div>
+              </div>
+              <Link href="/calculadora-honorarios-arquitecto" className="mt-auto">
+                <Button className="w-full bg-blue-600 hover:bg-blue-700">Calcular Honorarios</Button>
+              </Link>
+            </div>
+
             {/* Próximamente - Más servicios */}
             <div className="bg-gray-50 p-6 rounded-xl border-2 border-dashed border-gray-200 flex flex-col h-full calculator-card">
               <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mb-4">
@@ -453,11 +515,11 @@ export default function CalculatorsSection() {
               <div className="space-y-2 mb-6">
                 <div className="flex items-center text-sm text-gray-500">
                   <Calendar className="h-4 w-4 text-gray-400 mr-2" />
-                  Honorarios Arquitecto
+                  Honorarios Médico
                 </div>
                 <div className="flex items-center text-sm text-gray-500">
                   <Calendar className="h-4 w-4 text-gray-400 mr-2" />
-                  Honorarios Médico
+                  Tasaciones
                 </div>
                 <div className="flex items-center text-sm text-gray-500">
                   <Calendar className="h-4 w-4 text-gray-400 mr-2" />
@@ -728,11 +790,11 @@ export default function CalculatorsSection() {
                 </div>
                 <div className="flex items-center text-sm text-gray-500">
                   <Calendar className="h-4 w-4 text-gray-400 mr-2" />
-                  IRPF Autónomos
+                  Gastos Deducibles
                 </div>
                 <div className="flex items-center text-sm text-gray-500">
                   <Calendar className="h-4 w-4 text-gray-400 mr-2" />
-                  Gastos Deducibles
+                  Más herramientas...
                 </div>
               </div>
               <Button disabled className="w-full bg-gray-300 text-gray-500 cursor-not-allowed mt-auto">
