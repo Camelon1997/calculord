@@ -87,7 +87,7 @@ export const metadata: Metadata = {
   verification: {
     google: "0ba11d3d8aaa2d03",
     other: {
-      "google-adsense-account": "ca-pub-4078993164507618",
+      "google-adsense-account": "ca-pub-6020684458619077",
       "msvalidate.01": "your-bing-verification-code",
       "yandex-verification": "your-yandex-verification-code",
     },
@@ -120,9 +120,9 @@ export const metadata: Metadata = {
     site: "@calculord",
   },
   other: {
-    "google-adsense-account": "ca-pub-4078993164507618",
+    "google-adsense-account": "ca-pub-6020684458619077",
   },
-    generator: 'v0.dev'
+  generator: "v0.dev",
 }
 
 const organizationStructuredData = {
@@ -230,7 +230,7 @@ export default function RootLayout({
         {/* Google AdSense */}
         <Script
           async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4078993164507618"
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6020684458619077"
           crossOrigin="anonymous"
           strategy="afterInteractive"
         />
