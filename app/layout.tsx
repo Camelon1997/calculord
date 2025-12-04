@@ -186,14 +186,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es" dir="ltr" className="scroll-smooth">
-      <head>
+      <body className={`${inter.className} bg-gray-50 text-gray-800 antialiased`}>
+        {/* Google AdSense */}
         <Script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6020684458619077"
           crossOrigin="anonymous"
+          strategy="beforeInteractive"
         />
-      </head>
-      <body className={`${inter.className} bg-gray-50 text-gray-800 antialiased`}>
+
         <Header />
 
         <Script
