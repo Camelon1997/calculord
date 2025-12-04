@@ -59,7 +59,6 @@ const nextConfig = {
   experimental: {
     scrollRestoration: true,
     optimizePackageImports: ['lucide-react', 'recharts', 'date-fns', '@radix-ui/react-accordion', '@radix-ui/react-dialog', '@radix-ui/react-dropdown-menu'],
-    optimizeCss: true,
     webpackBuildWorker: true,
   },
 
