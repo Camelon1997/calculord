@@ -3,6 +3,8 @@ const nextConfig = {
   // Optimizaciones de rendimiento
   compress: true,
   poweredByHeader: false,
+  reactStrictMode: true,
+  productionBrowserSourceMaps: false,
 
   // Optimizaciones de imágenes
   images: {
@@ -56,7 +58,9 @@ const nextConfig = {
   // Experimental features para mejor rendimiento
   experimental: {
     scrollRestoration: true,
-    optimizePackageImports: ['lucide-react'],
+    optimizePackageImports: ['lucide-react', 'recharts', 'date-fns', '@radix-ui/react-accordion', '@radix-ui/react-dialog', '@radix-ui/react-dropdown-menu'],
+    optimizeCss: true,
+    webpackBuildWorker: true,
   },
 
   // Webpack optimizations
@@ -109,8 +113,16 @@ const nextConfig = {
             reuseExistingChunk: true,
             enforce: true
           }
-        }
+        },
+        maxInitialRequests: 25,
+        minSize: 20000,
       }
+      
+      config.optimization.minimize = true
+      
+      // Tree shaking más agresivo
+      config.optimization.usedExports = true
+      config.optimization.sideEffects = false
     }
     
     return config

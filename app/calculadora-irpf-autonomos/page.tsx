@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import CalculadoraIRPFAutonomos from "./CalculadoraIRPFAutonomos"
+import { Breadcrumbs } from "@/app/components/Breadcrumbs"
 
 export const metadata: Metadata = {
   title: "Calculadora IRPF Autónomos 2025 | Calcula tu Impuesto Anual",
@@ -16,5 +17,10 @@ export const metadata: Metadata = {
 }
 
 export default function CalculadoraIRPFAutonomosPage() {
-  return <CalculadoraIRPFAutonomos />
+  return (
+    <>
+      <Breadcrumbs currentPage="Calculadora IRPF Autónomos" />
+      <CalculadoraIRPFAutonomos />
+    </>
+  )
 }

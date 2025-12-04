@@ -219,51 +219,41 @@ export default function RootLayout({
   return (
     <html lang="es" dir="ltr" className="scroll-smooth">
       <head>
-        {/* Google AdSense */}
-        <script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6020684458619077"
-          crossOrigin="anonymous"
-        />
+        <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
       </head>
       <body className={`${inter.className} bg-gray-50 text-gray-800 antialiased`}>
         <ScrollToTop />
         <Header />
 
         <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6020684458619077"
+          crossOrigin="anonymous"
+          strategy="lazyOnload"
+        />
+
+        <Script
           id="structured-data"
           type="application/ld+json"
+          strategy="beforeInteractive"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify([organizationStructuredData, websiteStructuredData]),
           }}
         />
 
-        {/* Google Consent Mode */}
-        <Script id="google-consent-mode" strategy="beforeInteractive">
-          {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          
-          gtag('consent', 'default', {
-            'analytics_storage': 'denied',
-            'ad_storage': 'denied',
-            'ad_user_data': 'denied',
-            'ad_personalization': 'denied',
-            'wait_for_update': 500,
-          });
-        `}
-        </Script>
-
-        {/* Google Analytics */}
-        <Script src="https://www.googletagmanager.com/gtag/js?id=G-8QKFLE7EEH" strategy="afterInteractive" />
-        <Script id="google-analytics" strategy="afterInteractive">
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-8QKFLE7EEH" strategy="lazyOnload" />
+        <Script id="google-analytics" strategy="lazyOnload">
           {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
           gtag('config', 'G-8QKFLE7EEH', {
             page_path: window.location.pathname,
-            anonymize_ip: true
+            anonymize_ip: true,
+            send_page_view: false
           });
         `}
         </Script>

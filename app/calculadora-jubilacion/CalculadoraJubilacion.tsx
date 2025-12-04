@@ -19,7 +19,7 @@ import {
   FileText,
   Briefcase,
 } from "lucide-react"
-import Link from "next/link"
+import { RelatedCalculatorCard } from "@/app/components/RelatedCalculatorCard"
 
 export default function CalculadoraJubilacion() {
   const [salariosMensuales, setSalariosMensuales] = useState("")
@@ -601,48 +601,40 @@ las bases de cotización reales de los últimos 25 años actualizadas según el 
             {/* Calculadoras Relacionadas */}
             <div className="mt-12">
               <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">Calculadoras Relacionadas</h2>
+              <p className="text-lg text-gray-600 mb-8 text-center max-w-3xl mx-auto">
+                Complementa tu planificación de jubilación con estas herramientas para gestionar tus finanzas.
+              </p>
               <div className="grid md:grid-cols-3 gap-6">
-                <Link href="/calculadora-cotizaciones-seguridad-social" className="block group">
-                  <Card className="h-full hover:shadow-lg transition-shadow border-blue-200">
-                    <CardHeader className="text-center">
-                      <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3 group-hover:bg-blue-200 transition-colors">
-                        <Building2 className="w-6 h-6 text-blue-600" />
-                      </div>
-                      <CardTitle className="text-lg">Cotizaciones Seguridad Social</CardTitle>
-                      <CardDescription className="text-center">
-                        Calcula tus cotizaciones mensuales a la Seguridad Social y cómo afectan a tu futura pensión
-                      </CardDescription>
-                    </CardHeader>
-                  </Card>
-                </Link>
-
-                <Link href="/calculadora-nomina" className="block group">
-                  <Card className="h-full hover:shadow-lg transition-shadow border-green-200">
-                    <CardHeader className="text-center">
-                      <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3 group-hover:bg-green-200 transition-colors">
-                        <FileText className="w-6 h-6 text-green-600" />
-                      </div>
-                      <CardTitle className="text-lg">Calculadora de Nómina</CardTitle>
-                      <CardDescription className="text-center">
-                        Calcula tu salario neto, deducciones y retenciones de IRPF y Seguridad Social
-                      </CardDescription>
-                    </CardHeader>
-                  </Card>
-                </Link>
-
-                <Link href="/calculadora-irpf" className="block group">
-                  <Card className="h-full hover:shadow-lg transition-shadow border-purple-200">
-                    <CardHeader className="text-center">
-                      <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-3 group-hover:bg-purple-200 transition-colors">
-                        <Briefcase className="w-6 h-6 text-purple-600" />
-                      </div>
-                      <CardTitle className="text-lg">Calculadora de IRPF</CardTitle>
-                      <CardDescription className="text-center">
-                        Calcula tu retención de IRPF y optimiza tu declaración de la renta
-                      </CardDescription>
-                    </CardHeader>
-                  </Card>
-                </Link>
+                <RelatedCalculatorCard
+                  icon={<Building2 className="h-6 w-6 text-blue-500" />}
+                  title="Cotizaciones Seguridad Social"
+                  description="Calcula tus cotizaciones mensuales. Conoce cuánto aportas para tu futura pensión."
+                  features={["Cotización completa", "Bases 2025", "Desglose detallado"]}
+                  href="/calculadora-cotizaciones-seguridad-social"
+                  buttonText="Ver Cotizaciones"
+                  buttonClassName="bg-blue-600 hover:bg-blue-700"
+                  iconBgClassName="bg-blue-100"
+                />
+                <RelatedCalculatorCard
+                  icon={<FileText className="h-6 w-6 text-green-500" />}
+                  title="Calculadora de Nómina"
+                  description="Calcula tu salario neto, deducciones y retenciones de IRPF y Seguridad Social."
+                  features={["Nómina completa", "IRPF 2025", "Cotizaciones SS"]}
+                  href="/calculadora-nomina"
+                  buttonText="Ver Nómina"
+                  buttonClassName="bg-green-600 hover:bg-green-700"
+                  iconBgClassName="bg-green-100"
+                />
+                <RelatedCalculatorCard
+                  icon={<Briefcase className="h-6 w-6 text-purple-500" />}
+                  title="Calculadora de IRPF"
+                  description="Calcula tu retención de IRPF y optimiza tu declaración de la renta."
+                  features={["Tramos 2025", "Retenciones", "Desglose completo"]}
+                  href="/calculadora-irpf"
+                  buttonText="Calcular IRPF"
+                  buttonClassName="bg-purple-600 hover:bg-purple-700"
+                  iconBgClassName="bg-purple-100"
+                />
               </div>
             </div>
           </div>

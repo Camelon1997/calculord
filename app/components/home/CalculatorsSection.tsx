@@ -399,15 +399,86 @@ export default function CalculatorsSection() {
                 </div>
                 <div className="flex items-center text-sm text-gray-600">
                   <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                  Desglose días y pagador
+                  Base reguladora actualizada
                 </div>
                 <div className="flex items-center text-sm text-gray-600">
                   <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                  Base reguladora actualizada
+                  Desglose empresa/INSS
                 </div>
               </div>
               <Link href="/calculadora-bajas" className="mt-auto">
                 <Button className="w-full bg-blue-600 hover:bg-blue-700">Calcular Baja</Button>
+              </Link>
+            </div>
+
+            {/* Calculadora de Horas Extra */}
+            <div className="bg-white p-6 rounded-xl shadow-sm border hover:shadow-md transition-shadow flex flex-col h-full calculator-card">
+              <div className="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center mb-4">
+                <svg className="h-6 w-6 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Calculadora de Horas Extra</h3>
+              <p className="text-gray-600 mb-4 flex-grow">
+                Calcula el valor de tus horas extra diferenciando entre ordinarias, festivos, nocturnas y estructurales
+                2025.
+              </p>
+              <div className="space-y-2 mb-6">
+                <div className="flex items-center text-sm text-gray-600">
+                  <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                  Ordinarias, festivos y nocturnas
+                </div>
+                <div className="flex items-center text-sm text-gray-600">
+                  <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                  Recargos de convenio
+                </div>
+                <div className="flex items-center text-sm text-gray-600">
+                  <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                  Control límite 80h anuales
+                </div>
+              </div>
+              <Link href="/calculadora-horas-extra" className="mt-auto">
+                <Button className="w-full bg-teal-600 hover:bg-teal-700">Calcular Horas Extra</Button>
+              </Link>
+            </div>
+
+            {/* Calculadora de Maternidad/Paternidad */}
+            <div className="bg-white p-6 rounded-xl shadow-sm border hover:shadow-md transition-shadow flex flex-col h-full calculator-card">
+              <div className="w-12 h-12 bg-pink-100 rounded-lg flex items-center justify-center mb-4">
+                <svg className="h-6 w-6 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                  />
+                </svg>
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Maternidad y Paternidad</h3>
+              <p className="text-gray-600 mb-4 flex-grow">
+                Calcula tu prestación por nacimiento, adopción o acogida con duración según tipo de parto 2025.
+              </p>
+              <div className="space-y-2 mb-6">
+                <div className="flex items-center text-sm text-gray-600">
+                  <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                  19 semanas al 100%
+                </div>
+                <div className="flex items-center text-sm text-gray-600">
+                  <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                  Parto múltiple
+                </div>
+                <div className="flex items-center text-sm text-gray-600">
+                  <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                  Familias monoparentales
+                </div>
+              </div>
+              <Link href="/calculadora-maternidad-paternidad" className="mt-auto">
+                <Button className="w-full bg-pink-600 hover:bg-pink-700">Calcular Prestación</Button>
               </Link>
             </div>
 

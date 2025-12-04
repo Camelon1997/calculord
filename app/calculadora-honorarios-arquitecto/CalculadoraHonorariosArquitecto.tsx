@@ -16,12 +16,11 @@ import {
   FileText,
   CheckCircle2,
   TrendingUp,
-  ArrowRight,
   Scale,
   PiggyBank,
 } from "lucide-react"
 import { Alert, AlertDescription } from "@/components/ui/alert"
-import Link from "next/link"
+import { RelatedCalculatorCard } from "@/app/components/RelatedCalculatorCard"
 
 export default function CalculadoraHonorariosArquitecto() {
   const [pem, setPem] = useState<string>("")
@@ -666,73 +665,46 @@ export default function CalculadoraHonorariosArquitecto() {
       </section>
 
       {/* Calculadoras Relacionadas */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Calculadoras Relacionadas</h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">Herramientas complementarias para tus proyectos</p>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Complementa tu cálculo de honorarios con estas herramientas profesionales.
+            </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
-              <CardHeader className="text-center pb-4">
-                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Scale className="h-8 w-8 text-blue-600" />
-                </div>
-                <CardTitle className="text-xl text-gray-900">Honorarios de Abogado</CardTitle>
-              </CardHeader>
-              <CardContent className="text-center">
-                <p className="text-gray-600 mb-6">
-                  Calcula los honorarios legales para contratos, permisos y trámites de tu proyecto.
-                </p>
-                <Link href="/calculadora-honorarios-abogado">
-                  <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white">
-                    Calcular honorarios
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </Link>
-              </CardContent>
-            </Card>
-
-            <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
-              <CardHeader className="text-center pb-4">
-                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Home className="h-8 w-8 text-green-600" />
-                </div>
-                <CardTitle className="text-xl text-gray-900">Calculadora de Hipoteca</CardTitle>
-              </CardHeader>
-              <CardContent className="text-center">
-                <p className="text-gray-600 mb-6">
-                  Calcula la hipoteca necesaria para tu proyecto de construcción o compra.
-                </p>
-                <Link href="/calculadora-hipoteca">
-                  <Button className="w-full bg-green-600 hover:bg-green-700 text-white">
-                    Calcular hipoteca
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </Link>
-              </CardContent>
-            </Card>
-
-            <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
-              <CardHeader className="text-center pb-4">
-                <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <PiggyBank className="h-8 w-8 text-purple-600" />
-                </div>
-                <CardTitle className="text-xl text-gray-900">Calculadora de Ahorro</CardTitle>
-              </CardHeader>
-              <CardContent className="text-center">
-                <p className="text-gray-600 mb-6">
-                  Planifica el ahorro necesario para tu proyecto inmobiliario con interés compuesto.
-                </p>
-                <Link href="/calculadora-ahorro">
-                  <Button className="w-full bg-purple-600 hover:bg-purple-700 text-white">
-                    Calcular ahorro
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </Link>
-              </CardContent>
-            </Card>
+            <RelatedCalculatorCard
+              icon={<Scale className="h-6 w-6 text-blue-500" />}
+              title="Honorarios de Abogado"
+              description="Calcula honorarios legales según baremos oficiales y tipos de servicio jurídico."
+              features={["Baremos oficiales", "Múltiples servicios", "Minutas detalladas"]}
+              href="/calculadora-honorarios-abogado"
+              buttonText="Calcular Honorarios"
+              buttonClassName="bg-blue-600 hover:bg-blue-700"
+              iconBgClassName="bg-blue-100"
+            />
+            <RelatedCalculatorCard
+              icon={<Home className="h-6 w-6 text-green-500" />}
+              title="Calculadora de Hipoteca"
+              description="Calcula tu hipoteca mensual. Perfecto para proyectos de construcción o compra."
+              features={["Cuota mensual", "TAE real", "Calendario completo"]}
+              href="/calculadora-hipoteca"
+              buttonText="Calcular Hipoteca"
+              buttonClassName="bg-green-600 hover:bg-green-700"
+              iconBgClassName="bg-green-100"
+            />
+            <RelatedCalculatorCard
+              icon={<PiggyBank className="h-6 w-6 text-purple-500" />}
+              title="Calculadora de Ahorro"
+              description="Planifica el ahorro necesario para tu proyecto inmobiliario con interés compuesto."
+              features={["Ahorro a largo plazo", "Interés compuesto", "Planificación financiera"]}
+              href="/calculadora-ahorro"
+              buttonText="Calcular Ahorro"
+              buttonClassName="bg-purple-600 hover:bg-purple-700"
+              iconBgClassName="bg-purple-100"
+            />
           </div>
         </div>
       </section>

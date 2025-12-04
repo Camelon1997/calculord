@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
+import { RelatedCalculatorCard } from "@/app/components/RelatedCalculatorCard"
 import {
   Calculator,
   Clock,
@@ -673,66 +674,45 @@ Fuente: Calculord.com`
       </section>
 
       {/* Related Calculators */}
-      <section className="py-16 px-4 bg-gray-50">
-        <div className="container mx-auto max-w-6xl">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Calculadoras Relacionadas</h2>
-          <div className="grid md:grid-cols-3 gap-6">
-            <a
-              href="/calculadora-paro"
-              className="group bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow border border-gray-100"
-            >
-              <div className="bg-blue-100 rounded-lg p-3 w-fit mb-4">
-                <Briefcase className="h-6 w-6 text-blue-600" />
-              </div>
-              <h3 className="font-bold text-lg text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
-                Calculadora de Paro
-              </h3>
-              <p className="text-gray-600 text-sm mb-4">
-                Calcula tu prestación por desempleo según tus cotizaciones y situación laboral.
-              </p>
-              <span className="text-blue-600 text-sm font-medium inline-flex items-center gap-1">
-                Calcular ahora
-                <ChevronRight className="h-4 w-4" />
-              </span>
-            </a>
-
-            <a
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Calculadoras Laborales Relacionadas</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Complementa tu análisis de bajas laborales con estas herramientas esenciales.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8">
+            <RelatedCalculatorCard
+              icon={<Briefcase className="h-6 w-6 text-blue-500" />}
+              title="Calculadora de Nómina"
+              description="Calcula tu nómina completa para comparar con tu prestación de IT."
+              features={["Nómina completa", "IRPF 2025", "Cotizaciones SS"]}
               href="/calculadora-nomina"
-              className="group bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow border border-gray-100"
-            >
-              <div className="bg-emerald-100 rounded-lg p-3 w-fit mb-4">
-                <FileText className="h-6 w-6 text-emerald-600" />
-              </div>
-              <h3 className="font-bold text-lg text-gray-900 mb-2 group-hover:text-emerald-600 transition-colors">
-                Calculadora de Nómina
-              </h3>
-              <p className="text-gray-600 text-sm mb-4">
-                Simula tu nómina completa con todos los conceptos, deducciones y retenciones 2025.
-              </p>
-              <span className="text-emerald-600 text-sm font-medium inline-flex items-center gap-1">
-                Calcular ahora
-                <ChevronRight className="h-4 w-4" />
-              </span>
-            </a>
-
-            <a
+              buttonText="Ver Nómina"
+              buttonClassName="bg-blue-600 hover:bg-blue-700"
+              iconBgClassName="bg-blue-100"
+            />
+            <RelatedCalculatorCard
+              icon={<FileText className="h-6 w-6 text-emerald-500" />}
+              title="Prestación por Desempleo"
+              description="Calcula la prestación por paro. Conoce tus derechos en caso de desempleo."
+              features={["Base reguladora", "Duración prestación", "Importe mensual"]}
+              href="/calculadora-paro"
+              buttonText="Calcular Paro"
+              buttonClassName="bg-emerald-600 hover:bg-emerald-700"
+              iconBgClassName="bg-emerald-100"
+            />
+            <RelatedCalculatorCard
+              icon={<Clock className="h-6 w-6 text-orange-500" />}
+              title="Calculadora de ERTE"
+              description="Calcula tu prestación en caso de ERTE. Compara con la baja laboral."
+              features={["ERTE 2025", "Suspensión total", "Reducción de jornada"]}
               href="/calculadora-erte"
-              className="group bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow border border-gray-100"
-            >
-              <div className="bg-orange-100 rounded-lg p-3 w-fit mb-4">
-                <Clock className="h-6 w-6 text-orange-600" />
-              </div>
-              <h3 className="font-bold text-lg text-gray-900 mb-2 group-hover:text-orange-600 transition-colors">
-                Calculadora de ERTE
-              </h3>
-              <p className="text-gray-600 text-sm mb-4">
-                Descubre cuánto cobrarás si tu empresa te incluye en un ERTE de suspensión o reducción.
-              </p>
-              <span className="text-orange-600 text-sm font-medium inline-flex items-center gap-1">
-                Calcular ahora
-                <ChevronRight className="h-4 w-4" />
-              </span>
-            </a>
+              buttonText="Calcular ERTE"
+              buttonClassName="bg-orange-600 hover:bg-orange-700"
+              iconBgClassName="bg-orange-100"
+            />
           </div>
         </div>
       </section>

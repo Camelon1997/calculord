@@ -21,16 +21,7 @@ export const metadata: Metadata = {
 const CalendarioFiscalAutonomosPage = () => {
   return (
     <>
-      <Breadcrumbs
-        items={[
-          { label: "Home", path: "/" },
-          { label: "Calculadoras", path: "/#calculadoras" },
-          {
-            label: "Calendario Fiscal Autónomos",
-            path: "/calculadora-calendario-fiscal-autonomos",
-          },
-        ]}
-      />
+      <Breadcrumbs currentPage="Calendario Fiscal Autónomos" />
       <CalendarioFiscalAutonomos />
     </>
   )

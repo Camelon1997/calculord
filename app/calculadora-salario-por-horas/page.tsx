@@ -4,7 +4,7 @@ import SalarioHorasClientPage from "./SalarioHorasClientPage"
 export const metadata: Metadata = {
   title: "✅ Calculadora Salario por Horas 2025 | SMI 9,26€/h + Neto | Calculord",
   description:
-    "Calcula tu salario REAL por horas trabajadas en 2025. 📊 Basado en el SMI de 1.184€/mes (9,26€/h). Incluye horas extra (+75%), cotizaciones y salario neto final. Herramienta gratuita y actualizada.",
+    "Calcula tu salario REAL por horas trabajadas en 2025. 📊 Basado en el SMI de 1.184€/mes (9,26€/h). Incluye horas extra (+75%), cotizaciones, IRPF y salario neto final. Herramienta gratuita y actualizada.",
   keywords: [
     "calculadora salario por horas 2025",
     "SMI 2025 9.26 euros hora",
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "✅ Calculadora Salario por Horas 2025 | SMI 9,26€/h + Neto | Calculord",
     description:
-      "Calcula tu salario REAL por horas. 📊 SMI 9,26€/h, horas extra +75%. 💰 Salario neto con cotizaciones. 🆓 Gratis.",
+      "Calcula tu salario REAL por horas. 📊 SMI 9,26€/h, horas extra +75%, IRPF. 💰 Salario neto con cotizaciones. 🆓 Gratis.",
     url: "https://calculord.com/calculadora-salario-por-horas",
     siteName: "Calculord",
     images: [
@@ -72,5 +72,26 @@ export const metadata: Metadata = {
 }
 
 export default function SalarioHorasPage() {
-  return <SalarioHorasClientPage />
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    name: "Calculadora de Salario por Horas 2025",
+    description:
+      "Calculadora gratuita de salario por horas en España 2025. Calcula tu salario neto basado en SMI actualizado, horas extra, cotizaciones e IRPF.",
+    url: "https://calculord.com/calculadora-salario-por-horas",
+    applicationCategory: "FinanceApplication",
+    operatingSystem: "Any",
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "EUR",
+    },
+  }
+
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
+      <SalarioHorasClientPage />
+    </>
+  )
 }

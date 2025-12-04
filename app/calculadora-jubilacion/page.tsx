@@ -1,12 +1,5 @@
 import type { Metadata } from "next"
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb"
+import { Breadcrumbs } from "../components/Breadcrumbs"
 import CalculadoraJubilacion from "./CalculadoraJubilacion"
 
 export const metadata: Metadata = {
@@ -61,19 +54,7 @@ export default function CalculadoraJubilacionPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <Breadcrumb className="bg-gray-50 border-b border-gray-200 py-3">
-        <div className="container mx-auto px-4">
-          <BreadcrumbList>
-            <BreadcrumbItem>
-              <BreadcrumbLink href="/">Inicio</BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbSeparator />
-            <BreadcrumbItem>
-              <BreadcrumbPage>Calculadora de Jubilación</BreadcrumbPage>
-            </BreadcrumbItem>
-          </BreadcrumbList>
-        </div>
-      </Breadcrumb>
+      <Breadcrumbs currentPage="Calculadora de Jubilación" />
       <CalculadoraJubilacion />
     </>
   )
