@@ -229,7 +229,7 @@ export default function CalculadoraParo() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-20">
+    <div className="min-h-screen bg-gray-50">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredDataCalculator) }}
@@ -248,7 +248,7 @@ export default function CalculadoraParo() {
           </div>
           <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6 tracking-tight">
             Calculadora de Paro 2025: Tu Guía Definitiva
-            <span className="block text-orange-600">para la Prestación por Desempleo</span>
+            <span className="block orange-600">para la Prestación por Desempleo</span>
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
             Obtén un cálculo preciso de tu prestación y subsidio por desempleo con la normativa SEPE 2025. Descubre la
@@ -823,8 +823,17 @@ export default function CalculadoraParo() {
               </p>
               <div className="mt-3 bg-yellow-50 border-l-4 border-yellow-400 p-3 rounded-r-lg">
                 <p className="text-sm text-yellow-800">
-                  <span className="font-bold">¡Ojo!</span> No confundas el SEPE (Servicio Público de Empleo Estatal, que
-                  paga las prestaciones) con el servicio de empleo autonómico (que gestiona la demanda de empleo).
+                  <span className="font-bold">¡Ojo!</span> No confundas el{" "}
+                  <a
+                    href="https://www.sepe.es/HomeSepe/es/"
+                    target="_blank"
+                    rel="nofollow noopener noreferrer"
+                    className="underline hover:text-yellow-900"
+                  >
+                    SEPE
+                  </a>{" "}
+                  (Servicio Público de Empleo Estatal, que paga las prestaciones) con el servicio de empleo autonómico
+                  (que gestiona la demanda de empleo).
                 </p>
               </div>
             </li>
@@ -854,10 +863,10 @@ export default function CalculadoraParo() {
               <h3 className="text-xl font-semibold text-gray-900 mb-2">3. Reúne y Presenta la Documentación</h3>
               <p className="text-gray-600">
                 Prepara tu DNI/NIE, el modelo de solicitud de la prestación, y tu número de cuenta bancaria. El
-                <span className="font-bold"> certificado de empresa</span> normalmente lo envía tu empleador
-                directamente al SEPE a través del sistema Certific@2, pero no está de más confirmarlo.
+                <span className="font-bold"> certificado de empresa</span> normally lo envía tu empleador directamente
+                al SEPE a través del sistema Certific@2, pero no está de más confirmarlo.
               </p>
-              <div className="mt-3 bg-blue-50 border-l-4 border-blue-400 p-3 rounded-r-lg">
+              <div className="mt-3 blue-50 border-l-4 border-blue-400 p-3 rounded-r-lg">
                 <p className="text-sm text-blue-800">
                   <span className="font-bold">Consejo Pro:</span> La forma más rápida es a través de la Sede Electrónica
                   del SEPE con Cl@ve, certificado digital o DNIe. Evitarás desplazamientos y podrás hacer seguimiento.

@@ -6,6 +6,7 @@ import "./globals.css"
 import Header from "./components/Header"
 import DynamicFooter from "./components/DynamicFooter"
 import CookieBanner from "./components/CookieBanner"
+import ScrollToTop from "./components/ScrollToTop"
 
 // Optimización de fuentes con next/font
 const inter = Inter({
@@ -55,10 +56,21 @@ export const metadata: Metadata = {
     "prestación por desempleo",
     "planificación financiera",
     "recursos humanos herramientas",
+    "calcular salario neto bruto",
+    "cuánto cobra un trabajador",
+    "cuánto cuesta contratar empleado",
+    "calcular indemnización despido",
+    "cuánto me queda de paro",
+    "calcular cuota hipoteca",
+    "simulador ahorro",
+    "días vacaciones corresponden",
+    "calendario fiscal autónomos 2025",
   ],
   authors: [{ name: "Calculord", url: "https://calculord.com" }],
   creator: "Calculord",
   publisher: "Calculord",
+  abstract:
+    "Calculord es la plataforma líder en España para cálculos laborales y financieros. Ofrecemos herramientas precisas y actualizadas para calcular salarios, cotizaciones de la Seguridad Social, IRPF en nóminas, prestaciones por desempleo, indemnizaciones por despido, hipotecas, ahorro con interés compuesto y vacaciones laborales. Todas nuestras calculadoras están actualizadas con la normativa española vigente de 2025, incluyendo el SMI de 1.184€ mensuales.",
   formatDetection: {
     email: false,
     address: false,
@@ -131,23 +143,33 @@ const organizationStructuredData = {
   name: "Calculord",
   url: "https://calculord.com",
   logo: "https://calculord.com/logo.png",
-  description: "Plataforma líder en calculadoras laborales y financieras para profesionales y particulares en España",
+  description:
+    "Plataforma líder en calculadoras laborales y financieras para profesionales y particulares en España. Herramientas precisas y actualizadas con la normativa vigente española.",
   foundingDate: "2025",
   areaServed: {
     "@type": "Country",
     name: "España",
   },
   knowsAbout: [
-    "Derecho Laboral",
-    "Seguridad Social",
-    "Nóminas",
-    "Cotizaciones",
-    "SMI",
+    "Derecho Laboral Español",
+    "Seguridad Social España",
+    "Nóminas y Salarios",
+    "Cotizaciones Sociales",
+    "Salario Mínimo Interprofesional 2025",
     "Recursos Humanos",
     "Finanzas Personales",
-    "Hipotecas",
-    "Ahorro",
+    "Hipotecas en España",
+    "Ahorro e Inversión",
     "Planificación Financiera",
+    "IRPF e impuestos",
+    "Prestación por Desempleo",
+    "Indemnizaciones Laborales",
+    "Vacaciones Laborales",
+    "Régimen General y Autónomos",
+    "SEPE y prestaciones",
+    "Calendario Fiscal",
+    "Contratos de Trabajo",
+    "Honorarios Profesionales",
   ],
   sameAs: ["https://twitter.com/calculord", "https://linkedin.com/company/calculord", "https://facebook.com/calculord"],
   contactPoint: {
@@ -156,6 +178,16 @@ const organizationStructuredData = {
     areaServed: "ES",
     availableLanguage: "Spanish",
   },
+  serviceType: [
+    "Calculadora de Salarios",
+    "Calculadora de Cotizaciones",
+    "Calculadora de Nóminas",
+    "Calculadora de Hipotecas",
+    "Calculadora de Ahorro",
+    "Calculadora de Prestación por Desempleo",
+    "Calculadora de Indemnizaciones",
+    "Calculadora de Vacaciones",
+  ],
 }
 
 const websiteStructuredData = {
@@ -195,6 +227,7 @@ export default function RootLayout({
         />
       </head>
       <body className={`${inter.className} bg-gray-50 text-gray-800 antialiased`}>
+        <ScrollToTop />
         <Header />
 
         <Script

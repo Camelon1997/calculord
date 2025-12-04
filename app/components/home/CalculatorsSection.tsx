@@ -348,6 +348,34 @@ export default function CalculatorsSection() {
               </Link>
             </div>
 
+            {/* Calculadora de ERTE */}
+            <div className="bg-white p-6 rounded-xl shadow-sm border hover:shadow-md transition-shadow flex flex-col h-full calculator-card">
+              <div className="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center mb-4">
+                <FileText className="h-6 w-6 text-yellow-600" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Calculadora de ERTE</h3>
+              <p className="text-gray-600 mb-4 flex-grow">
+                Calcula tu prestación durante un ERTE, tanto por suspensión como por reducción de jornada.
+              </p>
+              <div className="space-y-2 mb-6">
+                <div className="flex items-center text-sm text-gray-600">
+                  <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                  ERTE total o parcial
+                </div>
+                <div className="flex items-center text-sm text-gray-600">
+                  <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                  Fuerza mayor y ETOP
+                </div>
+                <div className="flex items-center text-sm text-gray-600">
+                  <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                  Base reguladora actualizada
+                </div>
+              </div>
+              <Link href="/calculadora-erte" className="mt-auto">
+                <Button className="w-full bg-yellow-600 hover:bg-yellow-700">Calcular ERTE</Button>
+              </Link>
+            </div>
+
             {/* Próximamente */}
             <div className="bg-gray-50 p-6 rounded-xl border-2 border-dashed border-gray-200 flex flex-col h-full calculator-card">
               <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mb-4">
@@ -360,11 +388,11 @@ export default function CalculatorsSection() {
               <div className="space-y-2 mb-6">
                 <div className="flex items-center text-sm text-gray-500">
                   <Calendar className="h-4 w-4 text-gray-400 mr-2" />
-                  Calculadora de ERTE
+                  Calculadora de Bajas
                 </div>
                 <div className="flex items-center text-sm text-gray-500">
                   <Calendar className="h-4 w-4 text-gray-400 mr-2" />
-                  Calculadora de Bajas
+                  Calculadora de Embargos
                 </div>
                 <div className="flex items-center text-sm text-gray-500">
                   <Calendar className="h-4 w-4 text-gray-400 mr-2" />
