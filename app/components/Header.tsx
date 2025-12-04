@@ -2,7 +2,6 @@
 
 import { useState, useCallback, memo } from "react"
 import Link from "next/link"
-import { motion, AnimatePresence } from "framer-motion"
 import {
   Calculator,
   TrendingUp,
@@ -225,25 +224,17 @@ const Header = memo(() => {
                     aria-hidden="true"
                   />
                 </button>
-                <AnimatePresence>
-                  {activeDropdown === key && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: 10 }}
-                      transition={{ duration: 0.2, ease: "easeInOut" }}
-                      className="absolute top-full left-1/2 -translate-x-1/2 w-screen max-w-md pt-2"
-                    >
-                      <div className="bg-white/95 backdrop-blur-lg rounded-xl shadow-2xl border border-gray-200/60 overflow-hidden p-4">
-                        <div className="grid grid-cols-1 gap-2">
-                          {category.items.map((item, index) => (
-                            <DropdownItem key={index} item={item} onClick={() => setActiveDropdown(null)} />
-                          ))}
-                        </div>
+                {activeDropdown === key && (
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 w-screen max-w-md pt-2">
+                    <div className="bg-white/95 backdrop-blur-lg rounded-xl shadow-2xl border border-gray-200/60 overflow-hidden p-4">
+                      <div className="grid grid-cols-1 gap-2">
+                        {category.items.map((item, index) => (
+                          <DropdownItem key={index} item={item} onClick={() => setActiveDropdown(null)} />
+                        ))}
                       </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+                    </div>
+                  </div>
+                )}
               </div>
             ))}
 
@@ -269,50 +260,43 @@ const Header = memo(() => {
       </div>
 
       {/* Mobile Menu */}
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-white/95 backdrop-blur-md border-t border-gray-200/60 overflow-y-auto max-h-[80vh]"
-          >
-            <div className="px-4 pt-4 pb-8 space-y-4">
-              {Object.values(menuCategories).map((category) => (
-                <div key={category.title}>
-                  <div className="flex items-center space-x-2 px-2 py-2 text-gray-800 font-semibold">
-                    {category.icon}
-                    <span>{category.title}</span>
-                  </div>
-                  <div className="pl-4 space-y-1 border-l-2 border-blue-100 ml-2">
-                    {category.items.map((item) => (
-                      <Link
-                        key={item.name}
-                        href={item.href}
-                        className="flex items-center space-x-3 px-3 py-2.5 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-md transition-all duration-200"
-                        onClick={closeMobileMenu}
-                      >
-                        {item.icon}
-                        <span>{item.name}</span>
-                      </Link>
-                    ))}
-                  </div>
+      {isMobileMenuOpen && (
+        <div className="lg:hidden bg-white/95 backdrop-blur-md border-t border-gray-200/60 overflow-y-auto max-h-[80vh] transition-all duration-300">
+          <div className="px-4 pt-4 pb-8 space-y-4">
+            {Object.values(menuCategories).map((category) => (
+              <div key={category.title}>
+                <div className="flex items-center space-x-2 px-2 py-2 text-gray-800 font-semibold">
+                  {category.icon}
+                  <span>{category.title}</span>
                 </div>
-              ))}
-              <div className="border-t border-gray-200/80 pt-4 mt-4">
-                <Link
-                  href="/blog"
-                  className="flex items-center space-x-3 px-2 py-2.5 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-md transition-all duration-200 font-semibold"
-                  onClick={closeMobileMenu}
-                >
-                  <BookOpen className="w-5 h-5" />
-                  <span>Blog</span>
-                </Link>
+                <div className="pl-4 space-y-1 border-l-2 border-blue-100 ml-2">
+                  {category.items.map((item) => (
+                    <Link
+                      key={item.name}
+                      href={item.href}
+                      className="flex items-center space-x-3 px-3 py-2.5 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-md transition-all duration-200"
+                      onClick={closeMobileMenu}
+                    >
+                      {item.icon}
+                      <span>{item.name}</span>
+                    </Link>
+                  ))}
+                </div>
               </div>
+            ))}
+            <div className="border-t border-gray-200/80 pt-4 mt-4">
+              <Link
+                href="/blog"
+                className="flex items-center space-x-3 px-2 py-2.5 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-md transition-all duration-200 font-semibold"
+                onClick={closeMobileMenu}
+              >
+                <BookOpen className="w-5 h-5" />
+                <span>Blog</span>
+              </Link>
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+          </div>
+        </div>
+      )}
     </header>
   )
 })

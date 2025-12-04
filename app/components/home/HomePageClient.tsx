@@ -1,20 +1,23 @@
 "use client"
 
 import dynamic from "next/dynamic"
-import { Suspense } from "react"
 import HeroSection from "./HeroSection"
 
 const CalculatorsSection = dynamic(() => import("./CalculatorsSection"), {
-  suspense: true,
+  ssr: false,
+  loading: () => <SkeletonLoader />,
 })
 const FeaturesSection = dynamic(() => import("./FeaturesSection"), {
-  suspense: true,
+  ssr: false,
+  loading: () => <SkeletonLoader />,
 })
 const TestimonialsSection = dynamic(() => import("./TestimonialsSection"), {
-  suspense: true,
+  ssr: false,
+  loading: () => <SkeletonLoader />,
 })
 const CtaSection = dynamic(() => import("./CtaSection"), {
-  suspense: true,
+  ssr: false,
+  loading: () => <SkeletonLoader />,
 })
 
 const SkeletonLoader = () => (
@@ -25,22 +28,10 @@ export default function HomePageClient() {
   return (
     <div className="min-h-screen bg-white">
       <HeroSection />
-
-      <Suspense fallback={<SkeletonLoader />}>
-        <CalculatorsSection />
-      </Suspense>
-
-      <Suspense fallback={<SkeletonLoader />}>
-        <FeaturesSection />
-      </Suspense>
-
-      <Suspense fallback={<SkeletonLoader />}>
-        <TestimonialsSection />
-      </Suspense>
-
-      <Suspense fallback={<SkeletonLoader />}>
-        <CtaSection />
-      </Suspense>
+      <CalculatorsSection />
+      <FeaturesSection />
+      <TestimonialsSection />
+      <CtaSection />
     </div>
   )
 }

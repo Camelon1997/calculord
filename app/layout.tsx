@@ -2,11 +2,20 @@ import type React from "react"
 import type { Metadata, Viewport } from "next"
 import { Inter } from "next/font/google"
 import Script from "next/script"
+import dynamic from "next/dynamic"
 import "./globals.css"
 import Header from "./components/Header"
-import DynamicFooter from "./components/DynamicFooter"
-import CookieBanner from "./components/CookieBanner"
-import ScrollToTop from "./components/ScrollToTop"
+import ClientOnlyComponents from "./components/ClientOnlyComponents"
+
+const DynamicFooter = dynamic(() => import("./components/DynamicFooter"), {
+  ssr: false,
+})
+const CookieBanner = dynamic(() => import("./components/CookieBanner"), {
+  ssr: false,
+})
+const ScrollToTop = dynamic(() => import("./components/ScrollToTop"), {
+  ssr: false,
+})
 
 // Optimización de fuentes con next/font
 const inter = Inter({
@@ -219,33 +228,32 @@ export default function RootLayout({
   return (
     <html lang="es" dir="ltr" className="scroll-smooth">
       <head>
-        <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
       </head>
       <body className={`${inter.className} bg-gray-50 text-gray-800 antialiased`}>
-        <ScrollToTop />
         <Header />
 
         <Script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6020684458619077"
           crossOrigin="anonymous"
-          strategy="lazyOnload"
+          strategy="afterInteractive"
         />
 
         <Script
           id="structured-data"
           type="application/ld+json"
-          strategy="beforeInteractive"
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify([organizationStructuredData, websiteStructuredData]),
           }}
         />
 
-        <Script src="https://www.googletagmanager.com/gtag/js?id=G-8QKFLE7EEH" strategy="lazyOnload" />
-        <Script id="google-analytics" strategy="lazyOnload">
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-8QKFLE7EEH" strategy="afterInteractive" />
+        <Script id="google-analytics" strategy="afterInteractive">
           {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
@@ -259,8 +267,8 @@ export default function RootLayout({
         </Script>
 
         <main className="min-h-screen">{children}</main>
-        <DynamicFooter />
-        <CookieBanner />
+
+        <ClientOnlyComponents />
       </body>
     </html>
   )

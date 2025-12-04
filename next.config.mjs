@@ -51,6 +51,19 @@ const nextConfig = {
             value: 'public, max-age=31536000, immutable',
           }
         ]
+      },
+      {
+        source: '/:path*',
+        headers: [
+          {
+            key: 'X-DNS-Prefetch-Control',
+            value: 'on'
+          },
+          {
+            key: 'X-Frame-Options',
+            value: 'SAMEORIGIN'
+          },
+        ]
       }
     ]
   },
