@@ -2,20 +2,9 @@ import type React from "react"
 import type { Metadata, Viewport } from "next"
 import { Inter } from "next/font/google"
 import Script from "next/script"
-import dynamic from "next/dynamic"
 import "./globals.css"
 import Header from "./components/Header"
 import ClientOnlyComponents from "./components/ClientOnlyComponents"
-
-const DynamicFooter = dynamic(() => import("./components/DynamicFooter"), {
-  ssr: false,
-})
-const CookieBanner = dynamic(() => import("./components/CookieBanner"), {
-  ssr: false,
-})
-const ScrollToTop = dynamic(() => import("./components/ScrollToTop"), {
-  ssr: false,
-})
 
 // Optimización de fuentes con next/font
 const inter = Inter({
