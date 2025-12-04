@@ -151,9 +151,6 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
-
-  // Optimización de CSS
-  optimizeFonts: true,
 }
 
 export default nextConfig
