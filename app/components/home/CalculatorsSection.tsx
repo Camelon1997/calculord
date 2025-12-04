@@ -668,25 +668,25 @@ export default function CalculatorsSection() {
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Calculadora de Jubilación</h3>
               <p className="text-gray-600 mb-4 flex-grow">
-                Planifica tu jubilación y calcula cuánto necesitas ahorrar para mantener tu nivel de vida.
+                Calcula tu pensión de jubilación estimada según años cotizados y base reguladora 2025.
               </p>
               <div className="space-y-2 mb-6">
                 <div className="flex items-center text-sm text-gray-600">
                   <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                  Pensión estimada
+                  Base reguladora 2025
                 </div>
                 <div className="flex items-center text-sm text-gray-600">
                   <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                  Ahorro complementario
+                  Años de cotización
                 </div>
                 <div className="flex items-center text-sm text-gray-600">
                   <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                  Planificación a largo plazo
+                  Pensión anticipada y ordinaria
                 </div>
               </div>
-              <Button disabled className="w-full bg-gray-300 text-gray-500 cursor-not-allowed mt-auto">
-                Próximamente
-              </Button>
+              <Link href="/calculadora-jubilacion" className="mt-auto">
+                <Button className="w-full bg-amber-600 hover:bg-amber-700">Calcular Jubilación</Button>
+              </Link>
             </div>
 
             {/* Próximamente - Más financieras */}
