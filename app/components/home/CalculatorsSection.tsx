@@ -13,6 +13,7 @@ import {
   Building2,
   FileText,
   TrendingUp,
+  Receipt,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
@@ -847,6 +848,70 @@ export default function CalculatorsSection() {
               </Link>
             </div>
 
+            {/* Cuota de Autónomos */}
+            <div className="bg-white p-6 rounded-xl shadow-sm border hover:shadow-md transition-shadow flex flex-col h-full calculator-card">
+              <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
+                <svg className="h-6 w-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"
+                  />
+                </svg>
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Cuota de Autónomos</h3>
+              <p className="text-gray-600 mb-4 flex-grow">
+                Calcula tu cuota mensual según los 15 tramos de ingresos reales (RETA 2025). Desde 200€ hasta 590€ al
+                mes.
+              </p>
+              <div className="space-y-2 mb-6">
+                <div className="flex items-center text-sm text-gray-600">
+                  <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                  15 tramos de cotización 2025
+                </div>
+                <div className="flex items-center text-sm text-gray-600">
+                  <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                  Cuotas desde 200€ a 590€
+                </div>
+                <div className="flex items-center text-sm text-gray-600">
+                  <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                  Ajustes hasta 6 veces/año
+                </div>
+              </div>
+              <Link href="/calculadora-cuota-autonomos" className="mt-auto">
+                <Button className="w-full bg-orange-600 hover:bg-orange-700">Calcular Cuota</Button>
+              </Link>
+            </div>
+
+            {/* Gastos Deducibles */}
+            <div className="bg-white p-6 rounded-xl shadow-sm border hover:shadow-md transition-shadow flex flex-col h-full calculator-card">
+              <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
+                <Receipt className="h-6 w-6 text-purple-600" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Gastos Deducibles Autónomos</h3>
+              <p className="text-gray-600 mb-4 flex-grow">
+                Calcula qué gastos puedes deducir en tu declaración. Optimiza tu IRPF conociendo todas tus deducciones.
+              </p>
+              <div className="space-y-2 mb-6">
+                <div className="flex items-center text-sm text-gray-600">
+                  <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                  Todos los gastos deducibles
+                </div>
+                <div className="flex items-center text-sm text-gray-600">
+                  <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                  Suministros y trabajo en casa
+                </div>
+                <div className="flex items-center text-sm text-gray-600">
+                  <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                  Ahorro real en tu IRPF
+                </div>
+              </div>
+              <Link href="/calculadora-gastos-deducibles-autonomos" className="mt-auto">
+                <Button className="w-full bg-purple-600 hover:bg-purple-700">Calcular Deducciones</Button>
+              </Link>
+            </div>
+
             {/* Próximamente - Más calculadoras autónomos */}
             <div className="bg-gray-50 p-6 rounded-xl border-2 border-dashed border-gray-200 flex flex-col h-full calculator-card">
               <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mb-4">
@@ -857,11 +922,7 @@ export default function CalculatorsSection() {
               <div className="space-y-2 mb-6">
                 <div className="flex items-center text-sm text-gray-500">
                   <Calendar className="h-4 w-4 text-gray-400 mr-2" />
-                  Calculadora RETA
-                </div>
-                <div className="flex items-center text-sm text-gray-500">
-                  <Calendar className="h-4 w-4 text-gray-400 mr-2" />
-                  Gastos Deducibles
+                  Tarifa Plana
                 </div>
                 <div className="flex items-center text-sm text-gray-500">
                   <Calendar className="h-4 w-4 text-gray-400 mr-2" />

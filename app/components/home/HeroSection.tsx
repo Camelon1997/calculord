@@ -1,5 +1,8 @@
+"use client"
+
 import { Calculator, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import Link from "next/link"
 
 export default function HeroSection() {
   return (
@@ -15,14 +18,23 @@ export default function HeroSection() {
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-          <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3">
+          <Button
+            size="lg"
+            className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3"
+            onClick={() => {
+              const element = document.getElementById("calculadoras")
+              element?.scrollIntoView({ behavior: "smooth" })
+            }}
+          >
             <Calculator className="mr-2 h-5 w-5" />
             Ver Calculadoras
           </Button>
-          <Button variant="outline" size="lg" className="px-8 py-3 bg-transparent">
-            Conocer Más
-            <ArrowRight className="ml-2 h-5 w-5" />
-          </Button>
+          <Link href="/sobre-nosotros">
+            <Button variant="outline" size="lg" className="px-8 py-3 bg-transparent">
+              Conocer Más
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
+          </Link>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8 max-w-2xl mx-auto">

@@ -50,3 +50,5 @@ export function RelatedCalculatorCard({
     </div>
   )
 }
+
+export default RelatedCalculatorCard
