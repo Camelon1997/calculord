@@ -33,6 +33,8 @@ import Link from "next/link"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { Separator } from "@/components/ui/separator"
 
+// El FAQPage schema ya está definido en page.tsx
+
 export default function CalculadoraParo() {
   const [formData, setFormData] = useState({
     salarioBruto: "",
@@ -863,8 +865,8 @@ export default function CalculadoraParo() {
               <h3 className="text-xl font-semibold text-gray-900 mb-2">3. Reúne y Presenta la Documentación</h3>
               <p className="text-gray-600">
                 Prepara tu DNI/NIE, el modelo de solicitud de la prestación, y tu número de cuenta bancaria. El
-                <span className="font-bold"> certificado de empresa</span> normally lo envía tu empleador directamente
-                al SEPE a través del sistema Certific@2, pero no está de más confirmarlo.
+                <span className="font-bold">certificado de empresa</span> normally lo envía tu empleador directamente al
+                SEPE a través del sistema Certific@2, pero no está de más confirmarlo.
               </p>
               <div className="mt-3 blue-50 border-l-4 border-blue-400 p-3 rounded-r-lg">
                 <p className="text-sm text-blue-800">
