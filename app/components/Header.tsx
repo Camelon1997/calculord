@@ -23,6 +23,14 @@ import {
   Building,
   Menu,
   X,
+  Zap,
+  Landmark,
+  Baby,
+  Heart,
+  Users,
+  Wallet,
+  HardHat,
+  Euro,
 } from "lucide-react"
 
 const menuCategories = {
@@ -31,16 +39,58 @@ const menuCategories = {
     icon: <Briefcase className="w-5 h-5" />,
     items: [
       {
-        name: "Cotizaciones Seguridad Social",
-        href: "/calculadora-cotizaciones-seguridad-social",
-        icon: <Calculator className="w-4 h-4" />,
-        description: "Calcula las cotizaciones de trabajadores y autónomos.",
+        name: "Nómina Completa",
+        href: "/calculadora-nomina",
+        icon: <FileText className="w-4 h-4" />,
+        description: "Desglosa tu nómina de bruto a neto.",
       },
       {
         name: "Salario por Horas",
         href: "/calculadora-salario-por-horas",
         icon: <Clock className="w-4 h-4" />,
         description: "Estima tu salario real según las horas trabajadas.",
+      },
+      {
+        name: "Horas Extra",
+        href: "/calculadora-horas-extra",
+        icon: <Zap className="w-4 h-4" />,
+        description: "Calcula el pago de horas extra, festivos y nocturnas.",
+      },
+      {
+        name: "Cotizaciones Seguridad Social",
+        href: "/calculadora-cotizaciones-seguridad-social",
+        icon: <Calculator className="w-4 h-4" />,
+        description: "Calcula las cotizaciones de trabajadores y autónomos.",
+      },
+      {
+        name: "Coste Total Empresa",
+        href: "/calculadora-coste-total-empresa",
+        icon: <Building className="w-4 h-4" />,
+        description: "Calcula el coste real de un empleado.",
+      },
+      {
+        name: "Calculadora IRPF",
+        href: "/calculadora-irpf",
+        icon: <Calculator className="w-4 h-4" />,
+        description: "Calcula tu IRPF como trabajador asalariado.",
+      },
+      {
+        name: "ERTE",
+        href: "/calculadora-erte",
+        icon: <Users className="w-4 h-4" />,
+        description: "Calcula tu prestación durante un ERTE.",
+      },
+      {
+        name: "Bajas Laborales",
+        href: "/calculadora-bajas",
+        icon: <Heart className="w-4 h-4" />,
+        description: "Calcula la prestación por incapacidad temporal.",
+      },
+      {
+        name: "Maternidad y Paternidad",
+        href: "/calculadora-maternidad-paternidad",
+        icon: <Baby className="w-4 h-4" />,
+        description: "Calcula la prestación por nacimiento o adopción.",
       },
       {
         name: "Despidos",
@@ -55,28 +105,16 @@ const menuCategories = {
         description: "Conoce la cuantía y duración de tu paro.",
       },
       {
-        name: "Nómina Completa",
-        href: "/calculadora-nomina",
-        icon: <FileText className="w-4 h-4" />,
-        description: "Desglosa tu nómina de bruto a neto.",
-      },
-      {
         name: "Vacaciones",
         href: "/calculadora-vacaciones",
         icon: <Calendar className="w-4 h-4" />,
         description: "Calcula los días que te corresponden.",
       },
       {
-        name: "Calculadora IRPF",
-        href: "/calculadora-irpf",
-        icon: <Calculator className="w-4 h-4" />,
-        description: "Calcula tu IRPF como trabajador asalariado.",
-      },
-      {
-        name: "Coste Total Empresa",
-        href: "/calculadora-coste-total-empresa",
-        icon: <Building className="w-4 h-4" />,
-        description: "Calcula el coste real de un empleado.",
+        name: "Jubilación",
+        href: "/calculadora-jubilacion",
+        icon: <Landmark className="w-4 h-4" />,
+        description: "Calcula tu pensión de jubilación estimada.",
       },
     ],
   },
@@ -108,6 +146,12 @@ const menuCategories = {
         icon: <Gavel className="w-4 h-4" />,
         description: "Estima los costes legales según baremos oficiales.",
       },
+      {
+        name: "Honorarios Arquitecto",
+        href: "/calculadora-honorarios-arquitecto",
+        icon: <HardHat className="w-4 h-4" />,
+        description: "Calcula los honorarios profesionales de arquitectura.",
+      },
     ],
   },
   autonomos: {
@@ -115,16 +159,28 @@ const menuCategories = {
     icon: <Building2 className="w-5 h-5" />,
     items: [
       {
-        name: "Calendario Fiscal",
-        href: "/calculadora-calendario-fiscal-autonomos",
-        icon: <Calendar className="w-4 h-4" />,
-        description: "Consulta las fechas clave de tus obligaciones.",
+        name: "Cuota Autónomos",
+        href: "/calculadora-cuota-autonomos",
+        icon: <Euro className="w-4 h-4" />,
+        description: "Calcula tu cuota mensual según ingresos.",
+      },
+      {
+        name: "Gastos Deducibles",
+        href: "/calculadora-gastos-deducibles-autonomos",
+        icon: <Wallet className="w-4 h-4" />,
+        description: "Calcula todos tus gastos deducibles en IRPF.",
       },
       {
         name: "IRPF Autónomos",
         href: "/calculadora-irpf-autonomos",
         icon: <FileText className="w-4 h-4" />,
         description: "Calcula tus pagos trimestrales y la renta anual.",
+      },
+      {
+        name: "Calendario Fiscal",
+        href: "/calculadora-calendario-fiscal-autonomos",
+        icon: <Calendar className="w-4 h-4" />,
+        description: "Consulta las fechas clave de tus obligaciones.",
       },
     ],
   },
@@ -137,6 +193,18 @@ const menuCategories = {
         href: "/conversor-salario-bruto-neto",
         icon: <ArrowUpDown className="w-4 h-4" />,
         description: "Convierte de bruto a neto y viceversa.",
+      },
+      {
+        name: "Conversor IVA",
+        href: "/conversor-iva",
+        icon: <Receipt className="w-4 h-4" />,
+        description: "Calcula precio con y sin IVA (21%, 10%, 4%).",
+      },
+      {
+        name: "Conversor IGIC",
+        href: "/conversor-igic",
+        icon: <Receipt className="w-4 h-4" />,
+        description: "Calcula precio con y sin IGIC para Canarias.",
       },
     ],
   },
@@ -225,9 +293,13 @@ const Header = memo(() => {
                   />
                 </button>
                 {activeDropdown === key && (
-                  <div className="absolute top-full left-1/2 -translate-x-1/2 w-screen max-w-md pt-2">
+                  <div
+                    className={`absolute top-full left-1/2 -translate-x-1/2 w-screen ${
+                      key === "laborales" ? "max-w-3xl" : "max-w-md"
+                    } pt-2`}
+                  >
                     <div className="bg-white/95 backdrop-blur-lg rounded-xl shadow-2xl border border-gray-200/60 overflow-hidden p-4">
-                      <div className="grid grid-cols-1 gap-2">
+                      <div className={`grid ${key === "laborales" ? "grid-cols-2" : "grid-cols-1"} gap-2`}>
                         {category.items.map((item, index) => (
                           <DropdownItem key={index} item={item} onClick={() => setActiveDropdown(null)} />
                         ))}
@@ -261,7 +333,7 @@ const Header = memo(() => {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden bg-white/95 backdrop-blur-md border-t border-gray-200/60 overflow-y-auto max-h-[80vh] transition-all duration-300">
+        <div className="lg:hidden bg-white/95 backdrop-blur-md border-t border-gray-200/80 overflow-y-auto max-h-[80vh] transition-all duration-300">
           <div className="px-4 pt-4 pb-8 space-y-4">
             {Object.values(menuCategories).map((category) => (
               <div key={category.title}>

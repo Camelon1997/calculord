@@ -63,20 +63,172 @@ export default function ConversorSalarioBrutoNeto() {
     4: 4500,
   }
 
+  const tiposAutonomicos: Record<string, Array<{ hasta: number; tipo: number }>> = {
+    andalucia: [
+      { hasta: 12450, tipo: 9.5 },
+      { hasta: 20200, tipo: 12 },
+      { hasta: 35200, tipo: 15 },
+      { hasta: 60000, tipo: 18.5 },
+      { hasta: 300000, tipo: 22.5 },
+      { hasta: Number.POSITIVE_INFINITY, tipo: 24.5 },
+    ],
+    aragon: [
+      { hasta: 12450, tipo: 10 },
+      { hasta: 20200, tipo: 12 },
+      { hasta: 35200, tipo: 15 },
+      { hasta: 60000, tipo: 18 },
+      { hasta: 300000, tipo: 22 },
+      { hasta: Number.POSITIVE_INFINITY, tipo: 24 },
+    ],
+    asturias: [
+      { hasta: 12450, tipo: 10 },
+      { hasta: 20200, tipo: 12 },
+      { hasta: 35200, tipo: 15 },
+      { hasta: 60000, tipo: 18 },
+      { hasta: 300000, tipo: 23 },
+      { hasta: Number.POSITIVE_INFINITY, tipo: 25 },
+    ],
+    baleares: [
+      { hasta: 12450, tipo: 9.5 },
+      { hasta: 20200, tipo: 12 },
+      { hasta: 35200, tipo: 15 },
+      { hasta: 60000, tipo: 18.5 },
+      { hasta: 300000, tipo: 23.5 },
+      { hasta: Number.POSITIVE_INFINITY, tipo: 25.5 },
+    ],
+    canarias: [
+      { hasta: 12450, tipo: 9 },
+      { hasta: 20200, tipo: 11.5 },
+      { hasta: 35200, tipo: 14.5 },
+      { hasta: 60000, tipo: 18 },
+      { hasta: 300000, tipo: 22.5 },
+      { hasta: Number.POSITIVE_INFINITY, tipo: 24.5 },
+    ],
+    cantabria: [
+      { hasta: 12450, tipo: 9.5 },
+      { hasta: 20200, tipo: 12 },
+      { hasta: 35200, tipo: 15 },
+      { hasta: 60000, tipo: 18.5 },
+      { hasta: 300000, tipo: 22.5 },
+      { hasta: Number.POSITIVE_INFINITY, tipo: 24.5 },
+    ],
+    castillaleon: [
+      { hasta: 12450, tipo: 9.5 },
+      { hasta: 20200, tipo: 12 },
+      { hasta: 35200, tipo: 15 },
+      { hasta: 60000, tipo: 18.5 },
+      { hasta: 300000, tipo: 22.5 },
+      { hasta: Number.POSITIVE_INFINITY, tipo: 24.5 },
+    ],
+    castillamancha: [
+      { hasta: 12450, tipo: 9.5 },
+      { hasta: 20200, tipo: 12 },
+      { hasta: 35200, tipo: 15 },
+      { hasta: 60000, tipo: 18.5 },
+      { hasta: 300000, tipo: 22.5 },
+      { hasta: Number.POSITIVE_INFINITY, tipo: 24.5 },
+    ],
+    cataluna: [
+      { hasta: 12450, tipo: 12 },
+      { hasta: 20200, tipo: 14 },
+      { hasta: 35200, tipo: 16.5 },
+      { hasta: 60000, tipo: 21.5 },
+      { hasta: 300000, tipo: 25.5 },
+      { hasta: Number.POSITIVE_INFINITY, tipo: 27.5 },
+    ],
+    extremadura: [
+      { hasta: 12450, tipo: 9.5 },
+      { hasta: 20200, tipo: 12 },
+      { hasta: 35200, tipo: 15 },
+      { hasta: 60000, tipo: 18 },
+      { hasta: 300000, tipo: 22 },
+      { hasta: Number.POSITIVE_INFINITY, tipo: 24 },
+    ],
+    galicia: [
+      { hasta: 12450, tipo: 9.5 },
+      { hasta: 20200, tipo: 11.8 },
+      { hasta: 35200, tipo: 15 },
+      { hasta: 60000, tipo: 18.5 },
+      { hasta: 300000, tipo: 22 },
+      { hasta: Number.POSITIVE_INFINITY, tipo: 24.5 },
+    ],
+    madrid: [
+      { hasta: 12450, tipo: 9 },
+      { hasta: 20200, tipo: 11.5 },
+      { hasta: 35200, tipo: 15.5 },
+      { hasta: 60000, tipo: 18.5 },
+      { hasta: 300000, tipo: 22.5 },
+      { hasta: Number.POSITIVE_INFINITY, tipo: 24.5 },
+    ],
+    murcia: [
+      { hasta: 12450, tipo: 9.5 },
+      { hasta: 20200, tipo: 12 },
+      { hasta: 35200, tipo: 15 },
+      { hasta: 60000, tipo: 18.5 },
+      { hasta: 300000, tipo: 22.5 },
+      { hasta: Number.POSITIVE_INFINITY, tipo: 24.5 },
+    ],
+    navarra: [
+      { hasta: 12450, tipo: 10 },
+      { hasta: 20200, tipo: 13 },
+      { hasta: 35200, tipo: 16 },
+      { hasta: 60000, tipo: 19 },
+      { hasta: 300000, tipo: 23 },
+      { hasta: Number.POSITIVE_INFINITY, tipo: 25 },
+    ],
+    paisvasco: [
+      { hasta: 12450, tipo: 10 },
+      { hasta: 20200, tipo: 12.5 },
+      { hasta: 35200, tipo: 16 },
+      { hasta: 60000, tipo: 19 },
+      { hasta: 300000, tipo: 23 },
+      { hasta: Number.POSITIVE_INFINITY, tipo: 25 },
+    ],
+    larioja: [
+      { hasta: 12450, tipo: 9.5 },
+      { hasta: 20200, tipo: 11.9 },
+      { hasta: 35200, tipo: 15 },
+      { hasta: 60000, tipo: 18.5 },
+      { hasta: 300000, tipo: 22.5 },
+      { hasta: Number.POSITIVE_INFINITY, tipo: 24.5 },
+    ],
+    valencia: [
+      { hasta: 12450, tipo: 10 },
+      { hasta: 20200, tipo: 12 },
+      { hasta: 35200, tipo: 15 },
+      { hasta: 60000, tipo: 18.5 },
+      { hasta: 300000, tipo: 23.5 },
+      { hasta: Number.POSITIVE_INFINITY, tipo: 25.5 },
+    ],
+  }
+
   const calcularIRPF = (baseImponible: number, deduccionTotal: number): { irpf: number; tipoEfectivo: number } => {
     const baseGravable = Math.max(0, baseImponible - deduccionTotal)
-    let irpfTotal = 0
+    let irpfEstatal = 0
+    let irpfAutonomico = 0
     let baseRestante = baseGravable
     let baseAnterior = 0
 
     for (const tramo of tramosIRPF) {
       if (baseRestante <= 0) break
       const baseTramo = Math.min(baseRestante, tramo.hasta - baseAnterior)
-      irpfTotal += baseTramo * (tramo.tipo / 100)
+      irpfEstatal += baseTramo * (tramo.tipo / 100) * 0.5 // 50% estatal
       baseRestante -= baseTramo
       baseAnterior = tramo.hasta
     }
 
+    const tramosAutonomicos = tiposAutonomicos[comunidadAutonoma] || tiposAutonomicos.madrid
+    baseRestante = baseGravable
+    baseAnterior = 0
+    for (const tramo of tramosAutonomicos) {
+      if (baseRestante <= 0) break
+      const baseTramo = Math.min(baseRestante, tramo.hasta - baseAnterior)
+      irpfAutonomico += baseTramo * (tramo.tipo / 100)
+      baseRestante -= baseTramo
+      baseAnterior = tramo.hasta
+    }
+
+    const irpfTotal = irpfEstatal + irpfAutonomico
     const tipoEfectivo = baseImponible > 0 ? (irpfTotal / baseImponible) * 100 : 0
     return { irpf: irpfTotal, tipoEfectivo }
   }
@@ -202,11 +354,23 @@ export default function ConversorSalarioBrutoNeto() {
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="madrid">Madrid</SelectItem>
-                  <SelectItem value="cataluna">Cataluña</SelectItem>
                   <SelectItem value="andalucia">Andalucía</SelectItem>
-                  <SelectItem value="valencia">Valencia</SelectItem>
-                  <SelectItem value="otras">Otras</SelectItem>
+                  <SelectItem value="aragon">Aragón</SelectItem>
+                  <SelectItem value="asturias">Asturias</SelectItem>
+                  <SelectItem value="baleares">Islas Baleares</SelectItem>
+                  <SelectItem value="canarias">Canarias</SelectItem>
+                  <SelectItem value="cantabria">Cantabria</SelectItem>
+                  <SelectItem value="castillaleon">Castilla y León</SelectItem>
+                  <SelectItem value="castillamancha">Castilla-La Mancha</SelectItem>
+                  <SelectItem value="cataluna">Cataluña</SelectItem>
+                  <SelectItem value="extremadura">Extremadura</SelectItem>
+                  <SelectItem value="galicia">Galicia</SelectItem>
+                  <SelectItem value="madrid">Madrid</SelectItem>
+                  <SelectItem value="murcia">Murcia</SelectItem>
+                  <SelectItem value="navarra">Navarra</SelectItem>
+                  <SelectItem value="paisvasco">País Vasco</SelectItem>
+                  <SelectItem value="larioja">La Rioja</SelectItem>
+                  <SelectItem value="valencia">Comunidad Valenciana</SelectItem>
                 </SelectContent>
               </Select>
             </div>

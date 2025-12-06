@@ -36,7 +36,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // Calculadoras Laborales
     "/calculadora-nomina",
     "/calculadora-paro",
-    "/conversor-bruto-neto",
     "/calculadora-irpf",
     "/calculadora-vacaciones",
     "/calculadora-despidos",
@@ -64,6 +63,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     // Calculadoras de Jubilación
     "/calculadora-jubilacion",
+
+    // Conversores
+    "/conversor-salario-bruto-neto",
+    "/conversor-iva",
+    "/conversor-igic",
   ].map((path) => ({
     url: `${baseUrl}${path}`,
     lastModified: currentDate,

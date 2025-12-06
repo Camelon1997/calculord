@@ -21,44 +21,46 @@ export default function CalculatorsSection() {
   const [activeTab, setActiveTab] = useState("laborales")
 
   return (
-    <section id="calculadoras" className="py-20 bg-white">
+    <section id="calculadoras" className="py-12 sm:py-16 lg:py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Nuestras Calculadoras</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
+            Nuestras Calculadoras
+          </h2>
+          <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto px-4">
             Herramientas especializadas para diferentes necesidades laborales, profesionales y financieras
           </p>
         </div>
 
-        <div className="flex justify-center mb-12">
-          <div className="bg-gray-100 p-1 rounded-lg">
+        <div className="flex justify-center mb-8 sm:mb-12 overflow-x-auto">
+          <div className="bg-gray-100 p-1 rounded-lg inline-flex min-w-max">
             <button
               onClick={() => setActiveTab("laborales")}
-              className={`px-4 py-2 rounded-md font-medium transition-colors text-sm ${
+              className={`px-3 sm:px-4 py-2 rounded-md font-medium transition-colors text-xs sm:text-sm whitespace-nowrap ${
                 activeTab === "laborales" ? "bg-white text-blue-600 shadow-sm" : "text-gray-600 hover:text-gray-900"
               }`}
             >
-              Calculadoras Laborales
+              Laborales
             </button>
             <button
               onClick={() => setActiveTab("servicios")}
-              className={`px-4 py-2 rounded-md font-medium transition-colors text-sm ${
+              className={`px-3 sm:px-4 py-2 rounded-md font-medium transition-colors text-xs sm:text-sm whitespace-nowrap ${
                 activeTab === "servicios" ? "bg-white text-blue-600 shadow-sm" : "text-gray-600 hover:text-gray-900"
               }`}
             >
-              Servicios Profesionales
+              Servicios
             </button>
             <button
               onClick={() => setActiveTab("financieras")}
-              className={`px-4 py-2 rounded-md font-medium transition-colors text-sm ${
+              className={`px-3 sm:px-4 py-2 rounded-md font-medium transition-colors text-xs sm:text-sm whitespace-nowrap ${
                 activeTab === "financieras" ? "bg-white text-blue-600 shadow-sm" : "text-gray-600 hover:text-gray-900"
               }`}
             >
-              Calculadoras Financieras
+              Financieras
             </button>
             <button
               onClick={() => setActiveTab("autonomos")}
-              className={`px-4 py-2 rounded-md font-medium transition-colors text-sm ${
+              className={`px-3 sm:px-4 py-2 rounded-md font-medium transition-colors text-xs sm:text-sm whitespace-nowrap ${
                 activeTab === "autonomos" ? "bg-white text-blue-600 shadow-sm" : "text-gray-600 hover:text-gray-900"
               }`}
             >
