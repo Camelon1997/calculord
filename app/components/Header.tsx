@@ -134,6 +134,12 @@ const menuCategories = {
         icon: <PiggyBank className="w-4 h-4" />,
         description: "Planifica tus metas y calcula el interés compuesto.",
       },
+      {
+        name: "ROI y Rentabilidad",
+        href: "/calculadora-roi",
+        icon: <TrendingUp className="w-4 h-4" />,
+        description: "Calcula el retorno de inversión de tus proyectos.",
+      },
     ],
   },
   servicios: {

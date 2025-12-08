@@ -672,14 +672,14 @@ export default function CalculatorsSection() {
               </Link>
             </div>
 
-            {/* Calculadora de Inversión */}
+            {/* Calculadora ROI */}
             <div className="bg-white p-6 rounded-xl shadow-sm border hover:shadow-md transition-shadow flex flex-col h-full calculator-card">
               <div className="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center mb-4">
                 <TrendingUp className="h-6 w-6 text-indigo-600" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Calculadora de Inversión</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Calculadora ROI</h3>
               <p className="text-gray-600 mb-4 flex-grow">
-                Calcula el rendimiento de tus inversiones y compara diferentes opciones de inversión.
+                Calcula el retorno de inversión de tus proyectos, campañas de marketing y negocios.
               </p>
               <div className="space-y-2 mb-6">
                 <div className="flex items-center text-sm text-gray-600">
@@ -688,16 +688,16 @@ export default function CalculatorsSection() {
                 </div>
                 <div className="flex items-center text-sm text-gray-600">
                   <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                  Comparativa de opciones
+                  Beneficio neto
                 </div>
                 <div className="flex items-center text-sm text-gray-600">
                   <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                  Proyección a largo plazo
+                  Interpretación resultados
                 </div>
               </div>
-              <Button disabled className="w-full bg-gray-300 text-gray-500 cursor-not-allowed mt-auto">
-                Próximamente
-              </Button>
+              <Link href="/calculadora-roi" className="mt-auto">
+                <Button className="w-full bg-indigo-600 hover:bg-indigo-700">Calcular ROI</Button>
+              </Link>
             </div>
 
             {/* Calculadora de Préstamo Personal */}

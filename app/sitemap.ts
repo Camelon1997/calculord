@@ -50,6 +50,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // Calculadoras Financieras
     "/calculadora-ahorro",
     "/calculadora-hipoteca",
+    "/calculadora-roi", // Añadida calculadora ROI
 
     // Calculadoras de Servicios
     "/calculadora-honorarios-abogado",
