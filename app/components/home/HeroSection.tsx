@@ -41,17 +41,19 @@ export default function HeroSection() {
           </Link>
         </div>
 
-        <div className="grid grid-cols-3 gap-4 sm:gap-8 max-w-2xl mx-auto px-4">
+        <div className="grid grid-cols-3 gap-6 sm:gap-8 max-w-3xl mx-auto px-4">
           <div className="text-center">
-            <div className="text-2xl sm:text-3xl font-bold text-blue-600 mb-1 sm:mb-2">+50K</div>
+            <div className="text-3xl sm:text-4xl font-bold text-blue-600 mb-1">+50K</div>
             <div className="text-xs sm:text-sm text-gray-600">Cálculos realizados</div>
           </div>
-          <div className="text-center">
-            <div className="text-2xl sm:text-3xl font-bold text-green-600 mb-1 sm:mb-2">100%</div>
+
+          <div className="text-center border-x border-gray-200">
+            <div className="text-3xl sm:text-4xl font-bold text-green-600 mb-1">100%</div>
             <div className="text-xs sm:text-sm text-gray-600">Gratuito</div>
           </div>
+
           <div className="text-center">
-            <div className="text-2xl sm:text-3xl font-bold text-purple-600 mb-1 sm:mb-2">2025</div>
+            <div className="text-3xl sm:text-4xl font-bold text-purple-600 mb-1">2025</div>
             <div className="text-xs sm:text-sm text-gray-600">Actualizado</div>
           </div>
         </div>
