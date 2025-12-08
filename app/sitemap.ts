@@ -61,9 +61,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/calculadora-calendario-fiscal-autonomos",
     "/calculadora-cuota-autonomos",
     "/calculadora-gastos-deducibles-autonomos",
+    "/calculadora-amortizacion-inversiones", // Añadida calculadora de amortización
     "/calculadora-iva-repercutido-soportado",
     "/calculadora-igic-repercutido-soportado",
-    "/generador-facturas", // Añadido generador de facturas para autónomos
+    "/generador-facturas",
 
     // Calculadoras de Jubilación
     "/calculadora-jubilacion",

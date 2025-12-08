@@ -183,6 +183,12 @@ const menuCategories = {
         description: "Calcula tus pagos trimestrales y la renta anual.",
       },
       {
+        name: "Amortización de Inversiones",
+        href: "/calculadora-amortizacion-inversiones",
+        icon: <TrendingUp className="w-4 h-4" />,
+        description: "Calcula la amortización de tus activos según Hacienda.",
+      },
+      {
         name: "Generador de Facturas",
         href: "/generador-facturas",
         icon: <Receipt className="w-4 h-4" />,

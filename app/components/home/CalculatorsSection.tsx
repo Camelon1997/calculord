@@ -14,6 +14,7 @@ import {
   FileText,
   TrendingUp,
   Receipt,
+  TrendingDown,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
@@ -996,6 +997,35 @@ export default function CalculatorsSection() {
               </div>
               <Link href="/calculadora-igic-repercutido-soportado" className="mt-auto">
                 <Button className="w-full bg-indigo-600 hover:bg-indigo-700">Calcular IGIC</Button>
+              </Link>
+            </div>
+
+            {/* Amortización de Inversiones */}
+            <div className="bg-white p-6 rounded-xl shadow-sm border hover:shadow-md transition-shadow flex flex-col h-full calculator-card">
+              <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                <TrendingDown className="h-6 w-6 text-green-600" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Amortización de Inversiones</h3>
+              <p className="text-gray-600 mb-4 flex-grow">
+                Calcula la amortización de tus activos según las tablas oficiales de Hacienda y optimiza tus
+                deducciones.
+              </p>
+              <div className="space-y-2 mb-6">
+                <div className="flex items-center text-sm text-gray-600">
+                  <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                  Tablas oficiales 2025
+                </div>
+                <div className="flex items-center text-sm text-gray-600">
+                  <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                  Vehículos, ordenadores, maquinaria
+                </div>
+                <div className="flex items-center text-sm text-gray-600">
+                  <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                  Amortización anual y mensual
+                </div>
+              </div>
+              <Link href="/calculadora-amortizacion-inversiones" className="mt-auto">
+                <Button className="w-full bg-green-600 hover:bg-green-700">Calcular Amortización</Button>
               </Link>
             </div>
 
