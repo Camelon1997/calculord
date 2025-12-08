@@ -77,7 +77,13 @@ export default function BlogPostClientPage({ post }: BlogPostClientPageProps) {
               <span className="mx-2 text-gray-400">/</span>
               <span className="text-sm text-gray-500">{post.title}</span>
             </div>
-            <Badge className="mb-4 bg-blue-100 text-blue-800 hover:bg-blue-200">{post.category}</Badge>
+            <div className="mb-4 flex flex-wrap gap-2">
+              {post.categories.map((category) => (
+                <Badge key={category} className="bg-blue-100 text-blue-800 hover:bg-blue-200">
+                  {category}
+                </Badge>
+              ))}
+            </div>
             <h1 className="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight mb-4">{post.title}</h1>
             <p className="text-lg text-gray-600 mb-6">{post.excerpt}</p>
             <div className="flex flex-wrap items-center gap-x-6 gap-y-4 text-sm text-gray-500">

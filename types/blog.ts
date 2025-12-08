@@ -15,7 +15,7 @@ export interface BlogPost {
   excerpt: string
   content: string
   image: string
-  category: string
+  categories: string[]
   tags: string[]
   date: string
   readTime: string
