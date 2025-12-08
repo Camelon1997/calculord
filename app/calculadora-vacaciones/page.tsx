@@ -3,9 +3,9 @@ import CalculadoraVacaciones from "./CalculadoraVacaciones"
 import { Breadcrumbs } from "../components/Breadcrumbs"
 
 export const metadata: Metadata = {
-  title: "✅ Calculadora de Vacaciones Laborales 2025 (Naturales y Laborables)",
+  title: "Calculadora de Vacaciones 2025 - Días Naturales y Laborables",
   description:
-    "Calcula tus DÍAS de vacaciones (naturales o laborables) según tu convenio y antigüedad. 📅 Conoce la parte proporcional, el valor económico y resuelve tus dudas con nuestra guía y FAQ.",
+    "Calcula tus días de vacaciones según convenio y antigüedad. Vacaciones proporcionales, valor económico y guía completa de derechos. Gratis 2025.",
   keywords: [
     "calculadora vacaciones",
     "calculadora vacaciones laborales",
@@ -37,9 +37,9 @@ export const metadata: Metadata = {
     canonical: "https://calculord.com/calculadora-vacaciones",
   },
   openGraph: {
-    title: "✅ Calculadora de Vacaciones 2025 (Naturales y Laborables)",
+    title: "Calculadora de Vacaciones 2025 - Días Naturales y Laborables | Calculord",
     description:
-      "Calcula tus días de vacaciones (naturales o laborables) según tu convenio y antigüedad. Conoce la parte proporcional, el valor económico y resuelve tus dudas.",
+      "Calcula tus días de vacaciones según convenio y antigüedad. Proporcionales, valor económico y guía completa.",
     url: "https://calculord.com/calculadora-vacaciones",
     siteName: "Calculord",
     images: [
@@ -55,9 +55,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "✅ Calculadora de Vacaciones 2025 (Naturales y Laborables)",
-    description:
-      "Calcula tus días de vacaciones (naturales o laborables) según tu convenio y antigüedad. Conoce la parte proporcional y el valor económico.",
+    title: "Calculadora de Vacaciones 2025 - Días Naturales y Laborables",
+    description: "Calcula tus días de vacaciones según convenio y antigüedad. Proporcionales y valor económico.",
     images: ["/og-vacaciones-laborales.jpg"],
     creator: "@calculord",
   },

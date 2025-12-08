@@ -3,9 +3,9 @@ import CalculadoraHipoteca from "./CalculadoraHipoteca"
 import { Breadcrumbs } from "../components/Breadcrumbs"
 
 export const metadata: Metadata = {
-  title: "🔥 Calculadora Hipoteca 2025 | Cuota Mensual + Tabla Amortización | Calculord",
+  title: "Calculadora de Hipoteca 2025 - Cuota y Amortización",
   description:
-    "✅ Calcula tu CUOTA mensual hipoteca, intereses totales y tabla amortización completa 2025. 📊 Sistema francés actualizado. 💰 Simulador hipotecario preciso. 🆓 Herramienta gratuita bancos España.",
+    "Calcula tu cuota hipotecaria mensual al instante. Tabla de amortización completa, TAE, gastos de notaría y registro. Actualizada 2025.",
   keywords: [
     "calculadora hipoteca 2025",
     "cuota mensual hipoteca",
@@ -43,9 +43,9 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "🔥 Calculadora Hipoteca 2025 | Cuota Mensual + Tabla Amortización | Calculord",
+    title: "Calculadora de Hipoteca 2025 - Cuota y Amortización | Calculord",
     description:
-      "✅ Calcula cuota mensual hipoteca, intereses totales y tabla amortización. 📊 Sistema francés actualizado 2025. 🆓",
+      "Calcula tu cuota hipotecaria con tabla de amortización completa, TAE y todos los gastos. Herramienta actualizada 2025.",
     url: "https://calculord.com/calculadora-hipoteca",
     siteName: "Calculord",
     locale: "es_ES",
@@ -61,8 +61,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "🔥 Calculadora Hipoteca 2025 | Cuota Mensual + Amortización",
-    description: "✅ Calcula cuota mensual hipoteca, intereses totales y tabla amortización. Sistema francés 2025. 🆓",
+    title: "Calculadora de Hipoteca 2025 - Cuota y Amortización",
+    description: "Calcula tu cuota hipotecaria con tabla de amortización, TAE y gastos incluidos. Gratis 2025.",
     images: ["/og-calculadora-hipoteca.jpg"],
     creator: "@calculord",
   },

@@ -9,9 +9,9 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 
 export const metadata: Metadata = {
-  title: "Calculadora de Nómina 2025: Calcula tu Salario Neto al Detalle",
+  title: "Calculadora de Nómina 2025 - Calcula tu Salario Neto",
   description:
-    "Calcula tu nómina y salario neto mensual para 2025. Nuestra herramienta y guía completa desglosa todas las cotizaciones a la Seguridad Social y la retención de IRPF. De bruto a neto con precisión.",
+    "Calcula tu salario neto en segundos. Desglose completo de cotizaciones, IRPF y conceptos de nómina. Actualizada 2025. Gratis y sin registro.",
   keywords: [
     "calculadora nomina 2025",
     "calcular nomina",
@@ -29,18 +29,18 @@ export const metadata: Metadata = {
     "retribucion flexible",
   ],
   openGraph: {
-    title: "Calculadora de Nómina 2025: Calcula tu Salario Neto al Detalle | Calculord",
+    title: "Calculadora de Nómina 2025 - Calcula tu Salario Neto | Calculord",
     description:
-      "La calculadora de nómina más completa y la guía definitiva para entenderla. Introduce tu salario bruto y obtén un desglose detallado de tu salario neto, cotizaciones y retenciones de IRPF para 2025.",
+      "Calcula tu salario neto en segundos con desglose completo de cotizaciones e IRPF. Herramienta actualizada 2025. Gratis.",
     type: "website",
     locale: "es_ES",
     url: "https://calculord.com/calculadora-nomina",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Calculadora de Nómina 2025 | Calculord",
+    title: "Calculadora de Nómina 2025 - Calcula tu Salario Neto",
     description:
-      "¿Quieres saber cuánto cobrarás a fin de mes? Calcula tu nómina y salario neto con nuestra herramienta actualizada para 2025 y aprende a interpretar cada concepto.",
+      "Descubre cuánto cobras realmente. Calcula tu nómina con desglose completo de cotizaciones e IRPF 2025.",
   },
   alternates: {
     canonical: "https://calculord.com/calculadora-nomina",

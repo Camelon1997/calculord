@@ -17,9 +17,9 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 
 export const metadata: Metadata = {
-  title: "Conversor Salario Bruto a Neto 2025 (y viceversa) | Calculadora Online",
+  title: "Conversor Salario Bruto a Neto 2025 - Bidireccional",
   description:
-    "Convierte tu salario de bruto a neto (y de neto a bruto) con nuestra calculadora online. Actualizada con las retenciones de IRPF y cotizaciones de 2025. Ideal para negociar tu sueldo y entender tu nómina.",
+    "Convierte salario bruto a neto y viceversa al instante. Perfecto para negociar ofertas de trabajo. IRPF y cotizaciones 2025 actualizadas. Gratis.",
   keywords: [
     "conversor bruto neto 2025",
     "calculadora bruto neto",
@@ -35,9 +35,9 @@ export const metadata: Metadata = {
     "cuanto cobra un trabajador",
   ],
   openGraph: {
-    title: "Conversor Salario Bruto a Neto 2025 (y viceversa) | Calculord",
+    title: "Conversor Salario Bruto a Neto 2025 - Bidireccional | Calculord",
     description:
-      "La herramienta más rápida para convertir salario bruto a neto y neto a bruto. Imprescindible para entrevistas de trabajo y revisiones salariales. Actualizada para 2025.",
+      "Convierte salario bruto a neto y viceversa al instante. Ideal para negociaciones salariales. Actualizado 2025.",
     type: "website",
     locale: "es_ES",
     url: "https://calculord.com/conversor-salario-bruto-neto",

@@ -3,9 +3,9 @@ import CalculadoraParo from "./CalculadoraParo"
 import { Breadcrumbs } from "../components/Breadcrumbs"
 
 export const metadata: Metadata = {
-  title: "🔥 Calculadora Paro 2025 | Prestación Desempleo SEPE + Subsidio | Calculord",
+  title: "Calculadora de Paro 2025 - Prestación SEPE y Subsidio",
   description:
-    "✅ Calcula tu PRESTACIÓN por desempleo y subsidio SEPE 2025. 📊 Base reguladora, duración exacta, topes máximos/mínimos. 💰 Requisitos acceso y cuantías actualizadas. 🆓 Herramienta gratuita oficial.",
+    "Calcula tu prestación por desempleo SEPE en segundos. Base reguladora, duración exacta y topes actualizados 2025. Gratis y fácil de usar.",
   keywords: [
     "calculadora paro 2025",
     "prestación por desempleo SEPE",
@@ -36,9 +36,9 @@ export const metadata: Metadata = {
     canonical: "https://calculord.com/calculadora-paro",
   },
   openGraph: {
-    title: "🔥 Calculadora Paro 2025 | Prestación Desempleo SEPE + Subsidio | Calculord",
+    title: "Calculadora de Paro 2025 - Prestación SEPE y Subsidio | Calculord",
     description:
-      "✅ Calcula prestación desempleo y subsidio SEPE. 📊 Base reguladora, duración, topes 2025. 💰 Requisitos actualizados. 🆓",
+      "Calcula tu prestación por desempleo SEPE con base reguladora, duración y topes actualizados 2025. Herramienta gratuita.",
     url: "https://calculord.com/calculadora-paro",
     siteName: "Calculord",
     images: [
@@ -54,8 +54,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "🔥 Calculadora Paro 2025 | Prestación Desempleo SEPE",
-    description: "✅ Calcula prestación desempleo y subsidio. Base reguladora, duración, topes 2025. 🆓",
+    title: "Calculadora de Paro 2025 - Prestación SEPE y Subsidio",
+    description: "Calcula tu prestación por desempleo con base reguladora, duración y topes 2025. Gratis.",
     images: ["/og-paro.jpg"],
     creator: "@calculord",
   },

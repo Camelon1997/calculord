@@ -3,9 +3,9 @@ import CalculadoraIRPFAutonomos from "./CalculadoraIRPFAutonomos"
 import { Breadcrumbs } from "@/app/components/Breadcrumbs"
 
 export const metadata: Metadata = {
-  title: "Calculadora IRPF Autónomos 2025 | Calcula tu Impuesto Anual",
+  title: "Calculadora IRPF Autónomos 2025 - Impuesto Anual",
   description:
-    "Calcula tu IRPF como autónomo para 2025. Introduce tus ingresos, gastos deducibles y situación personal para obtener el resultado de tu declaración de la renta y tu tipo medio.",
+    "Calcula tu IRPF como autónomo con ingresos, gastos deducibles y situación personal. Declaración de la renta y tipo medio actualizados 2025. Gratis.",
   keywords: [
     "calculadora irpf autonomos",
     "irpf 2025",
@@ -14,6 +14,15 @@ export const metadata: Metadata = {
     "declaracion renta autonomos",
     "gastos deducibles",
   ],
+  alternates: {
+    canonical: "https://calculord.com/calculadora-irpf-autonomos",
+  },
+  openGraph: {
+    title: "Calculadora IRPF Autónomos 2025 - Impuesto Anual | Calculord",
+    description: "Calcula tu IRPF como autónomo con gastos deducibles y situación personal. Actualizado 2025.",
+    type: "website",
+    url: "https://calculord.com/calculadora-irpf-autonomos",
+  },
 }
 
 export default function CalculadoraIRPFAutonomosPage() {

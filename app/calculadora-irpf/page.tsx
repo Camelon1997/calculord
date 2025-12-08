@@ -8,9 +8,22 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 
 export const metadata: Metadata = {
-  title: "Calculadora IRPF 2025 | Calcula tu Sueldo y Retención",
+  title: "Calculadora IRPF 2025 - Todas las Comunidades Autónomas",
   description:
-    "Calcula tu Impuesto sobre la Renta con los tramos actualizados de 2025. Incluye todas las Comunidades Autónomas, deducciones personales y simulación completa.",
+    "Calcula tu IRPF 2025 con tramos actualizados por comunidad autónoma. Deducciones personales, simulación completa y resultado al instante. Gratis.",
+  keywords: [
+    "calculadora irpf 2025",
+    "tramos irpf 2025",
+    "impuesto sobre la renta",
+    "irpf por comunidades",
+    "deducciones irpf",
+    "calcular irpf",
+    "retención irpf",
+    "tipos irpf 2025",
+  ],
+  alternates: {
+    canonical: "https://calculord.com/calculadora-irpf",
+  },
 }
 
 const FeatureTag = ({ children }: { children: React.ReactNode }) => (
