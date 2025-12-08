@@ -175,4 +175,60 @@
   body {
     @apply text-black bg-white;
   }
+
+  /* Estilos optimizados para impresión de facturas */
+  #factura-preview {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 20mm;
+    box-shadow: none !important;
+    border: none !important;
+  }
+
+  /* Ocultar elementos que no deben imprimirse */
+  header,
+  nav,
+  .no-print,
+  button,
+  .breadcrumbs,
+  .sidebar,
+  footer {
+    display: none !important;
+  }
+
+  /* Mostrar solo el preview de la factura */
+  body * {
+    visibility: hidden;
+  }
+
+  #factura-preview,
+  #factura-preview * {
+    visibility: visible;
+  }
+
+  #factura-preview {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  /* Asegurar que los colores se impriman */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+
+  /* Tamaño A4 */
+  @page {
+    size: A4;
+    margin: 15mm;
+  }
+
+  /* Evitar saltos de página dentro de elementos */
+  table,
+  .factura-section {
+    page-break-inside: avoid;
+  }
 }

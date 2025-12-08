@@ -50,7 +50,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // Calculadoras Financieras
     "/calculadora-ahorro",
     "/calculadora-hipoteca",
-    "/calculadora-roi", // Añadida calculadora ROI
+    "/calculadora-roi",
 
     // Calculadoras de Servicios
     "/calculadora-honorarios-abogado",
@@ -61,6 +61,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/calculadora-calendario-fiscal-autonomos",
     "/calculadora-cuota-autonomos",
     "/calculadora-gastos-deducibles-autonomos",
+    "/calculadora-iva-repercutido-soportado",
+    "/calculadora-igic-repercutido-soportado",
+    "/generador-facturas", // Añadido generador de facturas para autónomos
 
     // Calculadoras de Jubilación
     "/calculadora-jubilacion",

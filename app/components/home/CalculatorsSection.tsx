@@ -914,6 +914,91 @@ export default function CalculatorsSection() {
               </Link>
             </div>
 
+            {/* Generador de Facturas */}
+            <div className="bg-white p-6 rounded-xl shadow-sm border hover:shadow-md transition-shadow flex flex-col h-full calculator-card">
+              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                <FileText className="h-6 w-6 text-blue-600" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Generador de Facturas</h3>
+              <p className="text-gray-600 mb-4 flex-grow">
+                Crea facturas profesionales con cálculo automático de IVA/IGIC/IRPF y exporta en PDF con diseño moderno.
+              </p>
+              <div className="space-y-2 mb-6">
+                <div className="flex items-center text-sm text-gray-600">
+                  <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                  Cálculo automático de impuestos
+                </div>
+                <div className="flex items-center text-sm text-gray-600">
+                  <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                  Plantillas profesionales
+                </div>
+                <div className="flex items-center text-sm text-gray-600">
+                  <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                  Exportar PDF gratis
+                </div>
+              </div>
+              <Link href="/generador-facturas" className="mt-auto">
+                <Button className="w-full bg-blue-600 hover:bg-blue-700">Crear Factura</Button>
+              </Link>
+            </div>
+
+            {/* IVA Repercutido y Soportado */}
+            <div className="bg-white p-6 rounded-xl shadow-sm border hover:shadow-md transition-shadow flex flex-col h-full calculator-card">
+              <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
+                <Calculator className="h-6 w-6 text-purple-600" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">IVA Repercutido y Soportado</h3>
+              <p className="text-gray-600 mb-4 flex-grow">
+                Calcula el IVA trimestral: diferencia entre IVA repercutido y soportado para saber si pagas o te
+                devuelven.
+              </p>
+              <div className="space-y-2 mb-6">
+                <div className="flex items-center text-sm text-gray-600">
+                  <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                  IVA repercutido (ventas)
+                </div>
+                <div className="flex items-center text-sm text-gray-600">
+                  <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                  IVA soportado (compras)
+                </div>
+                <div className="flex items-center text-sm text-gray-600">
+                  <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                  Resultado a pagar o devolver
+                </div>
+              </div>
+              <Link href="/calculadora-iva-repercutido-soportado" className="mt-auto">
+                <Button className="w-full bg-purple-600 hover:bg-purple-700">Calcular IVA</Button>
+              </Link>
+            </div>
+
+            {/* IGIC Repercutido y Soportado */}
+            <div className="bg-white p-6 rounded-xl shadow-sm border hover:shadow-md transition-shadow flex flex-col h-full calculator-card">
+              <div className="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center mb-4">
+                <Calculator className="h-6 w-6 text-indigo-600" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">IGIC Repercutido y Soportado</h3>
+              <p className="text-gray-600 mb-4 flex-grow">
+                Para autónomos de Canarias: calcula el IGIC trimestral y la diferencia a pagar o devolver.
+              </p>
+              <div className="space-y-2 mb-6">
+                <div className="flex items-center text-sm text-gray-600">
+                  <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                  IGIC repercutido (ventas)
+                </div>
+                <div className="flex items-center text-sm text-gray-600">
+                  <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                  IGIC soportado (compras)
+                </div>
+                <div className="flex items-center text-sm text-gray-600">
+                  <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                  Resultado específico Canarias
+                </div>
+              </div>
+              <Link href="/calculadora-igic-repercutido-soportado" className="mt-auto">
+                <Button className="w-full bg-indigo-600 hover:bg-indigo-700">Calcular IGIC</Button>
+              </Link>
+            </div>
+
             {/* Próximamente - Más calculadoras autónomos */}
             <div className="bg-gray-50 p-6 rounded-xl border-2 border-dashed border-gray-200 flex flex-col h-full calculator-card">
               <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mb-4">

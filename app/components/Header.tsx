@@ -183,6 +183,24 @@ const menuCategories = {
         description: "Calcula tus pagos trimestrales y la renta anual.",
       },
       {
+        name: "Generador de Facturas",
+        href: "/generador-facturas",
+        icon: <Receipt className="w-4 h-4" />,
+        description: "Crea facturas profesionales y exporta en PDF.",
+      },
+      {
+        name: "IVA Repercutido y Soportado",
+        href: "/calculadora-iva-repercutido-soportado",
+        icon: <Calculator className="w-4 h-4" />,
+        description: "Calcula el IVA a pagar o devolver trimestralmente.",
+      },
+      {
+        name: "IGIC Repercutido y Soportado",
+        href: "/calculadora-igic-repercutido-soportado",
+        icon: <Calculator className="w-4 h-4" />,
+        description: "Calcula el IGIC a pagar o devolver en Canarias.",
+      },
+      {
         name: "Calendario Fiscal",
         href: "/calculadora-calendario-fiscal-autonomos",
         icon: <Calendar className="w-4 h-4" />,
