@@ -79,7 +79,7 @@ export default function CalculatorsSection() {
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Cotizaciones Seguridad Social</h3>
               <p className="text-gray-600 mb-4 flex-grow">
-                Calcula las cotizaciones exactas de trabajadores y empresas según el régimen general 2025.
+                Calcula las cotizaciones exactas de trabajadores y empresas según el régimen general 2026.
               </p>
               <div className="space-y-2 mb-6">
                 <div className="flex items-center text-sm text-gray-600">
@@ -88,7 +88,7 @@ export default function CalculatorsSection() {
                 </div>
                 <div className="flex items-center text-sm text-gray-600">
                   <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                  Bases y tipos actualizados 2025
+                  Bases y tipos actualizados 2026
                 </div>
                 <div className="flex items-center text-sm text-gray-600">
                   <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
@@ -116,7 +116,7 @@ export default function CalculatorsSection() {
                 </div>
                 <div className="flex items-center text-sm text-gray-600">
                   <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                  Cotizaciones empresariales 2025
+                  Cotizaciones empresariales 2026
                 </div>
                 <div className="flex items-center text-sm text-gray-600">
                   <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
@@ -135,7 +135,7 @@ export default function CalculatorsSection() {
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Conversor Bruto a Neto</h3>
               <p className="text-gray-600 mb-4 flex-grow">
-                Convierte tu salario bruto a neto y viceversa con IRPF 2025 y deducciones actualizadas.
+                Convierte tu salario bruto a neto y viceversa con IRPF 2026 y deducciones actualizadas.
               </p>
               <div className="space-y-2 mb-6">
                 <div className="flex items-center text-sm text-gray-600">
@@ -144,7 +144,7 @@ export default function CalculatorsSection() {
                 </div>
                 <div className="flex items-center text-sm text-gray-600">
                   <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                  IRPF 2025 actualizado
+                  IRPF 2026 actualizado
                 </div>
                 <div className="flex items-center text-sm text-gray-600">
                   <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
@@ -170,12 +170,12 @@ export default function CalculatorsSection() {
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Salario por Horas</h3>
               <p className="text-gray-600 mb-4 flex-grow">
-                Calcula tu salario basado en horas trabajadas, incluyendo horas extra y SMI 2025.
+                Calcula tu salario basado en horas trabajadas, incluyendo horas extra y SMI 2026.
               </p>
               <div className="space-y-2 mb-6">
                 <div className="flex items-center text-sm text-gray-600">
                   <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                  SMI 2025: 1.134€/mes
+                  SMI 2026: 1.134€/mes
                 </div>
                 <div className="flex items-center text-sm text-gray-600">
                   <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
@@ -268,12 +268,12 @@ export default function CalculatorsSection() {
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Calculadora de Nómina</h3>
               <p className="text-gray-600 mb-4 flex-grow">
-                Calcula tu salario neto completo con IRPF, cotizaciones y todas las deducciones 2025.
+                Calcula tu salario neto completo con IRPF, cotizaciones y todas las deducciones 2026.
               </p>
               <div className="space-y-2 mb-6">
                 <div className="flex items-center text-sm text-gray-600">
                   <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                  IRPF por tramos 2025
+                  IRPF por tramos 2026
                 </div>
                 <div className="flex items-center text-sm text-gray-600">
                   <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
@@ -394,7 +394,7 @@ export default function CalculatorsSection() {
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Calculadora de Bajas</h3>
               <p className="text-gray-600 mb-4 flex-grow">
-                Calcula tu prestación por incapacidad temporal según contingencias comunes o profesionales 2025.
+                Calcula tu prestación por incapacidad temporal según contingencias comunes o profesionales 2026.
               </p>
               <div className="space-y-2 mb-6">
                 <div className="flex items-center text-sm text-gray-600">
@@ -430,7 +430,7 @@ export default function CalculatorsSection() {
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Calculadora de Horas Extra</h3>
               <p className="text-gray-600 mb-4 flex-grow">
                 Calcula el valor de tus horas extra diferenciando entre ordinarias, festivos, nocturnas y estructurales
-                2025.
+                2026.
               </p>
               <div className="space-y-2 mb-6">
                 <div className="flex items-center text-sm text-gray-600">
@@ -465,7 +465,7 @@ export default function CalculatorsSection() {
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Maternidad y Paternidad</h3>
               <p className="text-gray-600 mb-4 flex-grow">
-                Calcula tu prestación por nacimiento, adopción o acogida con duración según tipo de parto 2025.
+                Calcula tu prestación por nacimiento, adopción o acogida con duración según tipo de parto 2026.
               </p>
               <div className="space-y-2 mb-6">
                 <div className="flex items-center text-sm text-gray-600">
@@ -529,7 +529,7 @@ export default function CalculatorsSection() {
               <div className="space-y-2 mb-6">
                 <div className="flex items-center text-sm text-gray-600">
                   <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                  Baremos oficiales 2025
+                  Baremos oficiales 2026
                 </div>
                 <div className="flex items-center text-sm text-gray-600">
                   <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
@@ -564,7 +564,7 @@ export default function CalculatorsSection() {
               <div className="space-y-2 mb-6">
                 <div className="flex items-center text-sm text-gray-600">
                   <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                  Cálculo según PEM 2025
+                  Cálculo según PEM 2026
                 </div>
                 <div className="flex items-center text-sm text-gray-600">
                   <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
@@ -743,12 +743,12 @@ export default function CalculatorsSection() {
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Calculadora de Jubilación</h3>
               <p className="text-gray-600 mb-4 flex-grow">
-                Calcula tu pensión de jubilación estimada según años cotizados y base reguladora 2025.
+                Calcula tu pensión de jubilación estimada según años cotizados y base reguladora 2026.
               </p>
               <div className="space-y-2 mb-6">
                 <div className="flex items-center text-sm text-gray-600">
                   <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                  Base reguladora 2025
+                  Base reguladora 2026
                 </div>
                 <div className="flex items-center text-sm text-gray-600">
                   <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
@@ -810,7 +810,7 @@ export default function CalculatorsSection() {
                 </div>
                 <div className="flex items-center text-sm text-gray-600">
                   <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                  Declaración anual 2025
+                  Declaración anual 2026
                 </div>
                 <div className="flex items-center text-sm text-gray-600">
                   <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
@@ -830,7 +830,7 @@ export default function CalculatorsSection() {
               <h3 className="text-xl font-semibold text-gray-900 mb-2">IRPF para Autónomos</h3>
               <p className="text-gray-600 mb-4 flex-grow">
                 Calcula tu IRPF como autónomo con todas las deducciones fiscales, retenciones y optimización fiscal
-                2025.
+                2026.
               </p>
               <div className="space-y-2 mb-6">
                 <div className="flex items-center text-sm text-gray-600">
@@ -865,13 +865,13 @@ export default function CalculatorsSection() {
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Cuota de Autónomos</h3>
               <p className="text-gray-600 mb-4 flex-grow">
-                Calcula tu cuota mensual según los 15 tramos de ingresos reales (RETA 2025). Desde 200€ hasta 590€ al
+                Calcula tu cuota mensual según los 15 tramos de ingresos reales (RETA 2026). Desde 200€ hasta 590€ al
                 mes.
               </p>
               <div className="space-y-2 mb-6">
                 <div className="flex items-center text-sm text-gray-600">
                   <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                  15 tramos de cotización 2025
+                  15 tramos de cotización 2026
                 </div>
                 <div className="flex items-center text-sm text-gray-600">
                   <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
@@ -1013,7 +1013,7 @@ export default function CalculatorsSection() {
               <div className="space-y-2 mb-6">
                 <div className="flex items-center text-sm text-gray-600">
                   <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                  Tablas oficiales 2025
+                  Tablas oficiales 2026
                 </div>
                 <div className="flex items-center text-sm text-gray-600">
                   <CheckCircle className="h-4 w-4 text-green-500 mr-2" />

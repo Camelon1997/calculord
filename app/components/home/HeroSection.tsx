@@ -10,11 +10,11 @@ export default function HeroSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
           Calculadoras Profesionales
-          <span className="block text-blue-600 mt-2">Completas 2025</span>
+          <span className="block text-blue-600 mt-2">Completas 2026</span>
         </h1>
         <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-6 sm:mb-8 max-w-3xl mx-auto px-2 leading-relaxed">
           Herramientas precisas para calcular salarios, cotizaciones, despidos, prestaciones, hipotecas, honorarios
-          profesionales y más. Actualizadas con la normativa 2025 y diseñadas para profesionales.
+          profesionales y más. Actualizadas con la normativa 2026 y diseñadas para profesionales.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-8 sm:mb-12 px-4">
@@ -53,7 +53,7 @@ export default function HeroSection() {
           </div>
 
           <div className="text-center">
-            <div className="text-3xl sm:text-4xl font-bold text-purple-600 mb-1">2025</div>
+            <div className="text-3xl sm:text-4xl font-bold text-purple-600 mb-1">2026</div>
             <div className="text-xs sm:text-sm text-gray-600">Actualizado</div>
           </div>
         </div>

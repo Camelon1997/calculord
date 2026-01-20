@@ -21,7 +21,7 @@ export default function FeaturesSection() {
               <CardTitle>Precisión Garantizada</CardTitle>
             </CardHeader>
             <CardContent>
-              <CardDescription>Algoritmos actualizados con la normativa laboral más reciente de 2025</CardDescription>
+              <CardDescription>Algoritmos actualizados con la normativa laboral más reciente de 2026</CardDescription>
             </CardContent>
           </Card>
 

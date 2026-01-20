@@ -15,7 +15,7 @@ export default function Footer() {
               <span className="text-xl sm:text-2xl font-bold text-white">Calculord</span>
             </Link>
             <p className="text-sm leading-relaxed">
-              Herramientas laborales y financieras gratuitas, actualizadas a la normativa 2025 para profesionales y
+              Herramientas laborales y financieras gratuitas, actualizadas a la normativa 2026 para profesionales y
               particulares en España.
             </p>
           </div>
